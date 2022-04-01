@@ -1,0 +1,541 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://msmanaged-na.azure-apim.net/apim/xinet-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Xinet" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Xinet"></doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/xinet-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ID_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_PARENT_FILE_ID_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_NAME_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_NAME_DECOMPOSED_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_PATH_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_PATH_UTF8MAC_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_COMMENT_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_TYPE_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_CREATOR_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_LENGTH_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ISADIR_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_DIRITEMS_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_FILEITEMS_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ITEMS_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_INBASKET_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_CDATE_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_MDATE_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ADATE_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ISIMAGE_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ONLINE_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_FINDERFLAGS_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ASSETTIMER_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_CHILDASSETTIMER_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_FOLDERASSETTIMER_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_FILE_ISVENTURE_def" />
+      <integer name="Browse_responses_default_def_FILES_INFO_def_items_def_VOLUME_ID_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_VOLUME_NAME_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_VOLUME_PATH_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_KEYWORD_ID_LIST_def_items_def" />
+      <array type="string" name="Browse_responses_default_def_FILES_INFO_def_items_def_KEYWORD_ID_LIST_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_USER_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_BASKET_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ARCHIVES_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ICONVIEW_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHORTVIEW_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_LONGVIEW_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWFPOINFO_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWDATES_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWCOMMENTS_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_DOWNLOADHIGHRES_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_DOWNLOADFPO_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_UPLOAD_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_IMGORDER_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_FILEADM_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ALLOWNONIMAGES_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ALLOWLOWVIDEO_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_CHANGECOMMENT_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_CHANGEKEYWORDS_def" />
+      <boolean name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWANNOTATIONS_def" />
+      <string name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_DEFAULTVIEW_def" />
+      <object name="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def">
+        <property name="USER" type="string" />
+        <property name="BASKET" type="boolean" />
+        <property name="ARCHIVES" type="boolean" />
+        <property name="ICONVIEW" type="boolean" />
+        <property name="SHORTVIEW" type="boolean" />
+        <property name="LONGVIEW" type="boolean" />
+        <property name="SHOWFPOINFO" type="boolean" />
+        <property name="SHOWDATES" type="boolean" />
+        <property name="SHOWCOMMENTS" type="boolean" />
+        <property name="DOWNLOADHIGHRES" type="boolean" />
+        <property name="DOWNLOADFPO" type="boolean" />
+        <property name="UPLOAD" type="boolean" />
+        <property name="IMGORDER" type="boolean" />
+        <property name="FILEADM" type="boolean" />
+        <property name="ALLOWNONIMAGES" type="boolean" />
+        <property name="ALLOWLOWVIDEO" type="boolean" />
+        <property name="CHANGECOMMENT" type="boolean" />
+        <property name="CHANGEKEYWORDS" type="boolean" />
+        <property name="SHOWANNOTATIONS" type="boolean" />
+        <property name="DEFAULTVIEW" type="string" />
+      </object>
+      <object name="Browse_responses_default_def_FILES_INFO_def_items_def">
+        <property name="FILE_ID" type="integer" />
+        <property name="PARENT_FILE_ID" type="integer" />
+        <property name="FILE_NAME" type="string" />
+        <property name="FILE_NAME_DECOMPOSED" type="string" />
+        <property name="FILE_PATH" type="string" />
+        <property name="FILE_PATH_UTF8MAC" type="string" />
+        <property name="FILE_COMMENT" type="string" />
+        <property name="FILE_TYPE" type="string" />
+        <property name="FILE_CREATOR" type="string" />
+        <property name="FILE_LENGTH" type="integer" />
+        <property name="FILE_ISADIR" type="boolean" />
+        <property name="FILE_DIRITEMS" type="integer" />
+        <property name="FILE_FILEITEMS" type="integer" />
+        <property name="FILE_ITEMS" type="integer" />
+        <property name="FILE_INBASKET" type="boolean" />
+        <property name="FILE_CDATE" type="integer" />
+        <property name="FILE_MDATE" type="integer" />
+        <property name="FILE_ADATE" type="integer" />
+        <property name="FILE_ISIMAGE" type="boolean" />
+        <property name="FILE_ONLINE" type="boolean" />
+        <property name="FILE_FINDERFLAGS" type="integer" />
+        <property name="FILE_ASSETTIMER" type="boolean" />
+        <property name="FILE_CHILDASSETTIMER" type="boolean" />
+        <property name="FILE_FOLDERASSETTIMER" type="boolean" />
+        <property name="FILE_ISVENTURE" type="boolean" />
+        <property name="VOLUME_ID" type="integer" />
+        <property name="VOLUME_NAME" type="string" />
+        <property name="VOLUME_PATH" type="string" />
+        <property name="KEYWORD_ID_LIST" typeRef="Browse_responses_default_def_FILES_INFO_def_items_def_KEYWORD_ID_LIST_def" />
+        <property name="USERINFO" typeRef="Browse_responses_default_def_FILES_INFO_def_items_def_USERINFO_def" />
+      </object>
+      <array typeRef="Browse_responses_default_def_FILES_INFO_def_items_def" name="Browse_responses_default_def_FILES_INFO_def" />
+      <object name="Browse_responses_default_def">
+        <property name="FILES_INFO" typeRef="Browse_responses_default_def_FILES_INFO_def" />
+      </object>
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_FILE_ID_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_FILE_NAME_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_FILE_PATH_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_FILE_PATH_UTF8MAC_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_ISVENTUREVOL_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_ISGLOBALVOL_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_PATHEXISTS_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_USER_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_BASKET_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_ARCHIVES_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_ICONVIEW_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_SHORTVIEW_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_LONGVIEW_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_GALLERYVIEW_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_SHOWSHARELINK_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_SHOWFPOINFO_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_SHOWDATES_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_CHANGECOMMENT_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_DOWNLOADHIGHRES_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_DOWNLOADFPO_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_UPLOAD_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_IMGORDER_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_FILEADM_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_DEFAULTVIEW_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_ALLOWNONIMAGES_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_CHANGEKEYWORDS_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_SHOWCOMMENTS_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_ALLOWLOWVIDEO_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def_SHOWANNOTATIONS_def" />
+      <object name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def">
+        <property name="USER" type="string" />
+        <property name="BASKET" type="string" />
+        <property name="ARCHIVES" type="string" />
+        <property name="ICONVIEW" type="string" />
+        <property name="SHORTVIEW" type="string" />
+        <property name="LONGVIEW" type="string" />
+        <property name="GALLERYVIEW" type="string" />
+        <property name="SHOWSHARELINK" type="string" />
+        <property name="SHOWFPOINFO" type="string" />
+        <property name="SHOWDATES" type="string" />
+        <property name="CHANGECOMMENT" type="string" />
+        <property name="DOWNLOADHIGHRES" type="string" />
+        <property name="DOWNLOADFPO" type="string" />
+        <property name="UPLOAD" type="string" />
+        <property name="IMGORDER" type="string" />
+        <property name="FILEADM" type="string" />
+        <property name="DEFAULTVIEW" type="string" />
+        <property name="ALLOWNONIMAGES" type="string" />
+        <property name="CHANGEKEYWORDS" type="string" />
+        <property name="SHOWCOMMENTS" type="string" />
+        <property name="ALLOWLOWVIDEO" type="string" />
+        <property name="SHOWANNOTATIONS" type="string" />
+      </object>
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_FP_VOLUME_NAME_def" />
+      <string name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_FP_VOLUME_PATH_def" />
+      <object name="ShowVols_responses_default_def_VOLUME_INFO_def_items_def">
+        <property name="FILE_ID" type="string" />
+        <property name="FILE_NAME" type="string" />
+        <property name="FILE_PATH" type="string" />
+        <property name="FILE_PATH_UTF8MAC" type="string" />
+        <property name="ISVENTUREVOL" type="string" />
+        <property name="ISGLOBALVOL" type="string" />
+        <property name="PATHEXISTS" type="string" />
+        <property name="USERINFO" typeRef="ShowVols_responses_default_def_VOLUME_INFO_def_items_def_USERINFO_def" />
+        <property name="FP_VOLUME_NAME" type="string" />
+        <property name="FP_VOLUME_PATH" type="string" />
+      </object>
+      <array typeRef="ShowVols_responses_default_def_VOLUME_INFO_def_items_def" name="ShowVols_responses_default_def_VOLUME_INFO_def" />
+      <object name="ShowVols_responses_default_def">
+        <property name="VOLUME_INFO" typeRef="ShowVols_responses_default_def_VOLUME_INFO_def" />
+      </object>
+      <string name="GetImageByPath_responses_default_def" />
+      <string name="StreamFile_responses_default_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ID_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_PARENT_FILE_ID_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_NAME_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_NAME_DECOMPOSED_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_PATH_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_PATH_UTF8MAC_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_COMMENT_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_TYPE_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_CREATOR_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_LENGTH_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISADIR_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_DIRITEMS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_FILEITEMS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ITEMS_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_INBASKET_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_CDATE_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_MDATE_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ADATE_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISIMAGE_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ONLINE_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_FINDERFLAGS_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ASSETTIMER_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_CHILDASSETTIMER_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_FOLDERASSETTIMER_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISVENTURE_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISCAD_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISMOVIE_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISHTML_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISOFFICE_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_ISVERSION_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_HASANNOTATIONS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_ANNOT_TOTAL_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_HASVERSIONS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_VERSIONS_TOTAL_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_HASVERSIONPERM_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_WIDTH_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_HEIGHT_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_RESOLUTION_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_LENGTH_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_COLORSPACE_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_IMAGETYPE_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def_PAGECOUNT_def" />
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def">
+        <property name="WIDTH" type="integer" />
+        <property name="HEIGHT" type="integer" />
+        <property name="RESOLUTION" type="integer" />
+        <property name="LENGTH" type="integer" />
+        <property name="COLORSPACE" type="string" />
+        <property name="IMAGETYPE" type="string" />
+        <property name="PAGECOUNT" type="integer" />
+      </object>
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def_WIDTH_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def_HEIGHT_def" />
+      <number name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def_RESOLUTION_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def_LENGTH_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def_COLORSPACE_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def_IMAGETYPE_def" />
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def">
+        <property name="WIDTH" type="integer" />
+        <property name="HEIGHT" type="integer" />
+        <property name="RESOLUTION" type="number" />
+        <property name="LENGTH" type="integer" />
+        <property name="COLORSPACE" type="string" />
+        <property name="IMAGETYPE" type="string" />
+      </object>
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_SPREADNUM_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_TOP_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_BOTTOM_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_LEFT_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_RIGHT_def" />
+      <number name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_RESOLUTION_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_PREFERRED_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_FRAMEOFFSET_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def_HASANNOTATIONS_def" />
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def">
+        <property name="SPREADNUM" type="integer" />
+        <property name="TOP" type="integer" />
+        <property name="BOTTOM" type="integer" />
+        <property name="LEFT" type="integer" />
+        <property name="RIGHT" type="integer" />
+        <property name="RESOLUTION" type="number" />
+        <property name="PREFERRED" type="boolean" />
+        <property name="FRAMEOFFSET" type="integer" />
+        <property name="HASANNOTATIONS" type="integer" />
+      </object>
+      <array typeRef="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def_items_def" name="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def_WIDTH_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def_HEIGHT_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def_RESOLUTION_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def_LENGTH_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def_COLORSPACE_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def_IMAGETYPE_def" />
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def">
+        <property name="WIDTH" type="integer" />
+        <property name="HEIGHT" type="integer" />
+        <property name="RESOLUTION" type="integer" />
+        <property name="LENGTH" type="integer" />
+        <property name="COLORSPACE" type="string" />
+        <property name="IMAGETYPE" type="string" />
+      </object>
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_SPREADNUM_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_TOP_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_BOTTOM_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_LEFT_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_RIGHT_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_RESOLUTION_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_PREFERRED_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_FRAMEOFFSET_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def_HASANNOTATIONS_def" />
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def">
+        <property name="SPREADNUM" type="integer" />
+        <property name="TOP" type="integer" />
+        <property name="BOTTOM" type="integer" />
+        <property name="LEFT" type="integer" />
+        <property name="RIGHT" type="integer" />
+        <property name="RESOLUTION" type="integer" />
+        <property name="PREFERRED" type="boolean" />
+        <property name="FRAMEOFFSET" type="integer" />
+        <property name="HASANNOTATIONS" type="integer" />
+      </object>
+      <array typeRef="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def_items_def" name="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_LARGEPREVIEWS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_SMALLPREVIEWS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_FILE_NUMPREVIEWS_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_VOLUME_ID_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_VOLUME_NAME_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_VOLUME_PATH_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_KEYWORD_ID_LIST_def_items_def" />
+      <array type="string" name="Search_responses_default_def_FILES_INFO_def_items_def_KEYWORD_ID_LIST_def" />
+      <integer name="Search_responses_default_def_FILES_INFO_def_items_def_KEYWORD_USAGE_LOCKED_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_USER_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_BASKET_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ARCHIVES_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ICONVIEW_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHORTVIEW_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_LONGVIEW_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWFPOINFO_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWDATES_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWCOMMENTS_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_DOWNLOADHIGHRES_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_DOWNLOADFPO_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_UPLOAD_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_IMGORDER_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_FILEADM_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ALLOWNONIMAGES_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_ALLOWLOWVIDEO_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_CHANGECOMMENT_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_CHANGEKEYWORDS_def" />
+      <boolean name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_SHOWANNOTATIONS_def" />
+      <string name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def_DEFAULTVIEW_def" />
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def">
+        <property name="USER" type="string" />
+        <property name="BASKET" type="boolean" />
+        <property name="ARCHIVES" type="boolean" />
+        <property name="ICONVIEW" type="boolean" />
+        <property name="SHORTVIEW" type="boolean" />
+        <property name="LONGVIEW" type="boolean" />
+        <property name="SHOWFPOINFO" type="boolean" />
+        <property name="SHOWDATES" type="boolean" />
+        <property name="SHOWCOMMENTS" type="boolean" />
+        <property name="DOWNLOADHIGHRES" type="boolean" />
+        <property name="DOWNLOADFPO" type="boolean" />
+        <property name="UPLOAD" type="boolean" />
+        <property name="IMGORDER" type="boolean" />
+        <property name="FILEADM" type="boolean" />
+        <property name="ALLOWNONIMAGES" type="boolean" />
+        <property name="ALLOWLOWVIDEO" type="boolean" />
+        <property name="CHANGECOMMENT" type="boolean" />
+        <property name="CHANGEKEYWORDS" type="boolean" />
+        <property name="SHOWANNOTATIONS" type="boolean" />
+        <property name="DEFAULTVIEW" type="string" />
+      </object>
+      <object name="Search_responses_default_def_FILES_INFO_def_items_def">
+        <property name="FILE_ID" type="integer" />
+        <property name="PARENT_FILE_ID" type="integer" />
+        <property name="FILE_NAME" type="string" />
+        <property name="FILE_NAME_DECOMPOSED" type="string" />
+        <property name="FILE_PATH" type="string" />
+        <property name="FILE_PATH_UTF8MAC" type="string" />
+        <property name="FILE_COMMENT" type="string" />
+        <property name="FILE_TYPE" type="string" />
+        <property name="FILE_CREATOR" type="string" />
+        <property name="FILE_LENGTH" type="integer" />
+        <property name="FILE_ISADIR" type="boolean" />
+        <property name="FILE_DIRITEMS" type="integer" />
+        <property name="FILE_FILEITEMS" type="integer" />
+        <property name="FILE_ITEMS" type="integer" />
+        <property name="FILE_INBASKET" type="boolean" />
+        <property name="FILE_CDATE" type="integer" />
+        <property name="FILE_MDATE" type="integer" />
+        <property name="FILE_ADATE" type="integer" />
+        <property name="FILE_ISIMAGE" type="boolean" />
+        <property name="FILE_ONLINE" type="boolean" />
+        <property name="FILE_FINDERFLAGS" type="integer" />
+        <property name="FILE_ASSETTIMER" type="boolean" />
+        <property name="FILE_CHILDASSETTIMER" type="boolean" />
+        <property name="FILE_FOLDERASSETTIMER" type="boolean" />
+        <property name="FILE_ISVENTURE" type="boolean" />
+        <property name="FILE_ISCAD" type="boolean" />
+        <property name="FILE_ISMOVIE" type="boolean" />
+        <property name="FILE_ISHTML" type="boolean" />
+        <property name="FILE_ISOFFICE" type="boolean" />
+        <property name="FILE_ISVERSION" type="boolean" />
+        <property name="FILE_HASANNOTATIONS" type="boolean" />
+        <property name="ANNOT_TOTAL" type="integer" />
+        <property name="FILE_HASVERSIONS" type="boolean" />
+        <property name="VERSIONS_TOTAL" type="integer" />
+        <property name="FILE_HASVERSIONPERM" type="boolean" />
+        <property name="HIGHRES" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_HIGHRES_def" />
+        <property name="LARGEWEB" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_LARGEWEB_def" />
+        <property name="LARGE_SPREADS" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_LARGE_SPREADS_def" />
+        <property name="SMALLWEB" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_SMALLWEB_def" />
+        <property name="SMALL_SPREADS" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_SMALL_SPREADS_def" />
+        <property name="FILE_LARGEPREVIEWS" type="integer" />
+        <property name="FILE_SMALLPREVIEWS" type="integer" />
+        <property name="FILE_NUMPREVIEWS" type="integer" />
+        <property name="VOLUME_ID" type="integer" />
+        <property name="VOLUME_NAME" type="string" />
+        <property name="VOLUME_PATH" type="string" />
+        <property name="KEYWORD_ID_LIST" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_KEYWORD_ID_LIST_def" />
+        <property name="KEYWORD_USAGE_LOCKED" type="integer" />
+        <property name="USERINFO" typeRef="Search_responses_default_def_FILES_INFO_def_items_def_USERINFO_def" />
+      </object>
+      <array typeRef="Search_responses_default_def_FILES_INFO_def_items_def" name="Search_responses_default_def_FILES_INFO_def" />
+      <object name="Search_responses_default_def">
+        <property name="FILES_INFO" typeRef="Search_responses_default_def_FILES_INFO_def" />
+      </object>
+      <string name="FileManager_responses_default_def_MSG_def" />
+      <string name="FileManager_responses_default_def_ERRCODE_def" />
+      <object name="FileManager_responses_default_def">
+        <property name="MSG" type="string" />
+        <property name="ERRCODE" type="string" />
+      </object>
+      <object name="UploadFile_param_body_def" />
+      <integer name="UploadFile_responses_default_def_COMPLETE_def" />
+      <integer name="UploadFile_responses_default_def_STATUS_def" />
+      <object name="UploadFile_responses_default_def">
+        <property name="COMPLETE" type="integer" />
+        <property name="STATUS" type="integer" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/xinet-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4">
+    <resource path="/{connectionId}/browse/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Browse" siena:isDeprecated="false">
+        <doc title="Browse Folders&#xA;Browse Folder" />
+        <request>
+          <param style="query" name="action" type="xs:string" default="browse" />
+          <param style="query" name="path" type="xs:string" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Browse_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/showvols/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ShowVols" siena:isDeprecated="false">
+        <doc title="ShowVols&#xA;Show Volumns" />
+        <request>
+          <param style="query" name="action" type="xs:string" default="showvols" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ShowVols_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/imagebyid/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetImageByPath" siena:isDeprecated="false">
+        <doc title="Get Image By Path&#xA;Get Image By Path" />
+        <request>
+          <param style="query" name="action" type="xs:string" required="true" default="getimage" />
+          <param style="query" name="filetype" type="xs:string" default="large" />
+          <param style="query" name="pixels" type="xs:string" />
+          <param style="query" name="path" type="xs:string" required="true" />
+        </request>
+        <response>
+          <representation mediaType="application/octet-stream" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/streamfile/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="StreamFile" siena:isDeprecated="false">
+        <doc title="StreamFile&#xA;Streams The File DOwnload" />
+        <request>
+          <param style="query" name="action" type="xs:string" default="streamfile" />
+          <param style="query" name="filetype" type="xs:string" default="large" />
+          <param style="query" name="path" type="xs:string" required="true" />
+        </request>
+        <response>
+          <representation mediaType="application/octet-stream" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/search/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Search" siena:isDeprecated="false">
+        <doc title="Search&#xA;Search Xinet API by file naming" />
+        <request>
+          <param style="query" name="action" type="xs:string" default="search" />
+          <param style="query" name="searchaction" type="xs:string" default="search" />
+          <param style="query" name="searchsubdirs" type="xs:boolean" default="true" />
+          <param style="query" name="fileid_0" type="xs:long" required="true" />
+          <param style="query" name="fileid_searchsub_0" type="xs:long" default="1" />
+          <param style="query" name="filename_flag_0" type="xs:long" default="2" />
+          <param style="query" name="filename_0" type="xs:string" required="true" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Search_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/filemanager/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="FileManager" siena:isDeprecated="false">
+        <doc title="fileManager&#xA;Move update Create Copy Files" />
+        <request>
+          <param style="query" name="action" type="xs:string" />
+          <param style="query" name="filemgraction" type="xs:string" />
+          <param style="query" name="newpath" type="xs:string" />
+          <param style="query" name="newname" type="xs:string" />
+          <param style="query" name="oveerwrite" type="xs:string" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:FileManager_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/filemanager/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="UploadFile" siena:isDeprecated="false">
+        <doc title="uploadFile&#xA;Update File" />
+        <request>
+          <param style="query" name="action" type="xs:string" />
+          <param style="query" name="path" type="xs:string" />
+          <param style="query" name="overwrite" type="xs:boolean" />
+          <representation mediaType="application/json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UploadFile_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_xinet-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
