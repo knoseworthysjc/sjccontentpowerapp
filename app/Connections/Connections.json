@@ -1,1 +1,44 @@
-{}
+{
+  "15af389f-d5b3-4625-905d-49259c328360": {
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/shared-sharepointonl-43e2be5c-fa14-4d87-88a6-0e29e4f7a3cb",
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1563/1.0.1563.2732/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://sjccontent.sharepoint.com/teams/WalmartContent": {
+        "dataSources": {
+          "Flyer Pages": {
+            "tableName": "fb8a3a40-e3d5-450c-b3c4-95be3f02e248"
+          },
+          "Offers": {
+            "tableName": "f6308dc7-aa9e-41d3-b686-7c60382c2493"
+          },
+          "Projects": {
+            "tableName": "5b465c4e-95e6-4831-921b-2ec0258713e5"
+          },
+          "xinet_images": {
+            "tableName": "1cada001-2874-480c-bebf-4dabfde09336"
+          },
+          "xinet_logos": {
+            "tableName": "8d883892-0977-4ef0-bf32-3de10c4adf84"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Flyer Pages",
+      "Offers",
+      "Projects",
+      "xinet_images",
+      "xinet_logos"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "15af389f-d5b3-4625-905d-49259c328360"
+  }
+}
