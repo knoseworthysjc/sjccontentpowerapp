@@ -39,7 +39,7 @@ home_screen As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Font: =Font.Verdana
-        Height: =38
+        Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
         Items: =Choices(Offers.Season)
@@ -51,11 +51,12 @@ home_screen As screen:
         Width: =150
         X: |
             =150
-        Y: =1
+        Y: =(Self.BorderThickness*8)/2
         ZIndex: =3
 
     week_filter As text:
         BorderColor: =RGBA(0, 89, 178, 1)
+        Clear: =true
         Color: =RGBA(0, 0, 0, 1)
         Default: =WeekNum(Now())
         DelayOutput: =true
@@ -64,6 +65,7 @@ home_screen As screen:
         DisabledFill: =RGBA(244, 244, 244, 1)
         FocusedBorderThickness: =4
         Font: =Font.Verdana
+        Height: =screen_title.Height-Self.BorderThickness*8
         HoverBorderColor: =RGBA(0, 89, 178, 1)
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
@@ -71,6 +73,7 @@ home_screen As screen:
         Size: =13
         Width: =100
         X: =315
+        Y: =(Self.BorderThickness*8)/2
         ZIndex: =4
 
     project_filter As dropdown:
@@ -86,6 +89,7 @@ home_screen As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Font: =Font.Verdana
+        Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
         Items: =Filter(Projects,Season.Value = season_filter.Selected.Value And Week = week_filter.Text)
@@ -94,7 +98,7 @@ home_screen As screen:
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
         X: =428
-        Y: =1
+        Y: =(Self.BorderThickness*8)/2
         ZIndex: =5
 
     new_offer_container As groupContainer.manualLayoutContainer:
@@ -222,4 +226,26 @@ home_screen As screen:
                 Width: =Parent.TemplateWidth
                 Y: =Parent.TemplateHeight - 1
                 ZIndex: =5
+
+    page_filter As text:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Clear: =true
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =1
+        DelayOutput: =true
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.Verdana
+        Height: =screen_title.Height-Self.BorderThickness*8
+        HoverBorderColor: =RGBA(0, 89, 178, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        Reset: =true
+        Size: =13
+        Width: =100
+        X: =775
+        Y: =(Self.BorderThickness*8)/2
+        ZIndex: =8
 
