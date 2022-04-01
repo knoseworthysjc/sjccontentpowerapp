@@ -92,7 +92,10 @@ home_screen As screen:
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
-        Items: =Filter(Projects,Season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text))
+        Items: |-
+            =If(week_filter.Text="", 
+            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
+            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
@@ -2985,6 +2988,20 @@ home_screen As screen:
                 Width: =Parent.TemplateWidth
                 Y: =Parent.TemplateHeight - 1
                 ZIndex: =5
+
+            gallery_header As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 36, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 214, 224, 1)
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.BorderThickness*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =6
 
     page_filter As text:
         BorderColor: =RGBA(0, 89, 178, 1)
