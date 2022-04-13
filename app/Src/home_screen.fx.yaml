@@ -2943,6 +2943,7 @@ home_screen As screen:
 
             offer_images As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =2
