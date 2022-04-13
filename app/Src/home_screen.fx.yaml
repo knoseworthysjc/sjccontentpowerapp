@@ -3205,6 +3205,25 @@ home_screen As screen:
                 Y: =offer_markets.Y
                 ZIndex: =11
 
+            offer_copy_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Offer Copy"
+                Width: =(Parent.TemplateWidth-offer_images.Width-offer_images.X-Parent.TemplatePadding*2-30)/2
+                X: =offer_images.X+offer_images.Width+5
+                Y: =offer_images.Y
+                ZIndex: =12
+
     page_filter As text:
         Align: =Align.Center
         BorderColor: =RGBA(0, 89, 178, 1)
