@@ -2964,6 +2964,22 @@ home_screen As screen:
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
+                Label3 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(163, 160, 160, 0.45)
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    Size: =11
+                    Text: =Last(Split(ThisItem.Value,"/")).Result
+                    Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplateHeight-Self.Height-5
+                    ZIndex: =2
+
             offer_page As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
