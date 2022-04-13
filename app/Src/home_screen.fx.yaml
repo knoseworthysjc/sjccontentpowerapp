@@ -3224,6 +3224,35 @@ home_screen As screen:
                 Y: =offer_images.Y
                 ZIndex: =12
 
+            offer_copy As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 51, 102, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.offer_copy
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =80
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =12
+                Width: =offer_copy_lbl.Width
+                X: =offer_copy_lbl.X
+                Y: =71
+                ZIndex: =13
+
     page_filter As text:
         Align: =Align.Center
         BorderColor: =RGBA(0, 89, 178, 1)
