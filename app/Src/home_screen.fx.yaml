@@ -94,8 +94,8 @@ home_screen As screen:
         HoverFill: =RGBA(153, 205, 255, 1)
         Items: |-
             =If(week_filter.Text="", 
-            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
-            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
+            SortByColumns(Filter(Projects,season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
+            SortByColumns(Filter(Projects,season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
@@ -190,12 +190,12 @@ home_screen As screen:
                     DisplayMode: =Parent.DisplayMode
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
-                    Items: =Choices([@Offers].season)
+                    Items: =Choices([@Offers].Season)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =RGBA(0, 89, 178, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(Offers.season,DataCardValue1.SearchText)
+                    SearchItems: =Choices(Offers.Season,DataCardValue1.SearchText)
                     SelectionFill: =RGBA(0, 51, 102, 1)
                     SelectMultiple: =false
                     Size: =13
@@ -635,12 +635,12 @@ home_screen As screen:
                     DisplayMode: =Parent.DisplayMode
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
-                    Items: =Choices([@Offers].sbu)
+                    Items: =Choices([@Offers].SBU)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =RGBA(0, 89, 178, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(Offers.sbu,DataCardValue6.SearchText)
+                    SearchItems: =Choices(Offers.SBU,DataCardValue6.SearchText)
                     SelectionFill: =RGBA(0, 51, 102, 1)
                     SelectMultiple: =false
                     Size: =13
@@ -987,12 +987,12 @@ home_screen As screen:
                     DisplayMode: =Parent.DisplayMode
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
-                    Items: =Choices([@Offers].markets)
+                    Items: =Choices([@Offers].Markets)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =RGBA(0, 89, 178, 1)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(Offers.markets,DataCardValue10.SearchText)
+                    SearchItems: =Choices(Offers.Markets,DataCardValue10.SearchText)
                     SelectionFill: =RGBA(0, 51, 102, 1)
                     Size: =13
                     Tooltip: =Parent.DisplayName
@@ -2904,106 +2904,188 @@ home_screen As screen:
                 =0
             ZIndex: =1
 
-        "container_gallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        container_gallery As gallery.galleryVertical:
             BorderColor: =RGBA(0, 89, 178, 1)
             Height: =Parent.Height-Self.Y
             Items: =Filter(Offers,assigned_project.Value = project_filter.Selected.Title)
             Layout: =Layout.Vertical
-            TemplatePadding: =0
-            TemplateSize: =Self.Height/3
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
             Width: =Parent.Width
             Y: =container_label_1.Height+container_label_1.Y+5
-            ZIndex: =2
+            ZIndex: =1
 
-            Image1 As image:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Height: =128
-                Image: =First(ThisItem.assigned_images).Value
+            offer_label As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 51, 102, 1)
+                BorderThickness: =1
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 214, 224, 1)
+                Height: =35
                 OnSelect: =Select(Parent)
-                Width: =128
-                X: =16
-                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Text: =""
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-15
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
                 ZIndex: =1
 
-            Title1 As label:
+            offer_page As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.page_from
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{page_from:Self.Text})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =55
+                X: =offer_page_lbl.X+offer_page_lbl.Width+5
+                Y: =offer_label.Y+2
+                ZIndex: =2
+
+            offer_page_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 FontWeight: =FontWeight.Semibold
-                Height: =Self.Size * 1.8
+                Height: =offer_label.Height-4
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Size: =20
-                Text: =ThisItem.Title
-                VerticalAlign: =VerticalAlign.Top
-                Width: =Parent.TemplateWidth - Image1.Width - 104
-                X: =Image1.X + Image1.Width + 24
-                Y: =44
-                ZIndex: =2
-
-            Subtitle1 As label:
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Height: =Self.Size * 1.8
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =18
-                Text: =ThisItem.offer_copy
-                VerticalAlign: =VerticalAlign.Top
-                Width: =Title1.Width
-                X: =Title1.X
-                Y: =Title1.Y + Title1.Height + 4
+                Size: =12
+                Text: |-
+                    ="Page:"
+                Width: =55
+                X: =Parent.TemplatePadding
+                Y: =offer_label.Y+2
                 ZIndex: =3
 
-            NextArrow1 As icon.ChevronRight:
-                AccessibleLabel: =Self.Tooltip
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 89, 178, 1)
+            offer_layoutposition As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.layout_position
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =60
-                Icon: =Icon.ChevronRight
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{page_from:Self.Text})
                 OnSelect: =Select(Parent)
-                PaddingBottom: =10
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =10
-                TabIndex: =0
-                Tooltip: ="View item details"
-                Width: =60
-                X: =Parent.TemplateWidth - Self.Width - 5
-                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =55
+                X: =offer_pos_lbl.X+offer_pos_lbl.Width+5
+                Y: =offer_label.Y+2
                 ZIndex: =4
 
-            Separator1 As rectangle:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Fill: =RGBA(0, 89, 178, 1)
-                Height: =1
-                OnSelect: =Select(Parent)
-                Width: =Parent.TemplateWidth
-                Y: =Parent.TemplateHeight - 1
-                ZIndex: =5
-
-            gallery_header As label:
+            offer_pos_lbl As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 36, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(204, 214, 224, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
                 OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Pos:"
+                Width: =55
+                X: =offer_page.X+offer_page.Width+5
+                Y: =offer_label.Y+2
+                ZIndex: =5
+
+            offer_adblock As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.layout_position
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{page_from:Self.Text})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
                 Size: =13
-                Text: =ThisItem.Title
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.BorderThickness*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
+                Width: =55
+                X: =offer_adblock_lbl.X+offer_adblock_lbl.Width+5
+                Y: =offer_label.Y+2
                 ZIndex: =6
+
+            offer_adblock_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="AdBlock:"
+                Width: =70
+                X: =offer_layoutposition.X+offer_layoutposition.Width+5
+                Y: =offer_label.Y+2
+                ZIndex: =7
 
     page_filter As text:
         BorderColor: =RGBA(0, 89, 178, 1)
