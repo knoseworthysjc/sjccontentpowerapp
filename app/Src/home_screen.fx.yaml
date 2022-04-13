@@ -2924,7 +2924,6 @@ home_screen As screen:
             offer_label As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 51, 102, 1)
-                BorderThickness: =1
                 Color: =RGBA(0, 51, 102, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(204, 214, 224, 1)
@@ -2971,9 +2970,13 @@ home_screen As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(163, 160, 160, 0.45)
+                    Fill: =RGBA(163, 160, 160, 0.72)
                     FontWeight: =FontWeight.Semibold
                     OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Size: =11
                     Text: =Last(Split(ThisItem.Value,"/")).Result
                     Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
