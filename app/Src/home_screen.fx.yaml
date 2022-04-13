@@ -3301,6 +3301,106 @@ home_screen As screen:
                 Y: =offer_copy_lbl.Y+offer_copy_lbl.Height
                 ZIndex: =15
 
+            offer_regprice_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Reg Price"
+                Width: =85
+                X: =offer_copy.X
+                Y: =offer_copy.Y+offer_copy.Height+2
+                ZIndex: =16
+
+            offer_regprice As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.regular_price
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{regular_price:Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =85
+                X: =offer_regprice_lbl.X
+                Y: =offer_regprice_lbl.Y+offer_regprice_lbl.Height
+                ZIndex: =17
+
+            offer_eventprice_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Event Price"
+                Width: =85
+                X: =offer_regprice_lbl.X+offer_regprice_lbl.Width+5
+                Y: =offer_copy.Y+offer_copy.Height+2
+                ZIndex: =18
+
+            offer_eventprice As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.event_price
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{event_price:Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =85
+                X: =offer_eventprice_lbl.X
+                Y: =offer_eventprice_lbl.Y+offer_eventprice_lbl.Height
+                ZIndex: =19
+
     page_filter As text:
         Align: =Align.Center
         BorderColor: =RGBA(0, 89, 178, 1)
