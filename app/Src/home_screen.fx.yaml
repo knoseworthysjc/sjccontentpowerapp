@@ -2921,16 +2921,6 @@ home_screen As screen:
             Y: =container_label_1.Height+container_label_1.Y+5
             ZIndex: =1
 
-            offer_images As gallery.galleryHorizontal:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
-                Items: =ThisItem.assigned_images
-                TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
-                Width: =(Parent.TemplateWidth*0.25)
-                X: =Parent.TemplatePadding
-                Y: =offer_label.Y+offer_label.Height
-                ZIndex: =1
-
             offer_label As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 51, 102, 1)
@@ -2950,6 +2940,28 @@ home_screen As screen:
                 X: =Parent.TemplatePadding
                 Y: =Parent.TemplatePadding
                 ZIndex: =1
+
+            offer_images As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
+                Items: =ThisItem.assigned_images
+                TemplatePadding: =2
+                TemplateSize: =(Self.Width-Self.TemplatePadding*2)/2
+                Width: =(Parent.TemplateWidth*0.25)
+                X: =Parent.TemplatePadding
+                Y: =offer_label.Y+offer_label.Height
+                ZIndex: =1
+
+                Image2 As image:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =1
 
             offer_page As text:
                 Align: =Align.Center
