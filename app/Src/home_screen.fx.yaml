@@ -135,11 +135,13 @@ home_screen As screen:
             Y: =4
             ZIndex: =2
 
-        Form1 As form:
+        new_offer_form As form:
             BorderColor: =RGBA(0, 89, 178, 1)
             DataSource: =Offers
+            DefaultMode: =FormMode.New
             Height: =898
             NumberOfColumns: =2
+            OnSuccess: =ResetForm(Self);
             Width: =500
             Y: =40
             ZIndex: =3
