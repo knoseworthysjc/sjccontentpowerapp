@@ -2916,7 +2916,7 @@ home_screen As screen:
             Height: =Parent.Height-Self.Y
             Items: =Filter(Offers,assigned_project.Value = project_filter.Selected.Title)
             Layout: =Layout.Vertical
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+            TemplateSize: =Self.Height/3
             Width: =Parent.Width
             Y: =container_label_1.Height+container_label_1.Y+5
             ZIndex: =1
