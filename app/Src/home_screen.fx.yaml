@@ -39,6 +39,7 @@ home_screen As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
@@ -48,13 +49,13 @@ home_screen As screen:
         Reset: =true
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
-        Width: =150
-        X: |
-            =150
+        Width: =105
+        X: =822
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =3
 
     week_filter As text:
+        Align: =Align.Center
         BorderColor: =RGBA(0, 89, 178, 1)
         Clear: =true
         Color: =RGBA(0, 0, 0, 1)
@@ -65,14 +66,19 @@ home_screen As screen:
         DisabledFill: =RGBA(244, 244, 244, 1)
         FocusedBorderThickness: =4
         Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverBorderColor: =RGBA(0, 89, 178, 1)
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
         Reset: =true
         Size: =13
-        Width: =100
-        X: =315
+        Width: =70
+        X: =931
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =4
 
@@ -89,6 +95,7 @@ home_screen As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
@@ -100,7 +107,7 @@ home_screen As screen:
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
-        X: =428
+        X: =1009
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =5
 
@@ -3087,7 +3094,60 @@ home_screen As screen:
                 Y: =offer_label.Y+2
                 ZIndex: =7
 
+            offer_markets_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Markets:"
+                Width: =70
+                X: =offer_adblock.X+offer_adblock.Width+5
+                Y: =offer_label.Y+2
+                ZIndex: =9
+
+            offer_markets As combobox:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =0
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =ThisItem.Markets
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value"]
+                Height: =offer_markets_lbl.Height
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                IsSearchable: =false
+                Items: =Choices(Offers.Markets)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingTop: =0
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Width: =355
+                X: =offer_markets_lbl.X+offer_markets_lbl.Width+5
+                Y: =offer_markets_lbl.Y
+                ZIndex: =10
+
     page_filter As text:
+        Align: =Align.Center
         BorderColor: =RGBA(0, 89, 178, 1)
         Clear: =true
         Color: =RGBA(0, 0, 0, 1)
@@ -3098,15 +3158,19 @@ home_screen As screen:
         DisabledFill: =RGBA(244, 244, 244, 1)
         FocusedBorderThickness: =4
         Font: =Font.Verdana
-        Format: =TextFormat.Number
+        FontWeight: =FontWeight.Semibold
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverBorderColor: =RGBA(0, 89, 178, 1)
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
         Reset: =true
         Size: =13
-        Width: =100
-        X: =775
+        Width: =70
+        X: =1349
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =8
 
