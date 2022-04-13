@@ -1334,6 +1334,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "home_screen.existing_offer_container.container_gallery.offer_copy_french.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "home_screen.existing_offer_container.container_gallery.offer_copy_french.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "home_screen",
+                "type": "home_screen.existing_offer_container.container_gallery.offer_copy_french"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
@@ -1509,7 +1539,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"home_screen\" is 313, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"home_screen\" is 323, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
