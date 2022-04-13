@@ -2957,6 +2957,7 @@ home_screen As screen:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                     X: =Parent.TemplatePadding
