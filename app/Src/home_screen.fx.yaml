@@ -3133,8 +3133,9 @@ home_screen As screen:
                 IsSearchable: =false
                 Items: =Choices(Offers.Markets)
                 OnSelect: =Select(Parent)
-                PaddingBottom: =0
+                PaddingBottom: =3
                 PaddingLeft: =0
+                PaddingRight: =3
                 PaddingTop: =0
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
@@ -3145,6 +3146,21 @@ home_screen As screen:
                 X: =offer_markets_lbl.X+offer_markets_lbl.Width+5
                 Y: =offer_markets_lbl.Y
                 ZIndex: =10
+
+            save_markets As icon.Save:
+                AccessibleLabel: ="Save Markets"
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =offer_markets.Height
+                Icon: =Icon.Save
+                OnSelect: =Select(Parent)
+                Tooltip: ="Save Markets"
+                Width: =Self.Height
+                X: =offer_markets.X+offer_markets.Width+5
+                Y: =offer_markets.Y
+                ZIndex: =11
 
     page_filter As text:
         Align: =Align.Center
