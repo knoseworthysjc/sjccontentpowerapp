@@ -3487,7 +3487,7 @@ home_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{savings:Value(Self.Text)})
+                    =Patch(Offers,ThisItem,{eco_fee:Value(Self.Text)})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
