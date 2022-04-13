@@ -2946,7 +2946,7 @@ home_screen As screen:
                 Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =2
-                TemplateSize: =(Self.Width-Self.TemplatePadding*2)/2
+                TemplateSize: =Self.Width/2-Self.TemplatePadding*2
                 Width: =(Parent.TemplateWidth*0.25)
                 X: =Parent.TemplatePadding
                 Y: =offer_label.Y+offer_label.Height
