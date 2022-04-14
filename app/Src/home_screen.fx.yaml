@@ -143,6 +143,7 @@ home_screen As screen:
             ZIndex: =2
 
         new_offer_form As form:
+            AcceptsFocus: =false
             BorderColor: =RGBA(0, 89, 178, 1)
             DataSource: =Offers
             DefaultMode: =FormMode.New
