@@ -3610,6 +3610,61 @@ offers_screen As screen:
                 Y: =offer_unitfre_lbl.Y+offer_unitfre_lbl.Height
                 ZIndex: =27
 
+            offer_type_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Offer Type:"
+                Width: =90
+                X: =save_markets.X+save_markets.Width+5
+                Y: =offer_label.Y+2
+                ZIndex: =28
+
+            offer_markets_1 As combobox:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =0
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DefaultSelectedItems: =ThisItem.offer_type
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value"]
+                Height: =offer_type_lbl.Height
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                IsSearchable: =false
+                Items: =Choices(Offers.offer_type)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =3
+                PaddingLeft: =0
+                PaddingRight: =3
+                PaddingTop: =0
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectMultiple: =false
+                Width: =155
+                X: =offer_type_lbl.X+offer_type_lbl.Width+5
+                Y: =offer_type_lbl.Y
+                ZIndex: =29
+
     page_filter As text:
         Align: =Align.Center
         BorderColor: =RGBA(0, 89, 178, 1)

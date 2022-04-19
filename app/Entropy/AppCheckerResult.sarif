@@ -1244,6 +1244,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.save_markets.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.save_markets.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "offers_screen",
+                "type": "offers_screen.existing_offer_container.container_gallery.save_markets"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_images.AccessibleLabel"
                 }
               ],
@@ -1544,19 +1574,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.save_markets.TabIndex"
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_markets_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.save_markets.TabIndex",
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_markets_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "TabIndex",
+                "member": "AccessibleLabel",
                 "module": "offers_screen",
-                "type": "offers_screen.existing_offer_container.container_gallery.save_markets"
+                "type": "offers_screen.existing_offer_container.container_gallery.offer_markets_1"
               }
             }
           ],
@@ -1566,8 +1596,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1749,7 +1779,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offers_screen\" is 383, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offers_screen\" is 393, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
