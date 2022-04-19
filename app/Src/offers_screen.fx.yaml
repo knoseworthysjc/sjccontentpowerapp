@@ -103,6 +103,7 @@ offers_screen As screen:
             =If(week_filter.Text="", 
             SortByColumns(Filter(Projects,season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
             SortByColumns(Filter(Projects,season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
+        OnChange: =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title))
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
@@ -2915,7 +2916,7 @@ offers_screen As screen:
         container_gallery As gallery.galleryVertical:
             BorderColor: =RGBA(0, 89, 178, 1)
             Height: =Parent.Height-Self.Y
-            Items: =If(page_filter.Text = "", Filter(Offers,assigned_project.Value = project_filter.Selected.Title),Filter(Offers,assigned_project.Value = project_filter.Selected.Title And page_from = page_filter.Text))
+            Items: =If(page_filter.Text = "", SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter.Text),"layout_position",Ascending))
             Layout: =Layout.Vertical
             TemplateSize: =Self.Height/3
             Width: =Parent.Width
