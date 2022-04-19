@@ -3199,7 +3199,8 @@ home_screen As screen:
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 Height: =offer_markets.Height
                 Icon: =Icon.Save
-                OnSelect: =Select(Parent)
+                OnSelect: |-
+                    =Patch(Offers,ThisItem,{Markets:offer_markets.SelectedItems})
                 Tooltip: ="Save Markets"
                 Width: =Self.Height
                 X: =offer_markets.X+offer_markets.Width+5

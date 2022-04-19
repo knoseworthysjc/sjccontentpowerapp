@@ -1544,6 +1544,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "home_screen.existing_offer_container.container_gallery.save_markets.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "home_screen.existing_offer_container.container_gallery.save_markets.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "home_screen",
+                "type": "home_screen.existing_offer_container.container_gallery.save_markets"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
