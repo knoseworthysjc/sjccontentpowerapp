@@ -1,4 +1,4 @@
-home_screen As screen:
+offers_screen As screen:
     Fill: =RGBA(232, 232, 232, 1)
 
     screen_title As label:
@@ -2915,7 +2915,7 @@ home_screen As screen:
         container_gallery As gallery.galleryVertical:
             BorderColor: =RGBA(0, 89, 178, 1)
             Height: =Parent.Height-Self.Y
-            Items: =Filter(Offers,assigned_project.Value = project_filter.Selected.Title)
+            Items: =If(page_filter.Text = "", Filter(Offers,assigned_project.Value = project_filter.Selected.Title),Filter(Offers,assigned_project.Value = project_filter.Selected.Title And page_from = page_filter.Text))
             Layout: =Layout.Vertical
             TemplateSize: =Self.Height/3
             Width: =Parent.Width
