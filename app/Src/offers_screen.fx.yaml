@@ -3428,7 +3428,7 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.regular_price
+                Default: =ThisItem.regular_price_lb
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -3438,7 +3438,7 @@ offers_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{regular_price:Value(Self.Text)})
+                    =Patch(Offers,ThisItem,{regular_price_lb:Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -3480,7 +3480,7 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.event_price
+                Default: =ThisItem.event_price_lb
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -3490,7 +3490,7 @@ offers_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{event_price:Value(Self.Text)})
+                    =Patch(Offers,ThisItem,{event_price_lb:Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -3532,7 +3532,7 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.savings
+                Default: =ThisItem.savings_lb
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -3542,7 +3542,7 @@ offers_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{savings:Value(Self.Text)})
+                    =Patch(Offers,ThisItem,{savings_lb:Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
