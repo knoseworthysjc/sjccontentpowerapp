@@ -2627,270 +2627,6 @@ offers_screen As screen:
                     Y: =DataCardKey28.Y
                     ZIndex: =4
 
-            assigned_images_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="assigned_images"
-                Default: =ThisItem.assigned_images
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Offers],DataSourceInfo.DisplayName,"assigned_images")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =DataCardValue29.SelectedItems
-                Width: =250
-                X: =0
-                Y: =14
-                ZIndex: =4
-
-                DataCardKey29 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue29 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    ChevronBackground: =RGBA(0, 51, 102, 1)
-                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                    DefaultSelectedItems: =Parent.Default
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    IsSearchable: =false
-                    Items: =Choices([@Offers].assigned_images)
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(0, 89, 178, 1)
-                    SearchItems: =[]
-                    SelectionFill: =RGBA(0, 51, 102, 1)
-                    Size: =13
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey29.Y + DataCardKey29.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage29 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue29.Y + DataCardValue29.Height
-                    ZIndex: =3
-
-                StarVisible29 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey29.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey29.Y
-                    ZIndex: =4
-
-            assigned_images_fre_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="assigned_images_fre"
-                Default: =ThisItem.assigned_images_fre
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Offers],DataSourceInfo.DisplayName,"assigned_images_fre")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =DataCardValue30.SelectedItems
-                Width: =250
-                X: =1
-                Y: =14
-                ZIndex: =4
-
-                DataCardKey30 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue30 As combobox:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    ChevronBackground: =RGBA(0, 51, 102, 1)
-                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                    DefaultSelectedItems: =Parent.Default
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    IsSearchable: =false
-                    Items: =Choices([@Offers].assigned_images_fre)
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(0, 89, 178, 1)
-                    SearchItems: =[]
-                    SelectionFill: =RGBA(0, 51, 102, 1)
-                    Size: =13
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey30.Y + DataCardKey30.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage30 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue30.Y + DataCardValue30.Height
-                    ZIndex: =3
-
-                StarVisible30 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey30.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey30.Y
-                    ZIndex: =4
-
-            Attachments_DataCard1 As typedDataCard.attachmentsEditCard:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="{Attachments}"
-                Default: =ThisItem.Attachments
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@Offers],DataSourceInfo.DisplayName,"{Attachments}")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Required: =false
-                Update: =DataCardValue31.Attachments
-                Width: =250
-                X: =0
-                Y: =15
-                ZIndex: =4
-
-                DataCardKey31 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue31 As attachments:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    FocusedBorderThickness: =4
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    IsInDataCard: =true
-                    ItemColor: =RGBA(255, 255, 255, 1)
-                    ItemFill: =RGBA(0, 51, 102, 1)
-                    ItemHoverColor: =RGBA(0, 0, 0, 1)
-                    ItemHoverFill: =RGBA(153, 205, 255, 1)
-                    Items: =Parent.Default
-                    PaddingBottom: =5
-                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                    PaddingRight: =5
-                    PaddingTop: =5
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(0, 89, 178, 1)
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey31.Y + DataCardKey31.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage31 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue31.Y + DataCardValue31.Height
-                    ZIndex: =3
-
-                StarVisible31 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey31.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey31.Y
-                    ZIndex: =4
-
     existing_offer_container As groupContainer.manualLayoutContainer:
         Height: =Parent.Height-Self.Y
         Width: =Parent.Width-Self.X-Self.BorderThickness*2
@@ -3519,10 +3255,8 @@ offers_screen As screen:
                 PaddingRight: =0
                 PaddingTop: =0
                 Size: =12
-                Text: |-
-                    ="unit
-                    "
-                Width: =85
+                Text: ="Count of Orgin "
+                Width: =275
                 X: =offer_ecofees_lbl.X+offer_ecofees_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =24
@@ -3532,17 +3266,18 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.unit
+                Default: =ThisItem.'Country of Origin'
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 FocusedBorderThickness: =4
-                Height: =offer_label.Height-4
+                Height: =offer_label.Height*2-8
                 HoverBorderColor: =RGBA(0, 89, 178, 1)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{unit:Value(Self.Text)})
+                    =Patch(Offers,ThisItem,{'Country of Origin':Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -3553,7 +3288,7 @@ offers_screen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =13
-                Width: =85
+                Width: =275
                 X: =offer_unit_lbl.X
                 Y: =offer_unit_lbl.Y+offer_unit_lbl.Height
                 ZIndex: =25
@@ -3571,10 +3306,8 @@ offers_screen As screen:
                 PaddingRight: =0
                 PaddingTop: =0
                 Size: =12
-                Text: |-
-                    ="unit french
-                    "
-                Width: =85
+                Text: ="Country of Origin Fre"
+                Width: =275
                 X: |
                     =offer_unit_lbl.X+offer_unit_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
@@ -3585,17 +3318,18 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.unit_fre
+                Default: =ThisItem.'Country of Origin(Fre)'
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 FocusedBorderThickness: =4
-                Height: =offer_label.Height-4
+                Height: =offer_label.Height*2-8
                 HoverBorderColor: =RGBA(0, 89, 178, 1)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{unit_fre:Value(Self.Text)})
+                    =Patch(Offers,ThisItem,{'Country of Origin(Fre)':Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -3606,7 +3340,7 @@ offers_screen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =13
-                Width: =85
+                Width: =275
                 X: =offer_unitfre_lbl.X
                 Y: =offer_unitfre_lbl.Y+offer_unitfre_lbl.Height
                 ZIndex: =27
@@ -3665,6 +3399,162 @@ offers_screen As screen:
                 X: =offer_type_lbl.X+offer_type_lbl.Width+5
                 Y: =offer_type_lbl.Y
                 ZIndex: =29
+
+            offer_regpricelb_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Reg Price LB
+                    "
+                Width: =85
+                X: =offer_copy.X
+                Y: =offer_regprice.Y+offer_regprice.Height+2
+                ZIndex: =30
+
+            offer_regpricelb As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.regular_price
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{regular_price:Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =85
+                X: =offer_regpricelb_lbl.X
+                Y: =offer_regpricelb_lbl.Y+offer_regpricelb_lbl.Height
+                ZIndex: =31
+
+            offer_eventprice_lb_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Event Price LB
+                    "
+                Width: =85
+                X: =offer_regpricelb_lbl.X+offer_regpricelb_lbl.Width+5
+                Y: =offer_eventprice.Y+offer_eventprice.Height+2
+                ZIndex: =32
+
+            offer_eventprice_1 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.event_price
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{event_price:Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =85
+                X: =offer_eventprice_lb_lbl.X
+                Y: =offer_eventprice_lb_lbl.Y+offer_eventprice_lb_lbl.Height
+                ZIndex: =33
+
+            offer_savingslb_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Savings LB
+                    "
+                Width: =85
+                X: =offer_eventprice_lb_lbl.X+offer_eventprice_lb_lbl.Width+5
+                Y: =offer_savings.Y+offer_savings.Height+2
+                ZIndex: =34
+
+            offer_savings_1 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.savings
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height-4
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{savings:Value(Self.Text)})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =85
+                X: =offer_savingslb_lbl.X
+                Y: =offer_savingslb_lbl.Y+offer_savingslb_lbl.Height
+                ZIndex: =35
 
     page_filter As text:
         Align: =Align.Center
