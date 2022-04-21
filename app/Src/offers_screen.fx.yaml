@@ -150,10 +150,10 @@ offers_screen As screen:
             BorderColor: =RGBA(0, 89, 178, 1)
             DataSource: =Offers
             DefaultMode: =FormMode.New
-            Height: =898
-            NumberOfColumns: =2
+            Height: =Parent.Height-Self.Y
+            NumberOfColumns: =1
             OnSuccess: =ResetForm(Self);
-            Width: =500
+            Width: =Parent.Width
             Y: =40
             ZIndex: =3
 
@@ -168,7 +168,7 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue1.Selected
-                Width: =250
+                Width: =480
                 X: =0
                 Y: =0
                 ZIndex: =4
@@ -258,9 +258,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =Value(DataCardValue2.Text)
-                Width: =250
-                X: =1
-                Y: =0
+                Width: =480
+                X: =0
+                Y: =1
                 ZIndex: =4
 
                 DataCardKey2 As label:
@@ -345,9 +345,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue3.Selected
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =1
+                Y: =2
                 ZIndex: =4
 
                 DataCardKey3 As label:
@@ -436,9 +436,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "category_name")
                 Required: =false
                 Update: =DataCardValue4.Text
-                Width: =250
-                X: =1
-                Y: =1
+                Width: =480
+                X: =0
+                Y: =3
                 ZIndex: =4
 
                 DataCardKey4 As label:
@@ -523,9 +523,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue5.Selected
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =2
+                Y: =4
                 ZIndex: =4
 
                 DataCardKey5 As label:
@@ -613,9 +613,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue6.Selected
-                Width: =250
-                X: =1
-                Y: =2
+                Width: =480
+                X: =0
+                Y: =5
                 ZIndex: =4
 
                 DataCardKey6 As label:
@@ -704,9 +704,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "page_from")
                 Required: =false
                 Update: =DataCardValue7.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =3
+                Y: =6
                 ZIndex: =4
 
                 DataCardKey7 As label:
@@ -791,9 +791,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =Value(DataCardValue8.Text)
-                Width: =250
-                X: =1
-                Y: =3
+                Width: =480
+                X: =0
+                Y: =7
                 ZIndex: =4
 
                 DataCardKey8 As label:
@@ -878,9 +878,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =Value(DataCardValue9.Text)
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =4
+                Y: =8
                 ZIndex: =4
 
                 DataCardKey9 As label:
@@ -965,9 +965,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue10.SelectedItems
-                Width: =250
-                X: =1
-                Y: =4
+                Width: =480
+                X: =0
+                Y: =9
                 ZIndex: =4
 
                 DataCardKey10 As label:
@@ -1055,9 +1055,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "featured_item_numbers")
                 Required: =false
                 Update: =DataCardValue11.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =5
+                Y: =10
                 ZIndex: =4
 
                 DataCardKey11 As label:
@@ -1143,9 +1143,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "unit")
                 Required: =false
                 Update: =DataCardValue12.Text
-                Width: =250
-                X: =1
-                Y: =5
+                Width: =480
+                X: =0
+                Y: =11
                 ZIndex: =4
 
                 DataCardKey12 As label:
@@ -1231,9 +1231,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "unit_fre")
                 Required: =false
                 Update: =DataCardValue13.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =6
+                Y: =12
                 ZIndex: =4
 
                 DataCardKey13 As label:
@@ -1319,9 +1319,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "Title")
                 Required: =true
                 Update: =DataCardValue14.Text
-                Width: =250
-                X: =1
-                Y: =6
+                Width: =480
+                X: =0
+                Y: =13
                 ZIndex: =4
 
                 DataCardKey14 As label:
@@ -1407,9 +1407,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "item_name")
                 Required: =false
                 Update: =DataCardValue15.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =7
+                Y: =14
                 ZIndex: =4
 
                 DataCardKey15 As label:
@@ -1495,9 +1495,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "offer_copy")
                 Required: =false
                 Update: =DataCardValue16.Text
-                Width: =250
-                X: =1
-                Y: =7
+                Width: =480
+                X: =0
+                Y: =15
                 ZIndex: =4
 
                 DataCardKey16 As label:
@@ -1583,9 +1583,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "offer_copy_french")
                 Required: =false
                 Update: =DataCardValue17.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =8
+                Y: =16
                 ZIndex: =4
 
                 DataCardKey17 As label:
@@ -1671,9 +1671,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "countryoforigin")
                 Required: =false
                 Update: =DataCardValue18.Text
-                Width: =250
-                X: =1
-                Y: =8
+                Width: =480
+                X: =0
+                Y: =17
                 ZIndex: =4
 
                 DataCardKey18 As label:
@@ -1759,9 +1759,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "countryoforiginfre")
                 Required: =false
                 Update: =DataCardValue19.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =9
+                Y: =18
                 ZIndex: =4
 
                 DataCardKey19 As label:
@@ -1847,9 +1847,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "event_price")
                 Required: =false
                 Update: =DataCardValue20.Text
-                Width: =250
-                X: =1
-                Y: =9
+                Width: =480
+                X: =0
+                Y: =19
                 ZIndex: =4
 
                 DataCardKey20 As label:
@@ -1935,9 +1935,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "regular_price")
                 Required: =false
                 Update: =DataCardValue21.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =10
+                Y: =20
                 ZIndex: =4
 
                 DataCardKey21 As label:
@@ -2023,9 +2023,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "savings")
                 Required: =false
                 Update: =DataCardValue22.Text
-                Width: =250
-                X: =1
-                Y: =10
+                Width: =480
+                X: =0
+                Y: =21
                 ZIndex: =4
 
                 DataCardKey22 As label:
@@ -2111,9 +2111,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "grade")
                 Required: =false
                 Update: =DataCardValue23.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =11
+                Y: =22
                 ZIndex: =4
 
                 DataCardKey23 As label:
@@ -2199,9 +2199,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "gradefre")
                 Required: =false
                 Update: =DataCardValue24.Text
-                Width: =250
-                X: =1
-                Y: =11
+                Width: =480
+                X: =0
+                Y: =23
                 ZIndex: =4
 
                 DataCardKey24 As label:
@@ -2286,9 +2286,9 @@ offers_screen As screen:
                 Height: =50
                 Required: =false
                 Update: =DataCardValue25.Selected
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =12
+                Y: =24
                 ZIndex: =4
 
                 DataCardKey25 As label:
@@ -2377,9 +2377,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "combined_item_number")
                 Required: =false
                 Update: =DataCardValue26.Text
-                Width: =250
-                X: =1
-                Y: =12
+                Width: =480
+                X: =0
+                Y: =25
                 ZIndex: =4
 
                 DataCardKey26 As label:
@@ -2465,9 +2465,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "multi_save")
                 Required: =false
                 Update: =DataCardValue27.Text
-                Width: =250
+                Width: =480
                 X: =0
-                Y: =13
+                Y: =26
                 ZIndex: =4
 
                 DataCardKey27 As label:
@@ -2553,9 +2553,9 @@ offers_screen As screen:
                 MaxLength: =DataSourceInfo([@Offers], DataSourceInfo.MaxLength, "callout")
                 Required: =false
                 Update: =DataCardValue28.Text
-                Width: =250
-                X: =1
-                Y: =13
+                Width: =480
+                X: =0
+                Y: =27
                 ZIndex: =4
 
                 DataCardKey28 As label:
