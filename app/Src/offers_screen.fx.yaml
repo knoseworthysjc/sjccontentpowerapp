@@ -3596,6 +3596,6 @@ offers_screen As screen:
             =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
         ImagePosition: =ImagePosition.Fill
         Width: =220
-        X: =1699
+        X: =Parent.Width-Self.Width-Self.BorderThickness
         ZIndex: =9
 
