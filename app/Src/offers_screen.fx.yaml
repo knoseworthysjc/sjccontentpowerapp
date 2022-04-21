@@ -2161,7 +2161,7 @@ offers_screen As screen:
                 Xinet.Browse(
                 {
                 action:"browse",
-                path:Last(xinetPaths).FILE_PATH
+                path:Substitute(Last(xinetPaths).FILE_PATH,"%20"," ")
                 }
                 ).FILES_INFO,Xinet.Search(Last(xinetPaths).FILE_ID,addImagesSearch.Text).FILES_INFO)
             Layout: =Layout.Vertical
@@ -2194,7 +2194,8 @@ offers_screen As screen:
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 Height: =Image3.Height
                 Icon: =Icon.Folder
-                OnSelect: =Select(Parent)
+                OnSelect: |
+                    =Select(Parent);Collect(xinetPaths,{FILE_ID:Text(ThisItem.FILE_ID),FILE_NAME:ThisItem.FILE_NAME,FILE_PATH:ThisItem.FILE_PATH})
                 Visible: =ThisItem.FILE_ISADIR
                 Width: =Image3.Width
                 X: =Image3.X
