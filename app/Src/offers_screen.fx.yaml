@@ -2098,3 +2098,90 @@ offers_screen As screen:
         Y: =40
         ZIndex: =11
 
+        addImages_label As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(250, 250, 250, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(102, 133, 163, 1)
+            Size: =13
+            Text: |-
+                =container_gallery.Selected.assigned_project.Value&" Page:"&container_gallery.Selected.page_from&" Block:"&container_gallery.Selected.Adblock
+            Width: =Parent.Width
+            ZIndex: =1
+
+        addImages_volumns As dropdown:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            ChevronBackground: =RGBA(0, 51, 102, 1)
+            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Default: =
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(153, 205, 255, 1)
+            Items: =Xinet.ShowVols().VOLUME_INFO
+            OnChange: |-
+                =ClearCollect(xinetPaths,{FILE_ID:Self.Selected.FILE_ID,FILE_NAME:Self.Selected.FILE_NAME,FILE_PATH:Substitute(Self.Selected.FILE_PATH,"%20"," ")});
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 89, 178, 1)
+            Reset: =true
+            SelectionFill: =RGBA(0, 51, 102, 1)
+            Size: =13
+            Width: =Parent.Width/2-5
+            Y: =40
+            ZIndex: =2
+
+        addImages_search As text:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(0, 89, 178, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(153, 205, 255, 1)
+            Size: =13
+            Width: =addImages_volumns.Width
+            X: =addImages_volumns.X+addImages_volumns.Width+5
+            Y: =addImages_volumns.Y
+            ZIndex: =3
+
+        addImagesGallery As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height-Self.Y
+            Items: |-
+                =If(addImages_search.Text="",
+                Xinet.Browse(
+                {
+                action:"browse",
+                path:Last(xinetPaths).FILE_PATH
+                }
+                ).FILES_INFO,Xinet.Search(Last(xinetPaths).FILE_ID,addImages_search.Text).FILES_INFO)
+            Layout: =Layout.Vertical
+            TemplateSize: =Self.Width/3-Self.TemplatePadding*3-20
+            Width: =Parent.Width-5
+            WrapCount: =3
+            X: =5
+            Y: =addImages_volumns.Y+addImages_volumns.Height+5
+            ZIndex: =4
+
+            Image3 As image:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Image: |-
+                    =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
