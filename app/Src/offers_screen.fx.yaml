@@ -152,7 +152,7 @@ offers_screen As screen:
             DefaultMode: =FormMode.New
             Height: =Parent.Height-Self.Y
             NumberOfColumns: =1
-            OnSuccess: =ResetForm(Self);
+            OnSuccess: =ResetForm(Self);ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title));
             Visible: =!collapseNewOffer
             Width: =Parent.Width
             Y: =40
@@ -1921,29 +1921,30 @@ offers_screen As screen:
                 add_images_lbl As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 51, 102, 1)
-                    BorderThickness: =1
-                    Color: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(250, 250, 250, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(0, 51, 102, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =offer_label.Height-4
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingLeft: =0
-                    PaddingRight: =0
+                    PaddingRight: =Icon5.Width
                     PaddingTop: =0
                     Size: =12
                     Text: ="Add Images"
-                    Width: =95
+                    Width: =95+Icon5.Width
                     X: =offer_images.X+offer_images.Width/2-Self.Width/2
                     Y: =offer_images.Y
                     ZIndex: =36
 
                 Icon5 As icon.Add:
                     BorderColor: =RGBA(0, 51, 102, 1)
-                    BorderThickness: =1
-                    Color: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(250, 250, 250, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 51, 102, 1)
+                    FocusedBorderThickness: =0
                     Height: =add_images_lbl.Height
                     Icon: =Icon.Add
                     OnSelect: =Select(Parent)
