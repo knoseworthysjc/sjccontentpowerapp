@@ -2218,3 +2218,16 @@ offers_screen As screen:
                 Y: =Parent.TemplateHeight-Self.Height-5
                 ZIndex: =3
 
+        Icon7 As icon.Cancel:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(250, 250, 250, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =addImages_label.Height-4
+            Icon: =Icon.Cancel
+            OnSelect: =Set(showAddImages,false);
+            Width: =addImages_label.Height-4
+            X: =Parent.Width-Self.Width-5
+            Y: =2
+            ZIndex: =5
+
