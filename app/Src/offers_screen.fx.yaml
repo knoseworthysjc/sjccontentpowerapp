@@ -957,6 +957,28 @@ offers_screen As screen:
                     Y: =DataCardKey11.Y
                     ZIndex: =4
 
+        Icon3 As icon.CancelBadge:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(0, 89, 178, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Icon: =Icon.CancelBadge
+            OnSelect: =ResetForm(new_offer_form);
+            X: =155
+            Y: =940
+            ZIndex: =4
+
+        Icon4 As icon.Save:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(0, 89, 178, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Icon: =Icon.Save
+            OnSelect: =SubmitForm(new_offer_form)
+            X: =261
+            Y: =940
+            ZIndex: =5
+
     existing_offer_container As groupContainer.manualLayoutContainer:
         Height: =Parent.Height-Self.Y
         Width: =Parent.Width-Self.X-Self.BorderThickness*2
