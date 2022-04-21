@@ -153,6 +153,7 @@ offers_screen As screen:
             Height: =Parent.Height-Self.Y
             NumberOfColumns: =1
             OnSuccess: =ResetForm(Self);
+            Visible: =!collapseNewOffer
             Width: =Parent.Width
             Y: =40
             ZIndex: =3
@@ -974,7 +975,7 @@ offers_screen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Icon: =Icon.Save
-            OnSelect: =SubmitForm(new_offer_form)
+            OnSelect: =SubmitForm(new_offer_form);
             X: =261
             Y: =940
             ZIndex: =5
@@ -1884,7 +1885,7 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.savings_lb
+                Default: =ThisItem.'Savings(LB)'
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1894,7 +1895,7 @@ offers_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{savings_lb:Self.Text})
+                    =Patch(Offers,ThisItem,{'Savings(LB)':Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
