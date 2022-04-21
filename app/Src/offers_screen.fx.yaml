@@ -1012,36 +1012,61 @@ offers_screen As screen:
             Y: =container_label_1.Height+container_label_1.Y+5
             ZIndex: =1
 
-            offer_label As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 51, 102, 1)
-                Color: =RGBA(0, 51, 102, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(204, 214, 224, 1)
-                Height: =35
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =13
-                Text: =""
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-15
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
+            offer_images_fre As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =offer_images.Height
+                Items: =ThisItem.assigned_images_fre
+                TemplatePadding: =2
+                TemplateSize: =Self.Width/2-Self.TemplatePadding*2
+                Width: =(Parent.TemplateWidth*0.25)
+                X: =offer_images.X
+                Y: =offer_images.Y+offer_images.Height
                 ZIndex: =1
+
+                Image2_1 As image:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =1
+
+                Label3_1 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(163, 160, 160, 0.72)
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =11
+                    Text: =Last(Split(ThisItem.Value,"/")).Result
+                    Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplateHeight-Self.Height-5
+                    ZIndex: =2
 
             offer_images As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
+                Height: =((Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y)/2
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =2
                 TemplateSize: =Self.Width/2-Self.TemplatePadding*2
                 Width: =(Parent.TemplateWidth*0.25)
                 X: =Parent.TemplatePadding
                 Y: =offer_label.Y+offer_label.Height
-                ZIndex: =1
+                ZIndex: =2
 
                 Image2 As image:
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -1075,6 +1100,25 @@ offers_screen As screen:
                     Y: =Parent.TemplateHeight-Self.Height-5
                     ZIndex: =2
 
+            offer_label As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 51, 102, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 214, 224, 1)
+                Height: =35
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Text: =""
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-15
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =3
+
             offer_page As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
@@ -1104,7 +1148,7 @@ offers_screen As screen:
                 Width: =55
                 X: =offer_page_lbl.X+offer_page_lbl.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =2
+                ZIndex: =4
 
             offer_page_lbl As label:
                 Align: =Align.Center
@@ -1124,7 +1168,7 @@ offers_screen As screen:
                 Width: =55
                 X: =Parent.TemplatePadding
                 Y: =offer_label.Y+2
-                ZIndex: =3
+                ZIndex: =5
 
             offer_layoutposition As text:
                 Align: =Align.Center
@@ -1155,7 +1199,7 @@ offers_screen As screen:
                 Width: =55
                 X: =offer_pos_lbl.X+offer_pos_lbl.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =4
+                ZIndex: =6
 
             offer_pos_lbl As label:
                 Align: =Align.Center
@@ -1175,7 +1219,7 @@ offers_screen As screen:
                 Width: =55
                 X: =offer_page.X+offer_page.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =5
+                ZIndex: =7
 
             offer_adblock As text:
                 Align: =Align.Center
@@ -1206,7 +1250,7 @@ offers_screen As screen:
                 Width: =55
                 X: =offer_adblock_lbl.X+offer_adblock_lbl.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =6
+                ZIndex: =8
 
             offer_adblock_lbl As label:
                 Align: =Align.Center
@@ -1226,7 +1270,7 @@ offers_screen As screen:
                 Width: =70
                 X: =offer_layoutposition.X+offer_layoutposition.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =7
+                ZIndex: =9
 
             offer_markets_lbl As label:
                 Align: =Align.Center
@@ -1246,7 +1290,7 @@ offers_screen As screen:
                 Width: =70
                 X: =offer_adblock.X+offer_adblock.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =9
+                ZIndex: =10
 
             offer_markets As combobox:
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -1279,7 +1323,7 @@ offers_screen As screen:
                 Width: =355
                 X: =offer_markets_lbl.X+offer_markets_lbl.Width+5
                 Y: =offer_markets_lbl.Y
-                ZIndex: =10
+                ZIndex: =11
 
             save_markets As icon.Save:
                 AccessibleLabel: ="Save Markets"
@@ -1295,7 +1339,7 @@ offers_screen As screen:
                 Width: =Self.Height
                 X: =offer_markets.X+offer_markets.Width+5
                 Y: =offer_markets.Y
-                ZIndex: =11
+                ZIndex: =12
 
             offer_copy_lbl As label:
                 Align: =Align.Center
@@ -1314,7 +1358,7 @@ offers_screen As screen:
                 Width: =(Parent.TemplateWidth-offer_images.Width-offer_images.X-Parent.TemplatePadding*2-30)/2
                 X: =offer_images.X+offer_images.Width+5
                 Y: =offer_images.Y
-                ZIndex: =12
+                ZIndex: =13
 
             offer_copy As text:
                 Align: =Align.Center
@@ -1343,7 +1387,7 @@ offers_screen As screen:
                 Width: =offer_copy_lbl.Width
                 X: =offer_copy_lbl.X
                 Y: =offer_copy_lbl.Y+offer_copy_lbl.Height
-                ZIndex: =13
+                ZIndex: =14
 
             offer_copyfrench_lbl As label:
                 Align: =Align.Center
@@ -1362,7 +1406,7 @@ offers_screen As screen:
                 Width: =(Parent.TemplateWidth-offer_images.Width-offer_images.X-Parent.TemplatePadding*2-30)/2
                 X: =offer_copy_lbl.X+offer_copy_lbl.Width+5
                 Y: =offer_images.Y
-                ZIndex: =14
+                ZIndex: =15
 
             offer_copy_french As text:
                 Align: =Align.Center
@@ -1391,7 +1435,7 @@ offers_screen As screen:
                 Width: =offer_copyfrench_lbl.Width
                 X: =offer_copyfrench_lbl.X
                 Y: =offer_copy_lbl.Y+offer_copy_lbl.Height
-                ZIndex: =15
+                ZIndex: =16
 
             offer_regprice_lbl As label:
                 Align: =Align.Center
@@ -1410,7 +1454,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_copy.X
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =16
+                ZIndex: =17
 
             offer_regprice As text:
                 Align: =Align.Center
@@ -1441,7 +1485,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_regprice_lbl.X
                 Y: =offer_regprice_lbl.Y+offer_regprice_lbl.Height
-                ZIndex: =17
+                ZIndex: =18
 
             offer_eventprice_lbl As label:
                 Align: =Align.Center
@@ -1460,7 +1504,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_regprice_lbl.X+offer_regprice_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =18
+                ZIndex: =19
 
             offer_eventprice As text:
                 Align: =Align.Center
@@ -1491,7 +1535,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_eventprice_lbl.X
                 Y: =offer_eventprice_lbl.Y+offer_eventprice_lbl.Height
-                ZIndex: =19
+                ZIndex: =20
 
             offer_savings_lbl As label:
                 Align: =Align.Center
@@ -1510,7 +1554,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_eventprice_lbl.X+offer_eventprice_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =20
+                ZIndex: =21
 
             offer_savings As text:
                 Align: =Align.Center
@@ -1541,7 +1585,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_savings_lbl.X
                 Y: =offer_savings_lbl.Y+offer_savings_lbl.Height
-                ZIndex: =21
+                ZIndex: =22
 
             offer_ecofees_lbl As label:
                 Align: =Align.Center
@@ -1562,7 +1606,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_savings_lbl.X+offer_savings.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =22
+                ZIndex: =23
 
             offer_ecofees As text:
                 Align: =Align.Center
@@ -1593,7 +1637,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_ecofees_lbl.X
                 Y: =offer_ecofees_lbl.Y+offer_ecofees_lbl.Height
-                ZIndex: =23
+                ZIndex: =24
 
             offer_unit_lbl As label:
                 Align: =Align.Center
@@ -1614,7 +1658,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_ecofees_lbl.X+offer_ecofees_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =24
+                ZIndex: =25
 
             offer_unit As text:
                 Align: =Align.Center
@@ -1646,7 +1690,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_unit_lbl.X
                 Y: =offer_unit_lbl.Y+offer_unit_lbl.Height
-                ZIndex: =25
+                ZIndex: =26
 
             offer_unitfre_lbl As label:
                 Align: =Align.Center
@@ -1666,7 +1710,7 @@ offers_screen As screen:
                 X: |
                     =offer_unit_lbl.X+offer_unit_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =26
+                ZIndex: =27
 
             offer_unit_1 As text:
                 Align: =Align.Center
@@ -1698,7 +1742,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_unitfre_lbl.X
                 Y: =offer_unitfre_lbl.Y+offer_unitfre_lbl.Height
-                ZIndex: =27
+                ZIndex: =28
 
             offer_type_lbl As label:
                 Align: =Align.Center
@@ -1718,7 +1762,7 @@ offers_screen As screen:
                 Width: =90
                 X: =save_markets.X+save_markets.Width+5
                 Y: =offer_label.Y+2
-                ZIndex: =28
+                ZIndex: =29
 
             offer_markets_1 As combobox:
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -1753,7 +1797,7 @@ offers_screen As screen:
                 Width: =155
                 X: =offer_type_lbl.X+offer_type_lbl.Width+5
                 Y: =offer_type_lbl.Y
-                ZIndex: =29
+                ZIndex: =30
 
             offer_regpricelb_lbl As label:
                 Align: =Align.Center
@@ -1774,7 +1818,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_copy.X
                 Y: =offer_regprice.Y+offer_regprice.Height+2
-                ZIndex: =30
+                ZIndex: =31
 
             offer_regpricelb As text:
                 Align: =Align.Center
@@ -1805,7 +1849,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_regpricelb_lbl.X
                 Y: =offer_regpricelb_lbl.Y+offer_regpricelb_lbl.Height
-                ZIndex: =31
+                ZIndex: =32
 
             offer_eventprice_lb_lbl As label:
                 Align: =Align.Center
@@ -1826,7 +1870,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_regpricelb_lbl.X+offer_regpricelb_lbl.Width+5
                 Y: =offer_eventprice.Y+offer_eventprice.Height+2
-                ZIndex: =32
+                ZIndex: =33
 
             offer_eventprice_1 As text:
                 Align: =Align.Center
@@ -1857,7 +1901,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_eventprice_lb_lbl.X
                 Y: =offer_eventprice_lb_lbl.Y+offer_eventprice_lb_lbl.Height
-                ZIndex: =33
+                ZIndex: =34
 
             offer_savingslb_lbl As label:
                 Align: =Align.Center
@@ -1878,7 +1922,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_eventprice_lb_lbl.X+offer_eventprice_lb_lbl.Width+5
                 Y: =offer_savings.Y+offer_savings.Height+2
-                ZIndex: =34
+                ZIndex: =35
 
             offer_savings_1 As text:
                 Align: =Align.Center
@@ -1909,7 +1953,7 @@ offers_screen As screen:
                 Width: =85
                 X: =offer_savingslb_lbl.X
                 Y: =offer_savingslb_lbl.Y+offer_savingslb_lbl.Height
-                ZIndex: =35
+                ZIndex: =36
 
             Group1 As group:
                 Height: =5
@@ -1919,7 +1963,6 @@ offers_screen As screen:
                 ZIndex: =38
 
                 add_images_lbl As label:
-                    Align: =Align.Center
                     BorderColor: =RGBA(0, 51, 102, 1)
                     Color: =RGBA(250, 250, 250, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1932,11 +1975,11 @@ offers_screen As screen:
                     PaddingRight: =Icon5.Width
                     PaddingTop: =0
                     Size: =12
-                    Text: ="Add Images"
-                    Width: =95+Icon5.Width
+                    Text: ="Add Images Eng"
+                    Width: =123+Icon5.Width
                     X: =offer_images.X+offer_images.Width/2-Self.Width/2
                     Y: =offer_images.Y
-                    ZIndex: =36
+                    ZIndex: =37
 
                 Icon5 As icon.Add:
                     BorderColor: =RGBA(0, 51, 102, 1)
@@ -1951,7 +1994,7 @@ offers_screen As screen:
                     Width: =Self.Height
                     X: =add_images_lbl.X+add_images_lbl.Width
                     Y: =add_images_lbl.Y
-                    ZIndex: =37
+                    ZIndex: =38
 
     page_filter As text:
         Align: =Align.Center
