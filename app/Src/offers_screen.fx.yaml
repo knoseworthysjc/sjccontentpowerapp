@@ -3591,7 +3591,7 @@ offers_screen As screen:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(250, 250, 250, 1)
-        Height: =83
+        Height: =screen_title.Height*2
         Image: |-
             =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
         ImagePosition: =ImagePosition.Fill
