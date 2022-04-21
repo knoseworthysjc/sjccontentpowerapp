@@ -1056,6 +1056,20 @@ offers_screen As screen:
                     Y: =Parent.TemplateHeight-Self.Height-5
                     ZIndex: =2
 
+                Icon8_1 As icon.Cancel:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 0.47)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =1
+                    Height: =35
+                    Icon: =Icon.Cancel
+                    OnSelect: =Select(Parent)
+                    Width: =35
+                    X: =Image2_1.X+Image2_1.Width-Self.Width
+                    Y: =40
+                    ZIndex: =3
+
             offer_images As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Fill: =RGBA(255, 255, 255, 1)
@@ -1099,6 +1113,20 @@ offers_screen As screen:
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplateHeight-Self.Height-5
                     ZIndex: =2
+
+                Icon8 As icon.Cancel:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 0.47)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =1
+                    Height: =35
+                    Icon: =Icon.Cancel
+                    OnSelect: =Select(Parent)
+                    Width: =35
+                    X: =Image2.X+Image2.Width-Self.Width
+                    Y: =40
+                    ZIndex: =3
 
             offer_label As label:
                 Align: =Align.Center
