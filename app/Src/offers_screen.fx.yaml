@@ -1998,7 +1998,7 @@ offers_screen As screen:
                     Fill: =RGBA(0, 51, 102, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =offer_label.Height-4
-                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");
+                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");Set(selectedOfferRecord,ThisItem);
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =Icon5.Width
@@ -2019,7 +2019,7 @@ offers_screen As screen:
                     FocusedBorderThickness: =0
                     Height: =add_images_lbl.Height
                     Icon: =Icon.Add
-                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");
+                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");Set(selectedOfferRecord,ThisItem);
                     Width: =Self.Height
                     X: =add_images_lbl.X+add_images_lbl.Width
                     Y: =add_images_lbl.Y
@@ -2039,7 +2039,7 @@ offers_screen As screen:
                     Fill: =RGBA(0, 51, 102, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =offer_label.Height-4
-                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");
+                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =Icon5_1.Width
@@ -2060,7 +2060,7 @@ offers_screen As screen:
                     FocusedBorderThickness: =0
                     Height: =add_images_lbl_1.Height
                     Icon: =Icon.Add
-                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");
+                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
                     Width: =Self.Height
                     X: =add_images_lbl_1.X+add_images_lbl_1.Width
                     Y: =offer_images_fre.Y
@@ -2279,7 +2279,12 @@ offers_screen As screen:
                     If(CountRows(xinet_image_exists)=0, Patch(xinet_images,Defaults(xinet_images),{Title:ThisItem.FILE_NAME,fullpath:ThisItem.FILE_PATH,macpath:ThisItem.FILE_PATH,pcpath:ThisItem.FILE_PATH,file_id:ThisItem.FILE_ID}));
                     ClearCollect(assignOfferPictures,container_gallery.Selected.assigned_images);
                     Collect(assignOfferPictures,{Id:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).ID,Value:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).Title});
-                    Switch(addImagesField,"images", Patch(offers,selectedOfferRecord,{xinet_images:assignOfferPictures});Patch(selectedOffers,existing_offers_gallery.Selected,{xinet_images:assignOfferPictures}),"logo",Patch(offers,selectedOfferRecord,{offer_logo:ThisItem.FILE_PATH}),"icon",Patch(offers,selectedOfferRecord,{offer_icon:ThisItem.FILE_PATH}));
+                    Switch(addImagesField,
+                    "english",
+                    Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});Patch(selectedOffers,selectedOfferRecord,{assigned_images:assignOfferPictures}),
+                    "french",
+                    Patch(Offers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});Patch(selectedOffers,selectedOfferRecord,{assigned_images_fre:assignOfferPictures})
+                    );
                 Width: =35
                 X: =Image3.X+Image3.Width-Self.Width-5
                 Y: |
