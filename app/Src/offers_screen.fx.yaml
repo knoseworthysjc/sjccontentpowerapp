@@ -2236,7 +2236,9 @@ offers_screen As screen:
         DisabledColor: =RGBA(244, 244, 244, 1)
         Height: =36
         Icon: =Icon.Reload
-        OnSelect: =Set(collapseNewOffer,true)
+        OnSelect: |-
+            =Set(collapseNewOffer,true);
+            ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title));
         Width: =39
         X: =1623
         ZIndex: =10
