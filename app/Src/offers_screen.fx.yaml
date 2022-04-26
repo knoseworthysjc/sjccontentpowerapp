@@ -1070,7 +1070,7 @@ offers_screen As screen:
                     OnSelect: |-
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
                         Patch(Offers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
-                        Patch(selectedOffers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
+                        Patch(selectedOffers,First(Filter(selectedOffers,ID = container_gallery.Selected.ID)),{assigned_images_fre:assignOfferPictures});
                     Width: =35
                     X: =Image2_1.X+Image2_1.Width-Self.Width
                     Y: =40
@@ -1131,7 +1131,7 @@ offers_screen As screen:
                     OnSelect: |-
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
                         Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});
-                        Patch(selectedOffers,container_gallery.Selected,{assigned_images:assignOfferPictures});
+                        Patch(selectedOffers,First(Filter(selectedOffers,ID = container_gallery.Selected.ID)),{assigned_images:assignOfferPictures});
                     Width: =35
                     X: =Image2.X+Image2.Width-Self.Width
                     Y: =40
