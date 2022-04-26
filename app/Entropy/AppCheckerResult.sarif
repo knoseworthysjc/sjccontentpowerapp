@@ -1994,36 +1994,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offers_screen.AddImages.addImagesGallery.Icon9_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offers_screen.AddImages.addImagesGallery.Icon9_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "offers_screen",
-                "type": "offers_screen.AddImages.addImagesGallery.Icon9_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "offers_screen.AddImages.addImagesGallery.Icon9_1.TabIndex"
                 }
               ],
@@ -2048,6 +2018,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "offers_screen.AddImages.addImagesGallery.Icon9_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offers_screen.AddImages.addImagesGallery.Icon9_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "offers_screen",
+                "type": "offers_screen.AddImages.addImagesGallery.Icon9_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
