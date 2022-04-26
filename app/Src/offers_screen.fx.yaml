@@ -1005,9 +1005,11 @@ offers_screen As screen:
 
         container_gallery As gallery.galleryVertical:
             BorderColor: =RGBA(0, 89, 178, 1)
+            DelayItemLoading: =true
             Height: =Parent.Height-Self.Y
             Items: =If(page_filter.Text = "", SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter.Text),"layout_position",Ascending))
             Layout: =Layout.Vertical
+            TemplateFill: =If(ThisItem.ID=container_gallery.Selected.ID, RGBA(0, 0, 0, 0.1),RGBA(0, 0, 0, 0))
             TemplateSize: =Self.Height/3
             Width: =Parent.Width
             Y: =container_label_1.Height+container_label_1.Y+5
@@ -1065,7 +1067,10 @@ offers_screen As screen:
                     FocusedBorderThickness: =1
                     Height: =35
                     Icon: =Icon.Cancel
-                    OnSelect: =Select(Parent)
+                    OnSelect: |
+                        =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
+                        Patch(Offers,selectedOfferRecord,{assigned_images_fre:assignOfferPictures});
+                        Patch(selectedOffers,selectedOfferRecord,{assigned_images_fre:assignOfferPictures});
                     Width: =35
                     X: =Image2_1.X+Image2_1.Width-Self.Width
                     Y: =40
@@ -2045,7 +2050,7 @@ offers_screen As screen:
                 Size: =12
                 Text: |-
                     ="Record Type:"
-                Width: =90
+                Width: =100
                 X: =offer_type.X+offer_type.Width+5
                 Y: =offer_label.Y+2
                 ZIndex: =41
@@ -2127,6 +2132,58 @@ offers_screen As screen:
                 X: =offer_record_type_lbl.X+offer_record_type_lbl.Width+5
                 Y: =offer_record_type_lbl.Y
                 ZIndex: =42
+
+            offer_instructions_lbl As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =offer_label.Height-4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Country of Origin Fre"
+                Width: =275
+                X: |
+                    =offer_unit_lbl.X+offer_unit_lbl.Width+5
+                Y: =offer_copy.Y+offer_copy.Height+2
+                ZIndex: =43
+
+            offer_instructions As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.'Country of Origin(Fre)'
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =offer_label.Height*2-8
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{'Country of Origin(Fre)':Self.Text})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Width: =275
+                X: =offer_instructions_lbl.X
+                Y: =offer_instructions_lbl.Y+offer_instructions_lbl.Height
+                ZIndex: =44
 
     page_filter As text:
         Align: =Align.Center
