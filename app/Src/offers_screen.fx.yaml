@@ -2284,9 +2284,9 @@ offers_screen As screen:
                     Collect(assignOfferPictures,{Id:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).ID,Value:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).Title});
                     Switch(addImagesField,
                     "english",
-                    Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});Patch(selectedOffers,selectedOfferRecord,{assigned_images:assignOfferPictures}),
+                    Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});,
                     "french",
-                    Patch(Offers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});Patch(selectedOffers,selectedOfferRecord,{assigned_images_fre:assignOfferPictures})
+                    Patch(Offers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
                     );
                 Width: =35
                 X: =Image3.X+Image3.Width-Self.Width-5
