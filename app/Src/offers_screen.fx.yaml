@@ -2195,11 +2195,12 @@ offers_screen As screen:
                 }
                 ).FILES_INFO,Xinet.Search(Last(xinetPaths).FILE_ID,addImagesSearch.Text).FILES_INFO)
             Layout: =Layout.Vertical
-            TemplateSize: =Self.Width/3-Self.TemplatePadding*3-20
+            TemplatePadding: =2
+            TemplateSize: =(Self.Width-20)/3-Self.TemplatePadding*3
             Width: =Parent.Width-5
             WrapCount: =3
             X: =5
-            Y: =addImagesVolumes.Y+addImagesVolumes.Height+5
+            Y: =addImageCurrentPath.Y+addImageCurrentPath.Height+5
             ZIndex: =4
 
             Image3 As image:
@@ -2260,4 +2261,36 @@ offers_screen As screen:
             X: =Parent.Width-Self.Width-5
             Y: =2
             ZIndex: =5
+
+        addImageCurrentPath As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 51, 102, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =RGBA(0, 51, 102, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(204, 214, 224, 1)
+            FontWeight: =FontWeight.Semibold
+            PaddingBottom: =0
+            PaddingLeft: =40
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =13
+            Text: =Last(xinetPaths).FILE_PATH&"("&Last(xinetPaths).FILE_ID&")"
+            Width: =Parent.Width-Self.BorderThickness*2
+            Y: =addImagesVolumes.Y+addImagesVolumes.Height+5
+            ZIndex: =6
+
+        Icon2 As icon.BackArrow:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(0, 89, 178, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =addImageCurrentPath.Height
+            Icon: =Icon.BackArrow
+            Width: =Self.Height
+            X: =addImageCurrentPath.X
+            Y: =addImageCurrentPath.Y
+            ZIndex: =7
 
