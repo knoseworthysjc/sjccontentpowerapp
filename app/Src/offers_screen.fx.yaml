@@ -2213,7 +2213,7 @@ offers_screen As screen:
                     =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
                 OnSelect: =Select(Parent)
                 Visible: =!ThisItem.FILE_ISADIR
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-10
                 X: =Parent.TemplatePadding
                 Y: =Parent.TemplatePadding
                 ZIndex: =1
@@ -2276,21 +2276,21 @@ offers_screen As screen:
             PaddingLeft: =40
             PaddingRight: =0
             PaddingTop: =0
-            Size: =13
             Text: =Last(xinetPaths).FILE_PATH&"("&Last(xinetPaths).FILE_ID&")"
             Width: =Parent.Width-Self.BorderThickness*2
             Y: =addImagesVolumes.Y+addImagesVolumes.Height+5
             ZIndex: =6
 
-        Icon2 As icon.BackArrow:
+        addImageBack As icon.BackArrow:
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(0, 89, 178, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =addImageCurrentPath.Height
             Icon: =Icon.BackArrow
+            OnSelect: =If(CountRows(xinetPaths) > 1 ,Remove(xinetPaths,Last(xinetPaths)))
             Width: =Self.Height
-            X: =addImageCurrentPath.X
+            X: =addImageCurrentPath.X+5
             Y: =addImageCurrentPath.Y
             ZIndex: =7
 
