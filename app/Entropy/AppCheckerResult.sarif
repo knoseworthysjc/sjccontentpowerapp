@@ -1274,19 +1274,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_markets_1.AccessibleLabel"
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_type.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_markets_1.AccessibleLabel",
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_type.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "offers_screen",
-                "type": "offers_screen.existing_offer_container.container_gallery.offer_markets_1"
+                "type": "offers_screen.existing_offer_container.container_gallery.offer_type"
               }
             }
           ],
@@ -2114,6 +2114,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_record_type.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offers_screen.existing_offer_container.container_gallery.offer_record_type.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "offers_screen",
+                "type": "offers_screen.existing_offer_container.container_gallery.offer_record_type"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App"
                 }
               ],
@@ -2259,7 +2289,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offers_screen\" is 515, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offers_screen\" is 525, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
