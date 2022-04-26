@@ -1067,10 +1067,10 @@ offers_screen As screen:
                     FocusedBorderThickness: =1
                     Height: =35
                     Icon: =Icon.Cancel
-                    OnSelect: |
+                    OnSelect: |-
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
-                        Patch(Offers,selectedOfferRecord,{assigned_images_fre:assignOfferPictures});
-                        Patch(selectedOffers,selectedOfferRecord,{assigned_images_fre:assignOfferPictures});
+                        Patch(Offers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
+                        Patch(selectedOffers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
                     Width: =35
                     X: =Image2_1.X+Image2_1.Width-Self.Width
                     Y: =40
@@ -1131,7 +1131,7 @@ offers_screen As screen:
                     OnSelect: |-
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
                         Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});
-                        Patch(selectedOffers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
+                        Patch(selectedOffers,container_gallery.Selected,{assigned_images:assignOfferPictures});
                     Width: =35
                     X: =Image2.X+Image2.Width-Self.Width
                     Y: =40
@@ -2399,7 +2399,7 @@ offers_screen As screen:
                 OnSelect: |-
                     =ClearCollect(xinet_image_exists,Filter(xinet_images,Title=ThisItem.FILE_NAME));
                     If(CountRows(xinet_image_exists)=0, Patch(xinet_images,Defaults(xinet_images),{Title:ThisItem.FILE_NAME,fullpath:ThisItem.FILE_PATH,macpath:ThisItem.FILE_PATH,pcpath:ThisItem.FILE_PATH,file_id:ThisItem.FILE_ID}));
-                    ClearCollect(assignOfferPictures,container_gallery.Selected.assigned_images);
+                    If(addImagesField="english",ClearCollect(assignOfferPictures,container_gallery.Selected.assigned_images),ClearCollect(assignOfferPictures,container_gallery.Selected.assigned_images_fre));
                     Collect(assignOfferPictures,{Id:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).ID,Value:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).Title});
                     Switch(addImagesField,
                     "english",
