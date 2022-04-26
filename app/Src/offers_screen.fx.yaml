@@ -1131,7 +1131,7 @@ offers_screen As screen:
                     OnSelect: |
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
                         Patch(Offers,selectedOfferRecord,{assigned_images:assignOfferPictures});
-                        Patch(selectedOffers,selectedOfferRecord,{assigned_images:assignOfferPictures});
+                        Patch(selectedOffers,container_gallery.Selected,{assigned_images:assignOfferPictures});
                     Width: =35
                     X: =Image2.X+Image2.Width-Self.Width
                     Y: =40
@@ -2146,10 +2146,12 @@ offers_screen As screen:
                 PaddingRight: =0
                 PaddingTop: =0
                 Size: =12
-                Text: ="Country of Origin Fre"
-                Width: =275
+                Text: |-
+                    ="Comments
+                    "
+                Width: =Parent.TemplateWidth-Self.X-20-Parent.TemplatePadding*2
                 X: |
-                    =offer_unit_lbl.X+offer_unit_lbl.Width+5
+                    =offer_unitfre_lbl.X+offer_unitfre_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =43
 
@@ -2158,7 +2160,7 @@ offers_screen As screen:
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =ThisItem.'Country of Origin(Fre)'
+                Default: =ThisItem.offer_comments
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2180,7 +2182,8 @@ offers_screen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =13
-                Width: =275
+                Width: |
+                    =Parent.TemplateWidth-Self.X-20-Parent.TemplatePadding*2
                 X: =offer_instructions_lbl.X
                 Y: =offer_instructions_lbl.Y+offer_instructions_lbl.Height
                 ZIndex: =44
