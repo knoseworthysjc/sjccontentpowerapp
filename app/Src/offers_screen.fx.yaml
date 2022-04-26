@@ -1123,7 +1123,10 @@ offers_screen As screen:
                     FocusedBorderThickness: =1
                     Height: =35
                     Icon: =Icon.Cancel
-                    OnSelect: =Select(Parent)
+                    OnSelect: |
+                        =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
+                        Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});
+                        Patch(selectedOffers,container_gallery.Selected,{assigned_images:assignOfferPictures});
                     Width: =35
                     X: =Image2.X+Image2.Width-Self.Width
                     Y: =40
