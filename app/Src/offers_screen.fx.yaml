@@ -1125,8 +1125,8 @@ offers_screen As screen:
                     Icon: =Icon.Cancel
                     OnSelect: |
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
-                        Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});
-                        Patch(selectedOffers,container_gallery.Selected,{assigned_images:assignOfferPictures});
+                        Patch(Offers,selectedOfferRecord,{assigned_images:assignOfferPictures});
+                        Patch(selectedOffers,selectedOfferRecord,{assigned_images:assignOfferPictures});
                     Width: =35
                     X: =Image2.X+Image2.Width-Self.Width
                     Y: =40
