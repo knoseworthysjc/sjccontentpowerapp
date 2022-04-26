@@ -1128,10 +1128,10 @@ offers_screen As screen:
                     FocusedBorderThickness: =1
                     Height: =35
                     Icon: =Icon.Cancel
-                    OnSelect: |
+                    OnSelect: |-
                         =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
-                        Patch(Offers,selectedOfferRecord,{assigned_images:assignOfferPictures});
-                        Patch(selectedOffers,container_gallery.Selected,{assigned_images:assignOfferPictures});
+                        Patch(Offers,container_gallery.Selected,{assigned_images:assignOfferPictures});
+                        Patch(selectedOffers,container_gallery.Selected,{assigned_images_fre:assignOfferPictures});
                     Width: =35
                     X: =Image2.X+Image2.Width-Self.Width
                     Y: =40
@@ -1820,7 +1820,7 @@ offers_screen As screen:
                 IsSearchable: =false
                 Items: =Choices(Offers.offer_type)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{'offer_type':Self.Selected})
+                    =Patch(Offers,ThisItem,{offer_type:Self.Selected})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =3
                 PaddingLeft: =3
@@ -2115,7 +2115,7 @@ offers_screen As screen:
                 IsSearchable: =false
                 Items: =Choices(Offers.record_type)
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{'record_type':Self.Selected})
+                    =Patch(Offers,ThisItem,{record_type:Self.Selected})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =3
                 PaddingLeft: =3
@@ -2171,7 +2171,7 @@ offers_screen As screen:
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Mode: =TextMode.MultiLine
                 OnChange: |-
-                    =Patch(Offers,ThisItem,{'Country of Origin(Fre)':Self.Text})
+                    =Patch(Offers,ThisItem,{'offer_comments':Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
