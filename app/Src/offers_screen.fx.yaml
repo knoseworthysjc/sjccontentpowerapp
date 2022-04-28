@@ -2489,7 +2489,7 @@ offers_screen As screen:
                 Fill: =RGBA(204, 222, 240, 1)
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
                 PaddingLeft: =nav_label_icon.Width+nav_label_icon.X+5
                 Size: =13
                 Text: =ThisItem.Title
@@ -2505,7 +2505,7 @@ offers_screen As screen:
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                 Icon: =ThisItem.icon
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
                 Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
                 X: =Parent.TemplatePadding
                 Y: =Parent.TemplatePadding
@@ -2518,7 +2518,7 @@ offers_screen As screen:
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                 Icon: =Icon.NextArrow
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
                 Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
                 Y: =Parent.TemplatePadding
