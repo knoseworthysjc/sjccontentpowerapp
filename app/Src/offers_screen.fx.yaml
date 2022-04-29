@@ -37,7 +37,7 @@ offers_screen As screen:
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
         Width: =105
-        X: =822
+        X: =605
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =2
 
@@ -66,7 +66,7 @@ offers_screen As screen:
         Reset: =true
         Size: =13
         Width: =70
-        X: =931
+        X: =798
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =3
 
@@ -96,7 +96,7 @@ offers_screen As screen:
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
-        X: =1009
+        X: =967
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =4
 
@@ -2526,7 +2526,65 @@ offers_screen As screen:
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
         Width: =100
-        X: =1340
-        Y: =7
+        X: =1367
+        Y: =2
         ZIndex: =13
+
+    Label1 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        Size: =16
+        Text: |-
+            ="Year:"
+        Width: =81
+        X: =524
+        Y: =1
+        ZIndex: =14
+
+    Label1_1 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        Size: =16
+        Text: |-
+            ="Week:"
+        Width: =81
+        X: =717
+        Y: =1
+        ZIndex: =15
+
+    Label1_2 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        Size: =16
+        Text: |-
+            ="Project:"
+        Width: =109
+        X: =868
+        ZIndex: =16
+
+    Label1_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        Size: =16
+        Text: |-
+            ="Page:"
+        Width: =81
+        X: =1298
+        ZIndex: =17
 
