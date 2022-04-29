@@ -2588,3 +2588,30 @@ offers_screen As screen:
         X: =1298
         ZIndex: =17
 
+    page_filter_1 As dropdown:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(0, 51, 102, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =screen_title.Height-Self.BorderThickness*8
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        Items: =Filter(Projects,Season.Value=season_filter.Selected.Value)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 89, 178, 1)
+        SelectionFill: =RGBA(0, 51, 102, 1)
+        Size: =13
+        Width: =100
+        X: =369
+        Y: =4
+        ZIndex: =18
+
