@@ -598,7 +598,7 @@ offers_screen As screen:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="page_from"
-                Default: =page_filter.Text
+                Default: =page_filter.Selected.Result
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@Offers],DataSourceInfo.DisplayName,"page_from")
                 Fill: =RGBA(0, 0, 0, 0)
