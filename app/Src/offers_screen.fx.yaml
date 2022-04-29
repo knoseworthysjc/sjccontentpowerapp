@@ -1400,6 +1400,8 @@ offers_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Mode: =TextMode.MultiLine
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{offer_copy:Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -1448,6 +1450,8 @@ offers_screen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Mode: =TextMode.MultiLine
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{offer_copy_french:Self.Text})
                 OnSelect: =Select(Parent)
                 PaddingBottom: =0
                 PaddingLeft: =0
