@@ -2158,7 +2158,7 @@ offers_screen As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 FocusedBorderThickness: =4
-                Height: =offer_label.Height*2-8
+                Height: =Parent.TemplateHeight-Self.Y-5
                 HoverBorderColor: =RGBA(0, 89, 178, 1)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
@@ -2605,7 +2605,7 @@ offers_screen As screen:
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
-        Items: =Filter(Projects,Season.Value=season_filter.Selected.Value)
+        Items: =Filter(Projects,season.Value=season_filter.Selected.Value)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
