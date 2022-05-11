@@ -1389,8 +1389,10 @@ offers_screen As screen:
             offer_copy As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 51, 102, 1)
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.offer_copy
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1411,6 +1413,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =12
                 Width: =offer_copy_lbl.Width
                 X: =offer_copy_lbl.X
@@ -1439,8 +1442,10 @@ offers_screen As screen:
             offer_copy_french As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 51, 102, 1)
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.offer_copy_french
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1461,6 +1466,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =12
                 Width: =offer_copyfrench_lbl.Width
                 X: =offer_copyfrench_lbl.X
@@ -1490,8 +1496,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.regular_price
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1511,6 +1519,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_regprice_lbl.X
@@ -1540,8 +1549,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.event_price
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1561,6 +1572,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_eventprice_lbl.X
@@ -1590,8 +1602,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.savings
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1611,6 +1625,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_savings_lbl.X
@@ -1642,8 +1657,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.eco_fee
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1663,6 +1680,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_ecofees_lbl.X
@@ -1694,8 +1712,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.'Country of Origin'
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1716,6 +1736,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =275
                 X: =offer_unit_lbl.X
@@ -1746,8 +1767,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.'Country of Origin(Fre)'
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1768,6 +1791,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =275
                 X: =offer_unitfre_lbl.X
@@ -1856,8 +1880,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.regular_price_lb
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1877,6 +1903,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_regpricelb_lbl.X
@@ -1908,8 +1935,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.event_price_lb
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1929,6 +1958,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_eventprice_lb_lbl.X
@@ -1960,8 +1990,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.'Savings(LB)'
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1981,6 +2013,7 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: =85
                 X: =offer_savingslb_lbl.X
@@ -2152,8 +2185,10 @@ offers_screen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
+                Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.offer_comments
+                DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2174,12 +2209,67 @@ offers_screen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Reset: =true
                 Size: =13
                 Width: |
                     =Parent.TemplateWidth-Self.X-20-Parent.TemplatePadding*2
                 X: =offer_instructions_lbl.X
                 Y: =offer_instructions_lbl.Y+offer_instructions_lbl.Height
                 ZIndex: =44
+
+            offer_unit_lbl_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =26
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Grade"
+                Width: =275
+                X: =offer_ecofees_lbl.X+offer_ecofees_lbl.Width+5
+                Y: =246
+                ZIndex: =45
+
+            offer_unit_2 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.Grade
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =52
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
+                OnChange: |-
+                    =Patch(Offers,ThisItem,{'Country of Origin':Self.Text})
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Reset: =true
+                Size: =13
+                Width: =275
+                X: =offer_unit_lbl_1.X
+                Y: =272
+                ZIndex: =46
 
     Icon1 As icon.Reload:
         BorderColor: =RGBA(0, 89, 178, 1)
