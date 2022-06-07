@@ -89,8 +89,8 @@ offers_screen As screen:
         HoverFill: =RGBA(153, 205, 255, 1)
         Items: |-
             =If(week_filter.Text="", 
-            SortByColumns(Filter(Projects,season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
-            SortByColumns(Filter(Projects,season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
+            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
+            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
         OnChange: =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title))
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
