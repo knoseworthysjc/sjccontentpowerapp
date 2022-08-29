@@ -1362,6 +1362,7 @@ offers_screen As screen:
                 OnSelect: |-
                     =Patch(Offers,ThisItem,{Markets:offer_markets.SelectedItems})
                 Tooltip: ="Save Markets"
+                Visible: =false
                 Width: =Self.Height
                 X: =offer_markets.X+offer_markets.Width+5
                 Y: =offer_markets.Y
@@ -1687,7 +1688,7 @@ offers_screen As screen:
                 Y: =offer_ecofees_lbl.Y+offer_ecofees_lbl.Height
                 ZIndex: =24
 
-            offer_unit_lbl As label:
+            offer_coo_lbl As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1708,7 +1709,7 @@ offers_screen As screen:
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =25
 
-            offer_unit As text:
+            offer_coo As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
@@ -1739,11 +1740,11 @@ offers_screen As screen:
                 Reset: =true
                 Size: =13
                 Width: =275
-                X: =offer_unit_lbl.X
-                Y: =offer_unit_lbl.Y+offer_unit_lbl.Height
+                X: =offer_coo_lbl.X
+                Y: =offer_coo_lbl.Y+offer_coo_lbl.Height
                 ZIndex: =26
 
-            offer_unitfre_lbl As label:
+            offer_cooFre_lbl As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1759,11 +1760,11 @@ offers_screen As screen:
                 Text: ="Country of Origin Fre"
                 Width: =275
                 X: |
-                    =offer_unit_lbl.X+offer_unit_lbl.Width+5
+                    =offer_coo_lbl.X+offer_coo_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =27
 
-            offer_unit_1 As text:
+            offer_cooFre As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
@@ -1794,8 +1795,8 @@ offers_screen As screen:
                 Reset: =true
                 Size: =13
                 Width: =275
-                X: =offer_unitfre_lbl.X
-                Y: =offer_unitfre_lbl.Y+offer_unitfre_lbl.Height
+                X: =offer_cooFre_lbl.X
+                Y: =offer_cooFre_lbl.Y+offer_cooFre_lbl.Height
                 ZIndex: =28
 
             offer_type_lbl As label:
@@ -2177,7 +2178,7 @@ offers_screen As screen:
                     "
                 Width: =Parent.TemplateWidth-Self.X-20-Parent.TemplatePadding*2
                 X: |
-                    =offer_unitfre_lbl.X+offer_unitfre_lbl.Width+5
+                    =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =43
 
@@ -2217,7 +2218,7 @@ offers_screen As screen:
                 Y: =offer_instructions_lbl.Y+offer_instructions_lbl.Height
                 ZIndex: =44
 
-            offer_unit_lbl_1 As label:
+            offer_grade_lbl As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2236,7 +2237,7 @@ offers_screen As screen:
                 Y: =246
                 ZIndex: =45
 
-            offer_unit_2 As text:
+            offer_grade As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
@@ -2267,9 +2268,24 @@ offers_screen As screen:
                 Reset: =true
                 Size: =13
                 Width: =275
-                X: =offer_unit_lbl_1.X
+                X: =offer_grade_lbl.X
                 Y: =272
                 ZIndex: =46
+
+            Icon10 As icon.Save:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =offer_label.Height-2
+                Icon: =Icon.Save
+                OnSelect: |-
+                    =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:offer_record_type.Selected,offer_copy:offer_copy.Text,offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text})
+                Width: =Self.Height
+                X: =offer_label.X+offer_label.Width-Self.Width-2
+                Y: =offer_label.Y+1
+                ZIndex: =47
 
     Icon1 As icon.Reload:
         BorderColor: =RGBA(0, 89, 178, 1)
