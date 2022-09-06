@@ -37,7 +37,7 @@ offers_screen As screen:
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
         Width: =105
-        X: =450+80
+        X: =Label1.X+Label1.Width
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =2
 
@@ -66,7 +66,7 @@ offers_screen As screen:
         Reset: =true
         Size: =13
         Width: =70
-        X: =798
+        X: =Label1_1.X+Label1_1.Width
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =3
 
@@ -96,7 +96,7 @@ offers_screen As screen:
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
-        X: =967
+        X: =Label1_2.X+Label1_2.Width
         Y: =(Self.BorderThickness*8)/2
         ZIndex: =4
 
@@ -2804,7 +2804,7 @@ offers_screen As screen:
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
         Width: =100
-        X: =1367
+        X: =Label1_3.X+Label1_3.Width
         Y: =2
         ZIndex: =13
 
@@ -2819,7 +2819,7 @@ offers_screen As screen:
         Text: |-
             ="Year:"
         Width: =81
-        X: =450
+        X: =350
         Y: =1
         ZIndex: =14
 
@@ -2834,7 +2834,7 @@ offers_screen As screen:
         Text: |-
             ="Week:"
         Width: =81
-        X: =717
+        X: =season_filter.X+season_filter.Width
         Y: =1
         ZIndex: =15
 
@@ -2849,7 +2849,7 @@ offers_screen As screen:
         Text: |-
             ="Project:"
         Width: =109
-        X: =868
+        X: =week_filter.Width+week_filter.X
         ZIndex: =16
 
     Label1_3 As label:
@@ -2863,6 +2863,6 @@ offers_screen As screen:
         Text: |-
             ="Page:"
         Width: =81
-        X: =1298
+        X: =project_filter.X+project_filter.Width
         ZIndex: =17
 
