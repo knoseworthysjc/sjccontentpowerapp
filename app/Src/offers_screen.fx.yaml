@@ -54,6 +54,7 @@ offers_screen As screen:
         FocusedBorderThickness: =4
         Font: =Font.Verdana
         FontWeight: =FontWeight.Semibold
+        Format: =TextFormat.Number
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverBorderColor: =RGBA(0, 89, 178, 1)
         HoverColor: =RGBA(0, 0, 0, 1)
@@ -94,6 +95,7 @@ offers_screen As screen:
         OnChange: =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title))
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
+        Reset: =true
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
         X: =Label1_2.X+Label1_2.Width
@@ -2369,7 +2371,7 @@ offers_screen As screen:
                 PaddingRight: =0
                 PaddingTop: =0
                 Size: =11
-                Text: ="Grade"
+                Text: ="Grade Fre"
                 Width: =275
                 X: =offer_grade.X+offer_grade.Width+5
                 Y: =offer_grade_lbl.Y
@@ -2458,21 +2460,6 @@ offers_screen As screen:
                 X: =offer_items_lbl_1.X+offer_items_lbl_1.Width+5
                 Y: =offer_label.Y+offer_label.Height+5
                 ZIndex: =55
-
-    Icon1 As icon.Reload:
-        BorderColor: =RGBA(0, 89, 178, 1)
-        Color: =RGBA(0, 89, 178, 1)
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(244, 244, 244, 1)
-        Height: =36
-        Icon: =Icon.Reload
-        OnSelect: |
-            =Refresh(Offers);
-            Set(collapseNewOffer,true);
-            ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title));
-        Width: =39
-        X: =1623
-        ZIndex: =8
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
@@ -2819,7 +2806,7 @@ offers_screen As screen:
         Text: |-
             ="Year:"
         Width: =81
-        X: =Parent.Width/5
+        X: =Parent.Width/8
         Y: =1
         ZIndex: =14
 
@@ -2865,4 +2852,86 @@ offers_screen As screen:
         Width: =81
         X: =project_filter.X+project_filter.Width
         ZIndex: =17
+
+    searchOffers As text:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderThickness: =2
+        Clear: =true
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =""
+        DelayOutput: =true
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        FontWeight: =FontWeight.Semibold
+        Height: =page_filter.Height
+        HoverBorderColor: =RGBA(0, 89, 178, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        PaddingLeft: =5
+        Reset: =true
+        Size: =11
+        Tooltip: ="Search Previous Offers"
+        X: =page_filter.X+page_filter.Width+10
+        Y: =page_filter.Y
+        ZIndex: =18
+
+    Icon1 As icon.Filter:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =1
+        Height: =searchOffers.Height-2
+        Icon: =Icon.Filter
+        OnSelect: |-
+            =ClearCollect(searchOffersRecords,Search(Offers,searchOffers.Text,"Title","featured_item_numbers","combined_item_number"));
+            Set(showRelistPanel,true);
+        Width: =Self.Height
+        X: =searchOffers.X+searchOffers.Width
+        Y: =searchOffers.Y+1
+        ZIndex: =19
+
+    relistPanel As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =Parent.Height-Self.Y-40
+        Width: =Parent.Width-Self.X-40
+        X: =searchOffers.X
+        Y: =60
+        ZIndex: =20
+
+        relistPanelHeader As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(102, 133, 163, 1)
+            Font: =Font.Verdana
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Offers: "&searchOffers.Text
+            Width: =Parent.Width
+            ZIndex: =1
+
+        relistGallery As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height-Self.Y
+            Items: =searchOffersRecords
+            Layout: =Layout.Vertical
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+            Width: =Parent.Width
+            Y: =relistPanelHeader.Height+10
+            ZIndex: =1
+
+            Image4 As image:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Image: =If(CountRows(ThisItem.assigned_images) > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,First(ThisItem.assigned_images).Id)).fullpath))
+                OnSelect: =Select(Parent)
+                X: =40
+                Y: =40
+                ZIndex: =1
 
