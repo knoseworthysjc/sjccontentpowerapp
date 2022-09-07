@@ -2250,7 +2250,7 @@ offers_screen As screen:
                 Height: =offer_label.Height-2
                 Icon: =Icon.Save
                 OnSelect: |-
-                    =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:offer_record_type.Selected,offer_copy:offer_copy.Text,offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:offer_record_type.Selected,offer_copy:offer_copy.Text,offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text})
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-2
@@ -2887,7 +2887,7 @@ offers_screen As screen:
         Height: =searchOffers.Height-2
         Icon: =Icon.Filter
         OnSelect: |-
-            =ClearCollect(searchOffersRecords,Search(Offers,searchOffers.Text,"Title","featured_item_numbers","combined_item_number"));
+            =ClearCollect(searchOffersRecords,Search(Offers,searchOffers.Text,"offer_copy","featured_item_numbers"));
             Set(showRelistPanel,true);
         Width: =Self.Height
         X: =searchOffers.X+searchOffers.Width
@@ -2895,6 +2895,8 @@ offers_screen As screen:
         ZIndex: =19
 
     relistPanel As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 36, 71, 1)
+        BorderThickness: =1
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height-Self.Y-40
         Visible: =showRelistPanel
@@ -2917,7 +2919,8 @@ offers_screen As screen:
             ZIndex: =1
 
         relistGallery As gallery.galleryVertical:
-            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderColor: =RGBA(0, 36, 71, 1)
+            BorderStyle: =BorderStyle.None
             Height: =Parent.Height-Self.Y
             Items: =searchOffersRecords
             Layout: =Layout.Vertical
@@ -2926,14 +2929,19 @@ offers_screen As screen:
             Y: =relistPanelHeader.Height+10
             ZIndex: =1
 
-            Image4 As image:
+            Label2 As label:
+                Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Image: =If(CountRows(ThisItem.assigned_images) > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,First(ThisItem.assigned_images).Id)).fullpath))
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(232, 232, 232, 1)
+                FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
-                X: =40
-                Y: =40
+                Size: =11
+                Text: =ThisItem.assigned_project.Value
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
                 ZIndex: =1
 
         Icon2 As icon.CancelBadge:
