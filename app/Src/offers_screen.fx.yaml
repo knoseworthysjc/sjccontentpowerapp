@@ -2944,6 +2944,28 @@ offers_screen As screen:
                 Y: =Parent.TemplatePadding
                 ZIndex: =1
 
+            relistOffersImages As gallery.galleryVertical:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
+                Items: =ThisItem.assigned_images
+                Layout: =Layout.Vertical
+                TemplateSize: =Self.Width/2
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/3
+                WrapCount: =2
+                X: =Parent.TemplatePadding
+                Y: =Label2.Height+Label2.Y
+                ZIndex: =1
+
+                Image4 As image:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                    OnSelect: =Select(Parent)
+                    X: =1.6666666666666714
+                    Y: =9.166666666666671
+                    ZIndex: =1
+
         Icon2 As icon.CancelBadge:
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(0, 89, 178, 1)
