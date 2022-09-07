@@ -2924,18 +2924,20 @@ offers_screen As screen:
             Height: =Parent.Height-Self.Y
             Items: =searchOffersRecords
             Layout: =Layout.Vertical
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+            TemplateSize: =Self.Height/3
             Width: =Parent.Width
             Y: =relistPanelHeader.Height+10
             ZIndex: =1
 
             Label2 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =RGBA(0, 36, 71, 1)
+                BorderThickness: =1
                 Color: =RGBA(0, 51, 102, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(232, 232, 232, 1)
                 FontWeight: =FontWeight.Semibold
+                Height: =30
                 OnSelect: =Select(Parent)
                 Size: =11
                 Text: =ThisItem.assigned_project.Value
@@ -2946,12 +2948,13 @@ offers_screen As screen:
 
             relistOffersImages As gallery.galleryVertical:
                 BorderColor: =RGBA(0, 89, 178, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
                 Items: =ThisItem.assigned_images
                 Layout: =Layout.Vertical
-                TemplateSize: =Self.Width/2
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/3
-                WrapCount: =2
+                TemplatePadding: =1
+                TemplateSize: =(Self.Height-Self.TemplatePadding*2)/2-10
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/4
                 X: =Parent.TemplatePadding
                 Y: =Label2.Height+Label2.Y
                 ZIndex: =1
@@ -2960,10 +2963,12 @@ offers_screen As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
                     OnSelect: =Select(Parent)
-                    X: =1.6666666666666714
-                    Y: =9.166666666666671
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
                     ZIndex: =1
 
         Icon2 As icon.CancelBadge:
