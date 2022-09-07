@@ -2929,37 +2929,18 @@ offers_screen As screen:
             Y: =relistPanelHeader.Height+10
             ZIndex: =1
 
-            Label2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 36, 71, 1)
-                BorderThickness: =1
-                Color: =RGBA(0, 51, 102, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(232, 232, 232, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =30
-                OnSelect: =Select(Parent)
-                Size: =11
-                Text: =ThisItem.assigned_project.Value
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
-                ZIndex: =1
-
-            relistOffersImages As gallery.galleryVertical:
+            Gallery2 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Fill: =RGBA(255, 255, 255, 1)
                 Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
                 Items: =ThisItem.assigned_images
-                Layout: =Layout.Vertical
-                TemplatePadding: =1
-                TemplateSize: =(Self.Height-Self.TemplatePadding*2)/2-10
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/4
+                TemplatePadding: =0
+                TemplateSize: =Self.Width/CountRows(Self.AllItems)
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-20
                 X: =Parent.TemplatePadding
-                Y: =Label2.Height+Label2.Y
+                Y: =Label2.Y+Label2.Height+5
                 ZIndex: =1
 
-                Image4 As image:
+                Image6 As image:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2970,6 +2951,54 @@ offers_screen As screen:
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
+
+            Label2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 36, 71, 1)
+                BorderThickness: =1
+                Color: =RGBA(0, 36, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 0.6)
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.assigned_project.Value
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-20
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+            relist_offerCopy As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 0.65)
+                BorderThickness: =1
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(230, 230, 230, 0.75)
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.offer_copy
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
+                ZIndex: =3
+
+            relist_offerCopy_1 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 0.65)
+                BorderThickness: =1
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(230, 230, 230, 0.75)
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.offer_copy_french
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/2
+                X: =relist_offerCopy.X+relist_offerCopy.Width
+                Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
+                ZIndex: =4
 
         Icon2 As icon.CancelBadge:
             BorderColor: =RGBA(0, 89, 178, 1)
