@@ -2962,7 +2962,8 @@ offers_screen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 OnSelect: =Select(Parent)
-                Text: =ThisItem.assigned_project.Value
+                Text: |-
+                    =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" Pos:"&ThisItem.Adblock&""
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-20
                 X: =Parent.TemplatePadding
                 Y: =Parent.TemplatePadding
