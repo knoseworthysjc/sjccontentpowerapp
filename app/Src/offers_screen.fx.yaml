@@ -3027,7 +3027,9 @@ offers_screen As screen:
                     =Label2.Height-4
                 Icon: =Icon.Copy
                 OnSelect: |-
-                    =Select(Parent);Patch(Offers,Defaults(Offers),{assigned_project:{Value:project_filter.Selected.Title,Id:project_filter.Selected.ID},season:season_filter.Selected,Week:Value(week_filter.Text),page_from:page_filter.Selected.Result,Adblock:0,SBU:ThisItem.SBU,category_name:ThisItem.category_name,offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french,item_name:ThisItem.item_name,featured_item_numbers:ThisItem.featured_item_numbers,combined_item_number:ThisItem.combined_item_number,unit:ThisItem.unit,unit_fre:ThisItem.unit_fre,'Country of Origin':ThisItem.'Country of Origin','Country of Origin(Fre)':ThisItem.'Country of Origin(Fre)'})
+                    =Select(Parent);
+                    Patch(Offers,Defaults(Offers),{assigned_project:{Value:project_filter.Selected.Title,Id:project_filter.Selected.ID},season:season_filter.Selected,Week:Value(week_filter.Text),page_from:page_filter.Selected.Result,Adblock:0,SBU:ThisItem.SBU,category_name:ThisItem.category_name,offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french,item_name:ThisItem.item_name,featured_item_numbers:ThisItem.featured_item_numbers,combined_item_number:ThisItem.combined_item_number,unit:ThisItem.unit,unit_fre:ThisItem.unit_fre,'Country of Origin':ThisItem.'Country of Origin','Country of Origin(Fre)':ThisItem.'Country of Origin(Fre)'});
+                    ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title));
                 Width: =Self.Height
                 X: |
                     =relist_offer_icon.X-Self.Width-10
