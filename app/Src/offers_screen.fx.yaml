@@ -2897,7 +2897,7 @@ offers_screen As screen:
     relistPanel As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 36, 71, 1)
         BorderThickness: =1
-        Fill: =RGBA(237, 237, 237, 1)
+        Fill: =RGBA(116, 116, 116, 1)
         Height: =Parent.Height-Self.Y-40
         Visible: =showRelistPanel
         Width: =Parent.Width-Self.X-40
@@ -2924,8 +2924,9 @@ offers_screen As screen:
             Height: =Parent.Height-Self.Y
             Items: =searchOffersRecords
             Layout: =Layout.Vertical
+            TemplateFill: =RGBA(255, 255, 255, 1)
             TemplateSize: =Self.Height/3
-            Width: =Parent.Width
+            Width: =Parent.Width-10
             Y: =relistPanelHeader.Height+10
             ZIndex: =1
 
@@ -2954,22 +2955,21 @@ offers_screen As screen:
 
             Label2 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 36, 71, 1)
+                BorderColor: =RGBA(116, 116, 116, 1)
                 BorderThickness: =1
                 Color: =RGBA(0, 36, 71, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(255, 255, 255, 0.6)
+                Fill: =RGBA(237, 237, 237, 1)
                 FontWeight: =FontWeight.Semibold
-                Height: =30
+                Height: =34
                 OnSelect: =Select(Parent)
                 Text: |-
                     =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" Pos:"&ThisItem.Adblock&""
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-20
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
+                Width: =Parent.TemplateWidth-20
                 ZIndex: =2
 
             relist_offerCopy As label:
+                Align: =Align.Center
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 89, 178, 0.65)
                 BorderThickness: =1
@@ -2978,14 +2978,15 @@ offers_screen As screen:
                 Fill: =RGBA(230, 230, 230, 0.75)
                 FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
-                Size: =13
+                Size: =11
                 Text: =ThisItem.offer_copy
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/2
+                Width: =((Parent.TemplateWidth-Parent.TemplatePadding*2)-20)/2
                 X: =Parent.TemplatePadding
                 Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
                 ZIndex: =3
 
             relist_offerCopy_1 As label:
+                Align: =Align.Center
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 89, 178, 0.65)
                 BorderThickness: =1
@@ -2994,12 +2995,44 @@ offers_screen As screen:
                 Fill: =RGBA(230, 230, 230, 0.75)
                 FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
-                Size: =13
+                Size: =11
                 Text: =ThisItem.offer_copy_french
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)/2
-                X: =relist_offerCopy.X+relist_offerCopy.Width
+                Width: =(((Parent.TemplateWidth-Parent.TemplatePadding*2)-20)/2)
+                X: =relist_offerCopy.X+relist_offerCopy.Width+5
                 Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
                 ZIndex: =4
+
+            relist_offer_icon As icon.Copy:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: |
+                    =Label2.Height-4
+                Icon: =Icon.AddLibrary
+                OnSelect: |-
+                    =Select(Parent);Patch(selectedOffers,container_gallery.Selected,{offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french})
+                Width: =Self.Height
+                X: |
+                    =Label2.X+Label2.Width-Self.Width
+                Y: =Label2.Y+2
+                ZIndex: =5
+
+            relist_offer_update_icon As icon.Copy:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: |
+                    =Label2.Height-4
+                Icon: =Icon.Copy
+                OnSelect: |-
+                    =Select(Parent);Patch(Offers,Defaults(Offers),{assigned_project:{Value:project_filter.Selected.Title,Id:project_filter.Selected.ID},season:season_filter.Selected,Week:Value(week_filter.Selected.Text)})
+                Width: =Self.Height
+                X: |
+                    =relist_offer_icon.X-Self.Width-10
+                Y: =Label2.Y+2
+                ZIndex: =6
 
         Icon2 As icon.CancelBadge:
             BorderColor: =RGBA(0, 89, 178, 1)
