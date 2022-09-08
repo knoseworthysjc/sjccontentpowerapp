@@ -2251,7 +2251,7 @@ offers_screen As screen:
                 Icon: =Icon.Save
                 OnSelect: |-
                     =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:offer_record_type.Selected,offer_copy:offer_copy.Text,offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
-                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text})
+                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text,'Grade(Fre)':offer_grade_1.Text})
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-2
                 Y: =offer_label.Y+1
