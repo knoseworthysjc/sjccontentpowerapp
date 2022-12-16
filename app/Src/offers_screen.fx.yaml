@@ -1488,7 +1488,7 @@ offers_screen As screen:
                 Text: ="Reg Price"
                 Width: |
                     =100
-                X: =offer_copy.X
+                X: =offer_regprice_lbl_1.X+offer_regprice_lbl_1.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =17
 
@@ -1790,26 +1790,6 @@ offers_screen As screen:
                 Y: =offer_cooFre_lbl.Y+offer_cooFre_lbl.Height
                 ZIndex: =28
 
-            offer_type_lbl As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =offer_label.Height-4
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =12
-                Text: |-
-                    ="Offer Type:"
-                Width: =90
-                X: =offer_markets.X+offer_markets.Width+5
-                Y: =offer_label.Y+2
-                ZIndex: =29
-
             offer_type As combobox:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =0
@@ -1823,7 +1803,8 @@ offers_screen As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayFields: =["Value"]
-                Height: =offer_type_lbl.Height
+                Font: =Font.Arial
+                Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 IsSearchable: =false
@@ -1840,9 +1821,10 @@ offers_screen As screen:
                 SearchItems: =[]
                 SelectionFill: =RGBA(0, 51, 102, 1)
                 SelectMultiple: =false
-                Width: =155
-                X: =offer_type_lbl.X+offer_type_lbl.Width+5
-                Y: =offer_type_lbl.Y
+                Size: =10
+                Width: =120
+                X: =offer_regprice_lbl_1.X
+                Y: =offer_regprice_lbl_1.Y+offer_regprice_lbl_1.Height
                 ZIndex: =30
 
             offer_regpricelb_lbl As label:
@@ -2051,26 +2033,6 @@ offers_screen As screen:
                     Y: =add_images_lbl.Y
                     ZIndex: =38
 
-            offer_record_type_lbl As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =offer_label.Height-4
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =12
-                Text: |-
-                    ="Record Type:"
-                Width: =100
-                X: =offer_type.X+offer_type.Width+5
-                Y: =offer_label.Y+2
-                ZIndex: =41
-
             Group1_1 As group:
                 Height: =5
                 Width: =5
@@ -2111,41 +2073,6 @@ offers_screen As screen:
                     X: =add_images_lbl_1.X+add_images_lbl_1.Width
                     Y: =offer_images_fre.Y
                     ZIndex: =40
-
-            offer_record_type As combobox:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderThickness: =0
-                ChevronBackground: =RGBA(0, 51, 102, 1)
-                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                DefaultSelectedItems: =ThisItem.record_type
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayFields: =["Value"]
-                Height: =offer_record_type_lbl.Height
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
-                IsSearchable: =false
-                Items: =Choices(Offers.record_type)
-                OnSelect: =Select(Parent)
-                PaddingBottom: =3
-                PaddingLeft: =3
-                PaddingRight: =3
-                PaddingTop: =3
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
-                Reset: =true
-                SearchFields: =["Value"]
-                SearchItems: =[]
-                SelectionFill: =RGBA(0, 51, 102, 1)
-                SelectMultiple: =false
-                Width: =155
-                X: =offer_record_type_lbl.X+offer_record_type_lbl.Width+5
-                Y: =offer_record_type_lbl.Y
-                ZIndex: =42
 
             offer_instructions_lbl As label:
                 Align: =Align.Center
@@ -2263,7 +2190,7 @@ offers_screen As screen:
                 Height: =offer_label.Height-2
                 Icon: =Icon.Save
                 OnSelect: |-
-                    =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:offer_record_type.Selected,offer_copy:offer_copy.Text,offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:{Value:"featured"},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text,'Grade(Fre)':offer_grade_1.Text})
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-2
@@ -2526,6 +2453,41 @@ offers_screen As screen:
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_multisave_llb.Y+offer_multisave_llb.Height
                 ZIndex: =57
+
+            offer_regprice_lbl_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =10
+                Text: ="Offer Type"
+                Width: =120
+                X: =offer_copy.X
+                Y: =offer_copy.Y+offer_copy.Height+2
+                ZIndex: =58
+
+            offer_linelist As checkbox:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.record_type.Value="linelist"
+                Height: |
+                    =30
+                HoverColor: =RGBA(0, 89, 178, 1)
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: ="Is LineList"
+                VerticalAlign: =VerticalAlign.Bottom
+                X: =818
+                Y: =7
+                ZIndex: =59
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
@@ -2998,7 +2960,7 @@ offers_screen As screen:
 
             Gallery2 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.65
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =0
                 TemplateSize: =Self.Width/CountRows(Self.AllItems)
@@ -3018,6 +2980,26 @@ offers_screen As screen:
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
+
+                Label3_2 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(163, 160, 160, 0.72)
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =11
+                    Text: =Last(Split(ThisItem.Value,"/")).Result
+                    Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplateHeight-Self.Height-5
+                    ZIndex: =2
 
             Label2 As label:
                 Align: =Align.Center
