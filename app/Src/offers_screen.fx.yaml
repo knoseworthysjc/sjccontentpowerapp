@@ -1494,7 +1494,7 @@ offers_screen As screen:
                 Text: ="Reg Price"
                 Width: |
                     =100
-                X: =offer_regprice_lbl_1.X+offer_regprice_lbl_1.Width+5
+                X: =offer_type_lbl.X+offer_type_lbl.Width+5
                 Y: =offer_copy.Y+offer_copy.Height+2
                 ZIndex: =17
 
@@ -1710,7 +1710,7 @@ offers_screen As screen:
                     ="Count of Origin
                     "
                 Width: =275
-                X: =offer_regprice_lbl.X
+                X: =offer_type_lbl.X
                 Y: =offer_regprice.Y+offer_regprice.Height+2
                 ZIndex: =25
 
@@ -1744,7 +1744,7 @@ offers_screen As screen:
                 Reset: =true
                 Size: =13
                 Width: =275
-                X: =offer_coo_lbl.X
+                X: =offer_type_lbl.X
                 Y: =offer_coo_lbl.Y+offer_coo_lbl.Height
                 ZIndex: =26
 
@@ -1836,8 +1836,8 @@ offers_screen As screen:
                 SelectMultiple: =false
                 Size: =10
                 Width: =120
-                X: =offer_regprice_lbl_1.X
-                Y: =offer_regprice_lbl_1.Y+offer_regprice_lbl_1.Height
+                X: =offer_type_lbl.X
+                Y: =offer_type_lbl.Y+offer_type_lbl.Height
                 ZIndex: =30
 
             offer_regpricelb_lbl As label:
@@ -2162,7 +2162,7 @@ offers_screen As screen:
                 Size: =11
                 Text: ="Grade"
                 Width: =275
-                X: =offer_coo_lbl.X
+                X: =offer_type_lbl.X
                 Y: =offer_coo.Y+offer_coo.Height+5
                 ZIndex: =45
 
@@ -2196,7 +2196,7 @@ offers_screen As screen:
                 Reset: =true
                 Size: =13
                 Width: =275
-                X: =offer_grade_lbl.X
+                X: =offer_type_lbl.X
                 Y: =offer_grade_lbl.Y+offer_grade_lbl.Height
                 ZIndex: =46
 
@@ -2477,7 +2477,7 @@ offers_screen As screen:
                 Y: =offer_multisave_llb.Y+offer_multisave_llb.Height
                 ZIndex: =57
 
-            offer_regprice_lbl_1 As label:
+            offer_type_lbl As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Color: =RGBA(0, 0, 0, 1)
