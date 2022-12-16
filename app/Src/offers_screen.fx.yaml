@@ -3105,7 +3105,7 @@ offers_screen As screen:
 
             Gallery2 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.65
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-relist_offerCopy.Height
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =0
                 TemplateSize: =Self.Width/CountRows(Self.AllItems)
@@ -3118,12 +3118,12 @@ offers_screen As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
                     Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                     X: =Parent.TemplatePadding
-                    Y: =Parent.TemplatePadding
+                    Y: =Label3_2.Height
                     ZIndex: =1
 
                 Label3_2 As label:
@@ -3132,7 +3132,7 @@ offers_screen As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(163, 160, 160, 0.72)
+                    Fill: =RGBA(163, 160, 160, 0.6)
                     FontWeight: =FontWeight.Semibold
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
@@ -3143,7 +3143,7 @@ offers_screen As screen:
                     Text: =Last(Split(ThisItem.Value,"/")).Result
                     Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
                     X: =Parent.TemplatePadding
-                    Y: =Parent.TemplateHeight-Self.Height-5
+                    Y: =Parent.TemplatePadding
                     ZIndex: =2
 
             Label2 As label:
