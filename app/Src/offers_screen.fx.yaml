@@ -2619,6 +2619,19 @@ offers_screen As screen:
                 Y: =offer_regprice_lbl_2.Y+offer_regprice_lbl_2.Height
                 ZIndex: =63
 
+            Icon10_1 As icon.Save:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =offer_label.Height-2
+                Icon: =Icon.Trash
+                OnSelect: =false;
+                Width: =Self.Height
+                X: =offer_label.X+offer_label.Width-Self.Width-50
+                Y: =offer_label.Y+1
+                ZIndex: =64
+
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
         Height: =Parent.Height-Self.Y-10
