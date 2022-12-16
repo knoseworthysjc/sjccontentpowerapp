@@ -2211,7 +2211,9 @@ offers_screen As screen:
                 Icon: =Icon.Save
                 OnSelect: |-
                     =Select(Parent);Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:{Value:If(offer_linelist.Value=true,"linelist","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
-                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text,'Grade(Fre)':offer_grade_1.Text})
+                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text,'Grade(Fre)':offer_grade_1.Text,
+                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text)
+                    })
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-100
                 Y: =offer_label.Y+1
@@ -2534,7 +2536,7 @@ offers_screen As screen:
                 Y: =offer_regprice.Y+offer_regprice.Height+2
                 ZIndex: =60
 
-            offer_regprice_1 As text:
+            offer_installmonths_ipt As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
@@ -2583,10 +2585,10 @@ offers_screen As screen:
                 Text: ="Installments($)"
                 Width: =120
                 X: =475
-                Y: =offer_regprice_1.Y+offer_regprice_1.Height+5
+                Y: =offer_installmonths_ipt.Y+offer_installmonths_ipt.Height+5
                 ZIndex: =62
 
-            offer_regprice_2 As text:
+            offer_installamount_ipt As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(246, 246, 246, 1)
                 BorderThickness: =0
