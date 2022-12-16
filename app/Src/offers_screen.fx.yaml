@@ -1840,7 +1840,7 @@ offers_screen As screen:
                 Width: =120
                 X: =offer_type_lbl.X
                 Y: =offer_type_lbl.Y+offer_type_lbl.Height
-                ZIndex: =30
+                ZIndex: =29
 
             offer_regpricelb_lbl As label:
                 Align: =Align.Center
@@ -1862,7 +1862,7 @@ offers_screen As screen:
                     =100
                 X: =offer_savings_lbl.X+offer_eventprice_lbl.Width+5
                 Y: =offer_regprice_lbl.Y
-                ZIndex: =31
+                ZIndex: =30
 
             offer_regpricelb As text:
                 Align: =Align.Center
@@ -1896,7 +1896,7 @@ offers_screen As screen:
                     =100
                 X: =offer_regpricelb_lbl.X
                 Y: =offer_regpricelb_lbl.Y+offer_regpricelb_lbl.Height
-                ZIndex: =32
+                ZIndex: =31
 
             offer_eventprice_lb_lbl As label:
                 Align: =Align.Center
@@ -1918,7 +1918,7 @@ offers_screen As screen:
                     =100
                 X: =offer_regpricelb_lbl.X+offer_regpricelb_lbl.Width+5
                 Y: =offer_regprice_lbl.Y
-                ZIndex: =33
+                ZIndex: =32
 
             offer_eventprice_1 As text:
                 Align: =Align.Center
@@ -1952,7 +1952,7 @@ offers_screen As screen:
                     =100
                 X: =offer_eventprice_lb_lbl.X
                 Y: =offer_eventprice_lb_lbl.Y+offer_eventprice_lb_lbl.Height
-                ZIndex: =34
+                ZIndex: =33
 
             offer_savingslb_lbl As label:
                 Align: =Align.Center
@@ -1974,7 +1974,7 @@ offers_screen As screen:
                     =100
                 X: =offer_eventprice_lb_lbl.X+offer_eventprice_lb_lbl.Width+5
                 Y: =offer_regprice_lbl.Y
-                ZIndex: =35
+                ZIndex: =34
 
             offer_savings_1 As text:
                 Align: =Align.Center
@@ -2008,7 +2008,7 @@ offers_screen As screen:
                     =100
                 X: =offer_savingslb_lbl.X
                 Y: =offer_savingslb_lbl.Y+offer_savingslb_lbl.Height
-                ZIndex: =36
+                ZIndex: =35
 
             Group1 As group:
                 Height: =5
@@ -2034,7 +2034,7 @@ offers_screen As screen:
                     Width: =123+Icon5.Width
                     X: =offer_images.X+offer_images.Width/2-Self.Width/2
                     Y: =offer_images.Y
-                    ZIndex: =37
+                    ZIndex: =36
 
                 Icon5 As icon.Add:
                     BorderColor: =RGBA(0, 51, 102, 1)
@@ -2049,48 +2049,7 @@ offers_screen As screen:
                     Width: =Self.Height
                     X: =add_images_lbl.X+add_images_lbl.Width
                     Y: =add_images_lbl.Y
-                    ZIndex: =38
-
-            Group1_1 As group:
-                Height: =5
-                Width: =5
-                X: =60
-                Y: =60
-                ZIndex: =41
-
-                add_images_lbl_1 As label:
-                    BorderColor: =RGBA(0, 51, 102, 1)
-                    Color: =RGBA(250, 250, 250, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 51, 102, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =offer_label.Height-4
-                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =Icon5_1.Width
-                    PaddingTop: =0
-                    Size: =12
-                    Text: ="Add Images Fre"
-                    Width: =123+Icon5_1.Width
-                    X: =offer_images.X+offer_images.Width/2-Self.Width/2
-                    Y: =offer_images_fre.Y
-                    ZIndex: =39
-
-                Icon5_1 As icon.Add:
-                    BorderColor: =RGBA(0, 51, 102, 1)
-                    Color: =RGBA(250, 250, 250, 1)
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
-                    Fill: =RGBA(0, 51, 102, 1)
-                    FocusedBorderThickness: =0
-                    Height: =add_images_lbl_1.Height
-                    Icon: =Icon.Add
-                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
-                    Width: =Self.Height
-                    X: =add_images_lbl_1.X+add_images_lbl_1.Width
-                    Y: =offer_images_fre.Y
-                    ZIndex: =40
+                    ZIndex: =37
 
             offer_instructions_lbl As label:
                 Align: =Align.Center
@@ -2112,7 +2071,7 @@ offers_screen As screen:
                 X: |
                     =offer_copyfrench_lbl.X+offer_copyfrench_lbl.Width+5
                 Y: =offer_copy_lbl.Y
-                ZIndex: =43
+                ZIndex: =40
 
             offer_instructions As text:
                 Align: =Align.Center
@@ -2147,7 +2106,48 @@ offers_screen As screen:
                     =Parent.TemplateWidth-Self.X-20-Parent.TemplatePadding*2
                 X: =offer_instructions_lbl.X
                 Y: =offer_instructions_lbl.Y+offer_instructions_lbl.Height
-                ZIndex: =44
+                ZIndex: =41
+
+            Group1_1 As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =41
+
+                add_images_lbl_1 As label:
+                    BorderColor: =RGBA(0, 51, 102, 1)
+                    Color: =RGBA(250, 250, 250, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(0, 51, 102, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =offer_label.Height-4
+                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =Icon5_1.Width
+                    PaddingTop: =0
+                    Size: =12
+                    Text: ="Add Images Fre"
+                    Width: =123+Icon5_1.Width
+                    X: =offer_images.X+offer_images.Width/2-Self.Width/2
+                    Y: =offer_images_fre.Y
+                    ZIndex: =38
+
+                Icon5_1 As icon.Add:
+                    BorderColor: =RGBA(0, 51, 102, 1)
+                    Color: =RGBA(250, 250, 250, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 51, 102, 1)
+                    FocusedBorderThickness: =0
+                    Height: =add_images_lbl_1.Height
+                    Icon: =Icon.Add
+                    OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
+                    Width: =Self.Height
+                    X: =add_images_lbl_1.X+add_images_lbl_1.Width
+                    Y: =offer_images_fre.Y
+                    ZIndex: =39
 
             offer_grade_lbl As label:
                 Align: =Align.Center
@@ -2166,7 +2166,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_regprice_lbl.X
                 Y: =offer_coo.Y+offer_coo.Height+5
-                ZIndex: =45
+                ZIndex: =42
 
             offer_grade As text:
                 Align: =Align.Center
@@ -2200,7 +2200,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_regprice_lbl.X
                 Y: =offer_grade_lbl.Y+offer_grade_lbl.Height
-                ZIndex: =46
+                ZIndex: =43
 
             Icon10 As icon.Save:
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -2217,7 +2217,7 @@ offers_screen As screen:
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-100
                 Y: =offer_label.Y+1
-                ZIndex: =47
+                ZIndex: =44
 
             offer_items_lbl As label:
                 Align: =Align.Center
@@ -2237,7 +2237,7 @@ offers_screen As screen:
                 Width: =75
                 X: =offer_images.X+offer_images.Width+5
                 Y: =offer_label.Y+offer_label.Height+5
-                ZIndex: =48
+                ZIndex: =45
 
             offer_items As text:
                 Align: =Align.Center
@@ -2268,7 +2268,7 @@ offers_screen As screen:
                 Width: =450
                 X: =offer_items_lbl.X+offer_items_lbl.Width+5
                 Y: =offer_label.Y+offer_label.Height+5
-                ZIndex: =49
+                ZIndex: =46
 
             offer_ecofeesfre_lbl As label:
                 Align: =Align.Center
@@ -2287,7 +2287,7 @@ offers_screen As screen:
                 Width: =100
                 X: =offer_ecofees.X+offer_ecofees.Width+5
                 Y: =offer_regprice_lbl.Y
-                ZIndex: =50
+                ZIndex: =47
 
             offer_ecofeefre As text:
                 Align: =Align.Center
@@ -2321,7 +2321,7 @@ offers_screen As screen:
                     =100
                 X: =offer_ecofeesfre_lbl.X
                 Y: =offer_ecofeesfre_lbl.Y+offer_ecofeesfre_lbl.Height
-                ZIndex: =51
+                ZIndex: =48
 
             offer_grade_lbl_1 As label:
                 Align: =Align.Center
@@ -2340,7 +2340,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_grade.X+offer_grade.Width+5
                 Y: =offer_grade_lbl.Y
-                ZIndex: =52
+                ZIndex: =49
 
             offer_grade_1 As text:
                 Align: =Align.Center
@@ -2374,7 +2374,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_grade.X+offer_grade.Width+5
                 Y: =offer_grade_lbl_1.Y+offer_grade_lbl_1.Height
-                ZIndex: =53
+                ZIndex: =50
 
             offer_items_lbl_1 As label:
                 Align: =Align.Center
@@ -2395,7 +2395,7 @@ offers_screen As screen:
                     =85
                 X: =offer_items.X+offer_items.Width+5
                 Y: =offer_label.Y+offer_label.Height+5
-                ZIndex: =54
+                ZIndex: =51
 
             offer_items_1 As text:
                 Align: =Align.Center
@@ -2426,7 +2426,7 @@ offers_screen As screen:
                 Width: =450
                 X: =offer_items_lbl_1.X+offer_items_lbl_1.Width+5
                 Y: =offer_label.Y+offer_label.Height+5
-                ZIndex: =55
+                ZIndex: =52
 
             offer_multisave_llb As label:
                 Align: =Align.Center
@@ -2446,7 +2446,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_coo_lbl.Y
-                ZIndex: =56
+                ZIndex: =53
 
             offer_multisave_ipt As text:
                 Align: =Align.Center
@@ -2480,7 +2480,7 @@ offers_screen As screen:
                 Width: =275
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_multisave_llb.Y+offer_multisave_llb.Height
-                ZIndex: =57
+                ZIndex: =54
 
             offer_type_lbl As label:
                 Align: =Align.Center
@@ -2499,7 +2499,7 @@ offers_screen As screen:
                 Width: =120
                 X: =offer_copy.X
                 Y: =offer_copy.Y+offer_copy.Height+2
-                ZIndex: =58
+                ZIndex: =55
 
             offer_linelist As checkbox:
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -2515,7 +2515,7 @@ offers_screen As screen:
                 VerticalAlign: =VerticalAlign.Bottom
                 X: =818
                 Y: =7
-                ZIndex: =59
+                ZIndex: =56
 
             offer_regprice_lbl_1 As label:
                 Align: =Align.Center
@@ -2534,7 +2534,7 @@ offers_screen As screen:
                 Width: =120
                 X: =offer_type.X
                 Y: =offer_regprice.Y+offer_regprice.Height+2
-                ZIndex: =60
+                ZIndex: =57
 
             offer_installmonths_ipt As text:
                 Align: =Align.Center
@@ -2567,7 +2567,7 @@ offers_screen As screen:
                 Width: =120
                 X: =offer_regprice_lbl_1.X
                 Y: =offer_regprice_lbl_1.Y+offer_regprice_lbl_1.Height
-                ZIndex: =61
+                ZIndex: =58
 
             offer_regprice_lbl_2 As label:
                 Align: =Align.Center
@@ -2586,7 +2586,7 @@ offers_screen As screen:
                 Width: =120
                 X: =475
                 Y: =offer_installmonths_ipt.Y+offer_installmonths_ipt.Height+5
-                ZIndex: =62
+                ZIndex: =59
 
             offer_installamount_ipt As text:
                 Align: =Align.Center
@@ -2619,7 +2619,7 @@ offers_screen As screen:
                 Width: =120
                 X: =offer_regprice_lbl_2.X
                 Y: =offer_regprice_lbl_2.Y+offer_regprice_lbl_2.Height
-                ZIndex: =63
+                ZIndex: =60
 
             Icon10_1 As icon.Save:
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -2632,7 +2632,40 @@ offers_screen As screen:
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-50
                 Y: =offer_label.Y+1
-                ZIndex: =64
+                ZIndex: =61
+
+            Gallery1 As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Height: =43
+                Items: |-
+                    =Table({img:facebook,facebookad:false},{img:'sign-hanging-solid',signage:false},{img:instagram,instagramad:false},{img:twitter,twitteradd:false})
+                TemplatePadding: =0
+                TemplateSize: =Self.Width/4-20
+                Width: =588
+                X: =1110
+                ZIndex: =62
+
+                Image5 As image:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Image: =ThisItem.img
+                    OnSelect: =Select(Parent)
+                    Width: =Self.Height
+                    ZIndex: =1
+
+                Checkbox1 As checkbox:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =30
+                    HoverColor: =RGBA(0, 89, 178, 1)
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: =""
+                    X: =40
+                    ZIndex: =2
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
@@ -2964,7 +2997,7 @@ offers_screen As screen:
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
         Size: =13
-        Width: =100
+        Width: =150
         X: =Label1_3.X+Label1_3.Width
         Y: =2
         ZIndex: =13
@@ -2980,7 +3013,7 @@ offers_screen As screen:
         Text: |-
             ="Year:"
         Width: =81
-        X: =Parent.Width/8
+        X: =Parent.Width/12
         Y: =1
         ZIndex: =14
 
