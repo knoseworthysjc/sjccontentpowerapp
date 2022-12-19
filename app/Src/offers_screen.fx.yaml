@@ -2633,7 +2633,8 @@ offers_screen As screen:
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 Height: =offer_label.Height-2
                 Icon: =Icon.Trash
-                OnSelect: =false;
+                OnSelect: |-
+                    =Patch(Offers,ThisItem,{offer_status:{Value:"Deleted"}})
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-50
                 Y: =offer_label.Y+1
