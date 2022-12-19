@@ -2641,8 +2641,8 @@ offers_screen As screen:
                 Items: |-
                     =Table({img:facebook,facebookad:false},{img:'sign-hanging-solid',signage:false},{img:instagram,instagramad:false},{img:twitter,twitteradd:false})
                 TemplatePadding: =0
-                TemplateSize: =Self.Width/4-20
-                Width: =588
+                TemplateSize: =75
+                Width: =325
                 X: =1110
                 ZIndex: =62
 
@@ -2650,7 +2650,7 @@ offers_screen As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Height: =35
                     Image: =ThisItem.img
                     OnSelect: =Select(Parent)
                     Width: =Self.Height
@@ -2665,6 +2665,7 @@ offers_screen As screen:
                     OnSelect: =Select(Parent)
                     Size: =13
                     Text: =""
+                    Width: =45
                     X: =40
                     ZIndex: =2
 
