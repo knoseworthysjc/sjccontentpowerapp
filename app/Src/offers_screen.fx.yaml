@@ -2212,8 +2212,8 @@ offers_screen As screen:
                 OnSelect: |-
                     =Select(Parent);
                     Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:offer_markets.SelectedItems,offer_type:offer_type.Selected,record_type:{Value:If(offer_linelist.Value=true,"linelist","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
-                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_items.Text,'Grade(Fre)':offer_grade_1.Text,
-                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),combined_item_number:offer_combinedItemNumber_ipt,multi_save:offer_multisave_ipt.Text
+                    regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
+                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text
                     })
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-100
