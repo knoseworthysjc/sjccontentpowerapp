@@ -97,8 +97,11 @@ change_management As screen:
             FontWeight: =FontWeight.Bold
             Height: =changeOffer_offerCopy.Height
             OnSelect: =Select(Parent)
-            Size: =58
-            Text: =If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price)
+            Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,48)
+            Text: |-
+                =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings,"
+                ")&
+                If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price)
             Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-Rectangle1.BorderThickness
             X: =offer_price_rectangle.X
             Y: =offer_price_rectangle.Y
