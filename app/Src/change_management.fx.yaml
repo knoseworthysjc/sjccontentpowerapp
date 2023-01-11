@@ -18,10 +18,9 @@ change_management As screen:
         BorderThickness: =1
         Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height-Self.Y-5
-        Items: =If(IsBlankOrError(page_filter.Selected.Result), SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter.Selected.Result),"layout_position",Ascending))
+        Items: =If(IsBlankOrError(page_filter_1.Selected.Result), SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter_1.Selected.Result),"layout_position",Ascending))
         Layout: =Layout.Vertical
-        TemplatePadding: =4
-        TemplateSize: =280
+        TemplateSize: =changeOffer_offerCopy.Y+changeOffer_offerCopy.Height+20
         Width: =Parent.Width/3
         X: =5
         Y: =45
@@ -29,10 +28,10 @@ change_management As screen:
 
         change_offer_assets As gallery.galleryHorizontal:
             BorderColor: =RGBA(0, 89, 178, 1)
-            Height: =280
+            Height: =200
             Items: =ThisItem.assigned_images
-            TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
-            Width: =Parent.TemplateWidth-20
+            TemplateSize: =(Self.Width/CountRows(ThisItem.assigned_images))-CountRows(ThisItem.assigned_images)*Self.TemplatePadding*2
+            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-20
             WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
             ZIndex: =1
 
@@ -49,6 +48,7 @@ change_management As screen:
                 ZIndex: =2
 
         changeOffer_offerCopy As label:
+            Align: =Align.Right
             AutoHeight: =true
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -56,11 +56,43 @@ change_management As screen:
             Font: =Font.Arial
             FontWeight: =FontWeight.Semibold
             Size: =12
-            Text: =ThisItem.offer_copy
-            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+            Text: |-
+                =ThisItem.offer_copy&"
+                "&ThisItem.'Country of Origin'&"
+                #"&ThisItem.combined_item_number
+            Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
             X: =Parent.TemplatePadding
-            Y: =40
+            Y: =change_offer_assets.Y+change_offer_assets.Height
             ZIndex: =2
+
+        Rectangle1 As rectangle:
+            BorderColor: =RGBA(255, 0, 0, 1)
+            BorderThickness: =5
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+            OnSelect: =Select(Parent)
+            Width: |-
+                =Parent.TemplateWidth-
+                Parent.TemplatePadding*2-20
+            X: =Parent.TemplatePadding
+            Y: =Parent.TemplatePadding
+            ZIndex: =3
+
+        changeOffer_price As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(255, 237, 105, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =changeOffer_offerCopy.Height
+            OnSelect: =Select(Parent)
+            Size: =58
+            Text: =If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price)
+            Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-Rectangle1.BorderThickness
+            X: =changeOffer_offerCopy.X+changeOffer_offerCopy.Width+5
+            Y: =changeOffer_offerCopy.Y
+            ZIndex: =4
 
     nav_icon_6 As icon.Waffle:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -317,4 +349,15 @@ change_management As screen:
         X: =project_filter_1.X+project_filter_1.Width
         Y: =2
         ZIndex: =12
+
+    Icon11 As icon.DocumentPDF:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =40
+        Icon: =Icon.DocumentPDF
+        Width: =50
+        X: =1183
+        ZIndex: =13
 
