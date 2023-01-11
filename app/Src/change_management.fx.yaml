@@ -117,6 +117,35 @@ change_management As screen:
             Y: =Parent.TemplatePadding+5
             ZIndex: =6
 
+        changeOffer_offerType As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(246, 246, 246, 0.7)
+            Font: =Font.Arial
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.offer_type.Value
+            X: =21
+            Y: =105
+            ZIndex: =7
+
+        Label10 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            OnSelect: =Select(Parent)
+            Size: =26
+            Text: ="SAVE NOW!"
+            Width: =offer_price_rectangle.Width
+            X: =offer_price_rectangle.X
+            Y: =offer_price_rectangle.Y-Self.Height
+            ZIndex: =8
+
     nav_icon_6 As icon.Waffle:
         BorderColor: =RGBA(0, 0, 0, 0)
         Color: =RGBA(255, 255, 255, 1)
