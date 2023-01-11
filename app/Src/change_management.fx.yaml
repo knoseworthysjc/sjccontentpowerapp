@@ -1,0 +1,320 @@
+change_management As screen:
+    Fill: =RGBA(232, 232, 232, 1)
+    OnVisible: =Set(showNav,false)
+
+    screen_title_6 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(0, 36, 71, 1)
+        Size: =13
+        Text: =""
+        Width: =Parent.Width
+        ZIndex: =1
+
+    change_offer_view_gallery As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(0, 51, 102, 1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height-Self.Y-5
+        Items: =If(IsBlankOrError(page_filter.Selected.Result), SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter.Selected.Result),"layout_position",Ascending))
+        Layout: =Layout.Vertical
+        TemplatePadding: =4
+        TemplateSize: =280
+        Width: =Parent.Width/3
+        X: =5
+        Y: =45
+        ZIndex: =1
+
+        change_offer_assets As gallery.galleryHorizontal:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =280
+            Items: =ThisItem.assigned_images
+            TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
+            Width: =Parent.TemplateWidth-20
+            WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
+            ZIndex: =1
+
+            Image2_2 As image:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+        changeOffer_offerCopy As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Size: =12
+            Text: =ThisItem.offer_copy
+            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+            X: =Parent.TemplatePadding
+            Y: =40
+            ZIndex: =2
+
+    nav_icon_6 As icon.Waffle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =0
+        Height: =38
+        Icon: =Icon.Waffle
+        OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
+        Width: |
+            =38
+        X: =1
+        Y: =1
+        ZIndex: =2
+
+    screen_logo_6 As image:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =screen_title_6.Height*2
+        Image: |-
+            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
+        ImagePosition: =ImagePosition.Fill
+        Width: =220
+        X: =Parent.Width-Self.Width-Self.BorderThickness
+        ZIndex: =3
+
+    nav_container_6 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 51, 102, 1)
+        BorderThickness: =1
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =CountRows(nav_gallery.AllItems)*(nav_gallery.TemplateHeight+nav_gallery.TemplatePadding*2)
+        Visible: =showNav
+        Width: =Parent.Width*0.2
+        X: =nav_icon_6.X+5
+        Y: =nav_icon_6.Y+nav_icon_6.Height+5
+        ZIndex: =4
+
+        nav_gallery_6 As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height
+            Items: =navItems
+            Layout: =Layout.Vertical
+            TemplateSize: =45
+            Width: =Parent.Width
+            ZIndex: =1
+
+            nav_label_6 As label:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 222, 240, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
+                PaddingLeft: =nav_label_icon_6.Width+nav_label_icon_6.X+5
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
+            nav_label_icon_6 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =ThisItem.icon
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+    season_filter_1 As dropdown:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(0, 51, 102, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =Year(Now())
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =screen_title.Height-Self.BorderThickness*8
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        Items: =Choices(Offers.Season)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 89, 178, 1)
+        Reset: =true
+        SelectionFill: =RGBA(0, 51, 102, 1)
+        Size: =13
+        Width: =105
+        X: =Label1_4.X+Label1_4.Width
+        Y: =(Self.BorderThickness*8)/2
+        ZIndex: =5
+
+    week_filter_1 As text:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Clear: =true
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =WeekNum(Now())
+        DelayOutput: =true
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Format: =TextFormat.Number
+        Height: =screen_title.Height-Self.BorderThickness*8
+        HoverBorderColor: =RGBA(0, 89, 178, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        OnChange: =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter_1.Selected.Title))
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Reset: =true
+        Size: =13
+        Width: =70
+        X: =Label1_5.X+Label1_5.Width
+        Y: =(Self.BorderThickness*8)/2
+        ZIndex: =6
+
+    project_filter_1 As dropdown:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(0, 51, 102, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =screen_title.Height-Self.BorderThickness*8
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        Items: |-
+            =If(week_filter_1.Text="", 
+            SortByColumns(Filter(Projects,Season.Value = season_filter_1.Selected.Value),"Week",Descending,"Title",Ascending),
+            SortByColumns(Filter(Projects,Season.Value = season_filter_1.Selected.Value And Week = Value(week_filter_1.Text)),"Week",Descending,"Title",Ascending))
+        OnChange: |-
+            =Clear(selectedOffers);
+            Collect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter_1.Selected.Title));
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 89, 178, 1)
+        Reset: =true
+        SelectionFill: =RGBA(0, 51, 102, 1)
+        Size: =13
+        X: =Label1_6.X+Label1_6.Width
+        Y: =(Self.BorderThickness*8)/2
+        ZIndex: =7
+
+    page_filter_1 As dropdown:
+        AllowEmptySelection: =true
+        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(0, 51, 102, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =screen_title.Height-Self.BorderThickness*8
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(153, 205, 255, 1)
+        Items: =Distinct(selectedOffers,page_from)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 89, 178, 1)
+        SelectionFill: =RGBA(0, 51, 102, 1)
+        Size: =13
+        Width: =150
+        X: =Label1_7.X+Label1_7.Width
+        Y: =4
+        ZIndex: =8
+
+    Label1_4 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        Size: =16
+        Text: |-
+            ="Year:"
+        Width: =81
+        X: =Parent.Width/12
+        Y: =3
+        ZIndex: =9
+
+    Label1_5 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        Size: =16
+        Text: |-
+            ="Week:"
+        Width: =81
+        X: =season_filter_1.X+season_filter_1.Width
+        Y: =3
+        ZIndex: =10
+
+    Label1_6 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        Size: =16
+        Text: |-
+            ="Project:"
+        Width: =109
+        X: =week_filter_1.Width+week_filter_1.X
+        Y: =2
+        ZIndex: =11
+
+    Label1_7 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(250, 250, 250, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =34
+        Size: =16
+        Text: |-
+            ="Page:"
+        Width: =81
+        X: =project_filter_1.X+project_filter_1.Width
+        Y: =2
+        ZIndex: =12
+
