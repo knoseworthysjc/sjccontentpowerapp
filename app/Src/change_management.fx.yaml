@@ -104,7 +104,8 @@ change_management As screen:
             Y: =offer_price_rectangle.Y
             ZIndex: =5
 
-        Label9 As label:
+        changeOffer As label:
+            AutoHeight: =true
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
