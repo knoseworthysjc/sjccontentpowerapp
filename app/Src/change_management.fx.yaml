@@ -78,21 +78,31 @@ change_management As screen:
             Y: =Parent.TemplatePadding
             ZIndex: =3
 
+        offer_price_rectangle As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =changeOffer_price.Height
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-Rectangle1.BorderThickness
+            X: =changeOffer_offerCopy.X+changeOffer_offerCopy.Width+5
+            Y: =changeOffer_offerCopy.Y
+            ZIndex: =4
+
         changeOffer_price As label:
             Align: =Align.Center
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(255, 237, 105, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
-            Fill: =RGBA(255, 0, 0, 1)
             FontWeight: =FontWeight.Bold
             Height: =changeOffer_offerCopy.Height
             OnSelect: =Select(Parent)
             Size: =58
             Text: =If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price)
             Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-Rectangle1.BorderThickness
-            X: =changeOffer_offerCopy.X+changeOffer_offerCopy.Width+5
-            Y: =changeOffer_offerCopy.Y
-            ZIndex: =4
+            X: =offer_price_rectangle.X
+            Y: =offer_price_rectangle.Y
+            ZIndex: =5
 
     nav_icon_6 As icon.Waffle:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -360,4 +370,14 @@ change_management As screen:
         Width: =50
         X: =1183
         ZIndex: =13
+
+    Label8 As label:
+        BorderColor: =RGBA(0, 89, 178, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Size: =13
+        Text: ="Text"
+        X: =20
+        Y: =65
+        ZIndex: =14
 
