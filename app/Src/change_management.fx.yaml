@@ -104,6 +104,18 @@ change_management As screen:
             Y: =offer_price_rectangle.Y
             ZIndex: =5
 
+        Label9 As label:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(246, 246, 246, 0.7)
+            Font: =Font.Arial
+            OnSelect: =Select(Parent)
+            Text: =Concat(SortByColumns(ThisItem.Markets,"Value",Ascending),Value,",")
+            X: =Parent.TemplatePadding+5
+            Y: =Parent.TemplatePadding+5
+            ZIndex: =6
+
     nav_icon_6 As icon.Waffle:
         BorderColor: =RGBA(0, 0, 0, 0)
         Color: =RGBA(255, 255, 255, 1)
@@ -370,14 +382,4 @@ change_management As screen:
         Width: =50
         X: =1183
         ZIndex: =13
-
-    Label8 As label:
-        BorderColor: =RGBA(0, 89, 178, 1)
-        Color: =RGBA(0, 0, 0, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        Size: =13
-        Text: ="Text"
-        X: =20
-        Y: =65
-        ZIndex: =14
 
