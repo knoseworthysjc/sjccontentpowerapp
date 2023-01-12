@@ -20,7 +20,7 @@ change_management As screen:
         Height: =Parent.Height-Self.Y-5
         Items: =If(IsBlankOrError(page_filter_1.Selected.Result), SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter_1.Selected.Result),"layout_position",Ascending))
         Layout: =Layout.Vertical
-        TemplateSize: =Max(changeOffer_offerCopy.Y+changeOffer_offerCopy.Height,changeOffer_price.Y+changeOffer_price.Height)+25
+        TemplateSize: =Max(changeOffer_offerCopy.Y+changeOffer_offerCopy.Height,changeOffer_price.Y+changeOffer_price.Height)+30
         Width: =Parent.Width/3
         X: =5
         Y: =45
