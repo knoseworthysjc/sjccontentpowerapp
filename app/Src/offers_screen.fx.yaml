@@ -3155,7 +3155,8 @@ offers_screen As screen:
         Height: =searchOffers.Height-2
         Icon: =Icon.Filter
         OnSelect: |-
-            =ClearCollect(searchOffersRecords,Search(Offers,searchOffers.Text,"offer_copy"));
+            =ClearCollect(searchOffersRecords,Search(Offers,searchOffers.Text,"offer_copy","featured_item_numbers","category_name"));
+            ClearCollect(searchOffersRecords,Filter(Offers,StartsWith(offer_copy,searchOffers.Text)));
             Set(showRelistPanel,true);
         Width: =Self.Height
         X: =searchOffers.X+searchOffers.Width
