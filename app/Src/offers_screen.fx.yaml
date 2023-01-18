@@ -3609,7 +3609,8 @@ offers_screen As screen:
                 PaddingTop: =0
                 Size: =13
                 Text: ="or "&ThisItem.regular_price&" "&"each"
-                Visible: =If(ThisItem.offer_type.Value = "Multi_save",true,false)
+                Visible: |
+                    =If(ThisItem.offer_type.Value = "Multi-Save",true,false)
                 Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-previewOffer_boarder.BorderThickness
                 X: =previewOffer_price_rectangle.X
                 Y: =previewOffer_price.Y+previewOffer_price.Height
