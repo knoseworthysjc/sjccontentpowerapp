@@ -1393,7 +1393,7 @@ offers_screen As screen:
                 Y: =offer_items_lbl.Y+offer_items_lbl.Height
                 ZIndex: =13
 
-            offer_copy As text:
+            offer_copy_ipt As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 51, 102, 1)
                 Clear: =true
@@ -1495,7 +1495,7 @@ offers_screen As screen:
                 Width: |
                     =100
                 X: =offer_type_lbl.X+offer_type_lbl.Width+5
-                Y: =offer_copy.Y+offer_copy.Height+2
+                Y: =offer_copy_ipt.Y+offer_copy_ipt.Height+2
                 ZIndex: =17
 
             offer_regprice As text:
@@ -1804,7 +1804,7 @@ offers_screen As screen:
                 Y: =offer_cooFre_lbl.Y+offer_cooFre_lbl.Height
                 ZIndex: =28
 
-            offer_type As combobox:
+            offer_type_ipt As combobox:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =0
                 ChevronBackground: =RGBA(0, 51, 102, 1)
@@ -2211,13 +2211,13 @@ offers_screen As screen:
                 Icon: =Icon.Save
                 OnSelect: |-
                     =Select(Parent);
-                    Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
-                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text
+                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text
                     });
-                    Patch(selectedOffers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    Patch(selectedOffers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
-                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text
+                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text
                     });
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-100
@@ -2502,8 +2502,8 @@ offers_screen As screen:
                 Size: =10
                 Text: ="Offer Type"
                 Width: =120
-                X: =offer_copy.X
-                Y: =offer_copy.Y+offer_copy.Height+2
+                X: =offer_copy_ipt.X
+                Y: =offer_copy_ipt.Y+offer_copy_ipt.Height+2
                 ZIndex: =55
 
             offer_linelist As checkbox:
@@ -2537,7 +2537,7 @@ offers_screen As screen:
                 Size: =10
                 Text: ="Installments(m)"
                 Width: =120
-                X: =offer_type.X
+                X: =offer_type_ipt.X
                 Y: =offer_regprice.Y+offer_regprice.Height+2
                 ZIndex: =57
 
@@ -2727,6 +2727,20 @@ offers_screen As screen:
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_grade_lbl_1.Y+offer_grade_lbl_1.Height
                 ZIndex: =64
+
+            Icon14 As icon.Compose:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =30
+                Icon: =Icon.OpenInNewWindow
+                OnSelect: =Select(Parent);Set(showOfferPreview,true)
+                Tooltip: ="Preview Offers"
+                Width: =30
+                X: =offer_linelist.X+offer_linelist.Width+10
+                Y: =offer_linelist.Y
+                ZIndex: =65
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
@@ -3359,4 +3373,193 @@ offers_screen As screen:
         Width: =34
         X: =page_filter.X+page_filter.Width+5
         ZIndex: =21
+
+    offer_preview As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 36, 71, 1)
+        BorderThickness: =1
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =860
+        Visible: =showOfferPreview
+        Width: =1092
+        X: =520
+        Y: =92
+        ZIndex: =22
+
+        container_header As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(0, 46, 92, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="PG:"&offer_preview_gallery.Selected.page_from&" Adblock:"&offer_preview_gallery.Selected.Adblock&" Markets:"&Concat(SortByColumns(offer_preview_gallery.Selected.Markets,"Value",Ascending),Value,",")&" Type:"&offer_preview_gallery.Selected.offer_type.Value
+            Width: =Parent.Width
+            ZIndex: =1
+
+        offer_preview_gallery As gallery.variableTemplateHeightGallery:
+            BorderColor: =RGBA(0, 51, 102, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-Self.Y-5
+            Items: =container_gallery.AllItems
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =Min(Self.Width/2,Self.Height/2)-10
+            Width: =Parent.Width
+            Y: =container_header.Height+5
+            ZIndex: =2
+
+            change_offer_assets_1 As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)/2
+                Items: =ThisItem.assigned_images
+                TemplateSize: =(Self.Width/CountRows(ThisItem.assigned_images))-CountRows(ThisItem.assigned_images)*Self.TemplatePadding*2
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-20
+                WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
+                Image2_3 As image:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =2
+
+            changeOffer_offerCopy_1 As label:
+                Align: =Align.Right
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Size: =12
+                Text: |-
+                    =ThisItem.offer_copy_ipt.Text&"
+                    "&ThisItem.'Country of Origin'&"
+                    #"&ThisItem.combined_item_number
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
+                X: =Parent.TemplatePadding
+                Y: =change_offer_assets_1.Y+change_offer_assets_1.Height
+                ZIndex: =2
+
+            Rectangle1_1 As rectangle:
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =5
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                OnSelect: =Select(Parent)
+                Width: |-
+                    =Parent.TemplateWidth-
+                    Parent.TemplatePadding*2-20
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =3
+
+            offer_price_rectangle_1 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(255, 0, 0, 1)
+                Height: =changeOffer_price_1.Height
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-Rectangle1_1.BorderThickness
+                X: =changeOffer_offerCopy_1.X+changeOffer_offerCopy_1.Width+5
+                Y: =changeOffer_offerCopy_1.Y
+                ZIndex: =4
+
+            changeOffer_price_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(255, 237, 105, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =changeOffer_offerCopy_1.Height
+                OnSelect: =Select(Parent)
+                Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,48)
+                Text: |-
+                    =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
+                    ","")&
+                    If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price)
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-Rectangle1_1.BorderThickness
+                X: =offer_price_rectangle_1.X
+                Y: =offer_price_rectangle_1.Y
+                ZIndex: =5
+
+            changeOffer_saveNow_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =2
+                Color: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 0, 1)
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Size: =26
+                Text: ="SAVE NOW!"
+                Visible: =ThisItem.offer_type.Value="Save Now"
+                Width: =offer_price_rectangle_1.Width-2
+                X: =offer_price_rectangle_1.X+1
+                Y: =offer_price_rectangle_1.Y-Self.Height+2
+                ZIndex: =8
+
+            changeOffer_rollBack_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =2
+                Color: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 0, 1)
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Size: =26
+                Text: ="Rollback"
+                Visible: =ThisItem.offer_type.Value="Rollback"
+                Width: =offer_price_rectangle_1.Width-2
+                X: =offer_price_rectangle_1.X+1
+                Y: =offer_price_rectangle_1.Y-Self.Height+2
+                ZIndex: =9
+
+            changeOffer_rollBack_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =2
+                Color: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 0, 1)
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Size: =26
+                Text: ="Rollback"
+                Visible: =ThisItem.offer_type.Value="Multi-Save"
+                Width: =offer_price_rectangle_1.Width-2
+                X: =offer_price_rectangle_1.X+1
+                Y: =offer_price_rectangle_1.Y-Self.Height+2
+                ZIndex: =10
+
+        Icon13 As icon.Cancel:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =34
+            Icon: =Icon.Cancel
+            OnSelect: =Set(showOfferPreview,false)
+            Width: =34
+            X: =Parent.Width-Self.Width-5
+            ZIndex: =3
 
