@@ -3637,6 +3637,7 @@ offers_screen As screen:
                     M
                     *
                     "
+                Visible: =If(ThisItem.offer_type.Value="Multi-Save",true,false)
                 Width: =70
                 X: =previewOffer_MultiSaveEach.X
                 Y: =previewOffer_price.Y
