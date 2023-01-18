@@ -3473,11 +3473,11 @@ offers_screen As screen:
                 FontWeight: =FontWeight.Bold
                 Height: =previewOffer_offerCopy.Height+previewOffer_offerCOO.Height+previewOffer_offerItemNumber.Height+4
                 OnSelect: =Select(Parent)
-                Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,48)
+                Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,"Multi-Save",24,48)
                 Text: |-
-                    =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
+                    =If(ThisItem.offer_type.Value="Multi-Save",ThisItem.multi_save,If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
                     ","")&
-                    If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price)
+                    If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
                 Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-previewOffer_boarder.BorderThickness
                 X: =previewOffer_price_rectangle.X
                 Y: =previewOffer_price_rectangle.Y
@@ -3524,12 +3524,14 @@ offers_screen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.Arial
+                Height: =If(ThisItem.'Country of Origin'="",0,40)
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
                 Size: =10
                 Text: =ThisItem.'Country of Origin'
+                Visible: =If(ThisItem.'Country of Origin'="",false,true)
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
                 X: =Parent.TemplatePadding
                 Y: =previewOffer_offerCopy.Y+previewOffer_offerCopy.Height
@@ -3547,7 +3549,6 @@ offers_screen As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Size: =12
                 Text: =ThisItem.offer_copy_ipt.Text
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
                 X: =Parent.TemplatePadding
@@ -3565,7 +3566,7 @@ offers_screen As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Size: =10
+                Size: =11
                 Text: |-
                     ="#"&ThisItem.combined_item_number
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
