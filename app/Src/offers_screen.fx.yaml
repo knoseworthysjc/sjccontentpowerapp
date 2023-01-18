@@ -1743,7 +1743,7 @@ offers_screen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Reset: =true
-                Size: =13
+                Size: =11
                 Width: =275
                 X: =offer_regprice_lbl.X
                 Y: =offer_coo_lbl.Y+offer_coo_lbl.Height
@@ -1798,7 +1798,7 @@ offers_screen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Reset: =true
-                Size: =13
+                Size: =11
                 Width: =275
                 X: =offer_cooFre_lbl.X
                 Y: =offer_cooFre_lbl.Y+offer_cooFre_lbl.Height
@@ -3387,6 +3387,7 @@ offers_screen As screen:
 
         container_header As label:
             Align: =Align.Center
+            AutoHeight: =true
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -3395,13 +3396,13 @@ offers_screen As screen:
             FontWeight: =FontWeight.Semibold
             Height: =34
             PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
+            PaddingLeft: =60
+            PaddingRight: =60
             PaddingTop: =0
-            Size: =16
+            Size: =20
             Text: |-
                 ="PG:"&offer_preview_gallery.Selected.page_from&" Adblock:"&offer_preview_gallery.Selected.Adblock&" Markets:"&Concat(SortByColumns(offer_preview_gallery.Selected.Markets,"Value",Ascending),Value,",")&" Type:"&offer_preview_gallery.Selected.offer_type.Value
-            Width: =Parent.Width
+            Width: =Parent.Width-Parent.BorderThickness
             ZIndex: =1
 
         offer_preview_gallery As gallery.variableTemplateHeightGallery:
@@ -3414,7 +3415,8 @@ offers_screen As screen:
             Layout: =Layout.Vertical
             TemplatePadding: =0
             TemplateSize: =Min(Self.Width,Self.Height)-10
-            Width: =Parent.Width
+            Width: =Parent.Width-0
+            X: =5
             Y: =container_header.Height+5
             ZIndex: =2
 
@@ -3534,7 +3536,7 @@ offers_screen As screen:
                 Text: =ThisItem.'Country of Origin'
                 Visible: =If(ThisItem.'Country of Origin'="",false,true)
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =Parent.TemplatePadding
+                X: =previewOffer_boarder.X+previewOffer_boarder.BorderThickness+5
                 Y: =previewOffer_offerCopy.Y+previewOffer_offerCopy.Height
                 ZIndex: =7
 
@@ -3552,7 +3554,7 @@ offers_screen As screen:
                 PaddingTop: =0
                 Text: =ThisItem.offer_copy_ipt.Text
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =Parent.TemplatePadding
+                X: =previewOffer_boarder.X+previewOffer_boarder.BorderThickness+5
                 Y: =previewOffer_assets.Y+previewOffer_assets.Height
                 ZIndex: =8
 
@@ -3571,7 +3573,7 @@ offers_screen As screen:
                 Text: |-
                     ="#"&ThisItem.combined_item_number
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =Parent.TemplatePadding
+                X: =previewOffer_boarder.X+previewOffer_boarder.BorderThickness+5
                 Y: =previewOffer_offerCOO.Y+previewOffer_offerCOO.Height
                 ZIndex: =9
 
@@ -3590,7 +3592,7 @@ offers_screen As screen:
                 Text: ="Was "&ThisItem.regular_price
                 Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
                 Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =Parent.TemplatePadding
+                X: =previewOffer_boarder.X+previewOffer_boarder.BorderThickness+5
                 Y: =previewOffer_offerItemNumber.Y+previewOffer_offerItemNumber.Height
                 ZIndex: =10
 
@@ -3646,14 +3648,16 @@ offers_screen As screen:
                 ZIndex: =12
 
         Icon13 As icon.Cancel:
-            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
             Color: =RGBA(255, 255, 255, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =34
             Icon: =Icon.Cancel
             OnSelect: =Set(showOfferPreview,false)
-            Width: =34
+            Width: =50
             X: =Parent.Width-Self.Width-5
+            Y: =container_header.Height/2-Self.Height/2
             ZIndex: =3
 
