@@ -3471,11 +3471,12 @@ offers_screen As screen:
                 Color: =RGBA(255, 237, 105, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 FontWeight: =FontWeight.Bold
-                Height: =previewOffer_offerCopy.Height+previewOffer_offerCOO.Height+previewOffer_offerItemNumber.Height+4
+                Height: =previewOffer_offerCopy.Height+previewOffer_offerCOO.Height+previewOffer_offerItemNumber.Height+40
                 OnSelect: =Select(Parent)
                 Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,"Multi-Save",24,48)
                 Text: |-
-                    =If(ThisItem.offer_type.Value="Multi-Save",ThisItem.multi_save,If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
+                    =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
+                    "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
                     ","")&
                     If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
                 Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-previewOffer_boarder.BorderThickness
