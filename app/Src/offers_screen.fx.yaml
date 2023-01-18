@@ -3347,7 +3347,7 @@ offers_screen As screen:
         Icon: =Icon.Link
         OnSelect: |-
             =Launch("https://sjccontent.sharepoint.com/teams/WalmartContent/Lists/Offers/AllItems.aspx?",{
-                FilterField1:"assigned project",
+                FilterField1:"assigned_project",
                 FilterValue1:project_filter.Selected.Title,
                 FilterType1:"Lookup",
                 FilterField2:"page_from",
