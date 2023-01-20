@@ -3667,9 +3667,9 @@ offers_screen As screen:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledColor: =RGBA(244, 244, 244, 1)
         Height: =34
-        Icon: =Icon.Link
+        Icon: =Icon.OpenInNewWindow
         OnSelect: |-
-            =Launch("https://sjccontent.sharepoint.com/teams/WalmartContent/Lists/Offers/AllItems.aspx?",{
+            =Launch("https://prod-49.westus.logic.azure.com/workflows/aa5829e5c9024d4e86bd4db441f415bd/triggers/manual/paths/invoke/Walmart/"&project_filter.Selected.Season.Value&"/"&project_filter.Selected.Title&"/"&page_filter.Selected.Result&"/ON/?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=osuf_6Vyo7mfWjuEhAs7OUR9nBQ0BGrCLvMLSxlI2e0#?",{
                 FilterField1:"assigned_project",
                 FilterValue1:project_filter.Selected.Title,
                 FilterType1:"Lookup",
@@ -3678,7 +3678,7 @@ offers_screen As screen:
                 FilterType2:"Text",
                 viewid:"4067f358-b5d6-4124-9b94-31c37603b993"
             },LaunchTarget.New)
-        Tooltip: ="Goto SharePoint"
+        Tooltip: ="Page Preview"
         Width: =34
         X: =Icon12.X+Icon12.Width+5
         Y: =Icon12.Y
