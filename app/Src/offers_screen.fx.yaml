@@ -1013,7 +1013,7 @@ offers_screen As screen:
                 Items: =ThisItem.assigned_images_fre
                 TemplatePadding: =2
                 TemplateSize: =Self.Width/2-Self.TemplatePadding*2
-                Width: =(Parent.TemplateWidth*0.25)
+                Width: =(Parent.TemplateWidth*0.2)
                 X: =offer_images.X
                 Y: =offer_images.Y+offer_images.Height
                 ZIndex: =1
@@ -1074,7 +1074,7 @@ offers_screen As screen:
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =2
                 TemplateSize: =Self.Width/2-Self.TemplatePadding*2
-                Width: =(Parent.TemplateWidth*0.25)
+                Width: =(Parent.TemplateWidth*0.2)
                 X: =Parent.TemplatePadding
                 Y: =offer_label.Y+offer_label.Height
                 ZIndex: =2
@@ -1710,7 +1710,7 @@ offers_screen As screen:
                 Text: |-
                     ="Count of Origin
                     "
-                Width: =275
+                Width: =260
                 X: =offer_regprice_lbl.X
                 Y: =offer_regprice.Y+offer_regprice.Height+2
                 ZIndex: =25
@@ -1744,7 +1744,7 @@ offers_screen As screen:
                 RadiusTopRight: =0
                 Reset: =true
                 Size: =11
-                Width: =275
+                Width: =260
                 X: =offer_regprice_lbl.X
                 Y: =offer_coo_lbl.Y+offer_coo_lbl.Height
                 ZIndex: =26
@@ -1764,7 +1764,7 @@ offers_screen As screen:
                 PaddingTop: =0
                 Size: =11
                 Text: ="Country of Origin Fre"
-                Width: =275
+                Width: =260
                 X: |
                     =offer_coo_lbl.X+offer_coo_lbl.Width+5
                 Y: =offer_coo_lbl.Y
@@ -1799,7 +1799,7 @@ offers_screen As screen:
                 RadiusTopRight: =0
                 Reset: =true
                 Size: =11
-                Width: =275
+                Width: =260
                 X: =offer_cooFre_lbl.X
                 Y: =offer_cooFre_lbl.Y+offer_cooFre_lbl.Height
                 ZIndex: =28
@@ -2163,7 +2163,7 @@ offers_screen As screen:
                 PaddingTop: =0
                 Size: =11
                 Text: ="Grade"
-                Width: =275
+                Width: =260
                 X: =offer_regprice_lbl.X
                 Y: =offer_coo.Y+offer_coo.Height+5
                 ZIndex: =42
@@ -2197,7 +2197,7 @@ offers_screen As screen:
                 RadiusTopRight: =0
                 Reset: =true
                 Size: =11
-                Width: =275
+                Width: =260
                 X: =offer_regprice_lbl.X
                 Y: =offer_grade_lbl.Y+offer_grade_lbl.Height
                 ZIndex: =43
@@ -2213,11 +2213,11 @@ offers_screen As screen:
                     =Select(Parent);
                     Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
-                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text
+                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                     });
                     Patch(selectedOffers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
-                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text
+                    installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                     });
                 Width: =Self.Height
                 X: =offer_label.X+offer_label.Width-Self.Width-100
@@ -2342,7 +2342,7 @@ offers_screen As screen:
                 PaddingTop: =0
                 Size: =11
                 Text: ="Grade Fre"
-                Width: =275
+                Width: =260
                 X: =offer_grade.X+offer_grade.Width+5
                 Y: =offer_grade_lbl.Y
                 ZIndex: =49
@@ -2376,7 +2376,7 @@ offers_screen As screen:
                 RadiusTopRight: =0
                 Reset: =true
                 Size: =11
-                Width: =275
+                Width: =260
                 X: =offer_grade.X+offer_grade.Width+5
                 Y: =offer_grade_lbl_1.Y+offer_grade_lbl_1.Height
                 ZIndex: =50
@@ -2448,7 +2448,7 @@ offers_screen As screen:
                 PaddingTop: =0
                 Size: =11
                 Text: ="Multi-Save"
-                Width: =275
+                Width: =260
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_coo_lbl.Y
                 ZIndex: =53
@@ -2482,7 +2482,7 @@ offers_screen As screen:
                 RadiusTopRight: =0
                 Reset: =true
                 Size: =11
-                Width: =275
+                Width: =260
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_multisave_llb.Y+offer_multisave_llb.Height
                 ZIndex: =54
@@ -2589,7 +2589,7 @@ offers_screen As screen:
                 Size: =10
                 Text: ="Installments($)"
                 Width: =120
-                X: =475
+                X: =offer_type_ipt.X
                 Y: =offer_installmonths_ipt.Y+offer_installmonths_ipt.Height+5
                 ZIndex: =59
 
@@ -2622,7 +2622,7 @@ offers_screen As screen:
                 Reset: =true
                 Size: =13
                 Width: =120
-                X: =offer_regprice_lbl_2.X
+                X: =offer_type_ipt.X
                 Y: =offer_regprice_lbl_2.Y+offer_regprice_lbl_2.Height
                 ZIndex: =60
 
@@ -2689,7 +2689,7 @@ offers_screen As screen:
                 PaddingTop: =0
                 Size: =11
                 Text: ="Multi-Save Fre"
-                Width: =275
+                Width: =260
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_grade_lbl.Y
                 ZIndex: =63
@@ -2723,7 +2723,7 @@ offers_screen As screen:
                 RadiusTopRight: =0
                 Reset: =true
                 Size: =11
-                Width: =275
+                Width: =260
                 X: =offer_cooFre_lbl.X+offer_cooFre_lbl.Width+5
                 Y: =offer_grade_lbl_1.Y+offer_grade_lbl_1.Height
                 ZIndex: =64
@@ -2741,6 +2741,114 @@ offers_screen As screen:
                 X: =offer_linelist.X+offer_linelist.Width+10
                 Y: =offer_linelist.Y
                 ZIndex: =65
+
+            offer_multisave_llb_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: |
+                    =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11
+                Text: ="Unit"
+                Width: =125
+                X: =offer_multisave_llb.X+offer_multisave_llb.Width+5
+                Y: =250
+                ZIndex: =66
+
+            offer_unit_ipt As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.unit
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =55
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
+                OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Reset: =true
+                Size: =11
+                Width: =125
+                X: =offer_multisave_llb.X+offer_multisave_llb.Width+5
+                Y: =275
+                ZIndex: =67
+
+            offer_multisave_llb_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: |
+                    =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11
+                Text: ="Unit French"
+                Width: =125
+                X: =offer_multisave_llb.X+offer_multisave_llb.Width+5
+                Y: =335
+                ZIndex: =68
+
+            offer_unitfrench_ipt As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(246, 246, 246, 1)
+                BorderThickness: =0
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =ThisItem.unit_fre
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Height: =55
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Mode: =TextMode.MultiLine
+                OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Reset: =true
+                Size: =11
+                Width: =125
+                X: =offer_multisave_llb.X+offer_multisave_llb.Width+5
+                Y: =360
+                ZIndex: =69
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
