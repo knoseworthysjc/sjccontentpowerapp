@@ -90,8 +90,8 @@ offers_screen As screen:
         HoverFill: =RGBA(153, 205, 255, 1)
         Items: |-
             =If(week_filter.Text="", 
-            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value),"Week",Descending,"Title",Ascending),
-            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",Descending,"Title",Ascending))
+            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+            SortByColumns(Filter(Projects,Season.Value = season_filter.Selected.Value And Week = Value(week_filter.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
         OnChange: |-
             =Clear(selectedOffers);
             Collect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter.Selected.Title));
@@ -998,7 +998,7 @@ offers_screen As screen:
             BorderColor: =RGBA(0, 89, 178, 1)
             DelayItemLoading: =true
             Height: =Parent.Height-Self.Y
-            Items: =If(IsBlankOrError(page_filter.Selected.Result), SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter.Selected.Result),"layout_position",Ascending))
+            Items: =If(IsBlankOrError(page_filter.Selected.Result), SortByColumns(selectedOffers,"page_from",SortOrder.Ascending,"layout_position", SortOrder.Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter.Selected.Result),"layout_position",SortOrder.Ascending))
             Layout: =Layout.Vertical
             TemplateFill: =If(ThisItem.ID=container_gallery.Selected.ID, RGBA(0, 0, 0, 0.1),RGBA(0, 0, 0, 0))
             TemplateSize: =Self.Height/2.25
@@ -1044,7 +1044,8 @@ offers_screen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =11
-                    Text: =Last(Split(ThisItem.Value,"/")).Result
+                    Text: |-
+                        =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
                     Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplateHeight-Self.Height-5
@@ -1105,7 +1106,8 @@ offers_screen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =9
-                    Text: =Last(Split(ThisItem.Value,"/")).Result
+                    Text: |-
+                        =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
                     Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplateHeight-Self.Height-20
@@ -1330,7 +1332,7 @@ offers_screen As screen:
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                DefaultSelectedItems: =SortByColumns(ThisItem.Markets,"Value",Ascending)
+                DefaultSelectedItems: =SortByColumns(ThisItem.Markets,"Value",SortOrder.Ascending)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2211,11 +2213,11 @@ offers_screen As screen:
                 Icon: =Icon.Save
                 OnSelect: |-
                     =Select(Parent);
-                    Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",SortOrder.Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
                     installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                     });
-                    Patch(selectedOffers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                    Patch(selectedOffers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",SortOrder.Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
                     regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_1.Text,'Savings(LB)':offer_savings_1.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
                     installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                     });
@@ -2974,7 +2976,7 @@ offers_screen As screen:
                 FontWeight: =FontWeight.Semibold
                 OnSelect: =Select(Parent)
                 Size: =13
-                Text: =ThisItem.FILE_PATH
+                Text: =ThisItem.FILE_NAME
                 Width: =Image3.Width
                 X: =Parent.TemplatePadding
                 Y: =Parent.TemplateHeight-Self.Height-5
@@ -3175,7 +3177,8 @@ offers_screen As screen:
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
-        Items: =Distinct(selectedOffers,page_from)
+        Items: |-
+            =ForAll(Distinct(selectedOffers,page_from), {Result: ThisRecord.Value})
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
@@ -3313,7 +3316,7 @@ offers_screen As screen:
             BorderColor: =RGBA(0, 36, 71, 1)
             BorderStyle: =BorderStyle.None
             Height: =Parent.Height-Self.Y
-            Items: =SortByColumns(searchOffersRecords,"Modified",Descending)
+            Items: =SortByColumns(searchOffersRecords,"Modified",SortOrder.Descending)
             Layout: =Layout.Vertical
             TemplateFill: =RGBA(255, 255, 255, 1)
             TemplateSize: =Self.Height/3
@@ -3358,7 +3361,8 @@ offers_screen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =11
-                    Text: =Last(Split(ThisItem.Value,"/")).Result
+                    Text: |-
+                        =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
                     Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplatePadding
@@ -3509,7 +3513,7 @@ offers_screen As screen:
             PaddingTop: =0
             Size: =20
             Text: |-
-                ="PG:"&offer_preview_gallery.Selected.page_from&" Adblock:"&offer_preview_gallery.Selected.Adblock&" Markets:"&Concat(SortByColumns(offer_preview_gallery.Selected.Markets,"Value",Ascending),Value,",")&" Type:"&offer_preview_gallery.Selected.offer_type.Value
+                ="PG:"&offer_preview_gallery.Selected.page_from&" Adblock:"&offer_preview_gallery.Selected.Adblock&" Markets:"&Concat(SortByColumns(offer_preview_gallery.Selected.Markets,"Value",SortOrder.Ascending),Value,",")&" Type:"&offer_preview_gallery.Selected.offer_type.Value
             Width: =Parent.Width-Parent.BorderThickness
             ZIndex: =1
 

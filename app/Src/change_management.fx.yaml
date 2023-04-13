@@ -18,7 +18,7 @@ change_management As screen:
         BorderThickness: =1
         Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height-Self.Y-5
-        Items: =If(IsBlankOrError(page_filter_1.Selected.Result), SortByColumns(selectedOffers,"page_from",Ascending,"layout_position", Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter_1.Selected.Result),"layout_position",Ascending))
+        Items: =If(IsBlankOrError(page_filter_1.Selected.Result), SortByColumns(selectedOffers,"page_from",SortOrder.Ascending,"layout_position", SortOrder.Ascending),SortByColumns(Filter(selectedOffers,page_from = page_filter_1.Selected.Result),"layout_position",SortOrder.Ascending))
         Layout: =Layout.Vertical
         TemplateSize: =Max(changeOffer_offerCopy.Y+changeOffer_offerCopy.Height,changeOffer_price.Y+changeOffer_price.Height)+30
         Width: =Parent.Width/3
@@ -115,7 +115,7 @@ change_management As screen:
             Fill: =RGBA(246, 246, 246, 0.7)
             Font: =Font.Arial
             OnSelect: =Select(Parent)
-            Text: =Concat(SortByColumns(ThisItem.Markets,"Value",Ascending),Value,",")
+            Text: =Concat(SortByColumns(ThisItem.Markets,"Value",SortOrder.Ascending),Value,",")
             X: =Parent.TemplatePadding+5
             Y: =Parent.TemplatePadding+5
             ZIndex: =6
@@ -338,8 +338,8 @@ change_management As screen:
         HoverFill: =RGBA(153, 205, 255, 1)
         Items: |-
             =If(week_filter_1.Text="", 
-            SortByColumns(Filter(Projects,Season.Value = season_filter_1.Selected.Value),"Week",Descending,"Title",Ascending),
-            SortByColumns(Filter(Projects,Season.Value = season_filter_1.Selected.Value And Week = Value(week_filter_1.Text)),"Week",Descending,"Title",Ascending))
+            SortByColumns(Filter(Projects,Season.Value = season_filter_1.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+            SortByColumns(Filter(Projects,Season.Value = season_filter_1.Selected.Value And Week = Value(week_filter_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
         OnChange: |-
             =Clear(selectedOffers);
             Collect(selectedOffers,Filter(Offers,assigned_project.Value = project_filter_1.Selected.Title));
@@ -370,7 +370,8 @@ change_management As screen:
         Height: =screen_title.Height-Self.BorderThickness*8
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =RGBA(153, 205, 255, 1)
-        Items: =Distinct(selectedOffers,page_from)
+        Items: |-
+            =ForAll(Distinct(selectedOffers,page_from), {Result: ThisRecord.Value})
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(0, 89, 178, 1)
         SelectionFill: =RGBA(0, 51, 102, 1)
