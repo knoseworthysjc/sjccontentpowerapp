@@ -430,9 +430,7 @@ scrOffers As screen:
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =Parent.Width*0.01
                     Size: =11
-                    Text: |-
-                        ="Details
-                        "
+                    Text: ="Page Details"
                     Width: =Parent.Width*0.08
                     ZIndex: =2
 
@@ -1881,11 +1879,9 @@ scrOffers As screen:
 
                 conExistingOffersDetails As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding
-                    LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =1
-                    LayoutJustifyContent: =LayoutJustifyContent.End
                     LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
                     Width: =lblOfferDetails.Width
                     X: =lblOfferDetails.X-U
                     Y: =Parent.TemplatePadding
@@ -1893,19 +1889,18 @@ scrOffers As screen:
 
                     offer_page_lbl As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
-                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =32
+                        Height: =32      
+                        LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =12
+                        Size: =11
                         Text: |-
                             ="Page:"
                         Width: =Parent.Width
@@ -1915,7 +1910,6 @@ scrOffers As screen:
 
                     offer_page As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
@@ -1923,13 +1917,13 @@ scrOffers As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        FillPortions: =1
                         FocusedBorderThickness: =4
-                        Height: |
-                            =32
+                        Font: =Font.'Segoe UI'
+                        Height: =32      
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =32
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1947,19 +1941,18 @@ scrOffers As screen:
 
                     offer_pos_lbl As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
-                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =32
+                        Height: =32      
+                        LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =12
+                        Size: =11
                         Text: |-
                             ="Pos:"
                         Width: =Parent.Width
@@ -1970,7 +1963,6 @@ scrOffers As screen:
 
                     offer_layoutposition As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
@@ -1978,14 +1970,14 @@ scrOffers As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        FillPortions: =1
                         FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
                         Format: =TextFormat.Number
-                        Height: |
-                            =32
+                        Height: =32      
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =32
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -2004,19 +1996,18 @@ scrOffers As screen:
 
                     offer_adblock_lbl As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
-                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =32
+                        Height: =32      
+                        LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =12
+                        Size: =11
                         Text: |-
                             ="AdBlock:"
                         Width: =Parent.Width
@@ -2027,7 +2018,6 @@ scrOffers As screen:
 
                     offer_adblock As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
@@ -2035,14 +2025,14 @@ scrOffers As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        FillPortions: =1
                         FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
                         Format: =TextFormat.Number
-                        Height: |
-                            =32
+                        Height: =32      
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =32
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -2061,18 +2051,18 @@ scrOffers As screen:
 
                     offer_type_lbl_1 As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
-                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =32      
+                        LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =10
+                        Size: =11
                         Text: ="Offer Type"
                         Width: =Parent.Width
                         X: =8
@@ -2080,7 +2070,6 @@ scrOffers As screen:
                         ZIndex: =7
 
                     offer_type_ipt As combobox:
-                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderThickness: =0
                         ChevronBackground: =RGBA(0, 51, 102, 1)
@@ -2093,16 +2082,14 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         DisplayFields: =["Value"]
-                        FillPortions: =1
-                        Font: =Font.Arial
-                        Height: |
-                            =32
+                        Font: =Font.'Segoe UI'
+                        Height: =32      
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         IsSearchable: =false
                         Items: =Choices(Offers.offer_type)
+                        LayoutMinHeight: =32
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                        OnSelect: =Select(Parent)
                         PaddingBottom: =3
                         PaddingLeft: =3
                         PaddingRight: =3
