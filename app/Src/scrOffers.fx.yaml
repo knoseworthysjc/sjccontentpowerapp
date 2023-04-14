@@ -1097,7 +1097,7 @@ scrOffers As screen:
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     Width: =Parent.Width*0.2
-                    X: =lblOfferCopy.X-U
+                    X: =conExistingOffersDetails.X+conExistingOffersDetails.Width+U
                     Y: =Parent.TemplatePadding
                     ZIndex: =58
 
