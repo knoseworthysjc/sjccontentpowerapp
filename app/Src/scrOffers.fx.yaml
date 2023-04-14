@@ -360,9 +360,10 @@ scrOffers As screen:
                         }
                     )
                 LoadingSpinner: =LoadingSpinner.Data
-                OnSelect: |
-                    =Switch(galExistingOfferCommandBar.Selected.IconEvent,"add",Notify("New"),"delete",Notify("Delete"),"search",Notify("Search"));
-                    Notify("Click DOne")
+                OnSelect: |+
+                    =Notify("Click Done");
+                    Switch(galExistingOfferCommandBar.Selected.IconEvent,"add",Notify("New"),"delete",Notify("Delete"),"search",Notify("Search"));
+                    
                 ShowScrollbar: =false
                 TemplatePadding: =1
                 TemplateSize: =Self.Width/16-16*Self.TemplatePadding
