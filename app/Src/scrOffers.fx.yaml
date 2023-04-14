@@ -333,7 +333,7 @@ scrOffers As screen:
                 FillPortions: =0
                 Height: =32
                 Items: |-
-                    =Table({IconName:"New",IconText:"New",IconEvent:"Event"})
+                    =Table({IconName:"New",IconText:"New",IconEvent:"Event",IconTip:"Create New Blank Offer",IconSize:"20",IconFontSize:"18"})
                 LoadingSpinner: =LoadingSpinner.Data
                 ShowScrollbar: =false
                 TemplatePadding: =1
@@ -343,21 +343,18 @@ scrOffers As screen:
                 "IconExistingOfferCmdBar As 'Fluent Icon (1.0.19)'":
                     BorderRadius: =5
                     DisplayMode: =DisplayMode.Edit
-                    FontColor: |-
-                        ="#808080"
-                    FontSize: =20
+                    FontColor: ="LightBlue"
+                    FontSize: =ThisItem.IconFontSize
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                    HoverFontColor: |-
-                        ="#808080"
-                    HoverIconColor: |-
-                        ="#808080"
-                    IconColor: |-
-                        ="#808080"
+                    HoverFontColor: ="LightBlue"
+                    HoverIconColor: ="LIghtBlue"
+                    IconColor: ="LightBlue"
                     IconName: =ThisItem.IconName
-                    IconSize: =25
+                    IconSize: =ThisItem.IconSize
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                    Text: =ThisItem.Text
+                    Text: =ThisItem.IconText
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                    Tooltip: =ThisItem.IconTip
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplatePadding
