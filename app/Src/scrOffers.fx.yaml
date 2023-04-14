@@ -1185,45 +1185,6 @@ scrOffers As screen:
                     Y: =offer_coo_lbl.Y
                     ZIndex: =38
 
-                grpAddImagesEng As group:
-                    Height: =5
-                    Width: =5
-                    X: =60
-                    Y: =60
-                    ZIndex: =38
-
-                    add_images_lbl As label:
-                        BorderColor: =RGBA(0, 51, 102, 1)
-                        Color: =RGBA(250, 250, 250, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 51, 102, 1)
-                        FontWeight: =FontWeight.Semibold
-                        Height: =32
-                        OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");Set(selectedOfferRecord,ThisItem);
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =Icon5.Width
-                        PaddingTop: =0
-                        Size: =12
-                        Text: ="Add Images Eng"
-                        Width: =16
-                        X: =offer_images.X+5
-                        ZIndex: =54
-
-                    Icon5 As icon.Add:
-                        BorderColor: =RGBA(0, 51, 102, 1)
-                        Color: =RGBA(250, 250, 250, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        Fill: =RGBA(0, 51, 102, 1)
-                        FocusedBorderThickness: =0
-                        Height: =32
-                        Icon: =Icon.Add
-                        OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");Set(selectedOfferRecord,ThisItem);
-                        Width: =16
-                        X: =offer_images.X+5
-                        ZIndex: =55
-
                 offer_multisave_ipt As text:
                     Align: =Align.Center
                     BorderColor: =RGBA(246, 246, 246, 1)
@@ -1292,47 +1253,6 @@ scrOffers As screen:
                     X: =921
                     Y: =201
                     ZIndex: =41
-
-                grpAddFreImages As group:
-                    Height: =5
-                    Width: =5
-                    X: =60
-                    Y: =60
-                    ZIndex: =41
-
-                    add_images_lbl_1 As label:
-                        BorderColor: =RGBA(0, 51, 102, 1)
-                        Color: =RGBA(250, 250, 250, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 51, 102, 1)
-                        FontWeight: =FontWeight.Semibold
-                        Height: =24
-                        OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =Icon5_1.Width
-                        PaddingTop: =0
-                        Size: =12
-                        Text: ="Add Images Fre"
-                        Width: =100
-                        X: =offer_images.X+5
-                        Y: =165
-                        ZIndex: =28
-
-                    Icon5_1 As icon.Add:
-                        BorderColor: =RGBA(0, 51, 102, 1)
-                        Color: =RGBA(250, 250, 250, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        Fill: =RGBA(0, 51, 102, 1)
-                        FocusedBorderThickness: =0
-                        Height: =24
-                        Icon: =Icon.Add
-                        OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
-                        Width: =100
-                        X: =offer_images.X+5
-                        Y: =188
-                        ZIndex: =53
 
                 offer_installmonths_ipt As text:
                     Align: =Align.Center
@@ -1567,129 +1487,6 @@ scrOffers As screen:
                     X: =1296
                     Y: =69
                     ZIndex: =50
-
-                offer_images_fre As gallery.galleryHorizontal:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderThickness: =1
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =offer_images.Height
-                    Items: =ThisItem.assigned_images_fre
-                    TemplatePadding: =2
-                    TemplateSize: =Self.Width/2-Self.TemplatePadding*2
-                    Width: =lblOfferAssets.Width-U
-                    X: =lblOfferAssets.X
-                    Y: =offer_images.Y+offer_images.Height
-                    ZIndex: =51
-
-                    Image2_1 As image:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                        Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                        X: =1
-                        Y: =Parent.TemplatePadding
-                        ZIndex: =1
-
-                    Label3_1 As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(163, 160, 160, 0.72)
-                        FontWeight: =FontWeight.Semibold
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: |-
-                            =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
-                        Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
-                        X: =1
-                        Y: =Parent.TemplateHeight-Self.Height-5
-                        ZIndex: =2
-
-                    Icon8_1 As icon.Cancel:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(0, 89, 178, 0.47)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =1
-                        Height: =35
-                        Icon: =Icon.Cancel
-                        OnSelect: |-
-                            =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
-                            Patch(Offers,galExistingOffers.Selected,{assigned_images_fre:assignOfferPictures});
-                            Patch(selectedOffers,First(Filter(selectedOffers,ID = galExistingOffers.Selected.ID)),{assigned_images_fre:assignOfferPictures});
-                        Width: =35
-                        Y: =40
-                        ZIndex: =3
-
-                offer_images As gallery.galleryHorizontal:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderThickness: =1
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =((Parent.TemplateHeight-Parent.TemplatePadding*2)-Self.Y)/2
-                    Items: =ThisItem.assigned_images
-                    TemplatePadding: =2
-                    TemplateSize: =Self.Width/2-Self.TemplatePadding*2
-                    Width: =lblOfferAssets.Width-U
-                    X: =lblOfferAssets.X
-                    ZIndex: =52
-
-                    Image2 As image:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-15
-                        Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                        X: =1
-                        Y: =Parent.TemplatePadding
-                        ZIndex: =1
-
-                    Label3 As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(163, 160, 160, 0.75)
-                        Font: =Font.Arial
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =9
-                        Text: |-
-                            =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
-                        Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
-                        X: =1
-                        Y: =Parent.TemplateHeight-Self.Height-20
-                        ZIndex: =2
-
-                    Icon8 As icon.Cancel:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(0, 89, 178, 0.47)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =1
-                        Height: =35
-                        Icon: =Icon.Cancel
-                        OnSelect: |-
-                            =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
-                            Patch(Offers,galExistingOffers.Selected,{assigned_images:assignOfferPictures});
-                            Patch(selectedOffers,First(Filter(selectedOffers,ID = galExistingOffers.Selected.ID)),{assigned_images:assignOfferPictures});
-                        Width: =35
-                        Y: =40
-                        ZIndex: =3
 
                 conExistingOffersDetails As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding
@@ -2222,6 +2019,174 @@ scrOffers As screen:
                         X: =318
                         Y: =2
                         ZIndex: =6
+
+                conExistingOffersAssets As groupContainer.verticalAutoLayoutContainer:
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    Width: =lblOfferAssets.Width
+                    X: =lblOfferAssets.X-U
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =60
+
+                    Icon5 As icon.Add:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        Color: =RGBA(250, 250, 250, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 51, 102, 1)
+                        FocusedBorderThickness: =0
+                        Height: =25
+                        Icon: =Icon.Add
+                        LayoutMinWidth: =30  
+                        OnSelect: =Set(showAddImages,true);Set(addImagesField,"english");Set(selectedOfferRecord,ThisItem);
+                        Width: |
+                            =30
+                        ZIndex: =1
+
+                    offer_images As gallery.galleryHorizontal:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =100
+                        Items: =ThisItem.assigned_images
+                        LayoutMinHeight: =50
+                        LayoutMinWidth: =320
+                        TemplatePadding: =2
+                        TemplateSize: =Self.Width/2-Self.TemplatePadding*2
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        Image2 As image:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-15
+                            Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =1
+                            Y: =1
+                            ZIndex: =1
+
+                        Label3 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(163, 160, 160, 0.75)
+                            Font: =Font.Arial
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =9
+                            Text: |-
+                                =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
+                            Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
+                            X: =1
+                            ZIndex: =2
+
+                        Icon8 As icon.Cancel:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(0, 89, 178, 0.47)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =1
+                            Height: =35
+                            Icon: =Icon.Cancel
+                            OnSelect: |-
+                                =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
+                                Patch(Offers,galExistingOffers.Selected,{assigned_images:assignOfferPictures});
+                                Patch(selectedOffers,First(Filter(selectedOffers,ID = galExistingOffers.Selected.ID)),{assigned_images:assignOfferPictures});
+                            Width: =35
+                            ZIndex: =3
+
+                    Icon5_1 As icon.Add:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        Color: =RGBA(250, 250, 250, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 51, 102, 1)
+                        FocusedBorderThickness: =0
+                        Height: =25
+                        Icon: =Icon.Add
+                        LayoutMinWidth: =30  
+                        OnSelect: =Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
+                        Width: |
+                            =30
+                        X: =offer_images.X+5
+                        Y: =188
+                        ZIndex: =4
+
+                    offer_images_fre As gallery.galleryHorizontal:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =offer_images.Height
+                        Items: =ThisItem.assigned_images_fre
+                        LayoutMinHeight: =50
+                        LayoutMinWidth: =320
+                        TemplatePadding: =2
+                        TemplateSize: =Self.Width/2-Self.TemplatePadding*2
+                        Width: =Parent.Width
+                        X: =lblOfferAssets.X
+                        Y: =offer_images.Y+offer_images.Height
+                        ZIndex: =5
+
+                        Image2_1 As image:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =1
+                            Y: =1
+                            ZIndex: =1
+
+                        Label3_1 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(163, 160, 160, 0.72)
+                            FontWeight: =FontWeight.Semibold
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =11
+                            Text: |-
+                                =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
+                            Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
+                            X: =1
+                            ZIndex: =2
+
+                        Icon8_1 As icon.Cancel:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(0, 89, 178, 0.47)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =1
+                            Height: =35
+                            Icon: =Icon.Cancel
+                            OnSelect: |-
+                                =ClearCollect(assignOfferPictures,Filter(Parent.AllItems,Id <> ThisItem.Id));
+                                Patch(Offers,galExistingOffers.Selected,{assigned_images_fre:assignOfferPictures});
+                                Patch(selectedOffers,First(Filter(selectedOffers,ID = galExistingOffers.Selected.ID)),{assigned_images_fre:assignOfferPictures});
+                            Width: =35
+                            ZIndex: =3
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
