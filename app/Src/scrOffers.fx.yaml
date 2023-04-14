@@ -555,63 +555,6 @@ scrOffers As screen:
                 Width: =Parent.Width
                 ZIndex: =3
 
-                offer_markets_lbl As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: |
-                        =32
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =12
-                    Text: |-
-                        ="Markets:"
-                    Width: =70
-                    X: =1060
-                    Y: =265
-                    ZIndex: =7
-
-                offer_markets As combobox:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderThickness: =0
-                    ChevronBackground: =RGBA(0, 51, 102, 1)
-                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                    DefaultSelectedItems: =SortByColumns(ThisItem.Markets,"Value",SortOrder.Ascending)
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayFields: =["Value"]
-                    Height: |
-                        =32
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    IsSearchable: =false
-                    Items: =Choices(Offers.Markets)
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =2
-                    PaddingLeft: =2
-                    PaddingRight: =2
-                    PaddingTop: =2
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(0, 89, 178, 1)
-                    Reset: =true
-                    SearchFields: =["Value"]
-                    SearchItems: =[]
-                    SelectionFill: =RGBA(0, 51, 102, 1)
-                    Width: =355
-                    X: =1378
-                    Y: =2
-                    ZIndex: =8
-
                 offer_regprice_lbl As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -1140,37 +1083,6 @@ scrOffers As screen:
                     Y: =44
                     ZIndex: =32
 
-                offer_items As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.featured_item_numbers
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =32
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =11
-                    Width: =450
-                    X: =1421
-                    Y: =45
-                    ZIndex: =33
-
                 offer_ecofeefre As text:
                     Align: =Align.Center
                     BorderColor: =RGBA(246, 246, 246, 1)
@@ -1254,37 +1166,6 @@ scrOffers As screen:
                     X: =1473
                     Y: =91
                     ZIndex: =36
-
-                offer_combinedItemNumber_ipt As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.combined_item_number
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =32
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =11
-                    Width: =450
-                    X: =1420
-                    Y: =153
-                    ZIndex: =37
 
                 offer_multisave_llb As label:
                     Align: =Align.Center
@@ -1373,8 +1254,8 @@ scrOffers As screen:
                     Reset: =true
                     Size: =11
                     Width: =260
-                    X: =1141
-                    Y: =165
+                    X: =1502
+                    Y: =47
                     ZIndex: =39
 
                 offer_linelist As checkbox:
@@ -1389,8 +1270,8 @@ scrOffers As screen:
                     Size: =13
                     Text: ="Is LineList"
                     VerticalAlign: =VerticalAlign.Bottom
-                    X: =1096
-                    Y: =111
+                    X: =1542
+                    Y: =14
                     ZIndex: =40
 
                 offer_regprice_lbl_1 As label:
@@ -1649,8 +1530,8 @@ scrOffers As screen:
                     Reset: =true
                     Size: =11
                     Width: =125
-                    X: =1244
-                    Y: =248
+                    X: =1785
+                    Y: =133
                     ZIndex: =49
 
                 offer_unitfrench_ipt As text:
@@ -1813,6 +1694,7 @@ scrOffers As screen:
                 conExistingOffersDetails As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =lblOfferDetails.Width
@@ -1827,7 +1709,7 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =32      
+                        Height: =30
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1879,7 +1761,7 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =32      
+                        Height: =30
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1934,7 +1816,7 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =32      
+                        Height: =30
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1989,7 +1871,7 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =32      
+                        Height: =30
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -2043,6 +1925,7 @@ scrOffers As screen:
                 conExistingOffersCopy As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     Width: =lblOfferCopy.Width
                     X: =lblOfferCopy.X-U
@@ -2056,8 +1939,7 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =32
+                        Height: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2072,6 +1954,8 @@ scrOffers As screen:
                     offer_copy_ipt As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 51, 102, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Default: =ThisItem.offer_copy
@@ -2111,8 +1995,7 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =32
+                        Height: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2127,6 +2010,8 @@ scrOffers As screen:
                     offer_copy_french As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 51, 102, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Default: =ThisItem.offer_copy_french
@@ -2158,6 +2043,185 @@ scrOffers As screen:
                         X: =lblOfferCopy.X-U
                         Y: =offer_copyfrench_lbl.Y+offer_copyfrench_lbl.Height
                         ZIndex: =4
+
+                conExistingOffersItemMarkets As groupContainer.verticalAutoLayoutContainer:
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =U/2
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =lblOfferItems.Width
+                    X: =lblOfferItems.X-U
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =59
+
+                    offer_markets_lbl_1 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Items"
+                        Width: =Parent.Width
+                        X: =1060
+                        Y: =263
+                        ZIndex: =1
+
+                    offer_items As text:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(246, 246, 246, 1)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.featured_item_numbers
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width
+                        X: =1
+                        Y: =45
+                        ZIndex: =2
+
+                    offer_markets_lbl_2 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Combined Items"
+                        Width: =Parent.Width
+                        X: =1060
+                        Y: =263
+                        ZIndex: =3
+
+                    offer_combinedItemNumber_ipt As text:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(246, 246, 246, 1)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.combined_item_number
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =64
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width
+                        X: =1420
+                        Y: =108
+                        ZIndex: =4
+
+                    offer_markets_lbl As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: |-
+                            ="Markets:"
+                        Width: =Parent.Width
+                        X: =1060
+                        Y: =263
+                        ZIndex: =5
+
+                    offer_markets As combobox:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        DefaultSelectedItems: =SortByColumns(ThisItem.Markets,"Value",SortOrder.Ascending)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        IsSearchable: =false
+                        Items: =Choices(Offers.Markets)
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =2
+                        PaddingLeft: =2
+                        PaddingRight: =2
+                        PaddingTop: =2
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        Width: =Parent.Width
+                        X: =318
+                        Y: =2
+                        ZIndex: =6
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
