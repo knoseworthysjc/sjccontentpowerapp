@@ -592,7 +592,7 @@ scrOffers As screen:
                         ZIndex: =4
 
                 conExistingOffersAssets As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Height: =(Parent.TemplateHeight-Parent.TemplatePadding)-Self.Y
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
@@ -2058,6 +2058,83 @@ scrOffers As screen:
                         X: =318
                         Y: =2
                         ZIndex: =14
+
+                conExistingOffersMultiGradeCoo_2 As groupContainer.verticalAutoLayoutContainer:
+                    Fill: =RGBA(0, 121, 187, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Y
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =U
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowX: =LayoutOverflow.Scroll
+                    LayoutOverflowY: =LayoutOverflow.Scroll
+                    LayoutWrap: =true
+                    Width: =460
+                    X: =1430
+                    Y: =conExistingOfferPricing2.Y+conExistingOfferPricing2.Height+U
+                    ZIndex: =10
+
+                    lblOfferMultSale_2 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =25
+                        LayoutMinHeight: |
+                            =25
+                        LayoutMinWidth: =10
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: |-
+                            ="Comment/Notes
+                            "
+                        Width: =Parent.Width-U
+                        Y: =offer_images_fre.Y
+                        ZIndex: =1
+
+                    iptOfferMultiSave_2 As text:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.multi_save
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        EnableSpellCheck: =true
+                        FillPortions: =1
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =30
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinWidth: =10
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width-U
+                        ZIndex: =3
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
