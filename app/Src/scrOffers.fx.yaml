@@ -418,22 +418,6 @@ scrOffers As screen:
                     Width: =Parent.Width*0.02
                     ZIndex: =1
 
-                lblOfferDetails As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(102, 133, 163, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Bold
-                    Height: =Parent.Height
-                    LayoutMinHeight: =Parent.Height
-                    LayoutMinWidth: =Parent.Width*0.01
-                    Size: =11
-                    Text: ="Page Details"
-                    Width: =Parent.Width*0.08
-                    ZIndex: =2
-
                 lblOfferAssets As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -448,7 +432,41 @@ scrOffers As screen:
                     Size: =11
                     Text: ="Assets"
                     Width: =Parent.Width*0.2
+                    ZIndex: =2
+
+                lblOfferItems As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(102, 133, 163, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =Parent.Width*0.01
+                    Size: =11
+                    Text: |-
+                        ="Items/Markets
+                        "
+                    Width: =Parent.Width*0.1
                     ZIndex: =3
+
+                lblOfferDetails As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(102, 133, 163, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =Parent.Width*0.01
+                    Size: =11
+                    Text: ="Page Details"
+                    Width: =Parent.Width*0.08
+                    ZIndex: =4
 
                 lblOfferCopy As label:
                     Align: =Align.Center
@@ -466,7 +484,7 @@ scrOffers As screen:
                         ="Copy
                         "
                     Width: =Parent.Width*0.2
-                    ZIndex: =4
+                    ZIndex: =5
 
                 lblOfferPricing As label:
                     Align: =Align.Center
@@ -484,7 +502,7 @@ scrOffers As screen:
                         ="Pricing
                         "
                     Width: =Parent.Width*0.1
-                    ZIndex: =5
+                    ZIndex: =6
 
                 offer_multisave_llb_2 As label:
                     Align: =Align.Center
@@ -503,7 +521,7 @@ scrOffers As screen:
                     Width: =125
                     X: =340
                     Y: =50
-                    ZIndex: =8
+                    ZIndex: =7
 
                 offer_multisave_llb_3 As label:
                     Align: =Align.Center
@@ -522,7 +540,7 @@ scrOffers As screen:
                     Width: =125
                     X: =215
                     Y: =25
-                    ZIndex: =9
+                    ZIndex: =8
 
             galExistingOffers As gallery.galleryVertical:
                 BorderColor: =RGBA(0, 89, 178, 1)
