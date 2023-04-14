@@ -620,72 +620,6 @@ scrOffers As screen:
                     X: =conExistingOffersMultiGradeCoo.X+conExistingOffersMultiGradeCoo.Width+5
                     ZIndex: =40
 
-                offer_installmonths_ipt As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.installment_frequency
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =1
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =13
-                    Width: =1
-                    X: =921
-                    Y: =201
-                    ZIndex: =42
-
-                offer_installamount_ipt As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.installment_amount
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =1
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =13
-                    Width: =1
-                    X: =921
-                    Y: =201
-                    ZIndex: =44
-
                 Icon10_1 As icon.Save:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 89, 178, 1)
@@ -696,8 +630,8 @@ scrOffers As screen:
                     OnSelect: |-
                         =Patch(Offers,ThisItem,{offer_status:{Value:"Deleted"}})
                     Width: =Self.Height
-                    X: =Icon10.X+Icon10.Width
-                    Y: =Icon10.Y
+                    X: =1828
+                    Y: =19
                     ZIndex: =45
 
                 offer_multisave_llb_1 As label:
@@ -729,8 +663,8 @@ scrOffers As screen:
                     OnSelect: =Select(Parent);Set(showOfferPreview,true)
                     Tooltip: ="Preview Offers"
                     Width: =30
-                    X: =Icon10_1.X+Icon10_1.Width+5
-                    Y: =Icon10.Y
+                    X: =1860
+                    Y: =20
                     ZIndex: =48
 
                 conExistingOffersCopy As groupContainer.verticalAutoLayoutContainer:
@@ -1022,18 +956,19 @@ scrOffers As screen:
                 conExistingOffersMultiGradeCoo As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Y
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =U/2
+                    LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutOverflowX: =LayoutOverflow.Scroll
                     LayoutOverflowY: =LayoutOverflow.Scroll
-                    Width: =Parent.Width*0.16
+                    LayoutWrap: =true
+                    Width: =(((Parent.TemplateWidth-Parent.TemplatePadding)-15-Self.X)/2)-U
                     X: =conExistingOfferPricing2.X
-                    Y: =conExistingOfferHeader.Y+conExistingOfferHeader.Height+80
+                    Y: =conExistingOfferPricing2.Y+conExistingOfferPricing2.Height+U
                     ZIndex: =63
 
                     lblOfferMultSale As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1052,13 +987,13 @@ scrOffers As screen:
                         Text: |-
                             ="Multi Save English
                             "
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =offer_images_fre.Y
                         ZIndex: =1
 
                     iptOfferMultiSave As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 51, 102, 1)
                         BorderStyle: =BorderStyle.None
                         BorderThickness: =0
@@ -1073,8 +1008,6 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -1091,12 +1024,12 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =
+                        Width: =Parent.Width/2-U
                         ZIndex: =2
 
                     lblofferMultiSaleFre As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1113,13 +1046,13 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Multi Save Fren"
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =offer_images_fre.Y
                         ZIndex: =3
 
                     iptofferMultiSaleFre As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 51, 102, 1)
                         BorderStyle: =BorderStyle.None
                         BorderThickness: =0
@@ -1133,8 +1066,6 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -1151,13 +1082,13 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =lblofferMultiSaleFre.Y+lblofferMultiSaleFre.Height
                         ZIndex: =4
 
                     lblofferMultiSaleFre_1 As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1173,13 +1104,13 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="COO English"
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =offer_images_fre.Y
                         ZIndex: =5
 
                     iptofferMultiSaleFre_1 As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 51, 102, 1)
                         BorderStyle: =BorderStyle.None
                         BorderThickness: =0
@@ -1193,7 +1124,8 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =35
+                        Height: |
+                            =40
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -1210,13 +1142,13 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =lblofferMultiSaleFre_1.Y+lblofferMultiSaleFre_1.Height
                         ZIndex: =6
 
                     lblofferMultiSaleFre_2 As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1232,13 +1164,13 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="COO French"
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =offer_images_fre.Y
                         ZIndex: =7
 
                     iptofferMultiSaleFre_2 As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 51, 102, 1)
                         BorderStyle: =BorderStyle.None
                         BorderThickness: =0
@@ -1269,13 +1201,13 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =lblofferMultiSaleFre_2.Y+lblofferMultiSaleFre_2.Height
                         ZIndex: =8
 
                     lblofferMultiSaleFre_3 As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1291,13 +1223,13 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Grade Eng"
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =offer_images_fre.Y
                         ZIndex: =9
 
                     iptofferMultiSaleFre_3 As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 51, 102, 1)
                         BorderStyle: =BorderStyle.None
                         BorderThickness: =0
@@ -1328,13 +1260,13 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =lblofferMultiSaleFre_3.Y+lblofferMultiSaleFre_3.Height
                         ZIndex: =10
 
                     lblofferMultiSaleFre_4 As label:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1350,13 +1282,13 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Grade Fre"
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =offer_images_fre.Y
                         ZIndex: =11
 
                     iptofferMultiSaleFre_4 As text:
                         Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(0, 51, 102, 1)
                         BorderStyle: =BorderStyle.None
                         BorderThickness: =0
@@ -1387,7 +1319,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =
+                        Width: =Parent.Width/2-U
                         Y: =lblofferMultiSaleFre_4.Y+lblofferMultiSaleFre_4.Height
                         ZIndex: =12
 
