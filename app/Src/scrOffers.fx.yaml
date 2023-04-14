@@ -333,7 +333,32 @@ scrOffers As screen:
                 FillPortions: =0
                 Height: =32
                 Items: |-
-                    =Table({IconName:"New",IconText:"New",IconEvent:"Event",IconTip:"Create New Blank Offer",IconSize:"20",IconFontSize:"18"})
+                    =Table(
+                        {
+                            IconName: "Add",
+                            IconText: "New",
+                            IconEvent: "Add",
+                            IconTip: "Create New Blank Offer",
+                            IconSize: "20",
+                            IconFontSize: "18"
+                        },
+                        {
+                            IconName: "Delete",
+                            IconText: "Delete",
+                            IconEvent: "Delete",
+                            IconTip: "Delete Selected Offers",
+                            IconSize: "20",
+                            IconFontSize: "18"
+                        },
+                        {
+                            IconName: "SearchData",
+                            IconText: "Search",
+                            IconEvent: "Search",
+                            IconTip: "Search Existing Offers",
+                            IconSize: "20",
+                            IconFontSize: "18"
+                        }
+                    )
                 LoadingSpinner: =LoadingSpinner.Data
                 ShowScrollbar: =false
                 TemplatePadding: =1
