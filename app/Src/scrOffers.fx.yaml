@@ -594,91 +594,6 @@ scrOffers As screen:
                     Y: =2
                     ZIndex: =8
 
-                offer_copy_ipt As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 51, 102, 1)
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.offer_copy
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: |
-                        =32
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    Mode: =TextMode.MultiLine
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =12
-                    Width: =lblOfferCopy.Width
-                    X: =lblOfferCopy.X-U
-                    ZIndex: =9
-
-                offer_copyfrench_lbl As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =32
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Offer Copy French"
-                    Width: =lblOfferCopy.Width
-                    X: =lblOfferCopy.X-U
-                    Y: =offer_images_fre.Y
-                    ZIndex: =10
-
-                offer_copy_french As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 51, 102, 1)
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.offer_copy_french
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Y
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    Mode: =TextMode.MultiLine
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =12
-                    Width: =lblOfferCopy.Width
-                    X: =lblOfferCopy.X-U
-                    Y: =offer_copyfrench_lbl.Y+offer_copyfrench_lbl.Height
-                    ZIndex: =11
-
                 offer_regprice_lbl As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -1393,7 +1308,7 @@ scrOffers As screen:
                         Size: =12
                         Text: ="Add Images Eng"
                         Width: =16
-                        X: =507
+                        X: =offer_images.X+5
                         ZIndex: =54
 
                     Icon5 As icon.Add:
@@ -1407,7 +1322,7 @@ scrOffers As screen:
                         Icon: =Icon.Add
                         OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"english");Set(selectedOfferRecord,ThisItem);
                         Width: =16
-                        X: =591
+                        X: =offer_images.X+5
                         ZIndex: =55
 
                 offer_multisave_ipt As text:
@@ -1501,7 +1416,7 @@ scrOffers As screen:
                         Size: =12
                         Text: ="Add Images Fre"
                         Width: =100
-                        X: =457
+                        X: =offer_images.X+5
                         Y: =165
                         ZIndex: =28
 
@@ -1516,7 +1431,7 @@ scrOffers As screen:
                         Icon: =Icon.Add
                         OnSelect: =Select(Parent);Set(showAddImages,true);Set(addImagesField,"french");Set(selectedOfferRecord,ThisItem);
                         Width: =100
-                        X: =457
+                        X: =offer_images.X+5
                         Y: =188
                         ZIndex: =53
 
@@ -2106,6 +2021,125 @@ scrOffers As screen:
                         X: =675
                         Y: =28
                         ZIndex: =8
+
+                conExistingOffersCopy As groupContainer.verticalAutoLayoutContainer:
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =lblOfferCopy.Width
+                    X: =lblOfferCopy.X-U
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =58
+
+                    offer_copyfrench_lbl_1 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Offer Copy English"
+                        Width: =lblOfferCopy.Width
+                        X: =lblOfferCopy.X-U
+                        Y: =offer_images_fre.Y
+                        ZIndex: =1
+
+                    offer_copy_ipt As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.offer_copy
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        EnableSpellCheck: =true
+                        FillPortions: =1
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: |
+                            =32
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =12
+                        Width: =lblOfferCopy.Width
+                        X: =lblOfferCopy.X-U
+                        ZIndex: =2
+
+                    offer_copyfrench_lbl As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Offer Copy French"
+                        Width: =lblOfferCopy.Width
+                        X: =lblOfferCopy.X-U
+                        Y: =offer_images_fre.Y
+                        ZIndex: =3
+
+                    offer_copy_french As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.offer_copy_french
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FillPortions: =1
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Height: |
+                            =32
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =12
+                        Width: =lblOfferCopy.Width
+                        X: =lblOfferCopy.X-U
+                        Y: =offer_copyfrench_lbl.Y+offer_copyfrench_lbl.Height
+                        ZIndex: =4
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)

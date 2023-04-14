@@ -362,6 +362,83 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "scrOffers.offer_preview.offer_preview_gallery.previewOffer_offerCopy.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.offer_preview.offer_preview_gallery.previewOffer_offerCopy.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 15,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".offer_copy_ipt"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "scrOffers",
+                "type": "scrOffers.offer_preview.offer_preview_gallery.previewOffer_offerCopy"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "offer_copy_ipt"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.offer_preview.offer_preview_gallery.previewOffer_offerCopy.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.offer_preview.offer_preview_gallery.previewOffer_offerCopy.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 5,
+                  "charOffset": 23,
+                  "snippet": {
+                    "text": ".Text"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "scrOffers",
+                "type": "scrOffers.offer_preview.offer_preview_gallery.previewOffer_offerCopy"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "change_management.nav_icon_6.AccessibleLabel"
                 }
               ],
@@ -3392,19 +3469,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.offer_copy_ipt.AccessibleLabel"
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copy_french.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.offer_copy_ipt.AccessibleLabel",
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copy_french.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOffers",
-                "type": "scrOffers.conIndex.Container3.galExistingOffers.offer_copy_ipt"
+                "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copy_french"
               }
             }
           ],
@@ -4082,19 +4159,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.offer_copy_french.AccessibleLabel"
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copy_ipt.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.offer_copy_french.AccessibleLabel",
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copy_ipt.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOffers",
-                "type": "scrOffers.conIndex.Container3.galExistingOffers.offer_copy_french"
+                "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copy_ipt"
               }
             }
           ],
@@ -5762,6 +5839,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "scrOffers",
+                "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "scrOffers",
+                "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOffersCopy.offer_copyfrench_lbl_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
@@ -6338,7 +6535,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 830, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 840, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
