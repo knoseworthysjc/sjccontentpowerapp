@@ -337,7 +337,7 @@ scrOffers As screen:
                         {
                             IconName: "Add",
                             IconText: "New",
-                            IconEvent: "Add",
+                            IconEvent: "add",
                             IconTip: "Create New Blank Offer",
                             IconSize: "20",
                             IconFontSize: "18"
@@ -345,7 +345,7 @@ scrOffers As screen:
                         {
                             IconName: "Delete",
                             IconText: "Delete",
-                            IconEvent: "Delete",
+                            IconEvent: "delete",
                             IconTip: "Delete Selected Offers",
                             IconSize: "20",
                             IconFontSize: "18"
@@ -353,13 +353,16 @@ scrOffers As screen:
                         {
                             IconName: "SearchData",
                             IconText: "Search",
-                            IconEvent: "Search",
+                            IconEvent: "search",
                             IconTip: "Search Existing Offers",
                             IconSize: "20",
                             IconFontSize: "18"
                         }
                     )
                 LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |
+                    =Switch(galExistingOfferCommandBar.Selected.IconEvent,"add",Notify("New"),"delete",Notify("Delete"),"search",Notify("Search"));
+                    Notify("Click DOne")
                 ShowScrollbar: =false
                 TemplatePadding: =1
                 TemplateSize: =Self.Width/16-16*Self.TemplatePadding
@@ -368,12 +371,18 @@ scrOffers As screen:
                 "IconExistingOfferCmdBar As 'Fluent Icon (1.0.19)'":
                     BorderRadius: =5
                     DisplayMode: =DisplayMode.Edit
-                    FontColor: ="LightBlue"
+                    FillColor: |-
+                        ="#003366"
+                    FontColor: ="White"
                     FontSize: =ThisItem.IconFontSize
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                    HoverFontColor: ="LightBlue"
-                    HoverIconColor: ="LIghtBlue"
-                    IconColor: ="LightBlue"
+                    HoverBorderColor: |-
+                        ="#003366"
+                    HoverFillColor: |-
+                        ="#003366"
+                    HoverFontColor: ="White"
+                    HoverIconColor: ="White"
+                    IconColor: ="White"
                     IconName: =ThisItem.IconName
                     IconSize: =ThisItem.IconSize
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
