@@ -1565,7 +1565,7 @@ scrOffers As screen:
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     Width: =((Parent.Width*0.12)-U)/2
-                    X: =lblOfferPricing.X-U
+                    X: =conExistingOffersCopy.X+conExistingOffersCopy.Width+U
                     Y: =Parent.TemplatePadding
                     ZIndex: =61
 
@@ -1833,7 +1833,7 @@ scrOffers As screen:
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     Width: =((Parent.Width*0.12)-U)/2
-                    X: =conExistingOffersPricing.X+U/2+conExistingOffersPricing.Width
+                    X: =conExistingOffersPricing.X+conExistingOffersPricing.Width+U
                     Y: =Parent.TemplatePadding
                     ZIndex: =62
 
@@ -2105,7 +2105,7 @@ scrOffers As screen:
                     LayoutOverflowX: =LayoutOverflow.Scroll
                     LayoutOverflowY: =LayoutOverflow.Scroll
                     Width: =Parent.Width*0.16
-                    X: =lblOfferMultiGradeCOO.X-U
+                    X: =conExistingOffersPricing_1.X+conExistingOffersPricing_1.Width+U
                     Y: =Parent.TemplatePadding
                     ZIndex: =63
 
