@@ -387,6 +387,7 @@ scrOffers As screen:
                     IconName: =ThisItem.IconName
                     IconSize: =ThisItem.IconSize
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                    OnChange: =Select(Parent);
                     Text: =ThisItem.IconText
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                     Tooltip: =ThisItem.IconTip
