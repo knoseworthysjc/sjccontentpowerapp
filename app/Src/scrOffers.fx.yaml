@@ -474,7 +474,7 @@ scrOffers As screen:
 
                 conExistingOffersCopy As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(0, 121, 187, 1)
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Height: =(Parent.TemplateHeight-Parent.TemplatePadding)-Self.Y
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
