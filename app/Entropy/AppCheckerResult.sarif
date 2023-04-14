@@ -362,32 +362,32 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y"
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOfferCommandBar.IconExistingOfferCmdBar.Text"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y",
+                  "fullyQualifiedName": "scrOffers.conIndex.Container3.galExistingOfferCommandBar.IconExistingOfferCmdBar.Text",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 17,
-                  "charOffset": 0,
+                  "charLength": 5,
+                  "charOffset": 8,
                   "snippet": {
-                    "text": "container_label_1"
+                    "text": ".Text"
                   }
                 }
               },
               "properties": {
-                "member": "Y",
+                "member": "Text",
                 "module": "scrOffers",
-                "type": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery"
+                "type": "scrOffers.conIndex.Container3.galExistingOfferCommandBar.IconExistingOfferCmdBar"
               }
             }
           ],
           "message": {
             "arguments": [
-              "container_label_1"
+              "Text"
             ],
             "id": "issue"
           },
@@ -396,120 +396,6 @@
           },
           "ruleId": "app-ErrInvalidName",
           "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 17,
-                  "snippet": {
-                    "text": ".Height"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Y",
-                "module": "scrOffers",
-                "type": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 17,
-                  "charOffset": 25,
-                  "snippet": {
-                    "text": "container_label_1"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Y",
-                "module": "scrOffers",
-                "type": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "container_label_1"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery.Y",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 42,
-                  "snippet": {
-                    "text": ".Y"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Y",
-                "module": "scrOffers",
-                "type": "scrOffers.conIndex.Container3.existing_offer_container.container_gallery"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
         },
         {
           "locations": [
@@ -6162,7 +6048,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 953, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 958, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],

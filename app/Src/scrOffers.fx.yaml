@@ -17,7 +17,7 @@ scrOffers As screen:
             Fill: =RGBA(0, 51, 102, 1)
             FillPortions: =0
             Height: =34
-            LayoutAlignItems: =LayoutAlignItems.End
+            LayoutAlignItems: =LayoutAlignItems.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -319,6 +319,7 @@ scrOffers As screen:
                 ZIndex: =13
 
         Container3 As groupContainer.verticalAutoLayoutContainer:
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -326,18 +327,44 @@ scrOffers As screen:
             ZIndex: =2
 
             galExistingOfferCommandBar As gallery.galleryHorizontal:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
                 FillPortions: =0
                 Height: =32
                 Items: |-
-                    =Table({Icon:"New",action:"new"})
+                    =Table({IconName:"New",IconText:"New",IconEvent:"Event"})
                 LoadingSpinner: =LoadingSpinner.Data
                 ShowScrollbar: =false
-                TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+                TemplatePadding: =1
+                TemplateSize: =Self.Width/16-16*Self.TemplatePadding
                 ZIndex: =1
 
+                "IconExistingOfferCmdBar As 'Fluent Icon (1.0.19)'":
+                    BorderRadius: =5
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#808080"
+                    FontSize: =20
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    HoverFontColor: |-
+                        ="#808080"
+                    HoverIconColor: |-
+                        ="#808080"
+                    IconColor: |-
+                        ="#808080"
+                    IconName: =ThisItem.IconName
+                    IconSize: =25
+                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                    Text: =ThisItem.Text
+                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =1
+
             existing_offer_container As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 Height: =Parent.Height-Self.Y
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -353,7 +380,6 @@ scrOffers As screen:
                     TemplateFill: =If(ThisItem.ID=container_gallery.Selected.ID, RGBA(0, 0, 0, 0.1),RGBA(0, 0, 0, 0))
                     TemplateSize: =Self.Height/2.25
                     Width: =Parent.Width
-                    Y: =container_label_1.Height+container_label_1.Y+5
                     ZIndex: =1
 
                     offer_images_fre As gallery.galleryHorizontal:
@@ -2364,7 +2390,7 @@ scrOffers As screen:
             =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
         ImagePosition: =ImagePosition.Fill
         Width: =220
-        X: =Parent.Width-Self.Width-Self.BorderThickness
+        X: =Parent.Width-Self.Width
         ZIndex: =6
 
     nav_container As groupContainer.manualLayoutContainer:
