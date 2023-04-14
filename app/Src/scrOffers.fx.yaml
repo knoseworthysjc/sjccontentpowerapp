@@ -406,165 +406,6 @@ scrOffers As screen:
                 Width: =Parent.Width
                 ZIndex: =3
 
-                offer_coo_lbl As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: |
-                        =32
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        ="Count of Origin
-                        "
-                    Width: =1
-                    X: =offer_regprice_lbl.X
-                    ZIndex: =20
-
-                offer_coo As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.'Country of Origin'
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: |
-                        =32
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    Mode: =TextMode.MultiLine
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =11
-                    Width: =1
-                    X: =offer_regprice_lbl.X
-                    ZIndex: =21
-
-                offer_cooFre_lbl As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: |
-                        =32
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Country of Origin Fre"
-                    Width: =1
-                    Y: =offer_coo_lbl.Y
-                    ZIndex: =22
-
-                offer_cooFre As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.'Country of Origin(Fre)'
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: |
-                        =32
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    Mode: =TextMode.MultiLine
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =11
-                    Width: =1
-                    X: =offer_cooFre_lbl.X
-                    ZIndex: =23
-
-                offer_grade_lbl As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =1
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Grade"
-                    Width: =1
-                    X: =offer_regprice_lbl.X
-                    ZIndex: =30
-
-                offer_grade As text:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(246, 246, 246, 1)
-                    BorderThickness: =0
-                    Clear: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.Grade
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =1
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    Mode: =TextMode.MultiLine
-                    OnChange: =Collect(offersWithChanges,ThisItem.ID)
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Reset: =true
-                    Size: =11
-                    Width: =1
-                    X: =offer_regprice_lbl.X
-                    ZIndex: =31
-
                 Icon10 As icon.Save:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 89, 178, 1)
@@ -583,42 +424,9 @@ scrOffers As screen:
                         installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                         });
                     Width: =Self.Height
-                    X: =offer_linelist.X+5
-                    Y: =offer_linelist.Y+offer_linelist.Height+5
-                    ZIndex: =32
-
-                offer_grade_lbl_1 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =1
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Grade Fre"
-                    Width: =1
-                    Y: =offer_grade_lbl.Y
-                    ZIndex: =35
-
-                offer_linelist As checkbox:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    CheckboxBorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =ThisItem.record_type.Value="line list"
-                    Height: |
-                        =30
-                    HoverColor: =RGBA(0, 89, 178, 1)
-                    OnSelect: =Select(Parent)
-                    Size: =13
-                    Text: ="Is LineList"
-                    VerticalAlign: =VerticalAlign.Bottom
-                    X: =conExistingOffersMultiGradeCoo.X+conExistingOffersMultiGradeCoo.Width+5
-                    ZIndex: =40
+                    X: =1785
+                    Y: =20
+                    ZIndex: =1
 
                 Icon10_1 As icon.Save:
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -632,26 +440,7 @@ scrOffers As screen:
                     Width: =Self.Height
                     X: =1828
                     Y: =19
-                    ZIndex: =45
-
-                offer_multisave_llb_1 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =1
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Multi-Save Fre"
-                    Width: =1
-                    X: =921
-                    Y: =201
-                    ZIndex: =46
+                    ZIndex: =2
 
                 Icon14 As icon.Compose:
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -665,7 +454,23 @@ scrOffers As screen:
                     Width: =30
                     X: =1860
                     Y: =20
-                    ZIndex: =48
+                    ZIndex: =3
+
+                offer_linelist As checkbox:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ThisItem.record_type.Value="line list"
+                    Height: |
+                        =30
+                    HoverColor: =RGBA(0, 89, 178, 1)
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: ="Is LineList"
+                    VerticalAlign: =VerticalAlign.Bottom
+                    X: =1757
+                    Y: =133
+                    ZIndex: =4
 
                 conExistingOffersCopy As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
@@ -675,7 +480,7 @@ scrOffers As screen:
                     Width: =Parent.Width*0.25
                     X: =conExistingOffersAssets.X+conExistingOffersAssets.Width+U
                     Y: =conExistingOfferHeader.Y+conExistingOfferHeader.Height+5
-                    ZIndex: =58
+                    ZIndex: =5
 
                     offer_copyfrench_lbl_1 As label:
                         Align: =Align.Center
@@ -792,7 +597,7 @@ scrOffers As screen:
                     LayoutWrap: =true
                     Width: =Parent.Width*0.25
                     Y: =conExistingOfferHeader.Y+conExistingOfferHeader.Height+5
-                    ZIndex: =60
+                    ZIndex: =6
 
                     Icon5 As icon.Add:
                         AlignInContainer: =AlignInContainer.Stretch
@@ -963,8 +768,8 @@ scrOffers As screen:
                     LayoutWrap: =true
                     Width: =(((Parent.TemplateWidth-Parent.TemplatePadding)-15-Self.X)/2)-U
                     X: =conExistingOfferPricing2.X
-                    Y: =conExistingOfferPricing2.Y+conExistingOfferPricing2.Height+U
-                    ZIndex: =63
+                    Y: =conExistingOfferPricing2.Y+conExistingOfferPricing2.Height+U+60
+                    ZIndex: =7
 
                     lblOfferMultSale As label:
                         Align: =Align.Center
@@ -1332,7 +1137,7 @@ scrOffers As screen:
                     Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*.9
                     X: =Parent.TemplatePadding
                     Y: =Parent.TemplatePadding
-                    ZIndex: =64
+                    ZIndex: =8
 
                     offer_page_lbl As label:
                         Align: =Align.Center
@@ -1739,7 +1544,7 @@ scrOffers As screen:
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-15
                     X: =conExistingOffersCopy.X+conExistingOffersCopy.Width+U
                     Y: =conExistingOfferHeader.Height+conExistingOfferHeader.Y+U
-                    ZIndex: =65
+                    ZIndex: =9
 
                     lblExistingOfferTotalPrice As label:
                         Align: =Align.Center
