@@ -3305,6 +3305,7 @@ scrOffers As screen:
                 Visible: =ThisItem.offer_type.Value="Save Now"
                 Width: =previewOffer_price_rectangle_1.Width-2
                 X: =previewOffer_price_rectangle_1.X+1
+                Y: =previewOffer_price_rectangle_1.Y-Self.Height+2
                 ZIndex: =6
 
             previewOffer_rollBack_1 As label:
@@ -3321,6 +3322,7 @@ scrOffers As screen:
                 Visible: =ThisItem.offer_type.Value="Rollback"
                 Width: =previewOffer_price_rectangle_1.Width-2
                 X: =previewOffer_price_rectangle_1.X+1
+                Y: =previewOffer_price_rectangle_1.Y-Self.Height+2
                 ZIndex: =7
 
             previewOffer_offerCOO_1 As label:
