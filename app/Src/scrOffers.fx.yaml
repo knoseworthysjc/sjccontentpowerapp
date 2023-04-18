@@ -1161,7 +1161,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Total Price"
-                        Width: =Parent.Width*.08
+                        Width: =Parent.Width*0.08
                         Y: =2
                         ZIndex: =1
 
@@ -1182,7 +1182,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Event Price"
-                        Width: =Parent.Width*.08
+                        Width: =Parent.Width*0.08
                         Y: =34
                         ZIndex: =2
 
@@ -1203,7 +1203,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Reg Price"
-                        Width: =Parent.Width*.08
+                        Width: =Parent.Width*0.08
                         ZIndex: =3
 
                     offer_savings_lbl As label:
@@ -1223,7 +1223,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Savings"
-                        Width: =Parent.Width*.08
+                        Width: =Parent.Width*0.08
                         Y: =63
                         ZIndex: =4
 
@@ -1244,7 +1244,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Eco-Fee"
-                        Width: =Parent.Width*.08
+                        Width: =Parent.Width*0.08
                         X: =1017
                         Y: =216
                         ZIndex: =5
@@ -1384,7 +1384,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =lblExistingOfferTotalPrice.Width
+                        Width: =Parent.Width*0.08
                         Y: =32
                         ZIndex: =11
 
@@ -1416,7 +1416,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =offer_eventprice_lbl.Width
+                        Width: =Parent.Width*0.08
                         Y: =32
                         ZIndex: =12
 
@@ -1448,7 +1448,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =offer_regprice_lbl.Width
+                        Width: =Parent.Width*0.08
                         ZIndex: =13
 
                     iptExistingOfferSavings As text:
@@ -1479,7 +1479,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =offer_savings_lbl.Width
+                        Width: =Parent.Width*0.08
                         X: =offer_regprice_lbl.X+offer_regprice_lbl.Width
                         Y: =63
                         ZIndex: =14
@@ -1512,7 +1512,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =offer_ecofees_lbl.Width
+                        Width: =Parent.Width*0.08
                         X: =offer_regprice_lbl.X+offer_regprice_lbl.Width
                         Y: =102
                         ZIndex: =15
