@@ -10,7 +10,7 @@ scrOffers As screen:
         LayoutMode: =LayoutMode.Auto
         LayoutWrap: =true
         Width: =Parent.Width
-        ZIndex: =2
+        ZIndex: =1
 
         conHeader As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -270,48 +270,6 @@ scrOffers As screen:
                 X: =Icon12.X+Icon12.Width+5
                 Y: =Icon12.Y
                 ZIndex: =11
-
-            searchOffers As text:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderThickness: =2
-                Clear: =true
-                Color: =RGBA(0, 0, 0, 1)
-                Default: =""
-                DelayOutput: =true
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                FocusedBorderThickness: =4
-                Font: =Font.'Segoe UI'
-                Height: =30
-                HoverBorderColor: =RGBA(0, 89, 178, 1)
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
-                PaddingLeft: =5
-                Reset: =true
-                Tooltip: ="Search Previous Offers"
-                X: =ddPage.X+ddPage.Width+150
-                Y: =ddPage.Y
-                ZIndex: =12
-
-            iconSearch As icon.Filter:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(250, 250, 250, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                FocusedBorderThickness: =1
-                Height: =30
-                Icon: =Icon.Filter
-                minimumHeight: =30
-                OnSelect: |-
-                    =ClearCollect(searchOffersRecords,Filter(Offers,StartsWith(offer_copy,searchOffers.Text) Or StartsWith(combined_item_number,searchOffers.Text)));
-                    Collect(searchOffersRecords,Search(Offers,searchOffers.Text,"offer_copy","featured_item_numbers","category_name"));
-                    Set(showRelistPanel,true);
-                Width: =Self.Height
-                X: =searchOffers.X+searchOffers.Width
-                Y: =searchOffers.Y+1
-                ZIndex: =13
 
         Container3 As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -2332,7 +2290,7 @@ scrOffers As screen:
         Width: =Parent.Width*0.5
         X: =Parent.Width/2-Self.Width/2
         Y: =40
-        ZIndex: =5
+        ZIndex: =2
 
         addImages_label As label:
             Align: =Align.Center
@@ -2542,109 +2500,27 @@ scrOffers As screen:
             Y: =addImageCurrentPath.Y
             ZIndex: =7
 
-    screen_logo As image:
-        BorderColor: =RGBA(0, 36, 71, 1)
-        BorderThickness: =1
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(250, 250, 250, 1)
-        Height: =conHeader.Height*2
-        Image: |-
-            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
-        ImagePosition: =ImagePosition.Fill
-        Width: =220
-        X: =Parent.Width-Self.Width
-        ZIndex: =6
-
-    nav_container As groupContainer.manualLayoutContainer:
-        BorderColor: =RGBA(0, 51, 102, 1)
-        BorderThickness: =1
-        Fill: =RGBA(250, 250, 250, 1)
-        Height: =CountRows(nav_gallery.AllItems)*(nav_gallery.TemplateHeight+nav_gallery.TemplatePadding*2)
-        Visible: =showNav
-        Width: =Parent.Width*0.2
-        X: |
-            =0
-        Y: =32
-        ZIndex: =7
-
-        nav_gallery As gallery.galleryVertical:
-            BorderColor: =RGBA(0, 89, 178, 1)
-            Height: =Parent.Height
-            Items: |-
-                =Table(
-                {Title:"Home",icon:Icon.Home,screen:scrOffers},
-                {Title:"Projects/Pages",icon:Icon.Folder,screen:projects_pages_screen},
-                {Title:"Images",icon:Icon.Folder,screen:images_screen},
-                {Title:"Products",icon:Icon.Information,screen:products_screen},
-                {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
-                )
-            Layout: =Layout.Vertical
-            TemplateSize: =45
-            Width: =Parent.Width
-            ZIndex: =1
-
-            nav_label As label:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(204, 222, 240, 1)
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
-                PaddingLeft: =nav_label_icon.Width+nav_label_icon.X+5
-                Size: =13
-                Text: =ThisItem.Title
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
-                ZIndex: =1
-
-            nav_label_icon As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 51, 102, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                Icon: =ThisItem.icon
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
-                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
-                ZIndex: =2
-
-            nav_label_arrow As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 51, 102, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                Icon: =Icon.NextArrow
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
-                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                Y: =Parent.TemplatePadding
-                ZIndex: =3
-
     relistPanel As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 36, 71, 1)
         BorderThickness: =1
         Fill: =RGBA(116, 116, 116, 1)
-        Height: =Parent.Height-Self.Y-40
+        Height: =Parent.Height-Self.Y
         Visible: =showRelistPanel
-        Width: =Parent.Width-Self.X-40
-        X: =searchOffers.X
-        Y: =60
-        ZIndex: =8
+        Width: =Parent.Width-Self.X
+        X: =Parent.Width*0.7
+        Y: =screen_logo.Y+screen_logo.Height
+        ZIndex: =3
 
         relistPanelHeader As label:
             Align: =Align.Center
             BorderColor: =RGBA(0, 89, 178, 1)
             Color: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
-            Fill: =RGBA(102, 133, 163, 1)
+            Fill: =RGBA(0, 94, 146, 1)
             Font: =Font.Verdana
             FontWeight: =FontWeight.Semibold
+            Height: |
+                =25
             Text: |-
                 ="Offers: "&searchOffers.Text
             Width: =Parent.Width
@@ -2659,7 +2535,7 @@ scrOffers As screen:
             TemplateFill: =RGBA(255, 255, 255, 1)
             TemplateSize: =Self.Height/3
             Width: =Parent.Width-10
-            Y: =relistPanelHeader.Height+10
+            Y: =relistPanelHeader.Height+100
             ZIndex: =1
 
             Gallery2 As gallery.galleryHorizontal:
@@ -2791,16 +2667,59 @@ scrOffers As screen:
 
         Icon2 As icon.CancelBadge:
             BorderColor: =RGBA(0, 89, 178, 1)
-            Color: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(255, 255, 255, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
-            Height: =34
-            Icon: =Icon.CancelBadge
+            Height: =25
+            Icon: =Icon.Cancel
             OnSelect: =Set(showRelistPanel,false)
-            Width: =34
+            Tooltip: ="Close Search Panel"
+            Width: =25
             X: =Parent.Width-Self.Width-5
-            Y: =2
             ZIndex: =2
+
+        searchOffers As text:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderThickness: =2
+            Clear: =true
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DelayOutput: =true
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 89, 178, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(153, 205, 255, 1)
+            PaddingLeft: =5
+            Reset: =true
+            Tooltip: ="Search Previous Offers"
+            Width: =Parent.Width-10
+            X: =5
+            Y: =56
+            ZIndex: =3
+
+        iconSearch As icon.Filter:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Color: =RGBA(250, 250, 250, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Height: =30
+            Icon: =Icon.Filter
+            minimumHeight: =30
+            OnSelect: |-
+                =ClearCollect(searchOffersRecords,Filter(Offers,StartsWith(offer_copy,searchOffers.Text) Or StartsWith(combined_item_number,searchOffers.Text)));
+                Collect(searchOffersRecords,Search(Offers,searchOffers.Text,"offer_copy","featured_item_numbers","category_name"));
+                Set(showRelistPanel,true);
+            Width: =Self.Height
+            X: =464
+            Y: =57
+            ZIndex: =4
 
     offer_preview As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 36, 71, 1)
@@ -2811,7 +2730,7 @@ scrOffers As screen:
         Width: =920
         X: =552
         Y: =134
-        ZIndex: =9
+        ZIndex: =4
 
         container_header As label:
             Align: =Align.Center
@@ -3088,4 +3007,336 @@ scrOffers As screen:
             X: =Parent.Width-Self.Width-5
             Y: =container_header.Height/2-Self.Height/2
             ZIndex: =3
+
+    nav_container As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 51, 102, 1)
+        BorderThickness: =1
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =CountRows(nav_gallery.AllItems)*(nav_gallery.TemplateHeight+nav_gallery.TemplatePadding*2)
+        Visible: =showNav
+        Width: =Parent.Width*0.2
+        X: |
+            =0
+        Y: =32
+        ZIndex: =5
+
+        nav_gallery As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height
+            Items: |-
+                =Table(
+                {Title:"Home",icon:Icon.Home,screen:scrOffers},
+                {Title:"Projects/Pages",icon:Icon.Folder,screen:projects_pages_screen},
+                {Title:"Images",icon:Icon.Folder,screen:images_screen},
+                {Title:"Products",icon:Icon.Information,screen:products_screen},
+                {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
+                )
+            Layout: =Layout.Vertical
+            TemplateSize: =45
+            Width: =Parent.Width
+            ZIndex: =1
+
+            nav_label As label:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 222, 240, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                PaddingLeft: =nav_label_icon.Width+nav_label_icon.X+5
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
+            nav_label_icon As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =ThisItem.icon
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+            nav_label_arrow As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =Icon.NextArrow
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
+                Y: =Parent.TemplatePadding
+                ZIndex: =3
+
+    screen_logo As image:
+        BorderColor: =RGBA(0, 36, 71, 1)
+        BorderThickness: =1
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =conHeader.Height*2
+        Image: |-
+            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
+        ImagePosition: =ImagePosition.Fill
+        Width: =220
+        X: =Parent.Width-Self.Width
+        ZIndex: =6
+
+    conRelistPanel As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height-Self.Y
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =U
+        LayoutMode: =LayoutMode.Auto
+        Visible: =showRelistPanel
+        Width: =Parent.Width-Self.X
+        X: =Parent.Width*0.7
+        Y: =69
+        ZIndex: =7
+
+        conRelistHeader As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =24
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            relistPanelHeader_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 94, 146, 1)
+                FillPortions: =1
+                Font: =Font.Verdana
+                FontWeight: =FontWeight.Semibold
+                Height: |
+                    =25
+                Text: |-
+                    ="Offers: "&searchOffers_1.Text
+                Width: =Parent.Width-Icon2_1.Width
+                ZIndex: =1
+
+            Icon2_1 As icon.CancelBadge:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderThickness: =1
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 94, 146, 1)
+                Height: =25
+                Icon: =Icon.Cancel
+                OnSelect: =Set(showRelistPanel,false)
+                Tooltip: ="Close Search Panel"
+                Width: =35
+                X: =Parent.Width-Self.Width-5
+                ZIndex: =2
+
+        ConRelistSearch As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =30
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            searchOffers_1 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =2
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =""
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FillPortions: =1
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                PaddingLeft: =5
+                Reset: =true
+                Tooltip: ="Search Previous Offers"
+                Width: =Parent.Width-10
+                X: =5
+                Y: =56
+                ZIndex: =1
+
+            iconSearch_1 As icon.Filter:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 94, 146, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =1
+                Height: =30
+                Icon: =Icon.Filter
+                minimumHeight: =30
+                OnSelect: |-
+                    =ClearCollect(searchOffersRecords,Filter(Offers,StartsWith(offer_copy,searchOffers_1.Text) Or StartsWith(combined_item_number,searchOffers_1.Text)));
+                    Collect(searchOffersRecords,Search(Offers,searchOffers_1.Text,"offer_copy","featured_item_numbers","category_name"));
+                    Set(showRelistPanel,true);
+                Width: =Self.Height
+                X: =464
+                Y: =57
+                ZIndex: =2
+
+        galRelistResults As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 36, 71, 1)
+            BorderStyle: =BorderStyle.None
+            Height: =Parent.Height-Self.Y
+            Items: =SortByColumns(searchOffersRecords,"Modified",SortOrder.Descending)
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            TemplateFill: =RGBA(255, 255, 255, 1)
+            TemplateSize: =Self.Height/3
+            Width: =Parent.Width-10
+            X: =5
+            Y: =relistPanelHeader_1.Height+100
+            ZIndex: =4
+
+            Gallery2_1 As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-relist_offerCopy_2.Height
+                Items: =ThisItem.assigned_images
+                TemplatePadding: =0
+                TemplateSize: =Self.Width/CountRows(Self.AllItems)
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-20
+                X: =1
+                Y: =Label2_1.Y+Label2_1.Height+5
+                ZIndex: =1
+
+                Image6_1 As image:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                    Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Label3_3.Height
+                    ZIndex: =1
+
+                Label3_3 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(163, 160, 160, 0.6)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =11
+                    Text: |-
+                        =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
+                    Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =2
+
+            Label2_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderThickness: =1
+                Color: =RGBA(0, 36, 71, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(237, 237, 237, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =1
+                OnSelect: =Select(Parent)
+                Text: |-
+                    =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" Pos:"&ThisItem.Adblock&""
+                Width: =Parent.TemplateWidth-20
+                ZIndex: =2
+
+            relist_offerCopy_2 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 0.65)
+                BorderThickness: =1
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(230, 230, 230, 0.75)
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Size: =11
+                Text: =ThisItem.offer_copy
+                Width: =((Parent.TemplateWidth-Parent.TemplatePadding*2)-20)/2
+                X: =1
+                Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
+                ZIndex: =3
+
+            relist_offerCopy_3 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 0.65)
+                BorderThickness: =1
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(230, 230, 230, 0.75)
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                Size: =11
+                Text: =ThisItem.offer_copy_french
+                Width: =(((Parent.TemplateWidth-Parent.TemplatePadding*2)-20)/2)
+                X: =1
+                Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
+                ZIndex: =4
+
+            relist_offer_icon_1 As icon.Copy:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: |
+                    =Label2_1.Height-4
+                Icon: =Icon.AddLibrary
+                OnSelect: |-
+                    =Select(Parent);Patch(selectedOffers,galExistingOffers.Selected,{offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french})
+                Width: =Self.Height
+                X: |
+                    =Label2_1.X+Label2_1.Width-Self.Width
+                Y: =1
+                ZIndex: =5
+
+            relist_offer_update_icon_1 As icon.Copy:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 89, 178, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: |
+                    =Label2_1.Height-4
+                Icon: =Icon.Copy
+                OnSelect: |-
+                    =Select(Parent);
+                    Patch(Offers,Defaults(Offers),{assigned_project:{Value:ddProject.Selected.Title,Id:ddProject.Selected.ID},Season:ddSeason.Selected,Week:Value(ddWeek.Text),page_from:ddPage.Selected.Result,Adblock:0,SBU:ThisItem.SBU,category_name:ThisItem.category_name,offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french,item_name:ThisItem.item_name,featured_item_numbers:ThisItem.featured_item_numbers,combined_item_number:ThisItem.combined_item_number,unit:ThisItem.unit,unit_fre:ThisItem.unit_fre,'Country of Origin':ThisItem.'Country of Origin','Country of Origin(Fre)':ThisItem.'Country of Origin(Fre)'});
+                    ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProject.Selected.Title));
+                Width: =Self.Height
+                Y: =Label2_1.Y+2
+                ZIndex: =6
 

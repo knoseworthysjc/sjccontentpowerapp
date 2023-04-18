@@ -322,12 +322,12 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conIndex.conHeader.iconSearch.OnSelect"
+                  "fullyQualifiedName": "scrOffers.relistPanel.iconSearch.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.conHeader.iconSearch.OnSelect",
+                  "fullyQualifiedName": "scrOffers.relistPanel.iconSearch.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
@@ -341,7 +341,47 @@
               "properties": {
                 "member": "OnSelect",
                 "module": "scrOffers",
-                "type": "scrOffers.conIndex.conHeader.iconSearch"
+                "type": "scrOffers.relistPanel.iconSearch"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.ConRelistSearch.iconSearch_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.ConRelistSearch.iconSearch_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 212,
+                  "snippet": {
+                    "text": "\"offer_copy\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.ConRelistSearch.iconSearch_1"
               }
             }
           ],
@@ -2552,19 +2592,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conIndex.conHeader.searchOffers.AccessibleLabel"
+                  "fullyQualifiedName": "scrOffers.relistPanel.searchOffers.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conIndex.conHeader.searchOffers.AccessibleLabel",
+                  "fullyQualifiedName": "scrOffers.relistPanel.searchOffers.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOffers",
-                "type": "scrOffers.conIndex.conHeader.searchOffers"
+                "type": "scrOffers.relistPanel.searchOffers"
               }
             }
           ],
@@ -3315,6 +3355,66 @@
                 "member": "AccessibleLabel",
                 "module": "scrOffers",
                 "type": "scrOffers.conIndex.Container3.galExistingOffers.conExistingOfferHeader.ddExistingOfferMarkets"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults"
               }
             }
           ],
@@ -6842,6 +6942,276 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.ConRelistSearch.searchOffers_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.ConRelistSearch.searchOffers_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.ConRelistSearch.searchOffers_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.conRelistHeader.Icon2_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.conRelistHeader.Icon2_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.conRelistHeader.Icon2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.conRelistHeader.Icon2_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.conRelistHeader.Icon2_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOffers",
+                "type": "scrOffers.conRelistPanel.conRelistHeader.Icon2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
@@ -7418,7 +7788,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 872, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 990, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
