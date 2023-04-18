@@ -415,13 +415,13 @@ scrOffers As screen:
                     Icon: =Icon.Save
                     OnSelect: |-
                         =Select(Parent);
-                        Patch(Offers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",SortOrder.Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
-                        regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_lb.Text,'Savings(LB)':offer_savings_lb.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
-                        installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
+                        Patch(Offers,ThisItem,{page_from:Value(iptExistingOfferPage.Text),layout_position:Value(iptExistingOfferPosition.Text),Adblock:Value(iptExistingOfferAdBlock.Text),Markets:SortByColumns(ddExistingOfferMarkets.SelectedItems,"Value",SortOrder.Ascending),offer_type:ddExistingOfferType.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:iptExistingEventPrice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                        regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_lb.Text,'Savings(LB)':offer_savings_lb.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:iptExistingOfferCombined.Text,'Grade(Fre)':offer_grade_1.Text,
+                        installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:iptExistingOfferItems.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                         });
-                        Patch(selectedOffers,ThisItem,{page_from:Value(offer_page.Text),layout_position:Value(offer_layoutposition.Text),Adblock:Value(offer_adblock.Text),Markets:SortByColumns(offer_markets.SelectedItems,"Value",SortOrder.Ascending),offer_type:offer_type_ipt.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:offer_eventprice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
-                        regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_lb.Text,'Savings(LB)':offer_savings_lb.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:offer_combinedItemNumber_ipt.Text,'Grade(Fre)':offer_grade_1.Text,
-                        installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:offer_items.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
+                        Patch(selectedOffers,ThisItem,{page_from:Value(iptExistingOfferPage.Text),layout_position:Value(iptExistingOfferPosition.Text),Adblock:Value(iptExistingOfferAdBlock.Text),Markets:SortByColumns(ddExistingOfferMarkets.SelectedItems,"Value",SortOrder.Ascending),offer_type:ddExistingOfferType.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},offer_copy_french:offer_copy_french.Text,regular_price:offer_regprice.Text,event_price:iptExistingEventPrice.Text,savings:offer_savings.Text,eco_fee:offer_ecofees.Text,
+                        regular_price_lb:offer_regpricelb.Text,event_price_lb:offer_eventprice_lb.Text,'Savings(LB)':offer_savings_lb.Text,'Country of Origin':offer_coo.Text,'Country of Origin(Fre)':offer_cooFre.Text,offer_comments:offer_instructions.Text,Grade:offer_grade.Text,combined_item_number:iptExistingOfferCombined.Text,'Grade(Fre)':offer_grade_1.Text,
+                        installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:iptExistingOfferItems.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                         });
                     Width: =Self.Height
                     X: =1785
@@ -524,7 +524,6 @@ scrOffers As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Mode: =TextMode.MultiLine
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -578,7 +577,6 @@ scrOffers As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Mode: =TextMode.MultiLine
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -974,7 +972,7 @@ scrOffers As screen:
                         Y: =90
                         ZIndex: =10
 
-                    offer_eventprice_1 As text:
+                    iptExistingOfferTotalPrice As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
@@ -989,7 +987,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1004,7 +1002,7 @@ scrOffers As screen:
                         Y: =32
                         ZIndex: =11
 
-                    offer_eventprice As text:
+                    iptExistingEventPrice As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
@@ -1019,7 +1017,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1049,7 +1047,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1078,7 +1076,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1109,7 +1107,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1140,7 +1138,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1169,7 +1167,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1199,7 +1197,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1229,7 +1227,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1260,7 +1258,7 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1828,7 +1826,7 @@ scrOffers As screen:
                         Y: =263
                         ZIndex: =7
 
-                    offer_page As text:
+                    iptExistingOfferPage As text:
                         Align: =Align.Center
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
@@ -1846,7 +1844,6 @@ scrOffers As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =32
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1860,7 +1857,7 @@ scrOffers As screen:
                         Width: =offer_page_lbl.Width
                         ZIndex: =8
 
-                    offer_layoutposition As text:
+                    iptExistingOfferPosition As text:
                         Align: =Align.Center
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
@@ -1879,7 +1876,6 @@ scrOffers As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =32
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1894,7 +1890,7 @@ scrOffers As screen:
                         Y: =offer_page_lbl.Y+offer_page_lbl.Height+5
                         ZIndex: =9
 
-                    offer_adblock As text:
+                    iptExistingOfferAdBlock As text:
                         Align: =Align.Center
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
@@ -1913,7 +1909,6 @@ scrOffers As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =32
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1928,7 +1923,7 @@ scrOffers As screen:
                         Y: =offer_pos_lbl.Y+offer_pos_lbl.Height+5
                         ZIndex: =10
 
-                    offer_type_ipt As combobox:
+                    ddExistingOfferType As combobox:
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderThickness: =0
@@ -1950,7 +1945,6 @@ scrOffers As screen:
                         Items: =Choices(Offers.offer_type)
                         LayoutMinHeight: |
                             =30
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =3
                         PaddingLeft: =3
                         PaddingRight: =3
@@ -1967,7 +1961,7 @@ scrOffers As screen:
                         Y: =28
                         ZIndex: =11
 
-                    offer_items As text:
+                    iptExistingOfferItems As text:
                         Align: =Align.Center
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
@@ -1985,7 +1979,6 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2001,7 +1994,7 @@ scrOffers As screen:
                         Y: =45
                         ZIndex: =12
 
-                    offer_combinedItemNumber_ipt As text:
+                    iptExistingOfferCombined As text:
                         Align: =Align.Center
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
@@ -2019,7 +2012,6 @@ scrOffers As screen:
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2035,7 +2027,7 @@ scrOffers As screen:
                         Y: =63
                         ZIndex: =13
 
-                    offer_markets As combobox:
+                    ddExistingOfferMarkets As combobox:
                         AlignInContainer: =AlignInContainer.Center
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderThickness: =0
@@ -2058,7 +2050,6 @@ scrOffers As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         IsSearchable: =false
                         Items: =Choices(Offers.Markets)
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =2
                         PaddingLeft: =2
                         PaddingRight: =2
@@ -2138,7 +2129,6 @@ scrOffers As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
                         Mode: =TextMode.MultiLine
-                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
