@@ -1756,7 +1756,7 @@ scrOffers As screen:
                         Size: =11
                         Text: |-
                             ="Page:"
-                        Width: =(Parent.Width-U*5)*0.04
+                        Width: =(Parent.Width-U*7)*0.04
                         ZIndex: =1
 
                     offer_pos_lbl As label:
@@ -1778,7 +1778,7 @@ scrOffers As screen:
                         Size: =11
                         Text: |-
                             ="Pos:"
-                        Width: =(Parent.Width-U*5)*0.04
+                        Width: =(Parent.Width-U*7)*0.04
                         Y: =offer_page_lbl.Y+offer_page_lbl.Height+5
                         ZIndex: =2
 
@@ -1801,7 +1801,7 @@ scrOffers As screen:
                         Size: =11
                         Text: |-
                             ="AdBlock:"
-                        Width: =(Parent.Width-U*5)*0.04
+                        Width: =(Parent.Width-U*7)*0.04
                         Y: =offer_pos_lbl.Y+offer_pos_lbl.Height+5
                         ZIndex: =3
 
@@ -1844,7 +1844,8 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Items"
-                        Width: =Parent.Width*0.25
+                        Width: |
+                            =Parent.Width*0.25
                         X: =1059
                         Y: =218
                         ZIndex: =5
@@ -1866,7 +1867,8 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Combined Items"
-                        Width: =Parent.Width*0.25
+                        Width: |
+                            =Parent.Width*0.25
                         X: =1059
                         Y: =218
                         ZIndex: =6
@@ -1889,7 +1891,8 @@ scrOffers As screen:
                         Size: =11
                         Text: |-
                             ="Markets:"
-                        Width: =Parent.Width*0.25
+                        Width: |
+                            =Parent.Width*0.25
                         X: =1060
                         Y: =263
                         ZIndex: =7
@@ -1941,7 +1944,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =13
-                        Width: =offer_page_lbl.Width
+                        Width: =(Parent.Width-U*7)*0.04
                         ZIndex: =9
 
                     iptExistingOfferPosition As text:
@@ -1973,7 +1976,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =13
-                        Width: =offer_pos_lbl.Width
+                        Width: =(Parent.Width-U*7)*0.04
                         Y: =offer_page_lbl.Y+offer_page_lbl.Height+5
                         ZIndex: =10
 
@@ -2006,7 +2009,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =13
-                        Width: =offer_adblock_lbl.Width
+                        Width: =(Parent.Width-U*7)*0.04
                         Y: =offer_pos_lbl.Y+offer_pos_lbl.Height+5
                         ZIndex: =11
 
@@ -2044,7 +2047,7 @@ scrOffers As screen:
                         SelectionFill: =RGBA(0, 121, 187, 1)
                         SelectMultiple: =false
                         Size: =10
-                        Width: =offer_type_lbl_1.Width
+                        Width: =(Parent.Width-U*5)*0.06
                         Y: =28
                         ZIndex: =12
 
@@ -2076,7 +2079,8 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =offer_Item_lbl.Width
+                        Width: |
+                            =Parent.Width*0.25
                         X: =1
                         Y: =45
                         ZIndex: =13
@@ -2109,7 +2113,8 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =offer_markets_lbl_2.Width
+                        Width: |
+                            =Parent.Width*0.25
                         X: =1419
                         Y: =63
                         ZIndex: =14
@@ -2147,10 +2152,22 @@ scrOffers As screen:
                         SearchFields: =["Value"]
                         SearchItems: =[]
                         SelectionFill: =RGBA(0, 51, 102, 1)
-                        Width: =offer_markets_lbl.Width-30
+                        Width: |
+                            =Parent.Width*0.25
                         X: =318
                         Y: =2
                         ZIndex: =15
+
+                    Label1 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =25
+                        Size: =13
+                        Text: =" "
+                        Width: =Parent.Width*0.062
+                        ZIndex: =16
 
     AddImages As groupContainer.manualLayoutContainer:
         Fill: =RGBA(250, 250, 250, 1)
