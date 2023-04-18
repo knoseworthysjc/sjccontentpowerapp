@@ -3192,7 +3192,7 @@ scrOffers As screen:
                 minimumHeight: =30
                 OnSelect: |-
                     =ClearCollect(searchOffersRecords,Filter(Offers,StartsWith(offer_copy,searchOffers_1.Text) Or StartsWith(combined_item_number,searchOffers_1.Text)));
-                    Collect(searchOffersRecords,Search(Offers,searchOffers_1.Text,"offer_copy","featured_item_numbers","category_name"));
+                    Collect(searchOffersRecords,Search(Offers,searchOffers_1.Text,"offer_copy","featured_item_numbers"));
                     Set(showRelistPanel,true);
                 Width: =Self.Height
                 X: =464
@@ -3208,135 +3208,245 @@ scrOffers As screen:
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             TemplateFill: =RGBA(255, 255, 255, 1)
-            TemplateSize: =Self.Height/3
+            TemplateSize: =Self.Height/2
             Width: =Parent.Width-10
             X: =5
             Y: =relistPanelHeader_1.Height+100
             ZIndex: =4
 
-            Gallery2_1 As gallery.galleryHorizontal:
+            Label5 As label:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)-relist_offerCopy_2.Height
-                Items: =ThisItem.assigned_images
-                TemplatePadding: =0
-                TemplateSize: =Self.Width/CountRows(Self.AllItems)
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)-20
-                X: =1
-                Y: =Label2_1.Y+Label2_1.Height+5
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.'Compliance Asset Id'
+                X: =40
+                Y: =40
                 ZIndex: =1
 
-                Image6_1 As image:
+            previewOffer_assets_1 As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.6
+                Items: =ThisItem.assigned_images
+                TemplateSize: =(Self.Width/CountRows(ThisItem.assigned_images))-CountRows(ThisItem.assigned_images)*Self.TemplatePadding*2
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-20
+                WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+                Image2_4 As image:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                     X: =Parent.TemplatePadding
-                    Y: =Label3_3.Height
-                    ZIndex: =1
-
-                Label3_3 As label:
-                    Align: =Align.Center
-                    AutoHeight: =true
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(163, 160, 160, 0.6)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =1
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        =Last(ForAll(Split(ThisItem.Value,"/"), {Result: ThisRecord.Value})).Result
-                    Width: =Parent.TemplateWidth-(Parent.TemplatePadding*2)-5
-                    X: =Parent.TemplatePadding
                     Y: =Parent.TemplatePadding
                     ZIndex: =2
 
-            Label2_1 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(116, 116, 116, 1)
-                BorderThickness: =1
-                Color: =RGBA(0, 36, 71, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(237, 237, 237, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =1
+            previewOffer_boarder_1 As rectangle:
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =5
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                 OnSelect: =Select(Parent)
-                Text: |-
-                    =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" Pos:"&ThisItem.Adblock&""
-                Width: =Parent.TemplateWidth-20
-                ZIndex: =2
-
-            relist_offerCopy_2 As label:
-                Align: =Align.Center
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 89, 178, 0.65)
-                BorderThickness: =1
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(230, 230, 230, 0.75)
-                FontWeight: =FontWeight.Semibold
-                OnSelect: =Select(Parent)
-                Size: =11
-                Text: =ThisItem.offer_copy
-                Width: =((Parent.TemplateWidth-Parent.TemplatePadding*2)-20)/2
-                X: =1
-                Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
+                Width: |-
+                    =Parent.TemplateWidth-
+                    Parent.TemplatePadding*2-20
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
                 ZIndex: =3
 
-            relist_offerCopy_3 As label:
-                Align: =Align.Center
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 89, 178, 0.65)
-                BorderThickness: =1
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(230, 230, 230, 0.75)
-                FontWeight: =FontWeight.Semibold
+            previewOffer_price_rectangle_1 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 255, 0, 1),RGBA(255,0,0,1))
+                Height: =previewOffer_price_1.Height
                 OnSelect: =Select(Parent)
-                Size: =11
-                Text: =ThisItem.offer_copy_french
-                Width: =(((Parent.TemplateWidth-Parent.TemplatePadding*2)-20)/2)
-                X: =1
-                Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-previewOffer_boarder_1.BorderThickness
+                X: =previewOffer_offerCopy_1.X+previewOffer_offerCopy_1.Width+5
+                Y: =previewOffer_offerCopy_1.Y
                 ZIndex: =4
 
-            relist_offer_icon_1 As icon.Copy:
+            previewOffer_price_1 As label:
+                Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 89, 178, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: |
-                    =Label2_1.Height-4
-                Icon: =Icon.AddLibrary
-                OnSelect: |-
-                    =Select(Parent);Patch(selectedOffers,galExistingOffers.Selected,{offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french})
-                Width: =Self.Height
-                X: |
-                    =Label2_1.X+Label2_1.Width-Self.Width
-                Y: =1
+                Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =previewOffer_offerCopy_1.Height+previewOffer_offerCOO_1.Height+previewOffer_offerItemNumber_1.Height+40
+                OnSelect: =Select(Parent)
+                Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,"Multi-Save",24,48)
+                Text: |-
+                    =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
+                    "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
+                    ","")&
+                    If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-previewOffer_boarder_1.BorderThickness
+                X: =previewOffer_price_rectangle_1.X
+                Y: =previewOffer_price_rectangle_1.Y
                 ZIndex: =5
 
-            relist_offer_update_icon_1 As icon.Copy:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 89, 178, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: |
-                    =Label2_1.Height-4
-                Icon: =Icon.Copy
-                OnSelect: |-
-                    =Select(Parent);
-                    Patch(Offers,Defaults(Offers),{assigned_project:{Value:ddProject.Selected.Title,Id:ddProject.Selected.ID},Season:ddSeason.Selected,Week:Value(ddWeek.Text),page_from:ddPage.Selected.Result,Adblock:0,SBU:ThisItem.SBU,category_name:ThisItem.category_name,offer_copy:ThisItem.offer_copy,offer_copy_french:ThisItem.offer_copy_french,item_name:ThisItem.item_name,featured_item_numbers:ThisItem.featured_item_numbers,combined_item_number:ThisItem.combined_item_number,unit:ThisItem.unit,unit_fre:ThisItem.unit_fre,'Country of Origin':ThisItem.'Country of Origin','Country of Origin(Fre)':ThisItem.'Country of Origin(Fre)'});
-                    ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProject.Selected.Title));
-                Width: =Self.Height
-                Y: =Label2_1.Y+2
+            previewOffer_saveNow_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =2
+                Color: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 0, 1)
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Size: =26
+                Text: ="SAVE NOW!"
+                Visible: =ThisItem.offer_type.Value="Save Now"
+                Width: =previewOffer_price_rectangle_1.Width-2
+                X: =previewOffer_price_rectangle_1.X+1
                 ZIndex: =6
+
+            previewOffer_rollBack_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(255, 0, 0, 1)
+                BorderThickness: =2
+                Color: =RGBA(255, 255, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                Size: =26
+                Text: ="R🙂llback"
+                Visible: =ThisItem.offer_type.Value="Rollback"
+                Width: =previewOffer_price_rectangle_1.Width-2
+                X: =previewOffer_price_rectangle_1.X+1
+                ZIndex: =7
+
+            previewOffer_offerCOO_1 As label:
+                Align: =Align.Right
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =If(ThisItem.'Country of Origin'="",0,40)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =10
+                Text: =ThisItem.'Country of Origin'
+                Visible: =If(ThisItem.'Country of Origin'="",false,true)
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
+                X: =previewOffer_boarder_1.X+previewOffer_boarder_1.BorderThickness+5
+                Y: =previewOffer_offerCopy_1.Y+previewOffer_offerCopy_1.Height
+                ZIndex: =8
+
+            previewOffer_offerCopy_1 As label:
+                Align: =Align.Right
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.offer_copy
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
+                X: =previewOffer_boarder_1.X+previewOffer_boarder_1.BorderThickness+5
+                Y: =previewOffer_assets_1.Y+previewOffer_assets_1.Height
+                ZIndex: =9
+
+            previewOffer_offerItemNumber_1 As label:
+                Align: =Align.Right
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11
+                Text: |-
+                    ="#"&ThisItem.combined_item_number
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
+                X: =previewOffer_boarder_1.X+previewOffer_boarder_1.BorderThickness+5
+                Y: =previewOffer_offerCOO_1.Y+previewOffer_offerCOO_1.Height
+                ZIndex: =10
+
+            previewOffer_offerWasPricing_1 As label:
+                Align: =Align.Right
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: ="Was "&ThisItem.regular_price
+                Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
+                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
+                X: =previewOffer_boarder_1.X+previewOffer_boarder_1.BorderThickness+5
+                Y: =previewOffer_offerItemNumber_1.Y+previewOffer_offerItemNumber_1.Height
+                ZIndex: =11
+
+            previewOffer_MultiSaveEach_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(255, 237, 105, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =20
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Text: ="or "&ThisItem.regular_price&" "&"each"
+                Visible: |
+                    =If(ThisItem.offer_type.Value = "Multi-Save",true,false)
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-20-previewOffer_boarder_1.BorderThickness
+                X: =previewOffer_price_rectangle_1.X
+                Y: =previewOffer_price_1.Y+previewOffer_price_1.Height
+                ZIndex: =12
+
+            previewOffer_MultiSaveEach_lbl_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =previewOffer_MultiSaveEach_1.Height+previewOffer_price_1.Height
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Text: |-
+                    ="i
+                    t
+                    l
+                    u
+                    M
+                    *
+                    "
+                Visible: =If(ThisItem.offer_type.Value="Multi-Save",true,false)
+                Width: =70
+                X: =previewOffer_MultiSaveEach_1.X
+                Y: =previewOffer_price_1.Y
+                ZIndex: =13
 

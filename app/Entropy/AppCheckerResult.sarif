@@ -6942,49 +6942,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.AccessibleLabel"
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.previewOffer_assets_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "scrOffers",
-                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1.TabIndex",
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.previewOffer_assets_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "scrOffers",
-                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_update_icon_1"
+                "type": "scrOffers.conRelistPanel.galRelistResults.previewOffer_assets_1"
               }
             }
           ],
@@ -7002,19 +6972,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.AccessibleLabel"
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.previewOffer_assets_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.AccessibleLabel",
+                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.previewOffer_assets_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOffers",
-                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1"
+                "type": "scrOffers.conRelistPanel.galRelistResults.previewOffer_assets_1"
               }
             }
           ],
@@ -7026,96 +6996,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "scrOffers",
-                "type": "scrOffers.conRelistPanel.galRelistResults.relist_offer_icon_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "scrOffers",
-                "type": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "scrOffers",
-                "type": "scrOffers.conRelistPanel.galRelistResults.Gallery2_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 4
         },
         {
           "locations": [
@@ -7788,7 +7668,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 990, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOffers\" is 1000, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
