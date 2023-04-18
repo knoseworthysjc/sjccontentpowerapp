@@ -452,14 +452,14 @@ scrOffers As screen:
                         regular_price_lb:iptExistingOfferRegPriceLB.Text,
                         event_price_lb:iptExistingOfferEventPriceLB.Text,
                         'Savings(LB)':iptExistingOfferSavingLB.Text,'Country of Origin':iptofferCOOEng.Text,'Country of Origin(Fre)':iptofferCOOFre.Text,offer_comments:iptExistingOfferComments.Text,Grade:iptofferGradeEng.Text,combined_item_number:iptExistingOfferCombined.Text,'Grade(Fre)':iptofferGradeFre.Text,
-                        installment_amount:Value(offer_installamount_ipt.Text),
-                        installment_frequency:Value(offer_installmonths_ipt.Text),
+                        installment_amount:Value(iptExistingInstallmentAmount.Text),
+                        installment_frequency:Value(iptExistingOfferInstallmentDuration.Text),
                         multi_save:iptOfferMultiSave.Text,
                         offer_copy:offer_copy_ipt.Text,
                         featured_item_numbers:iptExistingOfferItems.Text,
                         multi_save_fre:iptofferMultiSaleFre.Text,
-                        unit:offer_unit_ipt.Text,
-                        unit_fre:offer_unitfrench_ipt.Text
+                        unit:iptofferUnitEng.Text,
+                        unit_fre:iptofferUnit.Text
                         });
                     Width: =Self.Height
                     X: =1768
