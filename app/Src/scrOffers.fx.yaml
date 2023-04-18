@@ -444,10 +444,14 @@ scrOffers As screen:
                             Adblock:Value(iptExistingOfferAdBlock.Text),
                             Markets:SortByColumns(ddExistingOfferMarkets.SelectedItems,"Value",SortOrder.Ascending),
                             offer_type:ddExistingOfferType.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},
-                            offer_copy_french:offer_copy_ipt.Text,regular_price:iptR.Text,event_price:iptExistingEventPrice.Text,savings:iptExistingOfferSavings.Text,eco_fee:iptExistingOfferEcoFee.Text,
-                        regular_price_lb:offer_regpricelb.Text,
+                            offer_copy_french:offer_copy_ipt.Text,
+                            regular_price:iptExistingOfferRegPrice.Text,
+                            event_price:iptExistingEventPrice.Text,
+                            savings:iptExistingOfferSavings.Text,
+                            eco_fee:iptExistingOfferEcoFee.Text,
+                        regular_price_lb:iptExistingOfferRegPriceLB.Text,
                         event_price_lb:iptExistingOfferEventPriceLB.Text,
-                        'Savings(LB)':offer_savings_lb.Text,'Country of Origin':iptofferCOOEng.Text,'Country of Origin(Fre)':iptofferCOOFre.Text,offer_comments:iptExistingOfferComments.Text,Grade:iptofferGradeEng.Text,combined_item_number:iptExistingOfferCombined.Text,'Grade(Fre)':iptofferGradeFre.Text,
+                        'Savings(LB)':iptExistingOfferSavingLB.Text,'Country of Origin':iptofferCOOEng.Text,'Country of Origin(Fre)':iptofferCOOFre.Text,offer_comments:iptExistingOfferComments.Text,Grade:iptofferGradeEng.Text,combined_item_number:iptExistingOfferCombined.Text,'Grade(Fre)':iptofferGradeFre.Text,
                         installment_amount:Value(offer_installamount_ipt.Text),
                         installment_frequency:Value(offer_installmonths_ipt.Text),
                         multi_save:iptOfferMultiSave.Text,
@@ -585,7 +589,7 @@ scrOffers As screen:
                         Text: |-
                             ="Multi Save English
                             "
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =offer_images_fre.Y
                         ZIndex: =1
 
@@ -610,7 +614,7 @@ scrOffers As screen:
                         Text: |-
                             ="Multi Save Fre
                             "
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =offer_images_fre.Y
                         ZIndex: =2
 
@@ -632,7 +636,7 @@ scrOffers As screen:
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         Height: |
-                            =30
+                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -649,7 +653,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         ZIndex: =3
 
                     iptofferMultiSaleFre As text:
@@ -669,7 +673,7 @@ scrOffers As screen:
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         Height: |
-                            =30
+                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -686,7 +690,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_5.Y+lblofferMultiSaleFre_5.Height
                         ZIndex: =4
 
@@ -709,7 +713,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="COO English"
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =offer_images_fre.Y
                         ZIndex: =5
 
@@ -732,7 +736,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="COO French"
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =offer_images_fre.Y
                         ZIndex: =6
 
@@ -771,7 +775,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_6.Y+lblofferMultiSaleFre_6.Height
                         ZIndex: =7
 
@@ -810,7 +814,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_7.Y+lblofferMultiSaleFre_7.Height
                         ZIndex: =8
 
@@ -833,7 +837,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Grade Eng"
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =offer_images_fre.Y
                         ZIndex: =9
 
@@ -856,7 +860,7 @@ scrOffers As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Grade Fre"
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =offer_images_fre.Y
                         ZIndex: =10
 
@@ -877,7 +881,7 @@ scrOffers As screen:
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         Height: |
-                            =55
+                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -894,7 +898,7 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_8.Y+lblofferMultiSaleFre_8.Height
                         ZIndex: =11
 
@@ -915,7 +919,7 @@ scrOffers As screen:
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         Height: |
-                            =55
+                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -932,9 +936,131 @@ scrOffers As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =Parent.Width/2-U
+                        Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_9.Y+lblofferMultiSaleFre_9.Height
                         ZIndex: =12
+
+                    lblofferMultiSaleFre_10 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 94, 146, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =25
+                        LayoutMinHeight: |
+                            =25
+                        LayoutMinWidth: =10
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Unit Eng"
+                        Width: =Parent.Width/2-U*2
+                        Y: =offer_images_fre.Y
+                        ZIndex: =13
+
+                    lblofferMultiSaleFre_11 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 94, 146, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =25
+                        LayoutMinHeight: |
+                            =25
+                        LayoutMinWidth: =10
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Unit Fre"
+                        Width: =Parent.Width/2-U*2
+                        Y: =offer_images_fre.Y
+                        ZIndex: =14
+
+                    iptofferUnitEng As text:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.Grade
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =25
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinWidth: =10
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width/2-U*2
+                        Y: =lblofferMultiSaleFre_10.Y+lblofferMultiSaleFre_10.Height
+                        ZIndex: =15
+
+                    iptofferUnit As text:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(0, 51, 102, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.'Grade(Fre)'
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =25
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinWidth: =10
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Collect(offersWithChanges,ThisItem.ID)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width/2-U*2
+                        Y: =lblofferMultiSaleFre_11.Y+lblofferMultiSaleFre_11.Height
+                        ZIndex: =16
 
                 conExistingOffersCopy As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(0, 121, 187, 1)
@@ -1478,7 +1604,7 @@ scrOffers As screen:
                         Width: =offer_regprice_lbl_3.Width
                         ZIndex: =17
 
-                    offer_savings_lb As text:
+                    iptExistingOfferSavingLB As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
@@ -1508,7 +1634,7 @@ scrOffers As screen:
                         Y: =63
                         ZIndex: =18
 
-                    offer_savings_1 As text:
+                    iptExistingInstallmentAmount As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
@@ -1539,7 +1665,7 @@ scrOffers As screen:
                         Y: =63
                         ZIndex: =19
 
-                    offer_ecofees_1 As text:
+                    iptExistingOfferInstallmentDuration As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
