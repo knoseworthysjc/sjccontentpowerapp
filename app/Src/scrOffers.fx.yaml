@@ -366,13 +366,13 @@ scrOffers As screen:
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 OnSelect: |
-                    =Notify("Click Done");
+                    =
                     Switch(
                         galExistingOfferCommandBar.Selected.IconEvent,
                         "add",
                         Notify("New"),
                         "delete",
-                        Notify("Delete"),
+                        Patch(Offers,galExistingOffers.Selected,{offer_status:{Value:"Deleted"}}),
                         "search",
                         Set(
                             showRelistPanel,
@@ -465,20 +465,6 @@ scrOffers As screen:
                     X: =1768
                     Y: =5
                     ZIndex: =1
-
-                Icon10_1 As icon.Save:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
-                    Height: =conExistingOfferHeader.Height
-                    Icon: =Icon.Trash
-                    OnSelect: |-
-                        =Patch(Offers,ThisItem,{offer_status:{Value:"Deleted"}})
-                    Width: =Self.Height
-                    X: =1835
-                    Y: =5
-                    ZIndex: =2
 
                 conExistingOffersComments As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(0, 121, 187, 1)
