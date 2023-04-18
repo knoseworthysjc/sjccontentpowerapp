@@ -354,12 +354,12 @@ scrOffers As screen:
                             IconFontSize: "18"
                         },
                         {
-                            IconName: "Sharepointlogo",
-                            IconText: "SharePoint",
-                            IconEvent: "SharePoint",
-                            IconTip: "Goto SharePoint",
+                            IconName: "Preview",
+                            IconText: "Preview",
+                            IconEvent: "preview",
+                            IconTip: "Show Preview",
                             IconSize: "20",
-                            IconFontSize: "18",IconOnly:true
+                            IconFontSize: "18"
                         }
                     )
                 LayoutMinHeight: =287
@@ -367,7 +367,10 @@ scrOffers As screen:
                 LoadingSpinner: =LoadingSpinner.Data
                 OnSelect: |+
                     =Notify("Click Done");
-                    Switch(galExistingOfferCommandBar.Selected.IconEvent,"add",Notify("New"),"delete",Notify("Delete"),"search",Set(showRelistPanel,true));
+                    Switch(galExistingOfferCommandBar.Selected.IconEvent,
+                    "add",Notify("New"),
+                    "delete",Notify("Delete"),
+                    "search",Set(showRelistPanel,true),"sharePoint");
                     
                 ShowScrollbar: =false
                 TemplatePadding: =1
