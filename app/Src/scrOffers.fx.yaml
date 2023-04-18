@@ -3300,7 +3300,7 @@ scrOffers As screen:
                 Fill: =RGBA(255, 255, 0, 1)
                 FontWeight: =FontWeight.Bold
                 OnSelect: =Select(Parent)
-                Size: =26
+                Size: =22
                 Text: ="SAVE NOW!"
                 Visible: =ThisItem.offer_type.Value="Save Now"
                 Width: =previewOffer_price_rectangle_1.Width-2
