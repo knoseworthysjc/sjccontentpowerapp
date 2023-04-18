@@ -560,8 +560,6 @@ scrOffers As screen:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Y
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    LayoutOverflowX: =LayoutOverflow.Scroll
-                    LayoutOverflowY: =LayoutOverflow.Scroll
                     LayoutWrap: =true
                     Width: =460
                     X: =968
@@ -577,10 +575,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -602,10 +601,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -635,12 +635,12 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -652,7 +652,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         ZIndex: =3
 
@@ -672,12 +672,12 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -689,7 +689,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_5.Y+lblofferMultiSaleFre_5.Height
                         ZIndex: =4
@@ -703,10 +703,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -726,10 +727,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -756,13 +758,13 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =80
+                        Height: =50
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =80
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -774,7 +776,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_6.Y+lblofferMultiSaleFre_6.Height
                         ZIndex: =7
@@ -795,13 +797,13 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =80
+                        Height: =50
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =80
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -813,7 +815,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_7.Y+lblofferMultiSaleFre_7.Height
                         ZIndex: =8
@@ -827,10 +829,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -850,10 +853,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -880,12 +884,11 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -897,7 +900,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_8.Y+lblofferMultiSaleFre_8.Height
                         ZIndex: =11
@@ -918,12 +921,11 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -935,7 +937,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_9.Y+lblofferMultiSaleFre_9.Height
                         ZIndex: =12
@@ -949,10 +951,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -972,10 +975,11 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: |
                             =25
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1002,12 +1006,11 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -1019,7 +1022,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_10.Y+lblofferMultiSaleFre_10.Height
                         ZIndex: =15
@@ -1040,12 +1043,11 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinWidth: =10
+                        LineHeight: =1
                         Mode: =TextMode.MultiLine
                         OnChange: =Collect(offersWithChanges,ThisItem.ID)
                         PaddingBottom: =0
@@ -1057,7 +1059,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width/2-U*2
                         Y: =lblofferMultiSaleFre_11.Y+lblofferMultiSaleFre_11.Height
                         ZIndex: =16
