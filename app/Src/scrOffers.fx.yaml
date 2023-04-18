@@ -558,7 +558,7 @@ scrOffers As screen:
                 conExistingOffersMultiGradeCoo_1 As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(0, 121, 187, 1)
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Y
-                    LayoutGap: =U
+                    LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =460
@@ -1185,8 +1185,8 @@ scrOffers As screen:
 
                 conExistingOfferPricing2 As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(0, 121, 187, 1)
-                    Height: =60
-                    LayoutGap: =U
+                    Height: =40+U*2
+                    LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding-Self.X-15
@@ -1202,7 +1202,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1222,7 +1223,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1242,7 +1244,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1261,7 +1264,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1281,7 +1285,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1302,7 +1307,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1322,7 +1328,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1343,7 +1350,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1363,7 +1371,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1383,7 +1392,8 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: |
+                            =20
                         LayoutMinHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1407,10 +1417,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1421,7 +1433,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =lblExistingOfferTotalPrice.Width
                         Y: =32
                         ZIndex: =11
@@ -1437,10 +1449,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1451,7 +1465,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_eventprice_lbl.Width
                         Y: =32
                         ZIndex: =12
@@ -1467,10 +1481,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1481,7 +1497,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_regprice_lbl.Width
                         ZIndex: =13
 
@@ -1496,10 +1512,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1510,7 +1528,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_savings_lbl.Width
                         X: =offer_regprice_lbl.X+offer_regprice_lbl.Width
                         Y: =63
@@ -1527,10 +1545,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1541,7 +1561,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_ecofees_lbl.Width
                         X: =offer_regprice_lbl.X+offer_regprice_lbl.Width
                         Y: =102
@@ -1558,10 +1578,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1572,7 +1594,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_eventprice_lbl_1.Width
                         Y: =32
                         ZIndex: =16
@@ -1588,10 +1610,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1602,7 +1626,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_regprice_lbl_3.Width
                         ZIndex: =17
 
@@ -1617,10 +1641,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1631,7 +1657,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_savings_lbl_1.Width
                         Y: =63
                         ZIndex: =18
@@ -1647,10 +1673,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1661,7 +1689,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_savings_lbl_2.Width
                         X: =offer_regprice_lbl.X+offer_regprice_lbl.Width
                         Y: =63
@@ -1678,10 +1706,12 @@ scrOffers As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
-                        Height: =30
+                        Font: =Font.'Segoe UI'
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LineHeight: =1
                         OnChange: =false;
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1692,7 +1722,7 @@ scrOffers As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
-                        Size: =13
+                        Size: =11
                         Width: =offer_ecofees_lbl_1.Width
                         X: =offer_regprice_lbl.X+offer_regprice_lbl.Width
                         Y: =39
@@ -1869,7 +1899,7 @@ scrOffers As screen:
                 conExistingOfferHeader As groupContainer.horizontalAutoLayoutContainer:
                     BorderColor: =RGBA(0, 121, 187, 1)
                     Fill: =RGBA(0, 121, 187, 1)
-                    Height: =55
+                    Height: =40+U*2
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
@@ -1888,7 +1918,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1910,7 +1940,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1933,7 +1963,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1956,7 +1986,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         LayoutMinHeight: =32
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1978,7 +2008,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2001,7 +2031,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2024,7 +2054,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2048,7 +2078,7 @@ scrOffers As screen:
                         Fill: =RGBA(0, 94, 146, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =25
+                        Height: =20
                         HoverColor: =RGBA(0, 89, 178, 1)
                         Size: =11
                         Text: ="Is LineList"
@@ -2069,8 +2099,7 @@ scrOffers As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        Height: |
-                            =28
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -2101,8 +2130,7 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         Format: =TextFormat.Number
-                        Height: |
-                            =28
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -2134,8 +2162,7 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         Format: =TextFormat.Number
-                        Height: |
-                            =28
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -2169,7 +2196,7 @@ scrOffers As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         DisplayFields: =["Value"]
                         Font: =Font.'Segoe UI'
-                        Height: =30
+                        Height: =25
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         IsSearchable: =false
@@ -2205,8 +2232,7 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =28
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -2239,8 +2265,7 @@ scrOffers As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =28
+                        Height: =25
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -2277,8 +2302,7 @@ scrOffers As screen:
                         FillPortions: =1
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =28
+                        Height: =25
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         IsSearchable: =false
@@ -2304,7 +2328,7 @@ scrOffers As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
-                        Height: =25
+                        Height: =20
                         Size: =13
                         Text: =" "
                         Width: =Parent.Width*0.062
