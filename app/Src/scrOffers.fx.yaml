@@ -1823,7 +1823,7 @@ scrOffers As screen:
                         Size: =11
                         Text: |-
                             ="Markets:"
-                        Width: =(Parent.Width*0.7)/3
+                        Width: =Parent.Width*0.24
                         X: =1060
                         Y: =263
                         ZIndex: =7
@@ -2069,7 +2069,7 @@ scrOffers As screen:
                         SearchFields: =["Value"]
                         SearchItems: =[]
                         SelectionFill: =RGBA(0, 51, 102, 1)
-                        Width: =offer_markets_lbl.Width
+                        Width: =offer_markets_lbl.Width-30
                         X: =318
                         Y: =2
                         ZIndex: =14
