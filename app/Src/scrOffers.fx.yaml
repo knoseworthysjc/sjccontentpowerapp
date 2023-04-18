@@ -365,13 +365,25 @@ scrOffers As screen:
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
-                OnSelect: |+
+                OnSelect: |
                     =Notify("Click Done");
-                    Switch(galExistingOfferCommandBar.Selected.IconEvent,
-                    "add",Notify("New"),
-                    "delete",Notify("Delete"),
-                    "search",Set(showRelistPanel,true),"sharePoint");
-                    
+                    Switch(
+                        galExistingOfferCommandBar.Selected.IconEvent,
+                        "add",
+                        Notify("New"),
+                        "delete",
+                        Notify("Delete"),
+                        "search",
+                        Set(
+                            showRelistPanel,
+                            true
+                        ),
+                        "preview",
+                        Set(
+                            showOfferPreview,
+                            true
+                        )
+                    );
                 ShowScrollbar: =false
                 TemplatePadding: =1
                 TemplateSize: =Self.Width/12-16*Self.TemplatePadding
@@ -452,20 +464,6 @@ scrOffers As screen:
                     X: =1835
                     Y: =5
                     ZIndex: =2
-
-                Icon14 As icon.Compose:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
-                    Height: =conExistingOfferHeader.Height
-                    Icon: =Icon.OpenInNewWindow
-                    OnSelect: =Select(Parent);Set(showOfferPreview,true)
-                    Tooltip: ="Preview Offers"
-                    Width: =30
-                    X: =1727
-                    Y: =5
-                    ZIndex: =3
 
                 conExistingOffersComments As groupContainer.verticalAutoLayoutContainer:
                     Fill: =RGBA(0, 121, 187, 1)
