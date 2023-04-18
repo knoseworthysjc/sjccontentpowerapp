@@ -352,6 +352,14 @@ scrOffers As screen:
                             IconTip: "Search Existing Offers",
                             IconSize: "20",
                             IconFontSize: "18"
+                        },
+                        {
+                            IconName: "Sharepointlogo",
+                            IconText: "SharePoint",
+                            IconEvent: "SharePoint",
+                            IconTip: "Goto SharePoint",
+                            IconSize: "20",
+                            IconFontSize: "18",IconOnly:true
                         }
                     )
                 LayoutMinHeight: =287
@@ -363,7 +371,7 @@ scrOffers As screen:
                     
                 ShowScrollbar: =false
                 TemplatePadding: =1
-                TemplateSize: =Self.Width/16-16*Self.TemplatePadding
+                TemplateSize: =Self.Width/12-16*Self.TemplatePadding
                 ZIndex: =1
 
                 "IconExistingOfferCmdBar As 'Fluent Icon (1.0.19)'":
@@ -424,8 +432,8 @@ scrOffers As screen:
                         installment_amount:Value(offer_installamount_ipt.Text),installment_frequency:Value(offer_installmonths_ipt.Text),multi_save:offer_multisave_ipt.Text,offer_copy:offer_copy_ipt.Text,featured_item_numbers:iptExistingOfferItems.Text,multi_save_fre:offer_multisave_ipt_1.Text,unit:offer_unit_ipt.Text,unit_fre:offer_unitfrench_ipt.Text
                         });
                     Width: =Self.Height
-                    X: =conExistingOfferHeader.X+iptExistingOfferPage.Width+5
-                    Y: =20
+                    X: =1768
+                    Y: =5
                     ZIndex: =1
 
                 Icon10_1 As icon.Save:
@@ -438,8 +446,8 @@ scrOffers As screen:
                     OnSelect: |-
                         =Patch(Offers,ThisItem,{offer_status:{Value:"Deleted"}})
                     Width: =Self.Height
-                    X: =conExistingOfferHeader.X+iptExistingOfferPage.Width+5
-                    Y: =19
+                    X: =1835
+                    Y: =5
                     ZIndex: =2
 
                 Icon14 As icon.Compose:
@@ -452,8 +460,8 @@ scrOffers As screen:
                     OnSelect: =Select(Parent);Set(showOfferPreview,true)
                     Tooltip: ="Preview Offers"
                     Width: =30
-                    X: =conExistingOfferHeader.X+iptExistingOfferPage.Width+5
-                    Y: =20
+                    X: =1727
+                    Y: =5
                     ZIndex: =3
 
                 conExistingOffersComments As groupContainer.verticalAutoLayoutContainer:
