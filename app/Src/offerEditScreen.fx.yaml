@@ -663,7 +663,7 @@ offerEditScreen As screen:
                     Text: |-
                         ="Status
                         "
-                    Width: =Parent.Width*0.025
+                    Width: =Parent.Width*0.06
                     X: =Parent.Width/12
                     Y: =1
                     ZIndex: =2
@@ -1093,6 +1093,72 @@ offerEditScreen As screen:
                     X: =lblOfferCopyEnglish.X
                     Y: =iptExistingOfferPage_6.Y+iptExistingOfferPage_6.Height+5
                     ZIndex: =7
+
+                ddSeasonFilter_1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 51, 102, 1)
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    Default: =ThisItem.offer_status.Value
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =28
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    Items: =Choices(Offers.offer_status)
+                    minimumHeight: =30
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =0
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 89, 178, 1)
+                    Reset: =true
+                    SelectionFill: =RGBA(0, 51, 102, 1)
+                    Width: =lblOfferStatus.Width
+                    X: =lblOfferStatus.X
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =8
+
+                ddSeasonFilter_2 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(0, 51, 102, 1)
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    Default: =ThisItem.offer_type.Value
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =28
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    Items: =Choices(Offers.offer_type)
+                    minimumHeight: =30
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =0
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 89, 178, 1)
+                    Reset: =true
+                    SelectionFill: =RGBA(0, 51, 102, 1)
+                    Width: =lblOfferType.Width
+                    X: =lblOfferType.X
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =9
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 62, 125, 1)
