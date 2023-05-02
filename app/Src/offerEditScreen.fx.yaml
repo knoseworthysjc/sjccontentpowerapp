@@ -776,33 +776,11 @@ offerEditScreen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =11
-                    Text: ="Items"
-                    Width: =Parent.Width*0.1
+                    Text: ="Featured Items / Combined"
+                    Width: =Parent.Width*0.15
                     X: =Parent.Width/12
                     Y: =1
                     ZIndex: =7
-
-                lblOfferCombined As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Combined"
-                    Width: =Parent.Width*0.1
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =8
 
                 lblOfferCopyEnglish As label:
                     Align: =Align.Center
@@ -821,36 +799,12 @@ offerEditScreen As screen:
                     PaddingTop: =0
                     Size: =11
                     Text: |-
-                        ="English Copy
+                        ="Copy
                         "
-                    Width: =Parent.Width*0.1
+                    Width: =Parent.Width*0.2
                     X: =Parent.Width/12
                     Y: =1
                     ZIndex: =9
-
-                lblSeason_15 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        ="French Copy
-                        "
-                    Width: =Parent.Width*0.1
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =10
 
                 lblSeason_10 As label:
                     Align: =Align.Center
@@ -922,7 +876,7 @@ offerEditScreen As screen:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
                 Fill: =RGBA(255, 255, 255, 1)
-                Items: =CustomGallerySample
+                Items: =colSelectedPageOffers
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -930,6 +884,151 @@ offerEditScreen As screen:
                 TemplatePadding: =0
                 TemplateSize: =Self.Height/4
                 ZIndex: =3
+
+                iptExistingOfferPage_1 As text:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ThisItem.page_from
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 89, 178, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =true
+                    Size: =11
+                    Width: =lblOfferPg.Width
+                    X: =lblOfferPg.X
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =1
+
+                iptExistingOfferPage_2 As text:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ThisItem.layout_position
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 89, 178, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =true
+                    Size: =11
+                    Width: =lblOfferPos.Width
+                    X: =lblOfferPos.X
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =2
+
+                iptExistingOfferPage_3 As text:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ThisItem.Adblock
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 89, 178, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =true
+                    Size: =11
+                    Width: =lblOfferBlock.Width
+                    X: =lblOfferBlock.X
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =3
+
+                iptExistingOfferPage_4 As text:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ThisItem.featured_item_numbers
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 89, 178, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =true
+                    Size: =11
+                    Width: =lblOfferItems.Width
+                    X: =lblOfferItems.X
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =4
+
+                iptExistingOfferPage_5 As text:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =ThisItem.combined_item_number
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 89, 178, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =true
+                    Size: =11
+                    Width: =lblOfferItems.Width
+                    X: =lblOfferItems.X
+                    Y: =iptExistingOfferPage_4.Y+iptExistingOfferPage_4.Height+U
+                    ZIndex: =5
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 62, 125, 1)
