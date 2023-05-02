@@ -232,9 +232,34 @@ offerEditScreen As screen:
                 Y: =2
                 ZIndex: =9
 
-        Container4 As groupContainer.horizontalAutoLayoutContainer:
+        conOfferPageDetails As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =RGBA(0, 62, 125, 1)
+            BorderThickness: =1
+            FillPortions: =0
+            Height: =32
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
+
+        Container5 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+    imgOfferLogo As image:
+        BorderColor: =RGBA(0, 36, 71, 1)
+        BorderThickness: =1
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =conHeader.Height*2
+        Image: |-
+            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
+        ImagePosition: =ImagePosition.Fill
+        Width: =220
+        X: =Parent.Width-Self.Width
+        ZIndex: =2
 
