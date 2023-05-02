@@ -47,11 +47,13 @@ offerEditScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 LayoutMinHeight: =30
+                LayoutMinWidth: =125
                 minimumHeight: =30
                 Size: =12
                 Text: |-
                     ="Year:"
-                Width: =81
+                Width: |
+                    =70
                 X: =Parent.Width/12
                 Y: =1
                 ZIndex: =2
@@ -98,11 +100,13 @@ offerEditScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 LayoutMinHeight: =30
+                LayoutMinWidth: =125
                 minimumHeight: =30
                 Size: =12
                 Text: |-
                     ="Week:"
-                Width: =81
+                Width: |
+                    =70
                 X: =ddSeasonFilter.X+ddSeasonFilter.Width
                 Y: =1
                 ZIndex: =4
@@ -147,11 +151,13 @@ offerEditScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 LayoutMinHeight: =30
+                LayoutMinWidth: =125
                 minimumHeight: =30
                 Size: =12
                 Text: |-
                     ="Project:"
-                Width: =109
+                Width: |
+                    =70
                 X: =iptWeekFilter.Width+iptWeekFilter.X
                 ZIndex: =6
 
@@ -215,7 +221,8 @@ offerEditScreen As screen:
                 Size: =12
                 Text: |-
                     ="Page:"
-                Width: =81
+                Width: |
+                    =70
                 X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =8
 
