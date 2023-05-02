@@ -1038,7 +1038,7 @@ offerEditScreen As screen:
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplateFill: =RGBA(0, 62, 125, 1)
                 TemplatePadding: =1
-                TemplateSize: =Self.Height/2.5
+                TemplateSize: =Self.Height/2
                 ZIndex: =3
 
                 conSelectedOffersHeader As groupContainer.horizontalAutoLayoutContainer:
@@ -1649,7 +1649,7 @@ offerEditScreen As screen:
                             PaddingTop: =0
                             Size: =11
                             Text: |-
-                                ="COO English
+                                ="Multi Save English
                                 "
                             Width: =Parent.Width*0.03
                             X: =Parent.Width/12
@@ -1706,7 +1706,7 @@ offerEditScreen As screen:
                             PaddingTop: =0
                             Size: =11
                             Text: |-
-                                ="Coo French
+                                ="COO English
                                 "
                             Width: =Parent.Width*0.03
                             X: =Parent.Width/12
@@ -1746,6 +1746,120 @@ offerEditScreen As screen:
                             X: =lblOfferItems.X
                             ZIndex: =4
 
+                        lblOfferStatus_7 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(0, 62, 125, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            LayoutMinHeight: =28
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =11
+                            Text: |-
+                                ="Grade English
+                                "
+                            Width: =Parent.Width*0.03
+                            X: =Parent.Width/12
+                            Y: =1
+                            ZIndex: =5
+
+                        iptExistingOfferPage_13 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(107, 144, 179, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.'Country of Origin(Fre)'
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            EnableSpellCheck: =true
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LayoutMinHeight: =28
+                            Mode: =TextMode.MultiLine
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Size: =11
+                            Width: =lblOfferItems.Width
+                            X: =lblOfferItems.X
+                            ZIndex: =6
+
+                        lblOfferStatus_8 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(0, 62, 125, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            LayoutMinHeight: =28
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =11
+                            Text: |-
+                                ="Unit English
+                                "
+                            Width: =Parent.Width*0.03
+                            X: =Parent.Width/12
+                            Y: =1
+                            ZIndex: =7
+
+                        iptExistingOfferPage_14 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(107, 144, 179, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.'Country of Origin(Fre)'
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            EnableSpellCheck: =true
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LayoutMinHeight: =28
+                            Mode: =TextMode.MultiLine
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Size: =11
+                            Width: =lblOfferItems.Width
+                            X: =lblOfferItems.X
+                            ZIndex: =8
+
                     Container12_2 As groupContainer.verticalAutoLayoutContainer:
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
@@ -1772,7 +1886,7 @@ offerEditScreen As screen:
                             PaddingTop: =0
                             Size: =11
                             Text: |-
-                                ="French Offer Copy
+                                ="Multi Save French
                                 "
                             Width: =Parent.Width*0.03
                             X: =Parent.Width/12
@@ -1783,7 +1897,7 @@ offerEditScreen As screen:
                             Align: =Align.Center
                             BorderColor: =RGBA(107, 144, 179, 1)
                             Color: =RGBA(0, 0, 0, 1)
-                            Default: =ThisItem.offer_copy_french
+                            Default: =ThisItem.'Country of Origin'
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1811,6 +1925,177 @@ offerEditScreen As screen:
                             Width: =lblOfferItems.Width
                             X: =lblOfferItems.X
                             ZIndex: =2
+
+                        lblOfferStatus_9 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(0, 62, 125, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            LayoutMinHeight: =28
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =11
+                            Text: |-
+                                ="COO French
+                                "
+                            Width: =Parent.Width*0.03
+                            X: =Parent.Width/12
+                            Y: =1
+                            ZIndex: =3
+
+                        iptExistingOfferPage_15 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(107, 144, 179, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.'Country of Origin(Fre)'
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            EnableSpellCheck: =true
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LayoutMinHeight: =28
+                            Mode: =TextMode.MultiLine
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Size: =11
+                            Width: =lblOfferItems.Width
+                            X: =lblOfferItems.X
+                            ZIndex: =4
+
+                        lblOfferStatus_10 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(0, 62, 125, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            LayoutMinHeight: =28
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =11
+                            Text: |-
+                                ="Grade French
+                                "
+                            Width: =Parent.Width*0.03
+                            X: =Parent.Width/12
+                            Y: =1
+                            ZIndex: =5
+
+                        iptExistingOfferPage_16 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(107, 144, 179, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.'Country of Origin(Fre)'
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            EnableSpellCheck: =true
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LayoutMinHeight: =28
+                            Mode: =TextMode.MultiLine
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Size: =11
+                            Width: =lblOfferItems.Width
+                            X: =lblOfferItems.X
+                            ZIndex: =6
+
+                        lblOfferStatus_11 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(0, 62, 125, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            LayoutMinHeight: =28
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =11
+                            Text: |-
+                                ="Unit French
+                                "
+                            Width: =Parent.Width*0.03
+                            X: =Parent.Width/12
+                            Y: =1
+                            ZIndex: =7
+
+                        iptExistingOfferPage_17 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(107, 144, 179, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.'Country of Origin(Fre)'
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            EnableSpellCheck: =true
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =28
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LayoutMinHeight: =28
+                            Mode: =TextMode.MultiLine
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Size: =11
+                            Width: =lblOfferItems.Width
+                            X: =lblOfferItems.X
+                            ZIndex: =8
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 62, 125, 1)
