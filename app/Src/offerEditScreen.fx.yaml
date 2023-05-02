@@ -429,6 +429,62 @@ offerEditScreen As screen:
                 Y: =0
                 ZIndex: =1
 
+                ItemChecked1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemChecked"
+                    FieldName: ="ItemChecked"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =14
+
+                ItemDisplayName1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemDisplayName"
+                    FieldName: ="ItemDisplayName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =15
+
+                ItemHeader1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemHeader"
+                    FieldName: ="ItemHeader"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =16
+
+                ItemIconColor1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemIconColor"
+                    FieldName: ="ItemIconColor"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =17
+
+                ItemIconName1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemIconName"
+                    FieldName: ="ItemIconName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =18
+
+                ItemIconOnly1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemIconOnly"
+                    FieldName: ="ItemIconOnly"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =19
+
+                ItemKey1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ItemKey"
+                    FieldName: ="ItemKey"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =20
+
             conOfferLabels As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =32
