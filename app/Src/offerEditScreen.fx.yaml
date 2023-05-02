@@ -180,7 +180,7 @@ offerEditScreen As screen:
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 OnChange: |-
-                    =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title));
+                    =//ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title));
                     
                     
                     //ClearCollect(colProjectPages,Filter(FlyerPages,assigned_project.Value = Self.Selected.Title));
