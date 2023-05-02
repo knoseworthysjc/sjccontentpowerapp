@@ -2348,7 +2348,8 @@ offerEditScreen As screen:
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplateFill: =RGBA(255, 255, 255, 1)
                 TemplatePadding: =1
-                TemplateSize: =Self.Width/10
+                TemplateSize: =Self.Width/8
+                Width: =Parent.Width
                 ZIndex: =4
 
                 "Icon1_4 As 'Fluent Icon (1.0.19)'":
@@ -2358,12 +2359,12 @@ offerEditScreen As screen:
                     DisplayMode: =DisplayMode.Edit
                     FontColor: |-
                         ="#003E7D"
-                    FontSize: =20
+                    FontSize: =18
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     IconColor: |-
                         ="#003E7D"
                     IconName: =ThisItem.Icon
-                    IconSize: =20
+                    IconSize: =18
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     Text: =ThisItem.Tab
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
