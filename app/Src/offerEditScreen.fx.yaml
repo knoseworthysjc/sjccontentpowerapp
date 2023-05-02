@@ -374,7 +374,7 @@ offerEditScreen As screen:
                 Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter.Selected.Title),"page_from")
                 LayoutMinHeight: =30
                 minimumHeight: =30
-                OnChange: =ClearCollect(colSelectedPageOffers,Filter(colSelectedPageOffers,page_from=Self.Selected.Value))
+                OnChange: =If(!IsBlankOrError(Self.Selected),ClearCollect(colSelectedPageOffers,Filter(colSelectedPageOffers,page_from=Self.Selected.page_from)))
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
