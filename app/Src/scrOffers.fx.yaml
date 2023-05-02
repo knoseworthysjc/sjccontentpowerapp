@@ -1607,7 +1607,7 @@ scrOffers As screen:
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.savings
+                        Default: =ThisItem.'Savings(LB)'
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1639,7 +1639,7 @@ scrOffers As screen:
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.savings
+                        Default: =ThisItem.installment_amount
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1672,7 +1672,7 @@ scrOffers As screen:
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.eco_fee
+                        Default: =ThisItem.installment_frequency
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
