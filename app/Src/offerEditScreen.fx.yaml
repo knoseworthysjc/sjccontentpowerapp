@@ -303,7 +303,7 @@ offerEditScreen As screen:
                                     colSelectedPageProductImages,
                                     offerId = ID And type = "image"
                                 )
-                            ).Thumbnails.Large,
+                            ).Thumbnails,
                             "SecondImage",
                             If(
                                 CountRows(
@@ -318,7 +318,7 @@ offerEditScreen As screen:
                                         offerId = ID And type = "image"
                                     ),
                                     2
-                                ).Thumbnails.Large,
+                                ).Thumbnails,
                                 Blank()
                             ),
                             "ThirdImage",
@@ -335,45 +335,11 @@ offerEditScreen As screen:
                                         offerId = ID And type = "image"
                                     ),
                                     3
-                                ).Thumbnails.Large,
+                                ).Thumbnails,
                                 Blank()
                             ),
                             "selected",
-                            false,
-                            "firstlogo",
-                            If(
-                                CountRows(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "logo"
-                                    )
-                                ) > 0,
-                                Index(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "logo"
-                                    ),
-                                    1
-                                ).Thumbnails.Large,
-                                Blank()
-                            ),
-                            "firsticon",
-                            If(
-                                CountRows(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "icon"
-                                    )
-                                ) > 0,
-                                Index(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "icon"
-                                    ),
-                                    1
-                                ).Thumbnails.Large,
-                                Blank()
-                            )
+                            false
                         )
                     );
                     

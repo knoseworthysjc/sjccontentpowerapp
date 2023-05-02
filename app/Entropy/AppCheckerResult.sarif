@@ -23,393 +23,8 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 6,
-                  "charOffset": 1139,
-                  "snippet": {
-                    "text": ".Large"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 6,
-                  "charOffset": 1589,
-                  "snippet": {
-                    "text": ".Large"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 448,
-                  "charOffset": 1180,
-                  "snippet": {
-                    "text": "If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                )\r\n            ) > 1,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                ),\r\n                2\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        )"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "If"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 6,
-                  "charOffset": 2071,
-                  "snippet": {
-                    "text": ".Large"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 448,
-                  "charOffset": 1662,
-                  "snippet": {
-                    "text": "If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                )\r\n            ) > 2,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                ),\r\n                3\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        )"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "If"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 6,
-                  "charOffset": 2587,
-                  "snippet": {
-                    "text": ".Large"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 446,
-                  "charOffset": 2180,
-                  "snippet": {
-                    "text": "If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"logo\"\r\n                )\r\n            ) > 0,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"logo\"\r\n                ),\r\n                1\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        )"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "If"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 6,
-                  "charOffset": 3066,
-                  "snippet": {
-                    "text": ".Large"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 446,
-                  "charOffset": 2659,
-                  "snippet": {
-                    "text": "If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"icon\"\r\n                )\r\n            ) > 0,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"icon\"\r\n                ),\r\n                1\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        )"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "If"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2259,
-                  "charOffset": 853,
-                  "snippet": {
-                    "text": "AddColumns(\r\n        colSelectedPageOffers,\r\n        \"Zone\",\r\n        \"selectedOfferPreview\",\r\n        \"FirstImage\",\r\n        First(\r\n            Filter(\r\n                colSelectedPageProductImages,\r\n                offerId = ID And type = \"image\"\r\n            )\r\n        ).Thumbnails.Large,\r\n        \"SecondImage\",\r\n        If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                )\r\n            ) > 1,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                ),\r\n                2\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        ),\r\n        \"ThirdImage\",\r\n        If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                )\r\n            ) > 2,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"image\"\r\n                ),\r\n                3\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        ),\r\n        \"selected\",\r\n        false,\r\n        \"firstlogo\",\r\n        If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"logo\"\r\n                )\r\n            ) > 0,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"logo\"\r\n                ),\r\n                1\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        ),\r\n        \"firsticon\",\r\n        If(\r\n            CountRows(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"icon\"\r\n                )\r\n            ) > 0,\r\n            Index(\r\n                Filter(\r\n                    colSelectedPageProductImages,\r\n                    offerId = ID And type = \"icon\"\r\n                ),\r\n                1\r\n            ).Thumbnails.Large,\r\n            Blank()\r\n        )\r\n    )"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOfferNav.Icon1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "AddColumns"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOfferNav.Icon1.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
                   "charLength": 13,
-                  "charOffset": 3243,
+                  "charOffset": 2267,
                   "snippet": {
                     "text": ".item_numbers"
                   }
@@ -432,7 +47,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -449,7 +64,7 @@
                 },
                 "region": {
                   "charLength": 65,
-                  "charOffset": 3220,
+                  "charOffset": 2244,
                   "snippet": {
                     "text": "Split(\r\n            Off.item_numbers,\r\n            \",\"\r\n        )"
                   }
@@ -489,7 +104,7 @@
                 },
                 "region": {
                   "charLength": 8,
-                  "charOffset": 3425,
+                  "charOffset": 2449,
                   "snippet": {
                     "text": "Products"
                   }
@@ -512,7 +127,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -529,7 +144,7 @@
                 },
                 "region": {
                   "charLength": 100,
-                  "charOffset": 3396,
+                  "charOffset": 2420,
                   "snippet": {
                     "text": "Filter(\r\n                    Products,\r\n                    Title = itemNum.Value\r\n                )"
                   }
@@ -569,7 +184,7 @@
                 },
                 "region": {
                   "charLength": 5,
-                  "charOffset": 3456,
+                  "charOffset": 2480,
                   "snippet": {
                     "text": "Title"
                   }
@@ -592,7 +207,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -609,7 +224,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3462,
+                  "charOffset": 2486,
                   "snippet": {
                     "text": "="
                   }
@@ -633,6 +248,83 @@
             "level": "High"
           },
           "ruleId": "app-ErrIncompatibleTypesForEquality-Left-Right",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "change_management.season_filter_1.Height"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "change_management.season_filter_1.Height",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "screen_title"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Height",
+                "module": "change_management",
+                "type": "change_management.season_filter_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "screen_title"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "change_management.season_filter_1.Height"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "change_management.season_filter_1.Height",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 7,
+                  "charOffset": 12,
+                  "snippet": {
+                    "text": ".Height"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Height",
+                "module": "change_management",
+                "type": "change_management.season_filter_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
           "ruleIndex": 3
         },
         {
@@ -640,83 +332,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "change_management.season_filter_1.Height"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "change_management.season_filter_1.Height",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 12,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "screen_title"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Height",
-                "module": "change_management",
-                "type": "change_management.season_filter_1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "screen_title"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "change_management.season_filter_1.Height"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "change_management.season_filter_1.Height",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 12,
-                  "snippet": {
-                    "text": ".Height"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Height",
-                "module": "change_management",
-                "type": "change_management.season_filter_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "change_management.week_filter_1.Height"
                 }
               ],
@@ -750,7 +365,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -787,7 +402,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -827,7 +442,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -864,7 +479,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -904,7 +519,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -941,7 +556,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 0
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -8558,14 +8173,17 @@
           "name": "PowerApps app checker",
           "rules": [
             {
-              "id": "app-ErrInvalidDot",
+              "id": "app-ErrInvalidName",
               "messageStrings": {
                 "issue": {
-                  "text": "Invalid use of '.'"
+                  "text": "Name isn't valid. '{0}' isn't recognized."
                 }
               },
               "properties": {
                 "componentType": "app",
+                "howToFix": [
+                  "Remove or correct the reference to the name that isn't valid."
+                ],
                 "level": "High",
                 "primaryCategory": "formula",
                 "whyFix": ""
@@ -8586,23 +8204,6 @@
               }
             },
             {
-              "id": "app-ErrInvalidName",
-              "messageStrings": {
-                "issue": {
-                  "text": "Name isn't valid. '{0}' isn't recognized."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Remove or correct the reference to the name that isn't valid."
-                ],
-                "level": "High",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
               "id": "app-ErrIncompatibleTypesForEquality-Left-Right",
               "messageStrings": {
                 "issue": {
@@ -8615,6 +8216,20 @@
                   "You might need to convert the value to be the same type, such as converting a date string (e.g., \"12/31/2018\") to a date value.",
                   "If you’re comparing records or tables, the field or column types must match exactly."
                 ],
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
+            {
+              "id": "app-ErrInvalidDot",
+              "messageStrings": {
+                "issue": {
+                  "text": "Invalid use of '.'"
+                }
+              },
+              "properties": {
+                "componentType": "app",
                 "level": "High",
                 "primaryCategory": "formula",
                 "whyFix": ""
