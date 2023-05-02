@@ -1226,15 +1226,6 @@ offerEditScreen As screen:
                             Width: =100
                             ZIndex: =2
 
-                    Container12 As groupContainer.verticalAutoLayoutContainer:
-                        LayoutAlignItems: =LayoutAlignItems.Stretch
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutGap: =U
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        ZIndex: =2
-
                         lblOfferStatus_3 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
@@ -1257,7 +1248,7 @@ offerEditScreen As screen:
                             Width: =Parent.Width*0.03
                             X: =Parent.Width/12
                             Y: =1
-                            ZIndex: =1
+                            ZIndex: =3
 
                         iptExistingOfferPage_9 As text:
                             Align: =Align.Center
@@ -1289,7 +1280,7 @@ offerEditScreen As screen:
                             Reset: =true
                             Size: =11
                             Width: =0
-                            ZIndex: =2
+                            ZIndex: =4
 
                     Container12_1 As groupContainer.verticalAutoLayoutContainer:
                         LayoutAlignItems: =LayoutAlignItems.Stretch
