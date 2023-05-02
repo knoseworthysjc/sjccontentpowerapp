@@ -982,7 +982,7 @@ offerEditScreen As screen:
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     FocusedBorderThickness: =4
                     Font: =Font.'Segoe UI'
-                    Height: =56
+                    Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)/2-5
                     HoverBorderColor: =RGBA(0, 89, 178, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
@@ -1012,7 +1012,7 @@ offerEditScreen As screen:
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     FocusedBorderThickness: =4
                     Font: =Font.'Segoe UI'
-                    Height: =56
+                    Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)/2-5
                     HoverBorderColor: =RGBA(0, 89, 178, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
@@ -1029,7 +1029,7 @@ offerEditScreen As screen:
                     Size: =11
                     Width: =lblOfferItems.Width
                     X: =lblOfferItems.X
-                    Y: =iptExistingOfferPage_4.Y+iptExistingOfferPage_4.Height+U
+                    Y: =iptExistingOfferPage_6.Y+iptExistingOfferPage_6.Height+5
                     ZIndex: =5
 
                 iptExistingOfferPage_6 As text:
