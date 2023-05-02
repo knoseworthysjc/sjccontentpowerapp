@@ -348,7 +348,7 @@ offerEditScreen As screen:
                     );
                     
                     
-                    Clear(colSelectedPageProducts);
+                    /*Clear(colSelectedPageProducts);
                     ForAll(
                         colSelectedPageOffers As Off,
                         ForAll(
@@ -370,7 +370,7 @@ offerEditScreen As screen:
                                 )
                             )
                         )
-                    );
+                    );*/
                     UpdateContext({ctxSortCol: "layout_position"});
                     UpdateContext({ctxSortAsc: true});
                 Text: ="Load Offers"
