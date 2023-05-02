@@ -280,6 +280,7 @@ offerEditScreen As screen:
         conOfferPageDetails As groupContainer.horizontalAutoLayoutContainer:
             BorderColor: =RGBA(0, 62, 125, 1)
             BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =32
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -404,7 +405,7 @@ offerEditScreen As screen:
                             ItemKey: "new",
                             ItemDisplayName: "New",
                             ItemIconName: "Add",
-                            ItemIconColor: "#A80000",
+                            ItemIconColor: "#003E7D",
                             ItemChecked: true,
                             ItemHeader: "New Offer",
                             ItemIconOnly: false
@@ -413,13 +414,13 @@ offerEditScreen As screen:
                             ItemKey: "delete",
                             ItemDisplayName: "Delete",
                             ItemIconName: "Delete",
-                            ItemIconColor: "#A80000"
+                            ItemIconColor: "#003E7D"
                         },
                         {
                             ItemKey: "search",
                             ItemDisplayName: "Search",
                             ItemIconName: "Search",
-                            ItemIconColor: "#A80000"
+                            ItemIconColor: "#003E7D"
                         }
                     )
                 LayoutMinHeight: =200
@@ -486,6 +487,7 @@ offerEditScreen As screen:
                     ZIndex: =20
 
             conOfferLabels As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =32
                 LayoutGap: =U/2
