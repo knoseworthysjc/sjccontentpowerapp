@@ -288,7 +288,7 @@ offerEditScreen As screen:
                                 {
                                     offerId: offer.ID,
                                     Title: Last(Split(imglist.Value,"/")).Value,
-                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path="&"[$img.lookupValue]",
+                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path="&imglist.Value,
                                     selected: false,
                                     type: "image"
                                 }
