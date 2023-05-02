@@ -13,6 +13,8 @@ offerEditScreen As screen:
             Fill: =RGBA(0, 62, 125, 1)
             FillPortions: =0
             Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -231,6 +233,26 @@ offerEditScreen As screen:
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
                 ZIndex: =9
+
+            "Icon1 As 'Fluent Icon (1.0.19)'":
+                BorderColor: ="White"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: ="White"
+                FontSize: =16
+                Height: =24
+                IconColor: ="White"
+                IconName: ="refresh"
+                IconSize: =22
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                Text: ="Load Offers"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Width: =150
+                X: =0
+                Y: =0
+                ZIndex: =10
 
         conOfferPageDetails As groupContainer.horizontalAutoLayoutContainer:
             BorderColor: =RGBA(0, 62, 125, 1)
