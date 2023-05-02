@@ -271,11 +271,8 @@ offerEditScreen As screen:
                     =ClearCollect(
                         colSelectedPageOffers,
                         Filter(
-                            Filter(
-                                Offers,
-                                assigned_project.Value = ddProjectFilter.Selected.Title
-                            ),
-                            page_from = ddPageFilter.Selected.page_from
+                            Offers,
+                            assigned_project.Value = ddProjectFilter.Selected.Title
                         )
                     );
                     Clear(colSelectedPageProductImages);
@@ -287,13 +284,19 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
-                                    Title: Last(Split(imglist.Value,"/")).Value,
-                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path="&imglist.Value,
+                                    Title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "image"
                                 }
                             )
                         );
+                        
                     );
                     ClearCollect(
                         conSelectedOfferPreviews,
@@ -346,8 +349,6 @@ offerEditScreen As screen:
                             false
                         )
                     );
-                    
-                    
                     /*Clear(colSelectedPageProducts);
                     ForAll(
                         colSelectedPageOffers As Off,
