@@ -520,6 +520,14 @@ offerEditScreen As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
+            Container14 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =32
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
                 AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
@@ -553,7 +561,7 @@ offerEditScreen As screen:
                 Width: =200
                 X: =0
                 Y: =0
-                ZIndex: =1
+                ZIndex: =2
 
                 ItemChecked1 As pcfDataField.textualColumn:
                     FieldDisplayName: ="ItemChecked"
@@ -611,423 +619,6 @@ offerEditScreen As screen:
                     Order: =7
                     ZIndex: =20
 
-            conOfferLabels As groupContainer.horizontalAutoLayoutContainer:
-                Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =0
-                Height: =32
-                LayoutGap: =U/2
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Visible: =false
-                ZIndex: =2
-
-                lblSeason_13 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        ="
-                        "
-                    Width: =Parent.Width*0.02
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =1
-
-                lblOfferStatus As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        ="Status
-                        "
-                    Width: =Parent.Width*0.06
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =2
-
-                lblOfferPg As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="PG"
-                    Width: |
-                        =Parent.Width*0.025
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =3
-
-                lblOfferPos As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        ="Pos
-                        "
-                    Width: |
-                        =Parent.Width*0.025
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =4
-
-                lblOfferBlock As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="AdBlock"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =5
-
-                lblOfferType As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Type"
-                    Width: =Parent.Width*0.065
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =6
-
-                lblOfferItems As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Featured Items / Combined"
-                    Width: =Parent.Width*0.12
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =7
-
-                lblOfferCopyEnglish As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: |-
-                        ="Copy
-                        "
-                    Width: =Parent.Width*0.2
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =9
-
-                lblSeason_11 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =12
-
-                lblSeason_12 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="EV Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =13
-
-                lblSeason_14 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =14
-
-                lblSeason_15 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =15
-
-                lblSeason_16 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =16
-
-                lblSeason_17 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =17
-
-                lblSeason_18 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =18
-
-                lblSeason_19 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =19
-
-                lblSeason_20 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =20
-
-                lblSeason_21 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(255, 255, 255, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Fill: =RGBA(0, 62, 125, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    minimumHeight: =30
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =11
-                    Text: ="Total Price"
-                    Width: =Parent.Width*0.03
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =21
-
             galSelectedOffers As gallery.galleryVertical:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
@@ -1072,8 +663,7 @@ offerEditScreen As screen:
                         Text: |-
                             ="Status
                             "
-                        Width: =Parent.Width*0.03
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =2
 
@@ -1106,8 +696,7 @@ offerEditScreen As screen:
                         PressedFill: =RGBA(0, 89, 178, 1)
                         Reset: =true
                         SelectionFill: =RGBA(0, 51, 102, 1)
-                        Width: =lblOfferStatus.Width
-                        X: =lblOfferStatus.X
+                        Width: =Parent.Width*0.05
                         ZIndex: =3
 
                     lblOfferPg_1 As label:
@@ -1127,8 +716,7 @@ offerEditScreen As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="PG"
-                        Width: =Parent.Width*0.02
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =4
 
@@ -1158,9 +746,7 @@ offerEditScreen As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: |
-                            =Parent.Width*0.025
-                        X: =lblOfferPg.X
+                        Width: =Parent.Width*0.05
                         Y: =
                         ZIndex: =5
 
@@ -1183,9 +769,7 @@ offerEditScreen As screen:
                         Text: |-
                             ="Pos
                             "
-                        Width: |
-                            =Parent.Width*0.025
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =6
 
@@ -1215,8 +799,7 @@ offerEditScreen As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =lblOfferPos.Width
-                        X: =lblOfferPos.X
+                        Width: =Parent.Width*0.05
                         ZIndex: =7
 
                     lblOfferBlock_1 As label:
@@ -1236,8 +819,7 @@ offerEditScreen As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="AdBlock"
-                        Width: =Parent.Width*0.03
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =8
 
@@ -1267,8 +849,7 @@ offerEditScreen As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =lblOfferBlock.Width
-                        X: =lblOfferBlock.X
+                        Width: =Parent.Width*0.05
                         ZIndex: =9
 
                     lblOfferType_1 As label:
@@ -1288,8 +869,7 @@ offerEditScreen As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Type"
-                        Width: =Parent.Width*0.03
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =10
 
@@ -1322,8 +902,7 @@ offerEditScreen As screen:
                         PressedFill: =RGBA(0, 89, 178, 1)
                         Reset: =true
                         SelectionFill: =RGBA(0, 51, 102, 1)
-                        Width: =lblOfferType.Width
-                        X: =lblOfferType.X
+                        Width: =Parent.Width*0.05
                         ZIndex: =11
 
                     lblOfferItems_1 As label:
@@ -1343,8 +922,7 @@ offerEditScreen As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: ="Featured"
-                        Width: =Parent.Width*0.04
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =12
 
@@ -1374,8 +952,7 @@ offerEditScreen As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =lblOfferItems.Width
-                        X: =lblOfferItems.X
+                        Width: =Parent.Width*0.05
                         ZIndex: =13
 
                     lblOfferItems_2 As label:
@@ -1397,8 +974,7 @@ offerEditScreen As screen:
                         Text: |-
                             ="Combined
                             "
-                        Width: =Parent.Width*0.04
-                        X: =Parent.Width/12
+                        Width: =Parent.Width*0.05
                         Y: =1
                         ZIndex: =14
 
@@ -1428,8 +1004,7 @@ offerEditScreen As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =11
-                        Width: =lblOfferItems.Width
-                        X: =lblOfferItems.X
+                        Width: =Parent.Width*0.05
                         ZIndex: =15
 
                     lblOfferItems_3 As label:
@@ -1452,7 +1027,6 @@ offerEditScreen As screen:
                             ="Markets
                             "
                         Width: =Parent.Width*0.04
-                        X: =Parent.Width/12
                         Y: =1
                         ZIndex: =16
 
@@ -1554,8 +1128,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =2
 
                     Container12 As groupContainer.verticalAutoLayoutContainer:
@@ -1620,8 +1193,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =0
                             ZIndex: =2
 
                     Container12_1 As groupContainer.verticalAutoLayoutContainer:
@@ -1686,8 +1258,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =2
 
                         lblOfferStatus_6 As label:
@@ -1743,8 +1314,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =4
 
                         lblOfferStatus_7 As label:
@@ -1800,8 +1370,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =6
 
                         lblOfferStatus_8 As label:
@@ -1857,8 +1426,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =8
 
                     Container12_2 As groupContainer.verticalAutoLayoutContainer:
@@ -1923,8 +1491,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =2
 
                         lblOfferStatus_9 As label:
@@ -1980,8 +1547,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =4
 
                         lblOfferStatus_10 As label:
@@ -2037,8 +1603,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =6
 
                         lblOfferStatus_11 As label:
@@ -2094,8 +1659,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =lblOfferItems.Width
-                            X: =lblOfferItems.X
+                            Width: =100
                             ZIndex: =8
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
