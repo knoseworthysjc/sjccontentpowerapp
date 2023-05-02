@@ -394,31 +394,53 @@ scrOffers As screen:
                     DisabledColor: =RGBA(244, 244, 244, 1)
                     Height: =conExistingOfferHeader.Height
                     Icon: =Icon.Save
-                    OnSelect: |-
+                    OnSelect: |
                         =Select(Parent);
-                        Patch(selectedOffers,ThisItem,{
-                            page_from:Value(iptExistingOfferPage.Text),
-                            layout_position:Value(iptExistingOfferPosition.Text),
-                            Adblock:Value(iptExistingOfferAdBlock.Text),
-                            Markets:SortByColumns(ddExistingOfferMarkets.SelectedItems,"Value",SortOrder.Ascending),
-                            offer_type:ddExistingOfferType.Selected,record_type:{Value:If(offer_linelist.Value=true,"line list","featured")},
-                            offer_copy_french:offer_copy_ipt.Text,
-                            regular_price:iptExistingOfferRegPrice.Text,
-                            event_price:iptExistingEventPrice.Text,
-                            savings:iptExistingOfferSavings.Text,
-                            eco_fee:iptExistingOfferEcoFee.Text,
-                        regular_price_lb:iptExistingOfferRegPriceLB.Text,
-                        event_price_lb:iptExistingOfferEventPriceLB.Text,
-                        'Savings(LB)':iptExistingOfferSavingLB.Text,'Country of Origin':iptofferCOOEng.Text,'Country of Origin(Fre)':iptofferCOOFre.Text,offer_comments:iptExistingOfferComments.Text,Grade:iptofferGradeEng.Text,combined_item_number:iptExistingOfferCombined.Text,'Grade(Fre)':iptofferGradeFre.Text,
-                        installment_amount:Value(iptExistingInstallmentAmount.Text),
-                        installment_frequency:Value(iptExistingOfferInstallmentDuration.Text),
-                        multi_save:iptOfferMultiSave.Text,
-                        offer_copy:offer_copy_ipt.Text,
-                        featured_item_numbers:iptExistingOfferItems.Text,
-                        multi_save_fre:iptofferMultiSaleFre.Text,
-                        unit:iptofferUnitEng.Text,
-                        unit_fre:iptofferUnit.Text
-                        });
+                        Patch(
+                            selectedOffers,
+                            ThisItem,
+                            {
+                                page_from: Value(iptExistingOfferPage.Text),
+                                layout_position: Value(iptExistingOfferPosition.Text),
+                                Adblock: Value(iptExistingOfferAdBlock.Text),
+                                offer_type: ddExistingOfferType.Selected,
+                                featured_item_numbers: iptExistingOfferItems.Text,
+                                combined_item_number: iptExistingOfferCombined.Text,
+                                Markets: SortByColumns(
+                                    ddExistingOfferMarkets.SelectedItems,
+                                    "Value",
+                                    SortOrder.Ascending
+                                ),
+                                record_type: {
+                                    Value: If(
+                                        offer_linelist.Value = true,
+                                        "line list",
+                                        "featured"
+                                    )
+                                },
+                                offer_copy: offer_copy_ipt.Text,
+                                offer_copy_french: offer_copy_ipt.Text,
+                                total_event_price: iptExistingOfferTotalPrice.Text,
+                                regular_price: iptExistingOfferRegPrice.Text,
+                                event_price: iptExistingEventPrice.Text,
+                                savings: iptExistingOfferSavings.Text,
+                                eco_fee: iptExistingOfferEcoFee.Text,
+                                regular_price_lb: iptExistingOfferRegPriceLB.Text,
+                                event_price_lb: iptExistingOfferEventPriceLB.Text,
+                                'Savings(LB)': iptExistingOfferSavingLB.Text,
+                                installment_amount: Value(iptExistingInstallmentAmount.Text),
+                                installment_frequency: Value(iptExistingOfferInstallmentDuration.Text),
+                                multi_save: iptOfferMultiSave.Text,
+                                'Country of Origin': iptofferCOOEng.Text,
+                                'Country of Origin(Fre)': iptofferCOOFre.Text,
+                                Grade: iptofferGradeEng.Text,
+                                'Grade(Fre)': iptofferGradeFre.Text,
+                                multi_save_fre: iptofferMultiSaleFre.Text,
+                                unit: iptofferUnitEng.Text,
+                                unit_fre: iptofferUnit.Text,
+                                offer_comments: iptExistingOfferComments.Text
+                            }
+                        );
                     Width: =Self.Height
                     X: =1768
                     Y: =5
