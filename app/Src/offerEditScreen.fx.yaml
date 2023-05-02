@@ -222,7 +222,7 @@ offerEditScreen As screen:
                 LayoutMinWidth: =200
                 OnChange: |
                     =ClearCollect(
-                        colSelectedPageOffers,
+                        colSelectedOffers,
                         Filter(
                             Offers,
                             assigned_project.Value = ddProjectFilter.Selected.Title
@@ -230,7 +230,7 @@ offerEditScreen As screen:
                     );
                     Clear(colSelectedPageProductImages);
                     ForAll(
-                        colSelectedPageOffers As offer,
+                        colSelectedOffers As offer,
                         ForAll(
                             offer.assigned_images As imglist,
                             Collect(
@@ -254,7 +254,7 @@ offerEditScreen As screen:
                     ClearCollect(
                         conSelectedOfferPreviews,
                         AddColumns(
-                            colSelectedPageOffers,
+                            colSelectedOffers,
                             "Zone",
                             "selectedOfferPreview",
                             "FirstImage",
@@ -304,7 +304,7 @@ offerEditScreen As screen:
                     );
                     /*Clear(colSelectedPageProducts);
                     ForAll(
-                        colSelectedPageOffers As Off,
+                        colSelectedOffers As Off,
                         ForAll(
                             Split(
                                 Off.featured_item_numbers,
@@ -1180,7 +1180,8 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: |
+                                =25
                             LayoutMinHeight: =28
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1234,7 +1235,8 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: |
+                                =25
                             LayoutMinHeight: =28
                             minimumHeight: =30
                             PaddingBottom: =0
