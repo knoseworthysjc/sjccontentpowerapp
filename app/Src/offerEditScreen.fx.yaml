@@ -1158,7 +1158,7 @@ offerEditScreen As screen:
                     Height: =Parent.TemplateHeight-Self.Y-U
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: =(Parent.TemplateWidth-Self.X-Parent.TemplatePadding*2)*0.8
+                    Width: =(Parent.TemplateWidth-Self.X-Parent.TemplatePadding*2)*0.6
                     X: =Parent.TemplatePadding
                     Y: =conSelectedOffersHeader.Y+conSelectedOffersHeader.Height+U
                     ZIndex: =11
@@ -1283,12 +1283,14 @@ offerEditScreen As screen:
                             ZIndex: =4
 
                     Container12_1 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =U
                         LayoutMinHeight: =100
-                        LayoutMinWidth: =250
+                        LayoutMinWidth: =Parent.Width*0.25
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width*0.25
                         ZIndex: =3
 
                         lblOfferStatus_4 As label:
@@ -1299,8 +1301,8 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
-                            LayoutMinHeight: =28
+                            Height: =25
+                            LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1355,8 +1357,8 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
-                            LayoutMinHeight: =28
+                            Height: =25
+                            LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1411,8 +1413,8 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
-                            LayoutMinHeight: =28
+                            Height: =25
+                            LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1467,8 +1469,8 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
-                            LayoutMinHeight: =28
+                            Height: =25
+                            LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1516,12 +1518,14 @@ offerEditScreen As screen:
                             ZIndex: =8
 
                     Container12_2 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =U
                         LayoutMinHeight: =100
-                        LayoutMinWidth: =250
+                        LayoutMinWidth: =Parent.Width*0.25
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width*0.25
                         ZIndex: =4
 
                         lblOfferStatus_5 As label:
@@ -1532,7 +1536,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: =25
                             LayoutMinHeight: =28
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1588,7 +1592,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: =25
                             LayoutMinHeight: =28
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1644,7 +1648,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: =25
                             LayoutMinHeight: =28
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1700,7 +1704,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: =25
                             LayoutMinHeight: =28
                             minimumHeight: =30
                             PaddingBottom: =0
