@@ -51,6 +51,28 @@
     "dependents": [],
     "id": "7f63464c-499b-4513-86ae-6cf4301d2857"
   },
+  "ae66c1ed-6f2e-4b55-8b72-1e034ba85eaa": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://sjccontent.sharepoint.com/teams/WalmartContent": {
+        "dataSources": {
+          "FlyerPages": {
+            "tableName": "1351ec5c-f055-4f7a-bb3b-9e803c230fe6"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "FlyerPages"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ae66c1ed-6f2e-4b55-8b72-1e034ba85eaa"
+  },
   "e09ed90c-fc6c-4d1d-8b5a-0f4ec2cf2515": {
     "connectionRef": {
       "displayName": "SharePoint",
