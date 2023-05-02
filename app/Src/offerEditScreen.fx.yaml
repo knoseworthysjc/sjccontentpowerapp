@@ -520,7 +520,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =1
 
-                lblSeason_3 As label:
+                lblOfferStatus As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -544,7 +544,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =2
 
-                lblSeason_4 As label:
+                lblOfferPg As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -567,7 +567,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =3
 
-                lblSeason_5 As label:
+                lblOfferPos As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -592,7 +592,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =4
 
-                lblSeason_6 As label:
+                lblOfferBlock As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -608,14 +608,13 @@ offerEditScreen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =11
-                    Text: ="Block"
-                    Width: |
-                        =Parent.Width*0.025
+                    Text: ="AdBlock"
+                    Width: =Parent.Width*0.03
                     X: =Parent.Width/12
                     Y: =1
                     ZIndex: =5
 
-                lblSeason_7 As label:
+                lblOfferType As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -637,7 +636,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =6
 
-                lblSeason_8 As label:
+                lblOfferItems As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -659,7 +658,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =7
 
-                lblSeason_9 As label:
+                lblOfferCombined As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -681,7 +680,7 @@ offerEditScreen As screen:
                     Y: =1
                     ZIndex: =8
 
-                lblSeason_14 As label:
+                lblOfferCopyEnglish As label:
                     Align: =Align.Center
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -798,10 +797,12 @@ offerEditScreen As screen:
             galSelectedOffers As gallery.galleryVertical:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
                 Items: =CustomGallerySample
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
-                TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                TemplatePadding: =0
+                TemplateSize: =Self.Height/4
                 ZIndex: =3
 
     imgOfferLogo As image:
