@@ -400,7 +400,7 @@ offerEditScreen As screen:
                 X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =11
 
-            ddPageFilter_1 As dropdown:
+            ddSBUFilter As dropdown:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
@@ -448,7 +448,7 @@ offerEditScreen As screen:
                 X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =13
 
-            iptWeekFilter_1 As text:
+            iptDeptFilter As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Clear: =true
