@@ -1,0 +1,240 @@
+offerEditScreen As screen:
+    Fill: =RGBA(232, 232, 232, 1)
+
+    conOfferIndex As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        conOfferNav As groupContainer.horizontalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(0, 62, 125, 1)
+            FillPortions: =0
+            Height: =32
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            nav_icon_7 As icon.Waffle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =0
+                Height: =30
+                Icon: =Icon.Waffle
+                LayoutMinHeight: =30
+                LayoutMinWidth: |
+                    =Self.Height
+                OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
+                Width: =Self.Height
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+            lblSeason_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                Size: =12
+                Text: |-
+                    ="Year:"
+                Width: =81
+                X: =Parent.Width/12
+                Y: =1
+                ZIndex: =2
+
+            ddSeason_1 As dropdown:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =Year(Now())
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: =Choices(Offers.Season)
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PaddingBottom: =0
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =0
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Size: =12
+                Width: =105
+                ZIndex: =3
+
+            lblWeek_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                Size: =12
+                Text: |-
+                    ="Week:"
+                Width: =81
+                X: =ddSeason_1.X+ddSeason_1.Width
+                Y: =1
+                ZIndex: =4
+
+            ddWeek_1 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =WeekNum(Now())
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                LayoutMinHeight: =30
+                OnChange: =ClearCollect(colSelectedOffers,Filter(Offers,assigned_project.Value = ddProject_1.Selected.Title))
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Reset: =true
+                Size: =12
+                Width: =70
+                X: =lblWeek_1.X+lblWeek_1.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =5
+
+            lblProject_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                Size: =12
+                Text: |-
+                    ="Project:"
+                Width: =109
+                X: =ddWeek_1.Width+ddWeek_1.X
+                ZIndex: =6
+
+            ddProject_1 As dropdown:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: |-
+                    =If(ddWeek_1.Text="", 
+                    SortByColumns(Filter(Projects,Season.Value = ddSeason_1.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+                    SortByColumns(Filter(Projects,Season.Value = ddSeason_1.Selected.Value And Week = Value(ddWeek_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                OnChange: =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProject_1.Selected.Title));
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Size: =12
+                X: =lblProject_1.X+lblProject_1.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =7
+
+            lblPage_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                Size: =12
+                Text: |-
+                    ="Page:"
+                Width: =81
+                X: =ddProject_1.X+ddProject_1.Width
+                ZIndex: =8
+
+            ddPage_1 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: |-
+                    =ForAll(Distinct(selectedOffers,page_from), {Result: ThisRecord.Value})
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Size: =12
+                Width: =150
+                X: =lblPage_1.X+lblPage_1.Width
+                Y: =2
+                ZIndex: =9
+
+        Container4 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
