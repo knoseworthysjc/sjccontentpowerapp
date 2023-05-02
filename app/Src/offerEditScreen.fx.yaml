@@ -1411,8 +1411,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: |
-                                =20
+                            Height: =20
                             LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1468,8 +1467,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: |
-                                =20
+                            Height: =20
                             LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1525,8 +1523,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: |
-                                =20
+                            Height: =20
                             LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1582,8 +1579,7 @@ offerEditScreen As screen:
                             Fill: =RGBA(0, 62, 125, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: |
-                                =20
+                            Height: =20
                             LayoutMinHeight: =25
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -1899,7 +1895,7 @@ offerEditScreen As screen:
                         Text: ="PG"
                         Width: =Parent.Width*0.025
                         Y: =1
-                        ZIndex: =4
+                        ZIndex: =1
 
                     iptExistingOfferPage_1 As text:
                         Align: =Align.Center
@@ -1929,7 +1925,7 @@ offerEditScreen As screen:
                         Size: =11
                         Width: =Parent.Width*0.025
                         Y: =
-                        ZIndex: =5
+                        ZIndex: =2
 
                     lblOfferPos_1 As label:
                         Align: =Align.Center
@@ -1952,7 +1948,7 @@ offerEditScreen As screen:
                             "
                         Width: =Parent.Width*0.025
                         Y: =1
-                        ZIndex: =6
+                        ZIndex: =3
 
                     iptExistingOfferPage_2 As text:
                         Align: =Align.Center
@@ -1981,7 +1977,7 @@ offerEditScreen As screen:
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.025
-                        ZIndex: =7
+                        ZIndex: =4
 
                     lblOfferBlock_1 As label:
                         Align: =Align.Center
@@ -2002,7 +1998,7 @@ offerEditScreen As screen:
                         Text: ="AdBlock"
                         Width: =Parent.Width*0.03
                         Y: =1
-                        ZIndex: =8
+                        ZIndex: =5
 
                     iptExistingOfferPage_3 As text:
                         Align: =Align.Center
@@ -2031,7 +2027,7 @@ offerEditScreen As screen:
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.025
-                        ZIndex: =9
+                        ZIndex: =6
 
                     lblOfferType_1 As label:
                         Align: =Align.Center
@@ -2052,7 +2048,7 @@ offerEditScreen As screen:
                         Text: ="Type"
                         Width: =Parent.Width*0.025
                         Y: =1
-                        ZIndex: =10
+                        ZIndex: =7
 
                     ddSeasonFilter_2 As dropdown:
                         AllowEmptySelection: =true
@@ -2084,7 +2080,61 @@ offerEditScreen As screen:
                         Reset: =true
                         SelectionFill: =RGBA(0, 51, 102, 1)
                         Width: =Parent.Width*0.06
-                        ZIndex: =11
+                        ZIndex: =8
+
+                    lblOfferType_2 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        LayoutMinHeight: =28
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="SBU"
+                        Width: =Parent.Width*0.025
+                        Y: =1
+                        ZIndex: =9
+
+                    ddSeasonFilter_3 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        Default: =ThisItem.SBU.Value
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =Choices(Offers.SBU)
+                        LayoutMinHeight: =28
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =0
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        Width: =Parent.Width*0.06
+                        ZIndex: =10
 
                     lblOfferItems_1 As label:
                         Align: =Align.Center
@@ -2105,7 +2155,7 @@ offerEditScreen As screen:
                         Text: ="Featured"
                         Width: =Parent.Width*0.04
                         Y: =1
-                        ZIndex: =12
+                        ZIndex: =11
 
                     iptExistingOfferPage_4 As text:
                         Align: =Align.Center
@@ -2134,7 +2184,7 @@ offerEditScreen As screen:
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.15
-                        ZIndex: =13
+                        ZIndex: =12
 
                     lblOfferItems_2 As label:
                         Align: =Align.Center
@@ -2157,7 +2207,7 @@ offerEditScreen As screen:
                             "
                         Width: =Parent.Width*0.04
                         Y: =1
-                        ZIndex: =14
+                        ZIndex: =13
 
                     iptExistingOfferPage_5 As text:
                         Align: =Align.Center
@@ -2186,7 +2236,7 @@ offerEditScreen As screen:
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.14
-                        ZIndex: =15
+                        ZIndex: =14
 
                     lblOfferItems_3 As label:
                         Align: =Align.Center
@@ -2209,7 +2259,7 @@ offerEditScreen As screen:
                             "
                         Width: =Parent.Width*0.04
                         Y: =1
-                        ZIndex: =16
+                        ZIndex: =15
 
                     ComboBox1 As combobox:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -2240,60 +2290,31 @@ offerEditScreen As screen:
                         SelectionFill: =RGBA(0, 51, 102, 1)
                         Width: |
                             =475
+                        ZIndex: =16
+
+                    Icon3 As icon.Save:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 89, 178, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =32
+                        Icon: =Icon.Save
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32  
+                        Width: =32
                         ZIndex: =17
 
-                    lblOfferType_2 As label:
-                        Align: =Align.Center
+                    Icon4 As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =28
-                        LayoutMinHeight: =28
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="SBU"
-                        Width: =Parent.Width*0.025
-                        Y: =1
-                        ZIndex: =18
-
-                    ddSeasonFilter_3 As dropdown:
-                        AllowEmptySelection: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        BorderThickness: =1
-                        ChevronBackground: =RGBA(0, 51, 102, 1)
-                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                        Default: =ThisItem.SBU.Value
+                        Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =28
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        Items: =Choices(Offers.SBU)
-                        LayoutMinHeight: =28
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =5
-                        PaddingRight: =5
-                        PaddingTop: =0
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 89, 178, 1)
-                        Reset: =true
-                        SelectionFill: =RGBA(0, 51, 102, 1)
-                        Width: =Parent.Width*0.06
-                        ZIndex: =19
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =32
+                        Icon: =Icon.Undo
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32  
+                        Width: =32
+                        ZIndex: =18
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 62, 125, 1)
