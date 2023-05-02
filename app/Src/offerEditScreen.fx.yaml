@@ -57,6 +57,7 @@ offerEditScreen As screen:
                 ZIndex: =2
 
             ddSeason_1 As dropdown:
+                AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
                 ChevronBackground: =RGBA(0, 51, 102, 1)
@@ -155,6 +156,7 @@ offerEditScreen As screen:
                 ZIndex: =6
 
             ddProject_1 As dropdown:
+                AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
                 ChevronBackground: =RGBA(0, 51, 102, 1)
@@ -177,7 +179,20 @@ offerEditScreen As screen:
                     SortByColumns(Filter(Projects,Season.Value = ddSeason_1.Selected.Value And Week = Value(ddWeek_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
                 LayoutMinHeight: =30
                 minimumHeight: =30
-                OnChange: =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProject_1.Selected.Title));
+                OnChange: |-
+                    =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProject_1.Selected.Title));
+                    
+                    
+                    //ClearCollect(colProjectPages,Filter(FlyerPages,assigned_project.Value = Self.Selected.Title));
+                    
+                    /*
+                    Clear(colSelectedPages);
+                    ForAll(colProjectPages,If(ThisRecord.page_from=ThisRecord.page_to,
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))}),
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_to,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
+                    ));
+                    */
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
@@ -800,6 +815,8 @@ offerEditScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Items: =CustomGallerySample
                 Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =0
                 TemplateSize: =Self.Height/4
