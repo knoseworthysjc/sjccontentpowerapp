@@ -228,6 +228,7 @@ offerEditScreen As screen:
                             assigned_project.Value = ddProjectFilter.Selected.Title
                         )
                     );
+                    ClearCollect(colSelectedPageOffers,colSelectedOffers);
                     Clear(colSelectedPageProductImages);
                     ForAll(
                         colSelectedOffers As offer,
@@ -373,6 +374,7 @@ offerEditScreen As screen:
                 Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter.Selected.Title),"page_from")
                 LayoutMinHeight: =30
                 minimumHeight: =30
+                OnChange: =ClearCollect(colSelectedPageOffers,Filter(colSelectedPageOffers,page_from=Self.Selected.Value))
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
@@ -716,7 +718,7 @@ offerEditScreen As screen:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
                 Fill: =RGBA(237, 237, 237, 1)
-                Items: =colSelectedPageOffers
+                Items: =colSelectedOffers
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
