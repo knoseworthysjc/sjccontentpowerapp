@@ -1105,6 +1105,7 @@ offerEditScreen As screen:
                 conSelectedOffersHeader As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =32
+                    LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
@@ -1120,8 +1121,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1144,8 +1145,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1179,6 +1180,7 @@ offerEditScreen As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.offer_status)
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =5
@@ -1200,8 +1202,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1224,10 +1226,12 @@ offerEditScreen As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
                         Height: =28
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1252,8 +1256,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1279,10 +1283,12 @@ offerEditScreen As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
                         Height: =28
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1305,8 +1311,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1329,10 +1335,12 @@ offerEditScreen As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
                         Height: =28
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1355,8 +1363,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1388,6 +1396,7 @@ offerEditScreen As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.offer_type)
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =5
@@ -1409,8 +1418,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1433,10 +1442,12 @@ offerEditScreen As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        Height: =30
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1459,8 +1470,8 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -1485,10 +1496,12 @@ offerEditScreen As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        Height: =30
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1503,7 +1516,7 @@ offerEditScreen As screen:
                         X: =lblOfferItems.X
                         ZIndex: =15
 
-                    lblSeason_26 As label:
+                    lblOfferItems_3 As label:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(255, 255, 255, 1)
@@ -1511,85 +1524,50 @@ offerEditScreen As screen:
                         Fill: =RGBA(0, 62, 125, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
+                        Height: =28
+                        LayoutMinHeight: =28
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =11
-                        Text: ="Total Price"
-                        Width: =Parent.Width*0.03
+                        Text: |-
+                            ="Markets
+                            "
+                        Width: =Parent.Width*0.04
                         X: =Parent.Width/12
                         Y: =1
                         ZIndex: =16
 
-                    lblSeason_27 As label:
-                        Align: =Align.Center
+                    ComboBox1 As combobox:
                         BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        DefaultSelectedItems: =ThisItem.Markets
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="EV Price"
-                        Width: =Parent.Width*0.03
-                        X: =Parent.Width/12
-                        Y: =1
+                        Height: =28
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =Choices(Offers.Markets)
+                        LayoutMinHeight: =28
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(Offers.Markets,ComboBox1.SearchText)
+                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        Width: |
+                            =475
                         ZIndex: =17
-
-                    lblSeason_25 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Total Price"
-                        Width: =Parent.Width*0.03
-                        X: =Parent.Width/12
-                        Y: =1
-                        ZIndex: =18
-
-                    lblSeason_32 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Total Price"
-                        Width: =Parent.Width*0.03
-                        X: =Parent.Width/12
-                        Y: =1
-                        ZIndex: =19
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 62, 125, 1)
