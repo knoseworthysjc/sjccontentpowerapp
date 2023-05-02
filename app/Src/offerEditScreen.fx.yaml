@@ -56,7 +56,7 @@ offerEditScreen As screen:
                 Y: =1
                 ZIndex: =2
 
-            ddSeason_1 As dropdown:
+            ddSeasonFilter As dropdown:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
@@ -103,11 +103,11 @@ offerEditScreen As screen:
                 Text: |-
                     ="Week:"
                 Width: =81
-                X: =ddSeason_1.X+ddSeason_1.Width
+                X: =ddSeasonFilter.X+ddSeasonFilter.Width
                 Y: =1
                 ZIndex: =4
 
-            ddWeek_1 As text:
+            iptWeekFilter As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Clear: =true
@@ -126,7 +126,7 @@ offerEditScreen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 LayoutMinHeight: =30
-                OnChange: =ClearCollect(colSelectedOffers,Filter(Offers,assigned_project.Value = ddProject_1.Selected.Title))
+                OnChange: =ClearCollect(colSelectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title))
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
@@ -152,10 +152,10 @@ offerEditScreen As screen:
                 Text: |-
                     ="Project:"
                 Width: =109
-                X: =ddWeek_1.Width+ddWeek_1.X
+                X: =iptWeekFilter.Width+iptWeekFilter.X
                 ZIndex: =6
 
-            ddProject_1 As dropdown:
+            ddProjectFilter As dropdown:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
@@ -174,13 +174,13 @@ offerEditScreen As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Items: |-
-                    =If(ddWeek_1.Text="", 
-                    SortByColumns(Filter(Projects,Season.Value = ddSeason_1.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
-                    SortByColumns(Filter(Projects,Season.Value = ddSeason_1.Selected.Value And Week = Value(ddWeek_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
+                    =If(iptWeekFilter.Text="", 
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter.Selected.Value And Week = Value(iptWeekFilter.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 OnChange: |-
-                    =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProject_1.Selected.Title));
+                    =ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title));
                     
                     
                     //ClearCollect(colProjectPages,Filter(FlyerPages,assigned_project.Value = Self.Selected.Title));
@@ -216,10 +216,10 @@ offerEditScreen As screen:
                 Text: |-
                     ="Page:"
                 Width: =81
-                X: =ddProject_1.X+ddProject_1.Width
+                X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =8
 
-            ddPage_1 As dropdown:
+            ddPageFilter As dropdown:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
@@ -264,6 +264,188 @@ offerEditScreen As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =200
+                OnChange: |
+                    =ClearCollect(
+                        colSelectedPageOffers,
+                        Filter(
+                            Filter(
+                                Offers,
+                                assigned_project.Value = ddProjectFilter.Selected.Title
+                            ),
+                            page_from = ddPageFilter.Selected.page_from
+                        )
+                    );
+                    Clear(colSelectedPageProductImages);
+                    ForAll(
+                        colSelectedPageOffers As offer,
+                        ForAll(
+                            offer.assigned_images As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    Title: imglist.Value,
+                                    Thumbnails: First(
+                                        Filter(
+                                            Assets,
+                                            Title = imglist.Value
+                                        )
+                                    ).Thumbnail,
+                                    selected: false,
+                                    type: "image"
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.logos As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    Title: imglist.Value,
+                                    Thumbnails: First(
+                                        Filter(
+                                            Logos,
+                                            Title = imglist.Value
+                                        )
+                                    ).Thumbnail,
+                                    selected: false,
+                                    type: "logo"
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.icons As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    Title: imglist.Value,
+                                    Thumbnails: First(
+                                        Filter(
+                                            Icons,
+                                            Title = imglist.Value
+                                        )
+                                    ).Thumbnail,
+                                    selected: false,
+                                    type: "icon"
+                                }
+                            )
+                        );
+                        
+                    );
+                    ClearCollect(
+                        conSelectedOfferPreviews,
+                        AddColumns(
+                            colSelectedPageOffers,
+                            "Zone",
+                            "selectedOfferPreview",
+                            "FirstImage",
+                            First(
+                                Filter(
+                                    colSelectedPageProductImages,
+                                    offerId = ID And type = "image"
+                                )
+                            ).Thumbnails.Large,
+                            "SecondImage",
+                            If(
+                                CountRows(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    )
+                                ) > 1,
+                                Index(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    ),
+                                    2
+                                ).Thumbnails.Large,
+                                Blank()
+                            ),
+                            "ThirdImage",
+                            If(
+                                CountRows(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    )
+                                ) > 2,
+                                Index(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    ),
+                                    3
+                                ).Thumbnails.Large,
+                                Blank()
+                            ),
+                            "selected",
+                            false,
+                            "firstlogo",
+                            If(
+                                CountRows(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "logo"
+                                    )
+                                ) > 0,
+                                Index(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "logo"
+                                    ),
+                                    1
+                                ).Thumbnails.Large,
+                                Blank()
+                            ),
+                            "firsticon",
+                            If(
+                                CountRows(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "icon"
+                                    )
+                                ) > 0,
+                                Index(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "icon"
+                                    ),
+                                    1
+                                ).Thumbnails.Large,
+                                Blank()
+                            )
+                        )
+                    );
+                    
+                    
+                    Clear(colSelectedPageProducts);
+                    ForAll(
+                        colSelectedPageOffers As Off,
+                        ForAll(
+                            Split(
+                                Off.item_numbers,
+                                ","
+                            ) As itemNum,
+                            Collect(
+                                colSelectedPageProducts,
+                                AddColumns(
+                                    Filter(
+                                        Products,
+                                        Title = itemNum.Value
+                                    ),
+                                    "offer_id",
+                                    Off.ID,
+                                    "selected",
+                                    false
+                                )
+                            )
+                        )
+                    );
+                    UpdateContext({ctxSortCol: "layout_position"});
+                    UpdateContext({ctxSortAsc: true});
                 Text: ="Load Offers"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Width: =150
@@ -821,6 +1003,63 @@ offerEditScreen As screen:
                 TemplatePadding: =0
                 TemplateSize: =Self.Height/4
                 ZIndex: =3
+
+            galSelectedOfferOptions As gallery.galleryHorizontal:
+                BorderColor: =RGBA(0, 62, 125, 1)
+                BorderThickness: =1
+                DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =32
+                Items: |-
+                    =Table(
+                        {
+                            Tab: "Assigned Assets",
+                            Icon: "PictureLibrary"
+                        },
+                        {
+                            Tab: "Assigned Products",
+                            Icon: "Articles"
+                        },
+                        {
+                            Tab: "History",
+                            Icon: "History"
+                        },
+                        {
+                            Tab: "Preview",
+                            Icon: "Preview"
+                        },
+                        {
+                            Tab: "All Assets",
+                            Icon: "PhotoCollection"
+                        }
+                    )
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateFill: =RGBA(255, 255, 255, 1)
+                TemplatePadding: =1
+                TemplateSize: =Self.Width/10
+                ZIndex: =4
+
+                "Icon1_4 As 'Fluent Icon (1.0.19)'":
+                    BorderColor: |-
+                        ="#003E7D"
+                    BorderRadius: =5
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#003E7D"
+                    FontSize: =20
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    IconColor: |-
+                        ="#003E7D"
+                    IconName: =ThisItem.Icon
+                    IconSize: =20
+                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                    Text: =ThisItem.Tab
+                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                    Tooltip: =ThisItem.Tab
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    X: =Parent.TemplatePadding
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =1
 
     imgOfferLogo As image:
         BorderColor: =RGBA(0, 36, 71, 1)
