@@ -349,7 +349,7 @@ offerEditScreen As screen:
                         colSelectedPageOffers As Off,
                         ForAll(
                             Split(
-                                Off.item_numbers,
+                                Off.featured_item_numbers,
                                 ","
                             ) As itemNum,
                             Collect(
