@@ -374,7 +374,6 @@ offerEditScreen As screen:
                 Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter.Selected.Title),"page_from")
                 LayoutMinHeight: =30
                 minimumHeight: =30
-                OnChange: =If(!IsBlankOrError(Self.Selected),ClearCollect(colSelectedPageOffers,Filter(colSelectedPageOffers,page_from=Self.Selected.page_from)))
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
@@ -682,7 +681,29 @@ offerEditScreen As screen:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
                 Fill: =RGBA(237, 237, 237, 1)
-                Items: =colSelectedOffers
+                Items: |-
+                    =If(
+                        IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
+                        colSelectedOffers,
+                        If(
+                            !IsBlankOrError(ddPageFilter.Selected) And !IsBlankOrError(ddSBUFilter.Selected),
+                            Filter(
+                                colSelectedOffers,
+                                page_from = ddPageFilter.Selected.page_from And SBU.Value = ddSBUFilter.Selected.Value
+                            ),
+                            If(
+                                !IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
+                                Filter(
+                                    colSelectedOffers,
+                                    page_from = ddPageFilter.Selected.page_from
+                                ),
+                                Filter(
+                                    colSelectedOffers,
+                                    SBU.Value = ddSBUFilter.Selected.Value
+                                )
+                            )
+                        )
+                    )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -2220,6 +2241,59 @@ offerEditScreen As screen:
                         Width: |
                             =475
                         ZIndex: =17
+
+                    lblOfferType_2 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        LayoutMinHeight: =28
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="SBU"
+                        Width: =Parent.Width*0.025
+                        Y: =1
+                        ZIndex: =18
+
+                    ddSeasonFilter_3 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Default: =ThisItem.SBU.Value
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =Choices(Offers.SBU)
+                        LayoutMinHeight: =28
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =0
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        Width: =Parent.Width*0.06
+                        ZIndex: =19
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 62, 125, 1)

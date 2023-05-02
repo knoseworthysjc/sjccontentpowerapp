@@ -7872,6 +7872,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersHeader.ddSeasonFilter_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersHeader.ddSeasonFilter_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "offerEditScreen",
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersHeader.ddSeasonFilter_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersHeader.ComboBox1.AccessibleLabel"
                 }
               ],
@@ -9780,7 +9810,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offerEditScreen\" is 380, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offerEditScreen\" is 390, which exceeds the maximum threshold recommended (300)."
               }
             },
             {
