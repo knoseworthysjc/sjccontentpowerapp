@@ -447,55 +447,6 @@ offerEditScreen As screen:
                 Y: =2
                 ZIndex: =4
 
-            lblPage_3 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 62, 125, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =30
-                LayoutMinHeight: =30
-                minimumHeight: =30
-                Size: =11
-                Text: |-
-                    ="Dept:"
-                Width: |
-                    =50
-                X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =5
-
-            iptDeptFilter As text:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Clear: =true
-                Color: =RGBA(0, 0, 0, 1)
-                Default: =
-                DelayOutput: =true
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                FocusedBorderThickness: =4
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Format: =TextFormat.Number
-                Height: =30
-                HoverBorderColor: =RGBA(0, 89, 178, 1)
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
-                LayoutMinHeight: =30
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Reset: =true
-                Size: =11
-                Width: |
-                    =150
-                X: =lblWeek_1.X+lblWeek_1.Width
-                Y: =(Self.BorderThickness*8)/2
-                ZIndex: =6
-
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
                 AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
