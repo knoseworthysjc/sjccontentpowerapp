@@ -356,7 +356,7 @@ offerEditScreen As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =30
+                Height: =24
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 Size: =11
@@ -371,9 +371,10 @@ offerEditScreen As screen:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronFill: =RGBA(107, 144, 179, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
                 Default: =
@@ -382,7 +383,7 @@ offerEditScreen As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =30
+                Height: =24
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter.Selected.Title),"page_from")
@@ -405,7 +406,7 @@ offerEditScreen As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =30
+                Height: =24
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 Size: =11
@@ -420,9 +421,10 @@ offerEditScreen As screen:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronFill: =RGBA(107, 144, 179, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
                 Default: =
@@ -431,7 +433,7 @@ offerEditScreen As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =30
+                Height: =24
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Items: =Choices(Offers.SBU)
@@ -448,7 +450,6 @@ offerEditScreen As screen:
                 ZIndex: =4
 
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
-                AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
                 Height: =32
                 Items: |-
@@ -558,8 +559,9 @@ offerEditScreen As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =28
-                LayoutMinHeight: =30
+                Height: |
+                    =24
+                LayoutMinHeight: =24
                 minimumHeight: =30
                 Size: =12
                 Text: ="Assigned Layout"
@@ -570,9 +572,10 @@ offerEditScreen As screen:
             ddSeason_2 As dropdown:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronFill: =RGBA(107, 144, 179, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
                 Default: =Year(Now())
@@ -581,11 +584,12 @@ offerEditScreen As screen:
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =30
+                Height: |
+                    =24
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 Items: =Choices(Offers.Season)
-                LayoutMinHeight: =30
+                LayoutMinHeight: =24
                 minimumHeight: =30
                 PaddingBottom: =0
                 PaddingLeft: =5
