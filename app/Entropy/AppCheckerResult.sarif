@@ -6672,19 +6672,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_eventprice_lbl_5.FocusedBorderThickness"
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.iptExistingEventPrice_4.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_eventprice_lbl_5.FocusedBorderThickness",
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.iptExistingEventPrice_4.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "FocusedBorderThickness",
+                "member": "AccessibleLabel",
                 "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_eventprice_lbl_5"
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.iptExistingEventPrice_4"
               }
             }
           ],
@@ -6694,8 +6694,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 6
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -7212,49 +7212,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_regprice_lbl_6.FocusedBorderThickness"
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_regprice_lbl_6.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_regprice_lbl_6.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_regprice_lbl_6"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_regprice_lbl_6.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_regprice_lbl_6.TabIndex",
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_regprice_lbl_6.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_regprice_lbl_6"
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_regprice_lbl_6"
               }
             }
           ],
@@ -7266,6 +7236,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_regprice_lbl_6.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_regprice_lbl_6.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "offerEditScreen",
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_regprice_lbl_6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -7296,6 +7296,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Container20.ddSeasonFilter_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Container20.ddSeasonFilter_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "offerEditScreen",
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Container20.ddSeasonFilter_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -7452,19 +7482,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.iptExistingEventPrice_4.AccessibleLabel"
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_eventprice_lbl_5.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.iptExistingEventPrice_4.AccessibleLabel",
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_eventprice_lbl_5.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "offerEditScreen",
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_eventprice_lbl_5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Container20.iptExistingOfferPage_11.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Container20.iptExistingOfferPage_11.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.iptExistingEventPrice_4"
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Container20.iptExistingOfferPage_11"
               }
             }
           ],
@@ -9492,19 +9552,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.iptExistingEventPrice_3.AccessibleLabel"
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_eventprice_lbl_5.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.iptExistingEventPrice_3.AccessibleLabel",
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_eventprice_lbl_5.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "AccessibleLabel",
+                "member": "TabIndex",
                 "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.iptExistingEventPrice_3"
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.offer_eventprice_lbl_5"
               }
             }
           ],
@@ -9514,8 +9574,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 4
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -9552,19 +9612,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_eventprice_lbl_5.TabIndex"
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.iptExistingEventPrice_3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_eventprice_lbl_5.TabIndex",
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.iptExistingEventPrice_3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "TabIndex",
+                "member": "AccessibleLabel",
                 "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice_1.offer_eventprice_lbl_5"
+                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPriceLB_1.iptExistingEventPrice_3"
               }
             }
           ],
@@ -9574,8 +9634,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 5
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
         },
         {
           "locations": [
