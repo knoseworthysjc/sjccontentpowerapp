@@ -94,46 +94,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 11,
-                  "charOffset": 30,
-                  "snippet": {
-                    "text": ".Thumbnails"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Thumbnails"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "change_management.season_filter_1.Height"
                 }
               ],
@@ -7162,6 +7122,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "offerEditScreen",
+                "type": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferPrice.offer_eventprice_lbl_2.TabIndex"
                 }
               ],
@@ -9005,6 +8995,36 @@
                 "member": "AccessibleLabel",
                 "module": "offerEditScreen",
                 "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.iptExistingOfferPage_6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "offerEditScreen",
+                "type": "offerEditScreen.conOfferIndex.conOffers.Container2.Container4.Container6.Gallery4.Image5_1"
               }
             }
           ],

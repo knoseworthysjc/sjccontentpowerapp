@@ -2999,7 +2999,7 @@ offerEditScreen As screen:
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                                 Image: |-
                                     =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
-                                OnSelect: =Select(Parent);Launch(ThisItem.Thumbnails)
+                                OnSelect: =Select(Parent);
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplatePadding
