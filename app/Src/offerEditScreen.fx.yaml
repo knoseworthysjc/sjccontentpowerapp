@@ -349,7 +349,7 @@ offerEditScreen As screen:
                 Text: |-
                     ="Page:"
                 Width: |
-                    =70
+                    =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =9
 
@@ -395,9 +395,10 @@ offerEditScreen As screen:
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 Size: =11
-                Text: ="SBU"
+                Text: |-
+                    ="SBU:"
                 Width: |
-                    =70
+                    =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =11
 
@@ -443,9 +444,10 @@ offerEditScreen As screen:
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 Size: =11
-                Text: ="Dept"
+                Text: |-
+                    ="Dept:"
                 Width: |
-                    =70
+                    =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
                 ZIndex: =13
 
@@ -733,8 +735,8 @@ offerEditScreen As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     Width: =1138
-                    X: =757
-                    Y: =conSelectedOffersHeader.Y+conSelectedOffersHeader.Height+U
+                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U
+                    Y: =U
                     ZIndex: =2
 
                     Container11 As groupContainer.verticalAutoLayoutContainer:
@@ -1924,13 +1926,14 @@ offerEditScreen As screen:
                             ZIndex: =21
 
                 conSelectedOffersHeader As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =34
+                    Height: =262
                     LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U/2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    Width: =220
-                    X: =1682
+                    Width: =69
+                    X: =1831
                     Y: =Parent.TemplatePadding
                     ZIndex: =3
 
