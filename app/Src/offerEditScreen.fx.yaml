@@ -2966,10 +2966,12 @@ offerEditScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =125
                                 OnChange: |-
-                                    =ClearCollect(
+                                    =Clear(colOfferAssetSearchResults);
+                                    ForAll(ddAssetSearchType.Selected.xinetPaths As searchLocals,
+                                    Collect(
                                             colOfferAssetSearchResults,
-                                            Xinet.Search(First(ddAssetSearchType.Selected.xinetPaths).pathId,iptOfferAssetSearch.Text).FILES_INFO
-                                        )
+                                            Xinet.Search(searchLocals.pathId,iptOfferAssetSearch.Text).FILES_INFO
+                                        ))
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =Parent.Width*0.2
