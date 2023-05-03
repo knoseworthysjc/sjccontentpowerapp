@@ -754,12 +754,12 @@ offerEditScreen As screen:
                         ZIndex: =18
 
                 conSelectedOffersPrice As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =Parent.TemplateHeight-Self.Y-U
+                    Height: =197
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: =488
-                    X: =1362
-                    Y: =U
+                    Width: =779
+                    X: =641
+                    Y: =112
                     ZIndex: =2
 
                     Container12_1 As groupContainer.verticalAutoLayoutContainer:
@@ -2355,8 +2355,7 @@ offerEditScreen As screen:
                     ZIndex: =6
 
                 conSelectedOfferCopy As groupContainer.horizontalAutoLayoutContainer:
-                    Height: |
-                        =200
+                    Height: =100
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
@@ -2384,7 +2383,7 @@ offerEditScreen As screen:
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =20
-                            LayoutMinHeight: =28
+                            LayoutMinHeight: =20
                             LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -2401,6 +2400,7 @@ offerEditScreen As screen:
                         iptExistingOfferPage_8 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(107, 144, 179, 1)
+                            Clear: =true
                             Color: =RGBA(0, 0, 0, 1)
                             Default: =ThisItem.offer_copy
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2411,11 +2411,11 @@ offerEditScreen As screen:
                             FocusedBorderThickness: =4
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: =150
                             HoverBorderColor: =RGBA(0, 89, 178, 1)
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
-                            LayoutMinHeight: =28
+                            LayoutMinHeight: =150
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             PaddingBottom: =0
@@ -2448,7 +2448,7 @@ offerEditScreen As screen:
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =20
-                            LayoutMinHeight: =28
+                            LayoutMinHeight: =20
                             LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             PaddingBottom: =0
@@ -2467,6 +2467,7 @@ offerEditScreen As screen:
                         iptExistingOfferPage_9 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(107, 144, 179, 1)
+                            Clear: =true
                             Color: =RGBA(0, 0, 0, 1)
                             Default: =ThisItem.offer_copy_french
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
