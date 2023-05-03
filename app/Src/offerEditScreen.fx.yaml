@@ -757,21 +757,10 @@ offerEditScreen As screen:
                     Height: =Parent.TemplateHeight-Self.Y-U
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: =905
-                    X: =946
+                    Width: =488
+                    X: =1362
                     Y: =U
                     ZIndex: =2
-
-                    Container11 As groupContainer.verticalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        Height: =Parent.Height
-                        LayoutAlignItems: =LayoutAlignItems.Stretch
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutGap: =U
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        ZIndex: =1
 
                     Container12_1 As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1840,7 +1829,8 @@ offerEditScreen As screen:
                             ZIndex: =21
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
-                    Height: =196
+                    Height: |
+                        =200
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
@@ -2009,7 +1999,7 @@ offerEditScreen As screen:
                         ZIndex: =6
 
                 conSelectedOfferCategory As groupContainer.verticalAutoLayoutContainer:
-                    Height: =187
+                    Height: =148
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
@@ -2359,19 +2349,22 @@ offerEditScreen As screen:
                     HoverFill: =RGBA(153, 205, 255, 1)
                     OnSelect: =Select(Parent)
                     Size: =13
-                    X: =33
-                    Y: =224
+                    Width: =156
+                    X: =1756
+                    Y: =241
                     ZIndex: =6
 
                 conSelectedOfferCopy As groupContainer.horizontalAutoLayoutContainer:
+                    Height: |
+                        =200
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: |
                         =800
-                    X: =500
-                    Y: =111
+                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U
+                    Y: =U
                     ZIndex: =7
 
                     Container12 As groupContainer.verticalAutoLayoutContainer:
