@@ -1516,6 +1516,7 @@ offerEditScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        LayoutOverflowY: =LayoutOverflow.Scroll
                         ZIndex: =1
 
                         lblOfferStatus_2 As label:
@@ -1559,7 +1560,7 @@ offerEditScreen As screen:
                             HoverBorderColor: =RGBA(0, 89, 178, 1)
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
-                            LayoutMinHeight: =150
+                            LayoutMinHeight: =20
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
@@ -1583,6 +1584,7 @@ offerEditScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        LayoutOverflowY: =LayoutOverflow.Scroll
                         ZIndex: =2
 
                         lblOfferStatus_3 As label:
