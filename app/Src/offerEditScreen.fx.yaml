@@ -1795,120 +1795,6 @@ offerEditScreen As screen:
                         Width: =(Parent.Width-U*2)/2
                         ZIndex: =4
 
-                    offer_eventprice_lbl_4 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =20
-                        LayoutMinHeight: |
-                            =20
-                        LayoutMinWidth: =60  
-                        LineHeight: =1
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Unit Eng"
-                        Width: =(Parent.Width-U*2)/2
-                        Y: =34
-                        ZIndex: =5
-
-                    offer_regprice_lbl_4 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =20
-                        LayoutMinHeight: |
-                            =20
-                        LayoutMinWidth: =60  
-                        LineHeight: =1
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Unit Fre"
-                        Width: =(Parent.Width-U*2)/2
-                        ZIndex: =6
-
-                    iptExistingEventPrice_5 As text:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(246, 246, 246, 1)
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.unit
-                        DelayOutput: =true
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =4
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =28
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        LayoutMinHeight: =25
-                        LayoutMinWidth: =60  
-                        LineHeight: =1
-                        OnChange: =false;
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Reset: =true
-                        Size: =11
-                        Width: =(Parent.Width-U*2)/2
-                        Y: =32
-                        ZIndex: =7
-
-                    iptExistingOfferRegPrice_3 As text:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(246, 246, 246, 1)
-                        BorderThickness: =0
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.unit_fre
-                        DelayOutput: =true
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =4
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =28
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        LayoutMinHeight: =25
-                        LayoutMinWidth: =60  
-                        LineHeight: =1
-                        OnChange: =false;
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Reset: =true
-                        Size: =11
-                        Width: =(Parent.Width-U*2)/2
-                        ZIndex: =8
-
                     offer_eventprice_lbl_5 As label:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -2510,17 +2396,6 @@ offerEditScreen As screen:
                         Y: =63
                         ZIndex: =9
 
-                conSelectedOfferPrice_3 As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =48
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutGap: =U
-                    LayoutMode: =LayoutMode.Auto
-                    LayoutWrap: =true
-                    Width: =204
-                    X: =1376
-                    Y: =180
-                    ZIndex: =13
-
                 conSelectedOfferPriceLB_1 As groupContainer.horizontalAutoLayoutContainer:
                     Height: =48
                     LayoutAlignItems: =LayoutAlignItems.Center
@@ -2529,8 +2404,122 @@ offerEditScreen As screen:
                     LayoutWrap: =true
                     Width: =280
                     X: =1104
-                    Y: =154
+                    Y: =180
                     ZIndex: =14
+
+                    offer_eventprice_lbl_4 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: |
+                            =20
+                        LayoutMinWidth: =60  
+                        LineHeight: =1
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Unit Eng"
+                        Width: =(Parent.Width-U*2)/2
+                        Y: =34
+                        ZIndex: =1
+
+                    offer_regprice_lbl_4 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: |
+                            =20
+                        LayoutMinWidth: =60  
+                        LineHeight: =1
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Unit Fre"
+                        Width: =(Parent.Width-U*2)/2
+                        ZIndex: =2
+
+                    iptExistingEventPrice_5 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(246, 246, 246, 1)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.unit
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =60  
+                        LineHeight: =1
+                        OnChange: =false;
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =(Parent.Width-U*2)/2
+                        Y: =32
+                        ZIndex: =3
+
+                    iptExistingOfferRegPrice_3 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(246, 246, 246, 1)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.unit_fre
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =60  
+                        LineHeight: =1
+                        OnChange: =false;
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =(Parent.Width-U*2)/2
+                        ZIndex: =4
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 AlignInContainer: =AlignInContainer.SetByContainer
