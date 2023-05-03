@@ -718,14 +718,14 @@ offerEditScreen As screen:
                 ZIndex: =3
 
                 conSelectedOffersCmds As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =262
+                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =U/2
+                    LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    Width: =49
-                    X: =1851
+                    Width: =30
+                    X: =Parent.TemplateWidth-U-Self.Width-15
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
@@ -1768,14 +1768,15 @@ offerEditScreen As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     FocusedBorderThickness: =4
+                    Height: =41
                     HoverBorderColor: =RGBA(0, 89, 178, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
                     OnSelect: =Select(Parent)
                     Size: =13
-                    Width: =156
-                    X: =1756
-                    Y: =241
+                    Width: =99
+                    X: =1770
+                    Y: =228
                     ZIndex: =6
 
                 conSelectedOfferCopy As groupContainer.horizontalAutoLayoutContainer:
@@ -2310,7 +2311,7 @@ offerEditScreen As screen:
                         Y: =63
                         ZIndex: =3
 
-                    iptExistingEventPrice_2 As text:
+                    iptSelectedOfferEvPriceLb As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
@@ -2345,7 +2346,7 @@ offerEditScreen As screen:
                         Y: =32
                         ZIndex: =5
 
-                    iptExistingOfferRegPrice_2 As text:
+                    iptSelectedOfferRegPriceLb As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
@@ -2385,7 +2386,7 @@ offerEditScreen As screen:
                         BorderColor: =RGBA(246, 246, 246, 1)
                         BorderThickness: =0
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =If((Value(iptExistingOfferEventPriceLB_1.Text)>0 And Value(iptExistingOfferRegPriceLB_1.Text)>0) Or Value(ThisItem.'Savings(LB)')>0, If(Value(ThisItem.'Savings(LB)')>0,ThisItem.'Savings(LB)',Value(iptExistingOfferEventPriceLB_1.Text)-Value(iptExistingOfferRegPriceLB_1.Text)))
+                        Default: =If((Value(iptSelectedOfferEvPriceLb.Text)>0 And Value(iptSelectedOfferRegPriceLb.Text)>0) Or Value(ThisItem.'Savings(LB)')>0, If(Value(ThisItem.'Savings(LB)')>0,ThisItem.'Savings(LB)',Value(iptSelectedOfferEvPriceLb.Text)-Value(iptSelectedOfferRegPriceLb.Text)))
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
