@@ -681,10 +681,10 @@ offerEditScreen As screen:
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =U
+                    LayoutGap: =U*4
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    Width: =30
+                    Width: =60
                     X: =Parent.TemplateWidth-U-Self.Width-15
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
@@ -694,12 +694,12 @@ offerEditScreen As screen:
                         Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =32
+                        Height: =60
                         Icon: =Icon.Save
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32  
                         Visible: =ThisItem.updated
-                        Width: =32
+                        Width: =60
                         ZIndex: =17
 
                     Icon4 As icon.Undo:
@@ -707,12 +707,12 @@ offerEditScreen As screen:
                         Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =32
+                        Height: =60
                         Icon: =Icon.Undo
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32  
                         Visible: =ThisItem.updated
-                        Width: =32
+                        Width: =60
                         ZIndex: =18
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
