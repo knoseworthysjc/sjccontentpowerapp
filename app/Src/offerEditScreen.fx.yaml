@@ -757,9 +757,9 @@ offerEditScreen As screen:
                     Height: =129
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: =800
-                    X: =621
-                    Y: =179
+                    Width: =385
+                    X: =1112
+                    Y: =168
                     ZIndex: =2
 
                     Container12_1 As groupContainer.verticalAutoLayoutContainer:
@@ -774,122 +774,6 @@ offerEditScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         Width: =Parent.Width*0.25
                         ZIndex: =3
-
-                        lblOfferStatus_4 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(0, 62, 125, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =20
-                            LayoutMinHeight: =25
-                            LayoutMinWidth: =Parent.Width
-                            minimumHeight: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =11
-                            Text: |-
-                                ="Multi Save English
-                                "
-                            Width: =Parent.Width
-                            X: =Parent.Width/12
-                            Y: =1
-                            ZIndex: =1
-
-                        iptExistingOfferPage_10 As text:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(107, 144, 179, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            Default: =ThisItem.'Country of Origin'
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            EnableSpellCheck: =true
-                            FillPortions: =1
-                            FocusedBorderThickness: =4
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =28
-                            HoverBorderColor: =RGBA(0, 89, 178, 1)
-                            HoverColor: =RGBA(0, 0, 0, 1)
-                            HoverFill: =RGBA(153, 205, 255, 1)
-                            LayoutMinHeight: =28
-                            LayoutMinWidth: =Parent.Width
-                            Mode: =TextMode.MultiLine
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            RadiusBottomLeft: =0
-                            RadiusBottomRight: =0
-                            RadiusTopLeft: =0
-                            RadiusTopRight: =0
-                            Reset: =true
-                            Size: =11
-                            Width: =Parent.Width
-                            ZIndex: =2
-
-                        lblOfferStatus_8 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(0, 62, 125, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =20
-                            LayoutMinHeight: =25
-                            LayoutMinWidth: =Parent.Width
-                            minimumHeight: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =11
-                            Text: |-
-                                ="Unit English
-                                "
-                            Width: =Parent.Width
-                            X: =Parent.Width/12
-                            Y: =1
-                            ZIndex: =7
-
-                        iptExistingOfferPage_14 As text:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(107, 144, 179, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            Default: =ThisItem.'Country of Origin(Fre)'
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            EnableSpellCheck: =true
-                            FillPortions: =1
-                            FocusedBorderThickness: =4
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =28
-                            HoverBorderColor: =RGBA(0, 89, 178, 1)
-                            HoverColor: =RGBA(0, 0, 0, 1)
-                            HoverFill: =RGBA(153, 205, 255, 1)
-                            LayoutMinHeight: =28
-                            LayoutMinWidth: =Parent.Width
-                            Mode: =TextMode.MultiLine
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            RadiusBottomLeft: =0
-                            RadiusBottomRight: =0
-                            RadiusTopLeft: =0
-                            RadiusTopRight: =0
-                            Reset: =true
-                            Size: =11
-                            Width: =Parent.Width
-                            ZIndex: =8
 
                     Container12_2 As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1944,8 +1828,8 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =403
-                    X: =1428
-                    Y: =4
+                    X: =621
+                    Y: =110
                     ZIndex: =8
 
                     lblExistingOfferTotalPrice_2 As label:
@@ -2250,8 +2134,8 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =236
-                    X: =1428
-                    Y: =52
+                    X: =621
+                    Y: =158
                     ZIndex: =9
 
                     offer_eventprice_lbl_4 As label:
@@ -2438,8 +2322,8 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =385
-                    X: =1437
-                    Y: =180
+                    X: =1024
+                    Y: =116
                     ZIndex: =10
 
                     offer_eventprice_lbl_5 As label:
