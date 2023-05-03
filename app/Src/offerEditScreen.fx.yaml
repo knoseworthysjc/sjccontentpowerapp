@@ -223,10 +223,10 @@ offerEditScreen As screen:
                 OnChange: |
                     =ClearCollect(
                         colSelectedOffers,
-                        Filter(
+                        AddColumns(Filter(
                             Offers,
                             assigned_project.Value = ddProjectFilter.Selected.Title
-                        )
+                        ),"updated",false)
                     );
                     ClearCollect(colSelectedPageOffers,colSelectedOffers);
                     Clear(colSelectedPageProductImages);
@@ -698,6 +698,7 @@ offerEditScreen As screen:
                         Icon: =Icon.Save
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32  
+                        Visible: =ThisItem.updated
                         Width: =32
                         ZIndex: =17
 
@@ -710,6 +711,7 @@ offerEditScreen As screen:
                         Icon: =Icon.Undo
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32  
+                        Visible: =ThisItem.updated
                         Width: =32
                         ZIndex: =18
 
@@ -770,6 +772,8 @@ offerEditScreen As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.Markets)
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 89, 178, 1)
                         SearchFields: =["Value"]
@@ -822,6 +826,8 @@ offerEditScreen As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =28
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -874,6 +880,8 @@ offerEditScreen As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =28
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -942,6 +950,8 @@ offerEditScreen As screen:
                                 LayoutMinHeight: =28
                                 LayoutMinWidth: =Parent.Width
                                 Mode: =TextMode.MultiLine
+                                OnChange: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -998,6 +1008,8 @@ offerEditScreen As screen:
                                 LayoutMinHeight: =28
                                 LayoutMinWidth: =Parent.Width
                                 Mode: =TextMode.MultiLine
+                                OnChange: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -1063,6 +1075,8 @@ offerEditScreen As screen:
                                 LayoutMinHeight: =28
                                 LayoutMinWidth: =Parent.Width
                                 Mode: =TextMode.MultiLine
+                                OnChange: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -1119,6 +1133,8 @@ offerEditScreen As screen:
                                 LayoutMinHeight: =28
                                 LayoutMinWidth: =Parent.Width
                                 Mode: =TextMode.MultiLine
+                                OnChange: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -1189,6 +1205,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1247,6 +1265,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1298,6 +1318,8 @@ offerEditScreen As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1393,6 +1415,7 @@ offerEditScreen As screen:
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.page_from
+                        DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1405,6 +1428,8 @@ offerEditScreen As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =28
                         LayoutMinWidth: =50
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,page_from:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1421,6 +1446,7 @@ offerEditScreen As screen:
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.layout_position
+                        DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1432,6 +1458,8 @@ offerEditScreen As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =28
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1446,6 +1474,7 @@ offerEditScreen As screen:
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.Adblock
+                        DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1459,6 +1488,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: |
                             =60
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1531,6 +1562,8 @@ offerEditScreen As screen:
                             LayoutMinHeight: =150
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
+                            OnChange: |-
+                                =Patch(colSelectedOffers,ThisItem,{updated:true})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1598,6 +1631,8 @@ offerEditScreen As screen:
                             LayoutMinHeight: =28
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
+                            OnChange: |-
+                                =Patch(colSelectedOffers,ThisItem,{updated:true})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1689,6 +1724,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =(Parent.Width-U*3)/3
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1722,6 +1759,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =(Parent.Width-U*3)/3
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1778,6 +1817,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =150
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1937,7 +1978,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1972,7 +2014,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2007,7 +2050,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2041,7 +2085,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2077,7 +2122,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =75  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2192,7 +2238,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2227,7 +2274,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2261,7 +2309,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2353,7 +2402,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2388,7 +2438,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2467,7 +2518,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =(Parent.Width-U*2)/2
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2502,7 +2554,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =(Parent.Width-U*2)/2
                         LineHeight: =1
-                        OnChange: =false;
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2572,6 +2625,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -2628,6 +2683,8 @@ offerEditScreen As screen:
                         LayoutMinHeight: =150
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
