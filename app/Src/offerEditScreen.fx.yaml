@@ -1531,8 +1531,7 @@ offerEditScreen As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    Width: |
-                        =800
+                    Width: =750
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =U
                     ZIndex: =7
@@ -1676,8 +1675,8 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =467
-                    X: =901
-                    Y: =154
+                    X: =conSelectedOfferUnits.X+conSelectedOfferUnits.Width+U*2
+                    Y: =conSelectedOfferPrice.Y+conSelectedOfferPrice.Height+U*2
                     ZIndex: =8
 
                     lblOfferStatus_12 As label:
@@ -2281,14 +2280,14 @@ offerEditScreen As screen:
                         ZIndex: =9
 
                 conSelectedOfferUnits As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =117
+                    Height: =110
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =280
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
-                    Y: =152
+                    Y: =conSelectedOfferPrice.Y+conSelectedOfferPrice.Height+U*2
                     ZIndex: =14
 
                     offer_eventprice_lbl_4 As label:
@@ -2521,12 +2520,12 @@ offerEditScreen As screen:
                         ZIndex: =8
 
                 conSelectedOfferComments As groupContainer.verticalAutoLayoutContainer:
-                    Height: =309
+                    Height: =Parent.TemplateHeight-U*2
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
-                    Width: =429
-                    X: =1430
-                    Y: =2
+                    Width: =450
+                    X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
+                    Y: =U
                     ZIndex: =15
 
                     lblOfferType_4 As label:
@@ -2587,6 +2586,63 @@ offerEditScreen As screen:
                         Width: =Parent.Width
                         ZIndex: =2
 
+                    lblOfferStatus_8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Callouts"
+                        Width: =Parent.Width
+                        X: =Parent.Width/12
+                        Y: =1
+                        ZIndex: =3
+
+                    iptExistingOfferPage_14 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(107, 144, 179, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.offer_comments
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        EnableSpellCheck: =true
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =75
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =150
+                        LayoutMinWidth: =Parent.Width
+                        Mode: =TextMode.MultiLine
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width
+                        ZIndex: =4
+
                     lblOfferStatus_5 As label:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -2604,11 +2660,11 @@ offerEditScreen As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =11
-                        Text: ="English Offer Copy "
+                        Text: ="Comments"
                         Width: =Parent.Width
                         X: =Parent.Width/12
                         Y: =1
-                        ZIndex: =3
+                        ZIndex: =5
 
                     iptExistingOfferPage_11 As text:
                         Align: =Align.Center
@@ -2642,7 +2698,7 @@ offerEditScreen As screen:
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width
-                        ZIndex: =4
+                        ZIndex: =6
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 AlignInContainer: =AlignInContainer.SetByContainer
