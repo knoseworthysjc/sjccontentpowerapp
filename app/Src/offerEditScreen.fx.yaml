@@ -761,7 +761,7 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     Width: |
                         =450
-                    X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
+                    X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U*2
                     Y: =U
                     ZIndex: =3
 
@@ -1170,13 +1170,12 @@ offerEditScreen As screen:
                                 ZIndex: =4
 
                 conSelectedOfferCategory As groupContainer.verticalAutoLayoutContainer:
-                    Height: =148
+                    Height: =170
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: |
-                        =165
+                    Width: =165
                     X: =U
                     Y: =conSelectedOfferPage.Y+conSelectedOfferPage.Height+U
                     ZIndex: =4
@@ -1534,7 +1533,7 @@ offerEditScreen As screen:
                     LayoutWrap: =true
                     Width: |
                         =800
-                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U
+                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =U
                     ZIndex: =7
 
@@ -1670,7 +1669,7 @@ offerEditScreen As screen:
                             Width: =Parent.Width
                             ZIndex: =2
 
-                conSelectedOfferPrice_1 As groupContainer.horizontalAutoLayoutContainer:
+                conSelectedOfferMultiSave As groupContainer.horizontalAutoLayoutContainer:
                     Height: =59
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U
@@ -1802,8 +1801,8 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =467
-                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U
-                    Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U
+                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
+                    Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
                     ZIndex: =9
 
                     lblExistingOfferTotalPrice_2 As label:
@@ -2104,8 +2103,8 @@ offerEditScreen As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =280
-                    X: =1104
-                    Y: =104
+                    X: =conSelectedOfferPrice.X+conSelectedOfferPrice.Width+U*2
+                    Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
                     ZIndex: =12
 
                     offer_eventprice_lbl_3 As label:
@@ -2281,14 +2280,14 @@ offerEditScreen As screen:
                         Y: =63
                         ZIndex: =9
 
-                conSelectedOfferPriceLB_1 As groupContainer.horizontalAutoLayoutContainer:
+                conSelectedOfferUnits As groupContainer.horizontalAutoLayoutContainer:
                     Height: =117
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =280
-                    X: =621
+                    X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =152
                     ZIndex: =14
 
@@ -2521,7 +2520,7 @@ offerEditScreen As screen:
                         Y: =30
                         ZIndex: =8
 
-                Container20 As groupContainer.verticalAutoLayoutContainer:
+                conSelectedOfferComments As groupContainer.verticalAutoLayoutContainer:
                     Height: =309
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
