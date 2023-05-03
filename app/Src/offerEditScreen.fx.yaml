@@ -660,11 +660,11 @@ offerEditScreen As screen:
                 IconSize: =20
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
-                LayoutMinWidth: =200
+                LayoutMinWidth: =165
                 Text: ="Save Layout"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Width: |
-                    =175
+                    =165
                 X: =0
                 Y: =0
                 ZIndex: =4
@@ -1415,6 +1415,7 @@ offerEditScreen As screen:
                             FontWeight: =FontWeight.Semibold
                             Height: =20
                             LayoutMinHeight: =25
+                            LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1424,14 +1425,13 @@ offerEditScreen As screen:
                             Text: |-
                                 ="Multi Save English
                                 "
-                            Width: =Parent.Width*0.03
+                            Width: =Parent.Width
                             X: =Parent.Width/12
                             Y: =1
                             ZIndex: =1
 
                         iptExistingOfferPage_10 As text:
                             Align: =Align.Center
-                            AlignInContainer: =AlignInContainer.Stretch
                             BorderColor: =RGBA(107, 144, 179, 1)
                             Color: =RGBA(0, 0, 0, 1)
                             Default: =ThisItem.'Country of Origin'
@@ -1448,6 +1448,7 @@ offerEditScreen As screen:
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
                             LayoutMinHeight: =28
+                            LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1459,7 +1460,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =100
+                            Width: =Parent.Width
                             ZIndex: =2
 
                         lblOfferStatus_6 As label:
@@ -1472,6 +1473,7 @@ offerEditScreen As screen:
                             FontWeight: =FontWeight.Semibold
                             Height: =20
                             LayoutMinHeight: =25
+                            LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1481,14 +1483,13 @@ offerEditScreen As screen:
                             Text: |-
                                 ="COO English
                                 "
-                            Width: =Parent.Width*0.03
+                            Width: =Parent.Width
                             X: =Parent.Width/12
                             Y: =1
                             ZIndex: =3
 
                         iptExistingOfferPage_12 As text:
                             Align: =Align.Center
-                            AlignInContainer: =AlignInContainer.Stretch
                             BorderColor: =RGBA(107, 144, 179, 1)
                             Color: =RGBA(0, 0, 0, 1)
                             Default: =ThisItem.'Country of Origin(Fre)'
@@ -1505,6 +1506,7 @@ offerEditScreen As screen:
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
                             LayoutMinHeight: =28
+                            LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1516,7 +1518,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =100
+                            Width: =Parent.Width
                             ZIndex: =4
 
                         lblOfferStatus_7 As label:
@@ -1529,6 +1531,7 @@ offerEditScreen As screen:
                             FontWeight: =FontWeight.Semibold
                             Height: =20
                             LayoutMinHeight: =25
+                            LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1538,14 +1541,13 @@ offerEditScreen As screen:
                             Text: |-
                                 ="Grade English
                                 "
-                            Width: =Parent.Width*0.03
+                            Width: =Parent.Width
                             X: =Parent.Width/12
                             Y: =1
                             ZIndex: =5
 
                         iptExistingOfferPage_13 As text:
                             Align: =Align.Center
-                            AlignInContainer: =AlignInContainer.Stretch
                             BorderColor: =RGBA(107, 144, 179, 1)
                             Color: =RGBA(0, 0, 0, 1)
                             Default: =ThisItem.'Country of Origin(Fre)'
@@ -1562,6 +1564,7 @@ offerEditScreen As screen:
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
                             LayoutMinHeight: =28
+                            LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1573,7 +1576,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =100
+                            Width: =Parent.Width
                             ZIndex: =6
 
                         lblOfferStatus_8 As label:
@@ -1586,6 +1589,7 @@ offerEditScreen As screen:
                             FontWeight: =FontWeight.Semibold
                             Height: =20
                             LayoutMinHeight: =25
+                            LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1595,14 +1599,13 @@ offerEditScreen As screen:
                             Text: |-
                                 ="Unit English
                                 "
-                            Width: =Parent.Width*0.03
+                            Width: =Parent.Width
                             X: =Parent.Width/12
                             Y: =1
                             ZIndex: =7
 
                         iptExistingOfferPage_14 As text:
                             Align: =Align.Center
-                            AlignInContainer: =AlignInContainer.Stretch
                             BorderColor: =RGBA(107, 144, 179, 1)
                             Color: =RGBA(0, 0, 0, 1)
                             Default: =ThisItem.'Country of Origin(Fre)'
@@ -1619,6 +1622,7 @@ offerEditScreen As screen:
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
                             LayoutMinHeight: =28
+                            LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             PaddingBottom: =0
                             PaddingLeft: =0
@@ -1630,7 +1634,7 @@ offerEditScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =11
-                            Width: =100
+                            Width: =Parent.Width
                             ZIndex: =8
 
                     Container12_2 As groupContainer.verticalAutoLayoutContainer:
@@ -2100,11 +2104,13 @@ offerEditScreen As screen:
                         AllowEmptySelection: =true
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderThickness: =1
-                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronBackground: =RGBA(255, 255, 255, 1)
                         ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                         ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =RGBA(107, 144, 179, 1)
                         ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                         ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.SBU.Value
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2124,7 +2130,7 @@ offerEditScreen As screen:
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 89, 178, 1)
                         Reset: =true
-                        SelectionColor: =RGBA(237, 237, 237, 1)
+                        SelectionColor: =RGBA(0, 62, 125, 1)
                         SelectionFill: =RGBA(255, 255, 255, 1)
                         Width: =Parent.Width*0.06
                         ZIndex: =10
@@ -2571,21 +2577,21 @@ offerEditScreen As screen:
                             "Icon4_1 As 'Fluent Icon (1.0.19)'":
                                 AlignInContainer: =AlignInContainer.Center
                                 BorderColor: |-
-                                    ="#A80000"
+                                    ="#003E7D"
                                 BorderRadius: =5
                                 DisplayMode: =DisplayMode.Edit
                                 FontColor: |-
-                                    ="#A80000"
-                                FontSize: =14
-                                Height: =30
+                                    ="#003E7D"
+                                FontSize: =12
+                                Height: =28
                                 HoverFontColor: |-
-                                    ="#A80000"
+                                    ="#003E7D"
                                 HoverIconColor: |-
-                                    ="#A80000"
+                                    ="#003E7D"
                                 IconColor: |-
-                                    ="#A80000"
+                                    ="#003E7D"
                                 IconName: ="Search"
-                                IconSize: =20
+                                IconSize: =18
                                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =125
