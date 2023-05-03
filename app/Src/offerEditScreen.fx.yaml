@@ -2901,7 +2901,7 @@ offerEditScreen As screen:
                                 HoverColor: =RGBA(51, 51, 51, 1)
                                 HoverFill: =RGBA(212, 212, 212, 1)
                                 Items: |-
-                                    =Table({searchImageType:"Images"},{searchImageType:"Logos"},{searchImageType:"Icons"})
+                                    =Table({searchImageType:"Images",xinetPaths:Table({pathId:"1556374"},{pathId:"1556964"})},{searchImageType:"Logos",xinetPaths:Table({pathId:"1553479"})},{searchImageType:"Icons",xinetPaths:Table({pathId:"1553479"})})
                                 OnChange: =Clear(offerAssetSearchResults)
                                 PaddingBottom: =5
                                 PaddingLeft: =12
