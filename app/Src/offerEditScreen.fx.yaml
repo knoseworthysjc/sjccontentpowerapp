@@ -670,6 +670,7 @@ offerEditScreen As screen:
                 ZIndex: =4
 
         conOffers As groupContainer.verticalAutoLayoutContainer:
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =U
             LayoutMinHeight: =100
@@ -678,6 +679,7 @@ offerEditScreen As screen:
             ZIndex: =3
 
             galSelectedOffers As gallery.galleryVertical:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
                 Fill: =RGBA(237, 237, 237, 1)
@@ -2116,7 +2118,6 @@ offerEditScreen As screen:
                         ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                         ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                         ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                        Color: =RGBA(255, 255, 255, 1)
                         Default: =ThisItem.SBU.Value
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2136,7 +2137,8 @@ offerEditScreen As screen:
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 89, 178, 1)
                         Reset: =true
-                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        SelectionColor: =RGBA(237, 237, 237, 1)
+                        SelectionFill: =RGBA(255, 255, 255, 1)
                         Width: =Parent.Width*0.06
                         ZIndex: =10
 
@@ -2321,10 +2323,12 @@ offerEditScreen As screen:
                         ZIndex: =18
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 62, 125, 1)
                 BorderThickness: =1
                 DelayItemLoading: =true
                 Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
                 Height: =32
                 Items: |-
                     =Table(
@@ -2349,6 +2353,8 @@ offerEditScreen As screen:
                             Icon: "PhotoCollection"
                         }
                     )
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplateFill: =RGBA(255, 255, 255, 1)
                 TemplatePadding: =1
@@ -2379,6 +2385,7 @@ offerEditScreen As screen:
                     ZIndex: =1
 
             Container2 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =350
@@ -2453,6 +2460,8 @@ offerEditScreen As screen:
                             DelayItemLoading: =true
                             Items: =Filter(colSelectedPageProductImages,offerId=galSelectedOffers.Selected.ID)
                             Layout: =Layout.Vertical
+                            LayoutMinHeight: =287
+                            LayoutMinWidth: =320
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplateSize: =Self.Width/6
                             WrapCount: |
@@ -2493,6 +2502,7 @@ offerEditScreen As screen:
                                 ZIndex: =2
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -2500,12 +2510,143 @@ offerEditScreen As screen:
                         ZIndex: =3
 
                         Container7 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =32
                             LayoutMinHeight: =100
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
                             ZIndex: =1
 
+                            ddAssetSearchType As dropdown:
+                                AlignInContainer: =AlignInContainer.Center
+                                BorderColor: =RGBA(168, 0, 0, 0.5)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(255, 255, 255, 1)
+                                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                                ChevronFill: =RGBA(168, 0, 0, 1)
+                                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                                Color: =RGBA(168, 0, 0, 1)
+                                Default: ="images"
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                HoverBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                                HoverColor: =RGBA(51, 51, 51, 1)
+                                HoverFill: =RGBA(212, 212, 212, 1)
+                                Items: |-
+                                    =Table({searchImageType:"Images"},{searchImageType:"Logos"},{searchImageType:"Icons"})
+                                OnChange: =Clear(offerAssetSearchResults)
+                                PaddingBottom: =5
+                                PaddingLeft: =12
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(164, 38, 44, 1)
+                                SelectionFill: =RGBA(168, 0, 0, 1)
+                                Width: =Parent.Width*0.2
+                                ZIndex: =1
+
+                            TextInput1 As text:
+                                Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Center
+                                BorderColor: =RGBA(168, 0, 0, 1)
+                                Clear: =true
+                                Color: =RGBA(51, 51, 51, 1)
+                                Default: =""
+                                DelayOutput: =true
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                FillPortions: =1
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                HintText: ="Search"
+                                HoverBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                                HoverColor: =RGBA(51, 51, 51, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                LayoutMinWidth: =20
+                                PaddingLeft: =5
+                                PressedBorderColor: =RGBA(164, 38, 44, 1)
+                                PressedColor: =RGBA(51, 51, 51, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                Reset: =true
+                                Size: =12
+                                Width: =20
+                                ZIndex: =2
+
+                            "Icon4_1 As 'Fluent Icon (1.0.19)'":
+                                AlignInContainer: =AlignInContainer.Center
+                                BorderColor: |-
+                                    ="#A80000"
+                                BorderRadius: =5
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: |-
+                                    ="#A80000"
+                                FontSize: =14
+                                Height: =30
+                                HoverFontColor: |-
+                                    ="#A80000"
+                                HoverIconColor: |-
+                                    ="#A80000"
+                                IconColor: |-
+                                    ="#A80000"
+                                IconName: ="Search"
+                                IconSize: =20
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =125
+                                OnChange: |-
+                                    =Switch(
+                                        ddAssetSearchType.Selected.searchImageType,
+                                        "Images",
+                                        ClearCollect(
+                                            offerAssetSearchResults,
+                                            Search(
+                                                Assets,
+                                                TextInput1.Text,
+                                                "Title",
+                                                "Keywords"
+                                            )
+                                        ),
+                                        "Logos",
+                                        ClearCollect(
+                                            offerAssetSearchResults,
+                                            Search(
+                                                Logos,
+                                                TextInput1.Text,
+                                                "Title",
+                                                "Keywords"
+                                            )
+                                        ),
+                                         "Icons",
+                                        ClearCollect(
+                                            offerAssetSearchResults,
+                                            Search(
+                                                Icons,
+                                                TextInput1.Text,
+                                                "Title",
+                                                "Keywords"
+                                            )
+                                        )
+                                    )
+                                Text: ="Find "&ddAssetSearchType.Selected.searchImageType
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Width: =Parent.Width*0.2
+                                X: =0
+                                Y: =0
+                                ZIndex: =3
+
                         Gallery4 As gallery.galleryVertical:
+                            AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
                             Items: =CustomGallerySample
