@@ -675,6 +675,9 @@ offerEditScreen As screen:
                 ZIndex: =3
 
                 conSelectedOffersCmds As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    BorderThickness: =1
+                    Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
@@ -2556,7 +2559,7 @@ offerEditScreen As screen:
                         ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                         ChevronHoverFill: =RGBA(255, 255, 255, 1)
                         Color: =RGBA(0, 36, 71, 1)
-                        Default: =ThisItem.SBU.Value
+                        Default: =ThisItem.image_source.Value
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2565,7 +2568,7 @@ offerEditScreen As screen:
                         Height: =25
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        Items: =Choices(Offers.SBU)
+                        Items: =Choices(Offers.image_source)
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
