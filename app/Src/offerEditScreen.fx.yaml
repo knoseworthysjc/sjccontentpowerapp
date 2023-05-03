@@ -2914,7 +2914,7 @@ offerEditScreen As screen:
                                 Width: =Parent.Width*0.2
                                 ZIndex: =1
 
-                            TextInput1 As text:
+                            iptOfferAssetSearch As text:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Center
                                 BorderColor: =RGBA(107, 144, 179, 1)
@@ -2966,39 +2966,10 @@ offerEditScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =125
                                 OnChange: |-
-                                    =Switch(
-                                        ddAssetSearchType.Selected.searchImageType,
-                                        "Images",
-                                        ClearCollect(
+                                    =ClearCollect(
                                             offerAssetSearchResults,
-                                            Search(
-                                                Assets,
-                                                TextInput1.Text,
-                                                "Title",
-                                                "Keywords"
-                                            )
-                                        ),
-                                        "Logos",
-                                        ClearCollect(
-                                            offerAssetSearchResults,
-                                            Search(
-                                                Logos,
-                                                TextInput1.Text,
-                                                "Title",
-                                                "Keywords"
-                                            )
-                                        ),
-                                         "Icons",
-                                        ClearCollect(
-                                            offerAssetSearchResults,
-                                            Search(
-                                                Icons,
-                                                TextInput1.Text,
-                                                "Title",
-                                                "Keywords"
-                                            )
+                                            Xinet.Search(First(ddAssetSearchType.Selected.xinetPaths).pathId,iptOfferAssetSearch.Text).FILES_INFO
                                         )
-                                    )
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =Parent.Width*0.2
