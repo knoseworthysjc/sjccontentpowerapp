@@ -2902,7 +2902,7 @@ offerEditScreen As screen:
                                 HoverFill: =RGBA(212, 212, 212, 1)
                                 Items: |-
                                     =Table({searchImageType:"Images",xinetPaths:Table({pathId:"1556374"},{pathId:"1556964"})},{searchImageType:"Logos",xinetPaths:Table({pathId:"1553479"})},{searchImageType:"Icons",xinetPaths:Table({pathId:"1553479"})})
-                                OnChange: =Clear(offerAssetSearchResults)
+                                OnChange: =Clear(colOfferAssetSearchResults)
                                 PaddingBottom: =5
                                 PaddingLeft: =12
                                 PaddingRight: =5
@@ -2967,7 +2967,7 @@ offerEditScreen As screen:
                                 LayoutMinWidth: =125
                                 OnChange: |-
                                     =ClearCollect(
-                                            offerAssetSearchResults,
+                                            colOfferAssetSearchResults,
                                             Xinet.Search(First(ddAssetSearchType.Selected.xinetPaths).pathId,iptOfferAssetSearch.Text).FILES_INFO
                                         )
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
@@ -2981,7 +2981,7 @@ offerEditScreen As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
-                            Items: =xinet_images
+                            Items: =colOfferAssetSearchResults
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
@@ -2990,6 +2990,41 @@ offerEditScreen As screen:
                             TemplateSize: =Self.Width/3
                             WrapCount: =3
                             ZIndex: =2
+
+                            Image5_1 As image:
+                                BorderColor: =RGBA(0, 62, 125, 1)
+                                BorderThickness: =1
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                                Image: |-
+                                    =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
+                                OnSelect: =Select(Parent);Launch(ThisItem.Thumbnails)
+                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                                X: =Parent.TemplatePadding
+                                Y: =Parent.TemplatePadding
+                                ZIndex: =1
+
+                            Label7_1 As label:
+                                Align: =Align.Center
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(255, 255, 255, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: =RGBA(107, 144, 179, 0.75)
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =10
+                                Text: =ThisItem.FILE_NAME
+                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                                X: =Parent.TemplatePadding
+                                Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
+                                ZIndex: =2
 
     imgOfferLogo As image:
         BorderColor: =RGBA(0, 36, 71, 1)
