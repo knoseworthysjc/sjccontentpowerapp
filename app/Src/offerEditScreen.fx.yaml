@@ -335,10 +335,24 @@ offerEditScreen As screen:
                 Y: =0
                 ZIndex: =8
 
+        conOfferPageDetails As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =RGBA(0, 62, 125, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =32
+            ZIndex: =2
+
             lblPage_1 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(250, 250, 250, 1)
+                Color: =RGBA(0, 62, 125, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -351,7 +365,7 @@ offerEditScreen As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =9
+                ZIndex: =1
 
             ddPageFilter As dropdown:
                 AllowEmptySelection: =true
@@ -382,12 +396,12 @@ offerEditScreen As screen:
                     =100
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
-                ZIndex: =10
+                ZIndex: =2
 
             lblPage_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(250, 250, 250, 1)
+                Color: =RGBA(0, 62, 125, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -400,7 +414,7 @@ offerEditScreen As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =11
+                ZIndex: =3
 
             ddSBUFilter As dropdown:
                 AllowEmptySelection: =true
@@ -431,12 +445,12 @@ offerEditScreen As screen:
                     =200
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
-                ZIndex: =12
+                ZIndex: =4
 
             lblPage_3 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(250, 250, 250, 1)
+                Color: =RGBA(0, 62, 125, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -449,7 +463,7 @@ offerEditScreen As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =13
+                ZIndex: =5
 
             iptDeptFilter As text:
                 Align: =Align.Center
@@ -480,21 +494,7 @@ offerEditScreen As screen:
                     =150
                 X: =lblWeek_1.X+lblWeek_1.Width
                 Y: =(Self.BorderThickness*8)/2
-                ZIndex: =14
-
-        conOfferPageDetails As groupContainer.horizontalAutoLayoutContainer:
-            BorderColor: =RGBA(0, 62, 125, 1)
-            BorderThickness: =1
-            Fill: =RGBA(255, 255, 255, 1)
-            FillPortions: =0
-            Height: =32
-            LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =U
-            LayoutMinHeight: =100
-            LayoutMinWidth: =50
-            LayoutMode: =LayoutMode.Auto
-            PaddingLeft: =32
-            ZIndex: =2
+                ZIndex: =6
 
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
                 AlignInContainer: =AlignInContainer.Stretch
@@ -538,10 +538,10 @@ offerEditScreen As screen:
                     )
                 LayoutMinHeight: =32
                 LayoutMinWidth: =200
-                Width: =600
+                Width: =500
                 X: =0
                 Y: =0
-                ZIndex: =1
+                ZIndex: =7
 
                 ItemChecked1 As pcfDataField.textualColumn:
                     FieldDisplayName: ="ItemChecked"
@@ -613,7 +613,7 @@ offerEditScreen As screen:
                 Text: ="Assigned Layout"
                 X: =Parent.Width/12
                 Y: =1
-                ZIndex: =2
+                ZIndex: =8
 
             ddSeason_2 As dropdown:
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -645,7 +645,7 @@ offerEditScreen As screen:
                 SelectionFill: =RGBA(0, 51, 102, 1)
                 Size: =12
                 Width: =105
-                ZIndex: =3
+                ZIndex: =9
 
             "Icon1_2 As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
@@ -669,7 +669,7 @@ offerEditScreen As screen:
                     =165
                 X: =0
                 Y: =0
-                ZIndex: =4
+                ZIndex: =10
 
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -926,7 +926,6 @@ offerEditScreen As screen:
                         ZIndex: =7
 
                         Container16 As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutGap: =U
                             LayoutMinHeight: =100
@@ -1048,7 +1047,6 @@ offerEditScreen As screen:
                                 ZIndex: =4
 
                         Container16_1 As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutGap: =U
                             LayoutMinHeight: =100
@@ -1505,26 +1503,6 @@ offerEditScreen As screen:
                         Width: =60
                         ZIndex: =7
 
-                TextInput2 As text:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: ="Text input"
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    FocusedBorderThickness: =4
-                    Height: =41
-                    HoverBorderColor: =RGBA(0, 89, 178, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
-                    OnSelect: =Select(Parent)
-                    Size: =13
-                    Width: =99
-                    X: =1812
-                    Y: =228
-                    ZIndex: =6
-
                 conSelectedOfferCopy As groupContainer.horizontalAutoLayoutContainer:
                     Height: =100
                     LayoutAlignItems: =LayoutAlignItems.Center
@@ -1669,8 +1647,7 @@ offerEditScreen As screen:
                             ZIndex: =2
 
                 conSelectedOfferMultiSave As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =59
-                    LayoutAlignItems: =LayoutAlignItems.Center
+                    Height: =153
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
@@ -1792,6 +1769,61 @@ offerEditScreen As screen:
                         Size: =11
                         Width: =(Parent.Width-U*2)/2
                         ZIndex: =4
+
+                    lblOfferStatus_8 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Callouts"
+                        Width: =Parent.Width
+                        X: =Parent.Width/12
+                        Y: =1
+                        ZIndex: =5
+
+                    iptExistingOfferPage_14 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(107, 144, 179, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.callout
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        EnableSpellCheck: =true
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =150
+                        LayoutMinWidth: =Parent.Width
+                        Mode: =TextMode.MultiLine
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width
+                        ZIndex: =6
 
                 conSelectedOfferPrice As groupContainer.horizontalAutoLayoutContainer:
                     Height: =48
@@ -2585,61 +2617,6 @@ offerEditScreen As screen:
                         SelectionFill: =RGBA(235, 245, 255, 1)
                         Width: =Parent.Width
                         ZIndex: =2
-
-                    lblOfferStatus_8 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(255, 255, 255, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Fill: =RGBA(0, 62, 125, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =20
-                        LayoutMinHeight: =20
-                        LayoutMinWidth: =Parent.Width
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Callouts"
-                        Width: =Parent.Width
-                        X: =Parent.Width/12
-                        Y: =1
-                        ZIndex: =3
-
-                    iptExistingOfferPage_14 As text:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(107, 144, 179, 1)
-                        Clear: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.callout
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        EnableSpellCheck: =true
-                        FocusedBorderThickness: =4
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        LayoutMinHeight: =150
-                        LayoutMinWidth: =Parent.Width
-                        Mode: =TextMode.MultiLine
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Reset: =true
-                        Size: =11
-                        Width: =Parent.Width
-                        ZIndex: =4
 
                     lblOfferStatus_5 As label:
                         Align: =Align.Center
