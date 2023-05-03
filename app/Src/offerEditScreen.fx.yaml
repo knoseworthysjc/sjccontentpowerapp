@@ -1871,7 +1871,6 @@ offerEditScreen As screen:
                             ZIndex: =8
 
                 conSelectedOffersHeader As groupContainer.horizontalAutoLayoutContainer:
-                    Fill: =RGBA(255, 255, 255, 1)
                     Height: =32
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U/2
@@ -1906,7 +1905,7 @@ offerEditScreen As screen:
                     iptExistingOfferPage_1 As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
-                        Color: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.page_from
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1923,10 +1922,6 @@ offerEditScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.025
@@ -1959,7 +1954,7 @@ offerEditScreen As screen:
                     iptExistingOfferPage_2 As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
-                        Color: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.layout_position
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1976,10 +1971,6 @@ offerEditScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.025
@@ -2009,7 +2000,7 @@ offerEditScreen As screen:
                     iptExistingOfferPage_3 As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
-                        Color: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.Adblock
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2026,10 +2017,6 @@ offerEditScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.025
@@ -2166,7 +2153,7 @@ offerEditScreen As screen:
                     iptExistingOfferPage_4 As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
-                        Color: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.featured_item_numbers
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2183,10 +2170,6 @@ offerEditScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.15
@@ -2218,7 +2201,7 @@ offerEditScreen As screen:
                     iptExistingOfferPage_5 As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
-                        Color: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 62, 125, 1)
                         Default: =ThisItem.combined_item_number
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2235,10 +2218,6 @@ offerEditScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
                         Reset: =true
                         Size: =11
                         Width: =Parent.Width*0.14
@@ -2389,6 +2368,7 @@ offerEditScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: =350
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -2396,6 +2376,7 @@ offerEditScreen As screen:
                 ZIndex: =5
 
                 Container4 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -2502,6 +2483,7 @@ offerEditScreen As screen:
                                 ZIndex: =2
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMinHeight: =100
@@ -2513,22 +2495,25 @@ offerEditScreen As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             FillPortions: =0
                             Height: =32
+                            LayoutGap: =U
                             LayoutMinHeight: =100
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =U
+                            PaddingRight: =U
                             ZIndex: =1
 
                             ddAssetSearchType As dropdown:
                                 AlignInContainer: =AlignInContainer.Center
-                                BorderColor: =RGBA(168, 0, 0, 0.5)
+                                BorderColor: =RGBA(0, 62, 125, 1)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(255, 255, 255, 1)
                                 ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
                                 ChevronDisabledFill: =RGBA(166, 166, 166, 1)
-                                ChevronFill: =RGBA(168, 0, 0, 1)
+                                ChevronFill: =RGBA(0, 62, 125, 1)
                                 ChevronHoverBackground: =RGBA(212, 212, 212, 1)
                                 ChevronHoverFill: =RGBA(33, 33, 33, 1)
-                                Color: =RGBA(168, 0, 0, 1)
+                                Color: =RGBA(0, 62, 125, 1)
                                 Default: ="images"
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2549,14 +2534,14 @@ offerEditScreen As screen:
                                 PressedBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(164, 38, 44, 1)
-                                SelectionFill: =RGBA(168, 0, 0, 1)
+                                SelectionFill: =RGBA(0, 62, 125, 1)
                                 Width: =Parent.Width*0.2
                                 ZIndex: =1
 
                             TextInput1 As text:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Center
-                                BorderColor: =RGBA(168, 0, 0, 1)
+                                BorderColor: =RGBA(107, 144, 179, 1)
                                 Clear: =true
                                 Color: =RGBA(51, 51, 51, 1)
                                 Default: =""
@@ -2649,12 +2634,14 @@ offerEditScreen As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
-                            Items: =CustomGallerySample
+                            Items: =xinet_images
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
                             LoadingSpinner: =LoadingSpinner.Data
-                            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                            TemplatePadding: =U
+                            TemplateSize: =Self.Width/3
+                            WrapCount: =3
                             ZIndex: =2
 
     imgOfferLogo As image:
