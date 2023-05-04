@@ -700,7 +700,7 @@ offerEditScreen As screen:
                     LayoutWrap: =true
                     Width: |
                         =32
-                    X: =1839
+                    X: =Parent.TemplateWidth-Parent.TemplatePadding*2-15-Self.Width
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
