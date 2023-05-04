@@ -659,7 +659,7 @@ offerEditScreen As screen:
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
-                TemplateFill: =If(ThisItem.updated,RGBA(116, 116, 116, 1),RGBA(255, 255, 255, 1))
+                TemplateFill: =If(ThisItem.updated,RGBA(216, 116, 116, 20%),RGBA(255, 255, 255, 1))
                 TemplatePadding: =U
                 TemplateSize: =Self.Height/2.0
                 ZIndex: =3
