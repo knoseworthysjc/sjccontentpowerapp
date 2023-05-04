@@ -399,6 +399,30 @@ offerEditScreen As screen:
                 Y: =2
                 ZIndex: =2
 
+            "Icon1_3 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#003E7D"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =24
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="CircleAddition"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.Icon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Add Pages"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =3
+
             lblPage_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -415,7 +439,7 @@ offerEditScreen As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =3
+                ZIndex: =4
 
             ddSBUFilter As dropdown:
                 AllowEmptySelection: =true
@@ -447,7 +471,7 @@ offerEditScreen As screen:
                     =200
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
-                ZIndex: =4
+                ZIndex: =5
 
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
                 DisplayMode: =DisplayMode.Edit
@@ -500,7 +524,7 @@ offerEditScreen As screen:
                     =700
                 X: =0
                 Y: =0
-                ZIndex: =7
+                ZIndex: =6
 
                 ItemChecked1 As pcfDataField.textualColumn:
                     FieldDisplayName: ="ItemChecked"
@@ -590,7 +614,7 @@ offerEditScreen As screen:
                 SelectionFill: =RGBA(0, 51, 102, 1)
                 Size: =12
                 Width: =105
-                ZIndex: =9
+                ZIndex: =7
 
             "Icon1_2 As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
@@ -614,31 +638,7 @@ offerEditScreen As screen:
                     =165
                 X: =0
                 Y: =0
-                ZIndex: =10
-
-            "Icon1_3 As 'Fluent Icon (1.0.19)'":
-                BorderColor: |-
-                    ="#003E7D"
-                BorderRadius: =5
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =20
-                Height: =28
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="AddDocument"
-                IconSize: =20
-                IconType: ='PowerCAT.Icon.IconType'.Icon
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                Text: =""
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Width: |
-                    =165
-                X: =0
-                Y: =0
-                ZIndex: =11
+                ZIndex: =8
 
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
