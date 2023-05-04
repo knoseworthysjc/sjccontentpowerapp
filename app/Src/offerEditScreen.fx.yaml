@@ -3580,6 +3580,31 @@ offerEditScreen As screen:
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
                     LayoutMinWidth: =165
+                    OnChange: |-
+                        =Patch(
+                            Offers,
+                            Defaults(Offers),
+                            {
+                                page_from: ddPageFilter.Selected.page_from,
+                                layout_position: 0,
+                                Adblock: 0,
+                                offer_type: ThisItem.offer_type,
+                                SBU: ThisItem.SBU,
+                                department_name: ThisItem.department_name,
+                                Markets: ThisItem.Markets,
+                                featured_item_numbers: ThisItem.featured_item_numbers,
+                                combined_item_number: ThisItem.combined_item_number,
+                                'Country of Origin': ThisItem.'Country of Origin',
+                                'Country of Origin(Fre)': ThisItem.'Country of Origin(Fre)',
+                                Grade: ThisItem.Grade,
+                                'Grade(Fre)': ThisItem.'Grade(Fre)',
+                                offer_copy: ThisItem.offer_copy,
+                                offer_copy_french: ThisItem.offer_copy,
+                                unit: ThisItem.unit,
+                                unit_fre: ThisItem.unit_fre,
+                                callout: ThisItem.callout
+                            }
+                        )
                     Text: ="Add Offer"
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                     Tooltip: ="Add Pages"
