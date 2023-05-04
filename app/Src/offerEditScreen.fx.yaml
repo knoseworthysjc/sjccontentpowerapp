@@ -486,11 +486,18 @@ offerEditScreen As screen:
                             ItemDisplayName: "Add Pages",
                             ItemIconName: "PageAdd",
                             ItemIconColor: "#003E7D"
+                        },
+                        {
+                            ItemKey: "gotoSharePoint",
+                            ItemDisplayName: "SharePoint",
+                            ItemIconName: "SharepointLogo",
+                            ItemIconColor: "#003E7D"
                         }
                     )
                 LayoutMinHeight: =32
                 LayoutMinWidth: =200
-                Width: =500
+                Width: |
+                    =700
                 X: =0
                 Y: =0
                 ZIndex: =7
@@ -550,24 +557,6 @@ offerEditScreen As screen:
                     FieldVariantName: ="textualColumn"
                     Order: =7
                     ZIndex: =20
-
-            lblSeason_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(107, 144, 179, 1)
-                BorderThickness: =1
-                Color: =RGBA(0, 62, 125, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: |
-                    =24
-                LayoutMinHeight: =24
-                minimumHeight: =30
-                Size: =12
-                Text: ="Assigned Layout"
-                X: =Parent.Width/12
-                Y: =1
-                ZIndex: =8
 
             ddSeason_2 As dropdown:
                 BorderColor: =RGBA(0, 89, 178, 1)
