@@ -786,7 +786,7 @@ offerEditScreen As screen:
                                     image_source: ThisItem.image_source,
                                     offer_comments: ThisItem.offer_comments,
                                     assigned_images: ThisItem.assigned_images,
-                                    assigned_logos: ThisItem.assigned_logos
+                                    assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type
                                 }
                             );
                             Patch(colSelectedOffers,ThisItem,{updated:false});
@@ -2959,8 +2959,10 @@ offerEditScreen As screen:
                     Height: =32
                     HoverColor: =RGBA(0, 89, 178, 1)
                     OnCheck: |-
-                        =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"Line List"}})
+                        =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"line list"}})
                     OnSelect: =Select(Parent)
+                    OnUncheck: |-
+                        =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"featured"}})
                     PaddingBottom: =4
                     Text: ="Line List"
                     Width: =125
