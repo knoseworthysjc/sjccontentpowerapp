@@ -2931,6 +2931,7 @@ offerEditScreen As screen:
                 conSelectedOfferComments As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-U*2
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     Width: =450
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
