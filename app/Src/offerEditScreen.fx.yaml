@@ -440,6 +440,13 @@ offerEditScreen As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
+                OnChange: |-
+                    =Launch(
+                        "https://prod-49.westus.logic.azure.com/workflows/aa5829e5c9024d4e86bd4db441f415bd/triggers/manual/paths/invoke/Walmart/"&ddSeasonFilter.Selected.Value&"/"&ddProjectFilter.Selected.Title&"/"&ddPageFilter.Selected.page_from&"/ON/?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=osuf_6Vyo7mfWjuEhAs7OUR9nBQ0BGrCLvMLSxlI2e0#",
+                        {        
+                        },
+                        LaunchTarget.New
+                    )
                 Text: ="Preview Page"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
@@ -842,9 +849,10 @@ offerEditScreen As screen:
                         iptSelectedOfferUpdate As combobox:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =1
-                            ChevronBackground: =RGBA(0, 51, 102, 1)
+                            ChevronBackground: =RGBA(255, 255, 255, 1)
                             ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                             ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                            ChevronFill: =RGBA(107, 144, 179, 1)
                             ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                             ChevronHoverFill: =RGBA(255, 255, 255, 1)
                             DefaultSelectedItems: =ThisItem.Markets
@@ -866,7 +874,7 @@ offerEditScreen As screen:
                             PressedFill: =RGBA(0, 89, 178, 1)
                             SearchFields: =["Value"]
                             SearchItems: =Choices(Offers.Markets,iptSelectedOfferUpdate.SearchText)
-                            SelectionFill: =RGBA(0, 51, 102, 1)
+                            SelectionFill: =RGBA(107, 144, 179, 1)
                             Width: =Parent.Width-32-U
                             X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
                             Y: =lblOfferItems_3.Height+U*2
