@@ -41,7 +41,9 @@
         "PaddingBottom",
         "PaddingLeft",
         "Tooltip",
-        "CheckboxSize"
+        "CheckboxSize",
+        "OnCheck",
+        "OnUncheck"
       ],
       "DynamicProperties": [
         {
@@ -287,6 +289,16 @@
         {
           "Category": "Design",
           "PropertyName": "CheckboxSize",
+          "RuleProviderType": "User"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnCheck",
+          "RuleProviderType": "User"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnUncheck",
           "RuleProviderType": "User"
         }
       ],

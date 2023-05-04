@@ -689,6 +689,10 @@ offerEditScreen As screen:
                         HoverColor: =RGBA(0, 89, 178, 1)
                         LayoutMinHeight: =Self.Width
                         LayoutMinWidth: =Parent.Width
+                        OnCheck: |-
+                            =Patch(colSelectedOffers,ThisItem,{selected:true})
+                        OnUncheck: |-
+                            =Patch(colSelectedOffers,ThisItem,{selected:false})
                         PaddingBottom: =5
                         Size: =13
                         Text: =
