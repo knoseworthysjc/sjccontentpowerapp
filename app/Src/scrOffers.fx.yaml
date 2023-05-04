@@ -3236,17 +3236,6 @@ scrOffers As screen:
             Y: =relistPanelHeader_1.Height+100
             ZIndex: =4
 
-            Label5 As label:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                OnSelect: =Select(Parent)
-                Size: =13
-                Text: =ThisItem.'Compliance Asset Id'
-                X: =40
-                Y: =40
-                ZIndex: =1
-
             previewOffer_assets_1 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.6
