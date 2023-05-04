@@ -722,47 +722,26 @@ offerEditScreen As screen:
                     BorderColor: =RGBA(107, 144, 179, 1)
                     BorderThickness: =1
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Height: |
+                        =40
                     LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =U
+                    LayoutGap: =U*2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    Width: |
-                        =32
-                    X: =Parent.TemplateWidth-Parent.TemplatePadding*2-15-Self.Width
+                    Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
+                    X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
-
-                    Checkbox1 As checkbox:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        CheckboxBorderColor: =RGBA(0, 89, 178, 1)
-                        CheckboxSize: =Self.Height
-                        Color: =RGBA(0, 0, 0, 1)
-                        Height: =Self.Width
-                        HoverColor: =RGBA(0, 89, 178, 1)
-                        LayoutMinHeight: =Self.Width
-                        LayoutMinWidth: =Parent.Width
-                        OnCheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{selected:true})
-                        OnUncheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{selected:false})
-                        PaddingBottom: =5
-                        Size: =13
-                        Text: =
-                        Tooltip: ="Select Offer"
-                        Width: =Parent.Width
-                        ZIndex: =1
 
                     Icon3 As icon.Save:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =60
+                        Height: =40
                         Icon: =Icon.Save
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =40
                         OnSelect: |-
                             =Patch(
                                 Offers,
@@ -811,21 +790,44 @@ offerEditScreen As screen:
                                 }
                             );
                             Patch(colSelectedOffers,ThisItem,{updated:false});
-                        Visible: =ThisItem.updated
-                        Width: =Parent.Width
-                        ZIndex: =2
+                        Width: |
+                            =40
+                        ZIndex: =1
 
                     Icon4 As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =60
+                        Height: =40
                         Icon: =Icon.Undo
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
-                        Visible: =false
-                        Width: =Parent.Width
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =40
+                        Width: |
+                            =40
+                        ZIndex: =2
+
+                    Checkbox1 As checkbox:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                        CheckboxSize: =Self.Height
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.selected
+                        Height: =40
+                        HoverColor: =RGBA(0, 89, 178, 1)
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: |
+                            =100
+                        OnCheck: |-
+                            =Patch(colSelectedOffers,ThisItem,{selected:true})
+                        OnUncheck: |-
+                            =Patch(colSelectedOffers,ThisItem,{selected:false})
+                        PaddingBottom: =5
+                        Size: =13
+                        Text: ="Select"
+                        Tooltip: ="Select Offer"
+                        Width: |
+                            =100
                         ZIndex: =3
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
@@ -1033,146 +1035,123 @@ offerEditScreen As screen:
                         Width: =Parent.Width*0.14
                         ZIndex: =6
 
-                    Container15 As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
+                    lblOfferStatus_6 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(107, 144, 179, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: |-
+                            ="COO / Grade English
+                            "
+                        Width: =Parent.Width
+                        X: =Parent.Width/12
+                        Y: =1
                         ZIndex: =7
 
-                        Container16 As groupContainer.verticalAutoLayoutContainer:
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutGap: =U
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =Parent.Width/2
-                            LayoutMode: =LayoutMode.Auto
-                            Width: =Parent.Width/2
-                            ZIndex: =1
+                    iptExistingOfferPage_12 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(107, 144, 179, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.'Country of Origin(Fre)'
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        EnableSpellCheck: =true
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin':Self.Text})
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width
+                        ZIndex: =8
 
-                            lblOfferStatus_6 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =RGBA(255, 255, 255, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =RGBA(107, 144, 179, 1)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =20
-                                LayoutMinHeight: =25
-                                LayoutMinWidth: =Parent.Width
-                                minimumHeight: =30
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =11
-                                Text: |-
-                                    ="COO / Grade English
-                                    "
-                                Width: =Parent.Width
-                                X: =Parent.Width/12
-                                Y: =1
-                                ZIndex: =1
+                    lblOfferStatus_9 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(107, 144, 179, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: |-
+                            ="COO / Grade French
+                            "
+                        Width: =Parent.Width
+                        X: =Parent.Width/12
+                        Y: =1
+                        ZIndex: =10
 
-                            iptExistingOfferPage_12 As text:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(107, 144, 179, 1)
-                                Color: =RGBA(0, 0, 0, 1)
-                                Default: =ThisItem.'Country of Origin(Fre)'
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                EnableSpellCheck: =true
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
-                                HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
-                                LayoutMinHeight: =28
-                                LayoutMinWidth: =Parent.Width
-                                Mode: =TextMode.MultiLine
-                                OnChange: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin':Self.Text})
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                RadiusBottomLeft: =0
-                                RadiusBottomRight: =0
-                                RadiusTopLeft: =0
-                                RadiusTopRight: =0
-                                Reset: =true
-                                Size: =11
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        Container16_1 As groupContainer.verticalAutoLayoutContainer:
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutGap: =U
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =Parent.Width/2
-                            LayoutMode: =LayoutMode.Auto
-                            Width: =Parent.Width/2
-                            ZIndex: =2
-
-                            lblOfferStatus_9 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =RGBA(255, 255, 255, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =RGBA(107, 144, 179, 1)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =20
-                                LayoutMinHeight: =28
-                                LayoutMinWidth: =Parent.Width
-                                minimumHeight: =30
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =11
-                                Text: |-
-                                    ="COO / Grade French
-                                    "
-                                Width: =Parent.Width
-                                X: =Parent.Width/12
-                                Y: =1
-                                ZIndex: =1
-
-                            iptExistingOfferPage_15 As text:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(107, 144, 179, 1)
-                                Color: =RGBA(0, 0, 0, 1)
-                                Default: =ThisItem.'Country of Origin(Fre)'
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                EnableSpellCheck: =true
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
-                                HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
-                                LayoutMinHeight: =28
-                                LayoutMinWidth: =Parent.Width
-                                Mode: =TextMode.MultiLine
-                                OnChange: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin(Fre)':Self.Text})
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                RadiusBottomLeft: =0
-                                RadiusBottomRight: =0
-                                RadiusTopLeft: =0
-                                RadiusTopRight: =0
-                                Reset: =true
-                                Size: =11
-                                Width: =Parent.Width
-                                ZIndex: =2
+                    iptExistingOfferPage_15 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(107, 144, 179, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.'Country of Origin(Fre)'
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        EnableSpellCheck: =true
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin(Fre)':Self.Text})
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Reset: =true
+                        Size: =11
+                        Width: =Parent.Width
+                        ZIndex: =11
 
                 conSelectedOfferCategory As groupContainer.verticalAutoLayoutContainer:
                     Height: =257
@@ -2843,13 +2822,13 @@ offerEditScreen As screen:
                         ZIndex: =8
 
                 conSelectedOfferComments As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.TemplateHeight-U*2
+                    Height: =Parent.TemplateHeight-Self.Y-U
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: =450
+                    Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
-                    Y: =U
+                    Y: =40
                     ZIndex: =15
 
                     lblOfferType_4 As label:
