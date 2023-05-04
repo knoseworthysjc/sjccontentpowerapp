@@ -760,7 +760,8 @@ offerEditScreen As screen:
                                     assigned_images: ThisItem.assigned_images,
                                     assigned_logos: ThisItem.assigned_logos
                                 }
-                            )
+                            );
+                            Patch(colSelectedOffers,ThisItem,{updated:false});
                         Visible: =ThisItem.updated
                         Width: =Parent.Width
                         ZIndex: =2
