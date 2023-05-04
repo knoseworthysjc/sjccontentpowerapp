@@ -1675,37 +1675,136 @@ offerEditScreen As screen:
                     Container12 As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =U
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
                         ZIndex: =1
 
-                        lblOfferStatus_2 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(107, 144, 179, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
+                        Container8 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
                             Height: =20
+                            LayoutGap: =U
                             LayoutMinHeight: =20
-                            LayoutMinWidth: =Parent.Width
-                            minimumHeight: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =11
-                            Text: ="English Offer Copy "
-                            Width: =Parent.Width
-                            X: =Parent.Width/12
-                            Y: =1
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
                             ZIndex: =1
 
-                        iptExistingOfferPage_8 As text:
+                            lblSelectedOfferCopy As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(255, 255, 255, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: =RGBA(107, 144, 179, 1)
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =20
+                                LayoutMinHeight: =20
+                                LayoutMinWidth: =Parent.Width-105
+                                minimumHeight: =30
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =11
+                                Text: ="English Offer Copy "
+                                Width: =Parent.Width-Button1.Width*3-U*5
+                                X: =Parent.Width/12
+                                Y: =1
+                                ZIndex: =1
+
+                            Button1 As button:
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: =RGBA(0, 51, 102, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =20
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                                LayoutMinWidth: =20
+                                OnSelect: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Upper(iptSelectedOfferCopy.Text)})
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                RadiusBottomLeft: =5
+                                RadiusBottomRight: =5
+                                RadiusTopLeft: =5
+                                RadiusTopRight: =5
+                                Size: =12
+                                Text: ="U"
+                                Tooltip: ="Upper Case Offer copy"
+                                Width: |
+                                    =20
+                                ZIndex: =2
+
+                            Button1_1 As button:
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: =RGBA(0, 51, 102, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =20
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                                LayoutMinWidth: =20
+                                OnSelect: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Lower(iptSelectedOfferCopy.Text)})
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                RadiusBottomLeft: =5
+                                RadiusBottomRight: =5
+                                RadiusTopLeft: =5
+                                RadiusTopRight: =5
+                                Size: =12
+                                Text: ="L"
+                                Tooltip: ="Lower Case Offer Copy"
+                                Width: |
+                                    =20
+                                ZIndex: =3
+
+                            Button1_2 As button:
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: =RGBA(0, 51, 102, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =20
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                                LayoutMinWidth: =20
+                                OnSelect: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Proper(iptSelectedOfferCopy.Text)})
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                RadiusBottomLeft: =5
+                                RadiusBottomRight: =5
+                                RadiusTopLeft: =5
+                                RadiusTopRight: =5
+                                Size: =12
+                                Text: ="P"
+                                Tooltip: ="Proper Case Offer Copy"
+                                Width: |
+                                    =20
+                                ZIndex: =4
+
+                        iptSelectedOfferCopy As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(116, 116, 116, 1)
                             Clear: =true
@@ -1715,11 +1814,10 @@ offerEditScreen As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             EnableSpellCheck: =true
-                            FillPortions: =1
                             FocusedBorderThickness: =4
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =50
+                            Height: =Parent.Height-Container8.Height-U*2
                             HoverBorderColor: =RGBA(0, 89, 178, 1)
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
@@ -1739,42 +1837,139 @@ offerEditScreen As screen:
                             Reset: =true
                             Size: =11
                             Width: =Parent.Width
-                            ZIndex: =2
+                            ZIndex: =3
 
                     Container13 As groupContainer.verticalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
+                        AlignInContainer: =AlignInContainer.Start
                         Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =U
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
                         ZIndex: =2
 
-                        lblOfferStatus_3 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(255, 255, 255, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(107, 144, 179, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
+                        Container8_1 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
                             Height: =20
+                            LayoutGap: =U
                             LayoutMinHeight: =20
-                            LayoutMinWidth: =Parent.Width
-                            minimumHeight: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =11
-                            Text: |-
-                                ="French Offer Copy
-                                "
-                            Width: =Parent.Width
-                            X: =Parent.Width/12
-                            Y: =1
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
                             ZIndex: =1
+
+                            lblSelectedOfferCopy_1 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(255, 255, 255, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: =RGBA(107, 144, 179, 1)
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =20
+                                LayoutMinHeight: =20
+                                LayoutMinWidth: =Parent.Width-105
+                                minimumHeight: =30
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =11
+                                Text: ="French Offer Copy "
+                                Width: =Parent.Width-Button1_3.Width*3-U*5
+                                X: =Parent.Width/12
+                                Y: =1
+                                ZIndex: =1
+
+                            Button1_3 As button:
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: =RGBA(0, 51, 102, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =20
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                                LayoutMinWidth: =20
+                                OnSelect: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Upper(iptExistingOfferPage_9.Text)})
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                RadiusBottomLeft: =5
+                                RadiusBottomRight: =5
+                                RadiusTopLeft: =5
+                                RadiusTopRight: =5
+                                Size: =12
+                                Text: ="U"
+                                Tooltip: ="Upper Case Offer copy"
+                                Width: |
+                                    =20
+                                ZIndex: =2
+
+                            Button1_4 As button:
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: =RGBA(0, 51, 102, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =20
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                                LayoutMinWidth: =20
+                                OnSelect: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Lower(iptExistingOfferPage_9.Text)})
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                RadiusBottomLeft: =5
+                                RadiusBottomRight: =5
+                                RadiusTopLeft: =5
+                                RadiusTopRight: =5
+                                Size: =12
+                                Text: ="L"
+                                Tooltip: ="Lower Case Offer Copy"
+                                Width: |
+                                    =20
+                                ZIndex: =3
+
+                            Button1_5 As button:
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: =RGBA(0, 51, 102, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =20
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                                LayoutMinWidth: =20
+                                OnSelect: |-
+                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Proper(iptExistingOfferPage_9.Text)})
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                RadiusBottomLeft: =5
+                                RadiusBottomRight: =5
+                                RadiusTopLeft: =5
+                                RadiusTopRight: =5
+                                Size: =12
+                                Text: ="P"
+                                Tooltip: ="Proper Case Offer Copy"
+                                Width: |
+                                    =20
+                                ZIndex: =4
 
                         iptExistingOfferPage_9 As text:
                             Align: =Align.Center
@@ -1786,15 +1981,14 @@ offerEditScreen As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             EnableSpellCheck: =true
-                            FillPortions: =1
                             FocusedBorderThickness: =4
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =28
+                            Height: =Parent.Height-Container8_1.Height-U*2
                             HoverBorderColor: =RGBA(0, 89, 178, 1)
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
-                            LayoutMinHeight: =28
+                            LayoutMinHeight: =Parent.Height-Container8_1.Height-U*2
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
@@ -1810,7 +2004,7 @@ offerEditScreen As screen:
                             Reset: =true
                             Size: =11
                             Width: =Parent.Width
-                            ZIndex: =2
+                            ZIndex: =3
 
                 conSelectedOfferMultiSave As groupContainer.horizontalAutoLayoutContainer:
                     Height: =122
