@@ -393,6 +393,7 @@ offerEditScreen As screen:
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
                 SelectionFill: =RGBA(0, 51, 102, 1)
+                Tooltip: ="Filter Offers By Page"
                 Width: |
                     =100
                 X: =lblPage_1.X+lblPage_1.Width
@@ -423,6 +424,30 @@ offerEditScreen As screen:
                 Y: =0
                 ZIndex: =3
 
+            "Icon1_5 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#003E7D"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =24
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="Edit"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.Icon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Edit Page Details"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =4
+
             lblPage_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -439,7 +464,7 @@ offerEditScreen As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =4
+                ZIndex: =5
 
             ddSBUFilter As dropdown:
                 AllowEmptySelection: =true
@@ -467,11 +492,12 @@ offerEditScreen As screen:
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
                 SelectionFill: =RGBA(0, 51, 102, 1)
+                Tooltip: ="Filter Offers By SBU"
                 Width: |
                     =200
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
-                ZIndex: =5
+                ZIndex: =6
 
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
                 DisplayMode: =DisplayMode.Edit
@@ -524,7 +550,7 @@ offerEditScreen As screen:
                     =700
                 X: =0
                 Y: =0
-                ZIndex: =6
+                ZIndex: =7
 
                 ItemChecked1 As pcfDataField.textualColumn:
                     FieldDisplayName: ="ItemChecked"
@@ -581,64 +607,6 @@ offerEditScreen As screen:
                     FieldVariantName: ="textualColumn"
                     Order: =7
                     ZIndex: =20
-
-            ddSeason_2 As dropdown:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderThickness: =1
-                ChevronBackground: =RGBA(255, 255, 255, 1)
-                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronFill: =RGBA(107, 144, 179, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                Default: =Year(Now())
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: |
-                    =24
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
-                Items: =Choices(Offers.Season)
-                LayoutMinHeight: =24
-                minimumHeight: =30
-                PaddingBottom: =0
-                PaddingLeft: =5
-                PaddingRight: =5
-                PaddingTop: =0
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
-                Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
-                Size: =12
-                Width: =105
-                ZIndex: =7
-
-            "Icon1_2 As 'Fluent Icon (1.0.19)'":
-                BorderColor: |-
-                    ="#003E7D"
-                BorderRadius: =5
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =20
-                Height: =28
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="Save"
-                IconSize: =20
-                IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                Text: ="Save Layout"
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Width: |
-                    =165
-                X: =0
-                Y: =0
-                ZIndex: =8
 
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
