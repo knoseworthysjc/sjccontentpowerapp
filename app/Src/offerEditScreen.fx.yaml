@@ -3602,7 +3602,7 @@ offerEditScreen As screen:
                                 offer_copy_french: ThisItem.offer_copy,
                                 unit: ThisItem.unit,
                                 unit_fre: ThisItem.unit_fre,
-                                callout: ThisItem.callout
+                                callout: ThisItem.callout,assigned_images:ThisItem.assigned_images,assigned_logos:ThisItem.assigned_logos
                             }
                         )
                     Text: ="Add Offer"
