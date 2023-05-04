@@ -3449,7 +3449,7 @@ offerEditScreen As screen:
                 Text: ="R🙂llback"
                 Visible: =ThisItem.offer_type.Value="Rollback"
                 Width: =previewOffer_price_rectangle_2.Width-2
-                X: =1
+                X: =previewOffer_price_rectangle_2.X+1
                 Y: =previewOffer_price_rectangle_2.Y-Self.Height+2
                 ZIndex: =7
 
