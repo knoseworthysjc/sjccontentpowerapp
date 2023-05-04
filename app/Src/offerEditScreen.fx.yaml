@@ -346,158 +346,8 @@ offerEditScreen As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
-            PaddingLeft: =32
+            PaddingLeft: =5
             ZIndex: =2
-
-            lblPage_1 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 62, 125, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =24
-                LayoutMinHeight: =30
-                minimumHeight: =30
-                Size: =11
-                Text: |-
-                    ="Page:"
-                Width: |
-                    =50
-                X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =1
-
-            ddPageFilter As dropdown:
-                AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderThickness: =1
-                ChevronBackground: =RGBA(255, 255, 255, 1)
-                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronFill: =RGBA(107, 144, 179, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                Default: =
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =24
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
-                Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter.Selected.Title),"page_from")
-                LayoutMinHeight: =30
-                minimumHeight: =30
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
-                Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
-                Tooltip: ="Filter Offers By Page"
-                Width: |
-                    =100
-                X: =lblPage_1.X+lblPage_1.Width
-                Y: =2
-                ZIndex: =2
-
-            "Icon1_3 As 'Fluent Icon (1.0.19)'":
-                BorderColor: |-
-                    ="#003E7D"
-                BorderRadius: =5
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =24
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="CircleAddition"
-                IconSize: =24
-                IconType: ='PowerCAT.Icon.IconType'.Icon
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                Text: =""
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Add Pages"
-                Width: =24
-                X: =0
-                Y: =0
-                ZIndex: =3
-
-            "Icon1_5 As 'Fluent Icon (1.0.19)'":
-                BorderColor: |-
-                    ="#003E7D"
-                BorderRadius: =5
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =24
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="Edit"
-                IconSize: =24
-                IconType: ='PowerCAT.Icon.IconType'.Icon
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                Text: =""
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Edit Page Details"
-                Width: =24
-                X: =0
-                Y: =0
-                ZIndex: =4
-
-            lblPage_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 62, 125, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =24
-                LayoutMinHeight: =30
-                minimumHeight: =30
-                Size: =11
-                Text: |-
-                    ="SBU:"
-                Width: |
-                    =50
-                X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =5
-
-            ddSBUFilter As dropdown:
-                AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
-                BorderThickness: =1
-                ChevronBackground: =RGBA(255, 255, 255, 1)
-                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronFill: =RGBA(107, 144, 179, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                Default: =
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =24
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
-                Items: =Choices(Offers.SBU)
-                LayoutMinHeight: =30
-                minimumHeight: =30
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
-                Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
-                Tooltip: ="Filter Offers By SBU"
-                Width: |
-                    =200
-                X: =lblPage_1.X+lblPage_1.Width
-                Y: =2
-                ZIndex: =6
 
             "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
                 DisplayMode: =DisplayMode.Edit
@@ -550,7 +400,7 @@ offerEditScreen As screen:
                     =700
                 X: =0
                 Y: =0
-                ZIndex: =7
+                ZIndex: =1
 
                 ItemChecked1 As pcfDataField.textualColumn:
                     FieldDisplayName: ="ItemChecked"
@@ -607,6 +457,156 @@ offerEditScreen As screen:
                     FieldVariantName: ="textualColumn"
                     Order: =7
                     ZIndex: =20
+
+            lblPage_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 62, 125, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Page:"
+                Width: |
+                    =50
+                X: =ddProjectFilter.X+ddProjectFilter.Width
+                ZIndex: =2
+
+            ddPageFilter As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronFill: =RGBA(107, 144, 179, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter.Selected.Title),"page_from")
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Tooltip: ="Filter Offers By Page"
+                Width: |
+                    =100
+                X: =lblPage_1.X+lblPage_1.Width
+                Y: =2
+                ZIndex: =3
+
+            "Icon1_3 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#003E7D"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =24
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="CircleAddition"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.Icon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Add Pages"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =4
+
+            "Icon1_5 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#003E7D"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =24
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="Edit"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.Icon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Edit Page Details"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+            lblPage_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 62, 125, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="SBU:"
+                Width: |
+                    =50
+                X: =ddProjectFilter.X+ddProjectFilter.Width
+                ZIndex: =6
+
+            ddSBUFilter As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronFill: =RGBA(107, 144, 179, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: =Choices(Offers.SBU)
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Tooltip: ="Filter Offers By SBU"
+                Width: |
+                    =200
+                X: =lblPage_1.X+lblPage_1.Width
+                Y: =2
+                ZIndex: =7
 
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
