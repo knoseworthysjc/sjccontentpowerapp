@@ -807,6 +807,19 @@ offerEditScreen As screen:
                             =40
                         ZIndex: =2
 
+                    Icon4_2 As icon.Undo:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 89, 178, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Icon: =Icon.Trash
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =40
+                        Width: |
+                            =40
+                        ZIndex: =3
+
                     Checkbox1 As checkbox:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         CheckboxBorderColor: =RGBA(0, 89, 178, 1)
@@ -827,7 +840,7 @@ offerEditScreen As screen:
                             =100
                         X: =1794
                         Y: =4
-                        ZIndex: =3
+                        ZIndex: =4
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-U*2
@@ -2952,7 +2965,7 @@ offerEditScreen As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     CheckboxBorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
-                    Default: =ThisItem.record_type.Value="linelist"
+                    Default: =ThisItem.record_type.Value="line list"
                     Fill: =RGBA(107, 144, 179, 1)
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
