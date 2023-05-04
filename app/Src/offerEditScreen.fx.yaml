@@ -2939,55 +2939,42 @@ offerEditScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =2
 
-                        "CommandBar1 As 'Fluent Command Bar (1.0.19)'.pcfdataset":
-                            AlignInContainer: =AlignInContainer.Stretch
-                            DisplayMode: =DisplayMode.Edit
+                        Container9 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0
                             Height: =32
-                            Items: |-
-                                =Table(
-                                    {
-                                        ItemKey: "upload",
-                                        ItemDisplayName: "Upload",
-                                        ItemIconName: "Upload",
-                                        ItemIconColor: "#A80000",
-                                        ItemChecked: true,
-                                        ItemHeader: "New Offer",
-                                        ItemIconOnly: false
-                                    }
-                                )
-                            LayoutMinHeight: =200
-                            LayoutMinWidth: =200
-                            Theme: |-
-                                ="{""themePrimary: ""#a80000"",
-                                ""themeLighterAlt: ""#fcf1f1"",
-                                ""themeLighter: ""#f1cbcb"",
-                                ""themeLight: ""#e5a0a0"",
-                                ""themeTertiary: ""#cb5151"",
-                                ""themeSecondary: ""#b31515"",
-                                ""themeDarkAlt: ""#970000"",
-                                ""themeDark: ""#800000"",
-                                ""themeDarker: ""#5e0000"",
-                                ""neutralLighterAlt: ""#faf9f8"",
-                                ""neutralLighter: ""#f3f2f1"",
-                                ""neutralLight: ""#edebe9"",
-                                ""neutralQuaternaryAlt: ""#e1dfdd"",
-                                ""neutralQuaternary: ""#d0d0d0"",
-                                ""neutralTertiaryAlt: ""#c8c6c4"",
-                                ""neutralTertiary: ""#a19f9d"",
-                                ""neutralSecondary: ""#605e5c"",
-                                ""neutralSecondaryAlt: ""#8a8886"",
-                                ""neutralPrimaryAlt: ""#3b3a39"",
-                                ""neutralPrimary: ""#323130"",
-                                ""neutralDark: ""#201f1e"",
-                                ""black: ""#000000"",
-                                ""white: ""#ffffff""}"
-                            Width: =200
-                            X: =0
-                            Y: =0
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
                             ZIndex: =1
 
+                            "Icon1_13 As 'Fluent Icon (1.0.19)'":
+                                BorderColor: =""
+                                BorderRadius: =0
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: |-
+                                    ="#003E7D"
+                                FontSize: =0
+                                Height: =24
+                                IconColor: |-
+                                    ="#003E7D"
+                                IconName: ="Upload"
+                                IconSize: =22
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =165
+                                Text: ="Upload"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Tooltip: ="Add Pages"
+                                Width: |
+                                    =95
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
                         Gallery3 As gallery.galleryVertical:
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =RGBA(107, 144, 179, 1)
+                            BorderThickness: =1
                             DelayItemLoading: =true
                             Items: =Filter(colSelectedPageProductImages,offerId=galSelectedOffers.Selected.ID)
                             Layout: =Layout.Vertical
@@ -2997,7 +2984,7 @@ offerEditScreen As screen:
                             TemplateSize: =Self.Width/6
                             WrapCount: |
                                 =6
-                            ZIndex: =2
+                            ZIndex: =3
 
                             Image5 As image:
                                 BorderColor: =RGBA(0, 62, 125, 1)
