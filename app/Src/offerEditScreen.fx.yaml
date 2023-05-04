@@ -670,6 +670,22 @@ offerEditScreen As screen:
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
+                    Checkbox1 As checkbox:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                        CheckboxSize: =Self.Height
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =Self.Width
+                        HoverColor: =RGBA(0, 89, 178, 1)
+                        LayoutMinHeight: =Self.Width
+                        LayoutMinWidth: =Parent.Width
+                        PaddingBottom: =5
+                        Size: =13
+                        Text: =
+                        Tooltip: ="Select Offer"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
                     Icon3 As icon.Save:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(0, 89, 178, 1)
@@ -681,7 +697,7 @@ offerEditScreen As screen:
                         LayoutMinWidth: =32  
                         Visible: =ThisItem.updated
                         Width: =60
-                        ZIndex: =17
+                        ZIndex: =2
 
                     Icon4 As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -694,7 +710,7 @@ offerEditScreen As screen:
                         LayoutMinWidth: =32  
                         Visible: =ThisItem.updated
                         Width: =60
-                        ZIndex: =18
+                        ZIndex: =3
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-U*2
