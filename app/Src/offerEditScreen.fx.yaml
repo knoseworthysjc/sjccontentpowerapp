@@ -720,16 +720,15 @@ offerEditScreen As screen:
 
                 conSelectedOffersCmds As groupContainer.horizontalAutoLayoutContainer:
                     BorderColor: =RGBA(107, 144, 179, 1)
-                    BorderThickness: =1
+                    BorderStyle: =BorderStyle.None
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: |
-                        =40
+                    Height: =32
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =U*2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
-                    X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
+                    Width: =(Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20)/2
+                    X: =Checkbox2.X+Checkbox2.Width+U*2
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
@@ -738,7 +737,7 @@ offerEditScreen As screen:
                         Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =40
+                        Height: =30
                         Icon: =Icon.Save
                         LayoutMinHeight: =25
                         LayoutMinWidth: =40
@@ -799,7 +798,7 @@ offerEditScreen As screen:
                         Color: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =40
+                        Height: =30
                         Icon: =Icon.Undo
                         LayoutMinHeight: =25
                         LayoutMinWidth: =40
@@ -813,7 +812,7 @@ offerEditScreen As screen:
                         CheckboxSize: =Self.Height
                         Color: =RGBA(0, 0, 0, 1)
                         Default: =ThisItem.selected
-                        Height: =40
+                        Height: =30
                         HoverColor: =RGBA(0, 89, 178, 1)
                         LayoutMinHeight: =25
                         LayoutMinWidth: |
@@ -2948,6 +2947,24 @@ offerEditScreen As screen:
                         Size: =11
                         Width: =Parent.Width
                         ZIndex: =6
+
+                Checkbox2 As checkbox:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Default: =ThisItem.record_type.Value="linelist"
+                    Fill: =RGBA(107, 144, 179, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =32
+                    HoverColor: =RGBA(0, 89, 178, 1)
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =4
+                    Text: ="Line List"
+                    Width: =125
+                    X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width
+                    Y: =Parent.TemplatePadding
+                    ZIndex: =16
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 AlignInContainer: =AlignInContainer.SetByContainer
