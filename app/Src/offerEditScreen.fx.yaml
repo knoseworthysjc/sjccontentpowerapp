@@ -700,7 +700,8 @@ offerEditScreen As screen:
                 DelayItemLoading: =true
                 Height: =550
                 Items: |-
-                    =If(
+                    =If(cbShowDeleted.Value,
+                        If(
                         IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
                         colSelectedOffers,
                         If(
@@ -721,7 +722,29 @@ offerEditScreen As screen:
                                 )
                             )
                         )
-                    )
+                    ),
+                       If(
+                        IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
+                        colSelectedOffers,
+                        If(
+                            !IsBlankOrError(ddPageFilter.Selected) And !IsBlankOrError(ddSBUFilter.Selected),
+                            Filter(
+                                colSelectedOffers,
+                                page_from = ddPageFilter.Selected.page_from And SBU.Value = ddSBUFilter.Selected.Value And offer_status.Value<>"Deleted"
+                            ),
+                            If(
+                                !IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
+                                Filter(
+                                    colSelectedOffers,
+                                    page_from = ddPageFilter.Selected.page_from And offer_status.Value<>"Deleted"
+                                ),
+                                Filter(
+                                    colSelectedOffers,
+                                    SBU.Value = ddSBUFilter.Selected.Value And offer_status.Value<>"Deleted"
+                                )
+                            )
+                        )
+                    ))
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
