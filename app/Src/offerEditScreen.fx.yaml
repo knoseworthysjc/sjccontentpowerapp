@@ -223,12 +223,21 @@ offerEditScreen As screen:
                 OnChange: |
                     =ClearCollect(
                         colSelectedOffers,
-                        AddColumns(Filter(
-                            Offers,
-                            assigned_project.Value = ddProjectFilter.Selected.Title
-                        ),"updated",false,"selected",false)
+                        AddColumns(
+                            Filter(
+                                Offers,
+                                assigned_project.Value = ddProjectFilter.Selected.Title
+                            ),
+                            "updated",
+                            false,
+                            "selected",
+                            false
+                        )
                     );
-                    ClearCollect(colSelectedPageOffers,colSelectedOffers);
+                    ClearCollect(
+                        colSelectedPageOffers,
+                        colSelectedOffers
+                    );
                     Clear(colSelectedPageProductImages);
                     ForAll(
                         colSelectedOffers As offer,
@@ -246,10 +255,13 @@ offerEditScreen As screen:
                                     ).Value,
                                     Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
-                                    type: "image",zone:"eng"
+                                    type: "image",
+                                    zone: "eng",
+                                    Value: imglist.Value
                                 }
                             )
-                        ); ForAll(
+                        );
+                        ForAll(
                             offer.assigned_images_fre As imglist,
                             Collect(
                                 colSelectedPageProductImages,
@@ -263,7 +275,9 @@ offerEditScreen As screen:
                                     ).Value,
                                     Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
-                                    type: "image",zone:"fre"
+                                    type: "image",
+                                    zone: "fre",
+                                    Value: imglist.Value
                                 }
                             )
                         );
@@ -316,7 +330,6 @@ offerEditScreen As screen:
                                 ).Thumbnails,
                                 Blank()
                             )
-                            
                         )
                     );
                     /*Clear(colSelectedPageProducts);
@@ -3250,10 +3263,8 @@ offerEditScreen As screen:
                                 IconName: ="RemoveLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
-                                OnChange: |-
+                                OnChange: |
                                     =ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,Title<>ThisItem.Title And offerId<>ThisItem.offerId));
-                                    ClearCollect(colSelectedOfferUpdateImages,Filter(
-                                    Patch(colSelectedOffers,galSelectedOffers.Selected,{});
                                 Width: =40
                                 X: =185
                                 Y: =4
