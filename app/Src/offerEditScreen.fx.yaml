@@ -931,6 +931,14 @@ offerEditScreen As screen:
                         Width: =Parent.Width
                         ZIndex: =2
 
+                        Label5 As label:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Size: =13
+                            Text: ="Text"
+                            ZIndex: =1
+
                         iptSelectedOfferUpdate As combobox:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =1
@@ -963,7 +971,7 @@ offerEditScreen As screen:
                             Width: =Parent.Width-32-U
                             X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
                             Y: =lblOfferItems_3.Height+U*2
-                            ZIndex: =1
+                            ZIndex: =2
 
                         Icon14 As icon.Save:
                             BorderColor: =RGBA(0, 89, 178, 1)
@@ -978,7 +986,7 @@ offerEditScreen As screen:
                                 =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:iptSelectedOfferUpdate.SelectedItems})
                             Width: |
                                 =32
-                            ZIndex: =2
+                            ZIndex: =3
 
                     lblOfferItems_1 As label:
                         Align: =Align.Center
@@ -3383,6 +3391,85 @@ offerEditScreen As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
+                                OnChange: |
+                                    =ClearCollect(
+                                        xinet_image_exists,
+                                        Filter(
+                                            xinet_images,
+                                            Title = ThisItem.FILE_NAME
+                                        )
+                                    );
+                                    If(
+                                        CountRows(xinet_image_exists) = 0,
+                                        Patch(
+                                            xinet_images,
+                                            Defaults(xinet_images),
+                                            {
+                                                Title: ThisItem.FILE_NAME,
+                                                fullpath: ThisItem.FILE_PATH,
+                                                macpath: ThisItem.FILE_PATH,
+                                                pcpath: ThisItem.FILE_PATH,
+                                                file_id: ThisItem.FILE_ID
+                                            }
+                                        )
+                                    );
+                                    If(
+                                        !IsMatch(
+                                            ThisItem.FILE_NAME,
+                                            "FR"
+                                        ),
+                                        ClearCollect(
+                                            assignOfferPictures,
+                                            galExistingOffers.Selected.assigned_images
+                                        ),
+                                        ClearCollect(
+                                            assignOfferPictures,
+                                            galExistingOffers.Selected.assigned_images_fre
+                                        )
+                                    );
+                                    Collect(
+                                        assignOfferPictures,
+                                        {
+                                            Id: First(
+                                                Filter(
+                                                    xinet_images,
+                                                    Title = ThisItem.FILE_NAME
+                                                )
+                                            ).ID,
+                                            Value: First(
+                                                Filter(
+                                                    xinet_images,
+                                                    Title = ThisItem.FILE_NAME
+                                                )
+                                            ).Title
+                                        }
+                                    );
+                                    Switch(
+                                        addImagesField,
+                                        "english",
+                                        Patch(
+                                            Offers,
+                                            galExistingOffers.Selected,
+                                            {assigned_images: assignOfferPictures}
+                                        );
+                                        Patch(
+                                            selectedOffers,
+                                            selectedOfferRecord,
+                                            {assigned_images: assignOfferPictures}
+                                        );
+                                        "french",
+                                        Patch(
+                                            Offers,
+                                            galExistingOffers.Selected,
+                                            {assigned_images_fre: assignOfferPictures}
+                                        );
+                                        Patch(
+                                            selectedOffers,
+                                            selectedOfferRecord,
+                                            {assigned_images_fre: assignOfferPictures}
+                                        );
+                                        
+                                    );
                                 Width: =40
                                 X: =4
                                 Y: =4
