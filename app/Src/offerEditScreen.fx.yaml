@@ -707,6 +707,9 @@ offerEditScreen As screen:
                         Icon: =Icon.Save
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.Width
+                        OnSelect: |-
+                            =
+                            ClearCollect(updatedRecord,DropColumns(ThisItem,"updated"))
                         Visible: =ThisItem.updated
                         Width: =Parent.Width
                         ZIndex: =2
@@ -3180,7 +3183,8 @@ offerEditScreen As screen:
             Height: =Parent.Height
             Items: |-
                 =Table(
-                {Title:"Home",icon:Icon.Home,screen:scrOffers},
+                {Title:"PM Edit",icon:Icon.Home,screen:offerEditScreen},
+                {Title:"OrginalEdit",icon:Icon.Home,screen:scrOffers},
                 {Title:"Projects/Pages",icon:Icon.Folder,screen:projects_pages_screen},
                 {Title:"Images",icon:Icon.Folder,screen:images_screen},
                 {Title:"Products",icon:Icon.Information,screen:products_screen},
