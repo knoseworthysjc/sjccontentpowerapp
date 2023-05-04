@@ -691,7 +691,7 @@ offerEditScreen As screen:
                     LayoutWrap: =true
                     Width: |
                         =32
-                    X: =Parent.TemplateWidth-U-Self.Width-15
+                    X: =1839
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
@@ -1719,11 +1719,11 @@ offerEditScreen As screen:
                             FocusedBorderThickness: =4
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =150
+                            Height: =50
                             HoverBorderColor: =RGBA(0, 89, 178, 1)
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
-                            LayoutMinHeight: =20
+                            LayoutMinHeight: =50
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
@@ -3005,7 +3005,8 @@ offerEditScreen As screen:
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                                Image: =ThisItem.Thumbnails
+                                Image: |-
+                                    =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.Thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
                                 OnSelect: =Select(Parent);Launch(ThisItem.Thumbnails)
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
@@ -3032,6 +3033,17 @@ offerEditScreen As screen:
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
                                 ZIndex: =2
+
+                            "Icon16 As 'Fluent Icon (1.0.19)'":
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =40
+                                IconName: ="RemoveLink"
+                                IconSize: =28
+                                IconType: ='PowerCAT.Icon.IconType'.Icon
+                                Width: =40
+                                X: =185
+                                Y: =4
+                                ZIndex: =3
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
@@ -3203,6 +3215,17 @@ offerEditScreen As screen:
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
                                 ZIndex: =2
+
+                            "Icon16_1 As 'Fluent Icon (1.0.19)'":
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =40
+                                IconName: ="AddLink"
+                                IconSize: =28
+                                IconType: ='PowerCAT.Icon.IconType'.Icon
+                                Width: =40
+                                X: =4
+                                Y: =4
+                                ZIndex: =3
 
     imgOfferLogo As image:
         BorderColor: =RGBA(0, 36, 71, 1)
