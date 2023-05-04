@@ -632,7 +632,6 @@ offerEditScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
-                Fill: =RGBA(237, 237, 237, 1)
                 Height: =550
                 Items: |-
                     =If(
@@ -661,7 +660,7 @@ offerEditScreen As screen:
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
-                TemplateFill: =RGBA(0, 62, 125, 0.2)
+                TemplateFill: =If(ThisItem.updated,RGBA(116, 116, 116, 1),RGBA(255, 255, 255, 1))
                 TemplatePadding: =U
                 TemplateSize: =Self.Height/2.0
                 ZIndex: =3
@@ -709,7 +708,10 @@ offerEditScreen As screen:
                         LayoutMinWidth: =Parent.Width
                         OnSelect: |-
                             =
-                            ClearCollect(updatedRecord,DropColumns(ThisItem,"updated"))
+                            Patch(Offers,First(DropColumns(Table(ThisItem),"updated")),{
+                            
+                                
+                            })
                         Visible: =ThisItem.updated
                         Width: =Parent.Width
                         ZIndex: =2
