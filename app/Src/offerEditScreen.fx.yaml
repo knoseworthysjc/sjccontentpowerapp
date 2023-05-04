@@ -616,6 +616,30 @@ offerEditScreen As screen:
                 Y: =0
                 ZIndex: =10
 
+            "Icon1_3 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#003E7D"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =20
+                Height: =28
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="AddDocument"
+                IconSize: =20
+                IconType: ='PowerCAT.Icon.IconType'.Icon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Width: |
+                    =165
+                X: =0
+                Y: =0
+                ZIndex: =11
+
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
