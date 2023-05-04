@@ -2690,8 +2690,7 @@ offerEditScreen As screen:
                         OnChange: |-
                             =Patch(colSelectedOffers,ThisItem,{updated:true,offer_comments:Self.Text})
                         PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
+                        PaddingLeft: =5
                         PaddingTop: =0
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
