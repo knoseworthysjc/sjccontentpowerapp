@@ -364,6 +364,19 @@ offerEditScreen As screen:
                 Y: =0
                 ZIndex: =8
 
+            cbShowDeleted As checkbox:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 89, 178, 1)
+                PaddingBottom: =4
+                Size: =11
+                Text: ="Show Deleted"
+                ZIndex: =9
+
         conOfferPageDetails As groupContainer.horizontalAutoLayoutContainer:
             BorderColor: =RGBA(0, 62, 125, 1)
             BorderStyle: =BorderStyle.None
