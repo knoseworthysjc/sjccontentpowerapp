@@ -226,7 +226,7 @@ offerEditScreen As screen:
                         AddColumns(Filter(
                             Offers,
                             assigned_project.Value = ddProjectFilter.Selected.Title
-                        ),"updated",false)
+                        ),"updated",false,"selected",false)
                     );
                     ClearCollect(colSelectedPageOffers,colSelectedOffers);
                     Clear(colSelectedPageProductImages);
@@ -298,9 +298,8 @@ offerEditScreen As screen:
                                     3
                                 ).Thumbnails,
                                 Blank()
-                            ),
-                            "selected",
-                            false
+                            )
+                            
                         )
                     );
                     /*Clear(colSelectedPageProducts);
@@ -712,7 +711,7 @@ offerEditScreen As screen:
                                 First(
                                     DropColumns(
                                         Table(ThisItem),
-                                        "updated"
+                                        "updated","selected"
                                     )
                                 ),
                                 {
@@ -808,7 +807,7 @@ offerEditScreen As screen:
                         Width: =Parent.Width
                         ZIndex: =2
 
-                        ComboBox1 As combobox:
+                        iptSelectedOfferUpdate As combobox:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =1
                             ChevronBackground: =RGBA(0, 51, 102, 1)
@@ -834,7 +833,7 @@ offerEditScreen As screen:
                             PressedColor: =RGBA(255, 255, 255, 1)
                             PressedFill: =RGBA(0, 89, 178, 1)
                             SearchFields: =["Value"]
-                            SearchItems: =Choices(Offers.Markets,ComboBox1.SearchText)
+                            SearchItems: =Choices(Offers.Markets,iptSelectedOfferUpdate.SearchText)
                             SelectionFill: =RGBA(0, 51, 102, 1)
                             Width: =Parent.Width-32-U
                             X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
@@ -851,7 +850,7 @@ offerEditScreen As screen:
                             Icon: =Icon.Save
                             LayoutMinWidth: =32
                             OnSelect: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:ComboBox1.SelectedItems})
+                                =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:iptSelectedOfferUpdate.SelectedItems})
                             Width: |
                                 =32
                             ZIndex: =2
