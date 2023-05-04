@@ -246,7 +246,24 @@ offerEditScreen As screen:
                                     ).Value,
                                     Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
-                                    type: "image"
+                                    type: "image",zone:"eng"
+                                }
+                            )
+                        ); ForAll(
+                            offer.assigned_images_fre As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    Title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",zone:"fre"
                                 }
                             )
                         );
