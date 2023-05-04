@@ -431,12 +431,12 @@ offerEditScreen As screen:
                 Height: =24
                 IconColor: |-
                     ="#003E7D"
-                IconName: ="Search"
+                IconName: ="Preview"
                 IconSize: =24
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                Text: ="Search"
+                Text: ="Preview Page"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
                 Width: |
@@ -455,7 +455,7 @@ offerEditScreen As screen:
                 Height: =24
                 IconColor: |-
                     ="#003E7D"
-                IconName: ="Search"
+                IconName: ="SharepointLogo"
                 IconSize: =24
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
@@ -468,115 +468,6 @@ offerEditScreen As screen:
                 X: =0
                 Y: =0
                 ZIndex: =5
-
-            "offerCommands As 'Fluent Command Bar (1.0.19)'.pcfdataset":
-                DisplayMode: =DisplayMode.Edit
-                Height: =32
-                Items: |-
-                    =Table(
-                        {
-                            ItemKey: "new",
-                            ItemDisplayName: "New",
-                            ItemIconName: "Add",
-                            ItemIconColor: "#003E7D",
-                            ItemChecked: true,
-                            ItemHeader: "New Offer",
-                            ItemIconOnly: false
-                        },
-                        {
-                            ItemKey: "delete",
-                            ItemDisplayName: "Delete",
-                            ItemIconName: "Delete",
-                            ItemIconColor: "#003E7D"
-                        },
-                        {
-                            ItemKey: "search",
-                            ItemDisplayName: "Search",
-                            ItemIconName: "Search",
-                            ItemIconColor: "#003E7D"
-                        },
-                        {
-                            ItemKey: "preview",
-                            ItemDisplayName: "Preview Page",
-                            ItemIconName: "Preview",
-                            ItemIconColor: "#003E7D"
-                        },
-                        {
-                            ItemKey: "addPage",
-                            ItemDisplayName: "Add Pages",
-                            ItemIconName: "PageAdd",
-                            ItemIconColor: "#003E7D"
-                        },
-                        {
-                            ItemKey: "gotoSharePoint",
-                            ItemDisplayName: "SharePoint",
-                            ItemIconName: "SharepointLogo",
-                            ItemIconColor: "#003E7D"
-                        }
-                    )
-                LayoutMinHeight: =32
-                LayoutMinWidth: =200
-                Width: |
-                    =700
-                X: =0
-                Y: =0
-                ZIndex: =6
-
-                ItemChecked1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemChecked"
-                    FieldName: ="ItemChecked"
-                    FieldType: ="b"
-                    FieldVariantName: ="textualColumn"
-                    Order: =1
-                    ZIndex: =14
-
-                ItemDisplayName1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemDisplayName"
-                    FieldName: ="ItemDisplayName"
-                    FieldType: ="s"
-                    FieldVariantName: ="textualColumn"
-                    Order: =2
-                    ZIndex: =15
-
-                ItemHeader1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemHeader"
-                    FieldName: ="ItemHeader"
-                    FieldType: ="s"
-                    FieldVariantName: ="textualColumn"
-                    Order: =3
-                    ZIndex: =16
-
-                ItemIconColor1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemIconColor"
-                    FieldName: ="ItemIconColor"
-                    FieldType: ="s"
-                    FieldVariantName: ="textualColumn"
-                    Order: =4
-                    ZIndex: =17
-
-                ItemIconName1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemIconName"
-                    FieldName: ="ItemIconName"
-                    FieldType: ="s"
-                    FieldVariantName: ="textualColumn"
-                    Order: =5
-                    ZIndex: =18
-
-                ItemIconOnly1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemIconOnly"
-                    FieldName: ="ItemIconOnly"
-                    FieldType: ="b"
-                    FieldVariantName: ="textualColumn"
-                    Order: =6
-                    ZIndex: =19
-
-                ItemKey1 As pcfDataField.textualColumn:
-                    FieldDisplayName: ="ItemKey"
-                    FieldName: ="ItemKey"
-                    FieldType: ="s"
-                    FieldVariantName: ="textualColumn"
-                    Order: =7
-                    ZIndex: =20
 
             lblPage_1 As label:
                 Align: =Align.Center
