@@ -761,8 +761,6 @@ offerEditScreen As screen:
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.Markets)
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true})
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 89, 178, 1)
                         SearchFields: =["Value"]
@@ -1317,6 +1315,66 @@ offerEditScreen As screen:
                         Size: =11
                         Width: =Parent.Width
                         ZIndex: =6
+
+                    lblOfferType_5 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="Offer Layout"
+                        Width: =Parent.Width
+                        Y: =1
+                        ZIndex: =7
+
+                    ddSeasonFilter_5 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =RGBA(107, 144, 179, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =RGBA(0, 36, 71, 1)
+                        Default: =ThisItem.SBU.Value
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =Choices(Offers.SBU)
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,SBU:Self.Selected})
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =0
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SelectionColor: =RGBA(0, 62, 125, 1)
+                        SelectionFill: =RGBA(235, 245, 255, 1)
+                        Width: =Parent.Width
+                        ZIndex: =8
 
                 conSelectedOfferPage As groupContainer.horizontalAutoLayoutContainer:
                     Height: |
