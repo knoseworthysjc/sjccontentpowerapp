@@ -3203,6 +3203,7 @@ offerEditScreen As screen:
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
                             LoadingSpinner: =LoadingSpinner.Data
+                            OnSelect: =
                             TemplateSize: =Self.Width/6
                             WrapCount: |
                                 =6
@@ -3249,6 +3250,10 @@ offerEditScreen As screen:
                                 IconName: ="RemoveLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
+                                OnChange: |-
+                                    =ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,Title<>ThisItem.Title And offerId<>ThisItem.offerId));
+                                    ClearCollect(colSelectedOfferUpdateImages,Filter(
+                                    Patch(colSelectedOffers,galSelectedOffers.Selected,{});
                                 Width: =40
                                 X: =185
                                 Y: =4
