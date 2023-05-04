@@ -3742,7 +3742,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "conRelistHeading",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13111,7 +13111,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate5_2",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14887,7 +14887,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon1_12",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16052,7 +16052,8 @@
           "InvariantPropertyName": "Tooltip",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -16189,6 +16190,11 @@
           "Category": "Design",
           "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -44435,7 +44441,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblPreviewOffer_Source",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -52599,7 +52605,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_assets_2",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -52805,7 +52811,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_boarder_2",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -53052,7 +53058,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_MultiSaveEach_2",
-      "ParentIndex": 10,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -53431,7 +53437,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_MultiSaveEach_lbl_2",
-      "ParentIndex": 4,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -54174,7 +54180,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerCopy_2",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -55236,7 +55242,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_2",
-      "ParentIndex": 9,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -55522,7 +55528,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_rectangle_2",
-      "ParentIndex": 8,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -55755,7 +55761,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_rollBack_2",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -56113,7 +56119,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "previewOffer_saveNow_2",
-      "ParentIndex": 0,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -56184,7 +56190,7 @@
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
