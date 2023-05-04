@@ -936,7 +936,17 @@ offerEditScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Size: =13
-                            Text: ="Text"
+                            Text: |-
+                                =If(
+                                    Concat(
+                                        ThisItem.Markets,
+                                        Value
+                                    ) = "ABBCMBNBNLNSONPEQCSK",
+                                    "All",
+                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"AB.*BC.*MB.*SK",MatchOptions.Contains),"West","")&
+                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"NB.*NL.*NS.*PE",MatchOptions.Contains),"Atl","")
+                                )
+                            Visible: =false
                             ZIndex: =1
 
                         iptSelectedOfferUpdate As combobox:
