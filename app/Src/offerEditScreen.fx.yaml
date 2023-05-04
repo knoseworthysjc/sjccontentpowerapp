@@ -790,6 +790,7 @@ offerEditScreen As screen:
                                 }
                             );
                             Patch(colSelectedOffers,ThisItem,{updated:false});
+                        Visible: =ThisItem.updated
                         Width: |
                             =40
                         ZIndex: =1
@@ -803,6 +804,7 @@ offerEditScreen As screen:
                         Icon: =Icon.Undo
                         LayoutMinHeight: =25
                         LayoutMinWidth: =40
+                        Visible: =ThisItem.updated
                         Width: |
                             =40
                         ZIndex: =2
@@ -816,6 +818,7 @@ offerEditScreen As screen:
                         Icon: =Icon.Trash
                         LayoutMinHeight: =25
                         LayoutMinWidth: =40
+                        Visible: =ThisItem.updated
                         Width: |
                             =40
                         ZIndex: =3
