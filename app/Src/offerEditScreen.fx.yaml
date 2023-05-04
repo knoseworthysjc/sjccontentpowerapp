@@ -787,6 +787,8 @@ offerEditScreen As screen:
                             Height: =32
                             Icon: =Icon.Save
                             LayoutMinWidth: =32
+                            OnSelect: |-
+                                =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:ComboBox1.SelectedItems})
                             Width: |
                                 =32
                             ZIndex: =2
