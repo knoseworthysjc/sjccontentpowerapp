@@ -3418,20 +3418,6 @@ offerEditScreen As screen:
                                 Y: =4
                                 ZIndex: =3
 
-    imgOfferLogo As image:
-        BorderColor: =RGBA(0, 36, 71, 1)
-        BorderThickness: =1
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(250, 250, 250, 1)
-        Height: =conHeader.Height*2
-        Image: |-
-            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
-        ImagePosition: =ImagePosition.Fill
-        Width: =220
-        X: =Parent.Width-Self.Width
-        ZIndex: =2
-
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height-Self.Y
@@ -3442,7 +3428,7 @@ offerEditScreen As screen:
         Width: =Parent.Width-Self.X
         X: =Parent.Width*0.7
         Y: =69
-        ZIndex: =3
+        ZIndex: =2
 
         conRelistHeader_1 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
@@ -3888,7 +3874,7 @@ offerEditScreen As screen:
         Width: =Parent.Width*0.2
         X: =nav_icon_7.X+nav_icon_7.Width/2
         Y: =nav_icon_7.Height
-        ZIndex: =4
+        ZIndex: =3
 
         nav_gallery_7 As gallery.galleryVertical:
             BorderColor: =RGBA(0, 89, 178, 1)
@@ -3948,4 +3934,18 @@ offerEditScreen As screen:
                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
                 Y: =Parent.TemplatePadding
                 ZIndex: =3
+
+    imgOfferLogo As image:
+        BorderColor: =RGBA(0, 36, 71, 1)
+        BorderThickness: =1
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =conHeader.Height*2
+        Image: |-
+            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
+        ImagePosition: =ImagePosition.Fill
+        Width: =220
+        X: =Parent.Width-Self.Width
+        ZIndex: =4
 
