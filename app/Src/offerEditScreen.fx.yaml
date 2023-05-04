@@ -720,7 +720,8 @@ offerEditScreen As screen:
                                 First(
                                     DropColumns(
                                         Table(ThisItem),
-                                        "updated","selected"
+                                        "updated",
+                                        "selected"
                                     )
                                 ),
                                 {
@@ -746,7 +747,18 @@ offerEditScreen As screen:
                                     eco_fee: ThisItem.eco_fee,
                                     event_price_lb: ThisItem.event_price_lb,
                                     regular_price_lb: ThisItem.regular_price_lb,
-                                    'Savings(LB)': ThisItem.'Savings(LB)',unit:ThisItem.unit,unit_fre:ThisItem.unit_fre,installment_amount:ThisItem.installment_amount,installment_frequency:ThisItem.installment_frequency,multi_save:ThisItem.multi_save,multi_save_fre:ThisItem.multi_save_fre,callout:ThisItem.callout,image_source:ThisItem.image_source,offer_comments:ThisItem.offer_comments
+                                    'Savings(LB)': ThisItem.'Savings(LB)',
+                                    unit: ThisItem.unit,
+                                    unit_fre: ThisItem.unit_fre,
+                                    installment_amount: ThisItem.installment_amount,
+                                    installment_frequency: ThisItem.installment_frequency,
+                                    multi_save: ThisItem.multi_save,
+                                    multi_save_fre: ThisItem.multi_save_fre,
+                                    callout: ThisItem.callout,
+                                    image_source: ThisItem.image_source,
+                                    offer_comments: ThisItem.offer_comments,
+                                    assigned_images: ThisItem.assigned_images,
+                                    assigned_logos: ThisItem.assigned_logos
                                 }
                             )
                         Visible: =ThisItem.updated
