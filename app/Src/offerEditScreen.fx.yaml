@@ -464,6 +464,16 @@ offerEditScreen As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
+                OnChange: |-
+                    =Launch("https://sjccontent.sharepoint.com/teams/WalmartContent/Lists/Offers/AllItems.aspx?",{
+                        FilterField1:"assigned_project",
+                        FilterValue1:ddProjectFilter.Selected.Title,
+                        FilterType1:"Lookup",
+                        FilterField2:"page_from",
+                        FilterValue2:ddPageFilter.Selected.page_from,
+                        FilterType2:"Text",
+                        viewid:"4067f358-b5d6-4124-9b94-31c37603b993"
+                    },LaunchTarget.New)
                 Text: ="SharePoint"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
