@@ -3314,7 +3314,7 @@ offerEditScreen As screen:
                                 ChevronHoverBackground: =RGBA(212, 212, 212, 1)
                                 ChevronHoverFill: =RGBA(33, 33, 33, 1)
                                 Color: =RGBA(0, 62, 125, 1)
-                                Default: ="images"
+                                Default: ="Images"
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -3325,7 +3325,7 @@ offerEditScreen As screen:
                                 HoverColor: =RGBA(51, 51, 51, 1)
                                 HoverFill: =RGBA(212, 212, 212, 1)
                                 Items: |-
-                                    =Table({searchImageType:"Images",xinetPaths:Table({pathId:"1556374"},{pathId:"1556964"})},{searchImageType:"Logos",xinetPaths:Table({pathId:"1553479"})},{searchImageType:"Icons",xinetPaths:Table({pathId:"1553479"})})
+                                    =Table({searchImageType:"Images",assetType:"image",xinetPaths:Table({pathId:"1556374"},{pathId:"1556964"})},{searchImageType:"Logos",xinetPaths:Table({pathId:"1553479"}),assetType:"logo"},{searchImageType:"Icons",xinetPaths:Table({pathId:"1553479"}),assetType:"icon"})
                                 OnChange: =Clear(colOfferAssetSearchResults)
                                 PaddingBottom: =5
                                 PaddingLeft: =12
@@ -3460,7 +3460,7 @@ offerEditScreen As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
-                                OnChange: |-
+                                OnChange: |
                                     =
                                     ClearCollect(
                                             assignAsset,
@@ -3479,14 +3479,26 @@ offerEditScreen As screen:
                                                     fullpath: ThisItem.FILE_PATH,
                                                     macpath: ThisItem.FILE_PATH,
                                                     pcpath: ThisItem.FILE_PATH,
-                                                    file_id: ThisItem.FILE_ID
+                                                    file_id: ThisItem.FILE_ID,xinet_asset_type:
                                                 }
                                             ))
                                         );
-                                        
+                                        Switch(ddAssetSearchType.Selected.searchImageType,
+                                        "images",
+                                             If(
+                                            IsMatch(
+                                                ThisItem.FILE_NAME,
+                                                "/FR/i",
+                                                MatchOptions.Contains
+                                            ),
+                                        "logos",
+                                        Notify("Logos");
+                                        "icons"
+                                        Notify("Icons");   
+                                        )
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                                Y: =4
+                                Y: =0
                                 ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
