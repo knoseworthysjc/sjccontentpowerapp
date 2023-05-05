@@ -3487,7 +3487,7 @@ offerEditScreen As screen:
                                     );
                                     Switch(
                                         ddAssetSearchType.Selected.assetType,
-                                        "image",Notify("Image");
+                                        "image",
                                         If(
                                             IsMatch(
                                                 ThisItem.FILE_NAME,
@@ -3497,9 +3497,9 @@ offerEditScreen As screen:
                                             ClearCollect(
                                                 assignAssets,
                                                 galSelectedOffers.Selected.assigned_images_fre
-                                            );Notify("FRE");
+                                            );
                                             ,
-                                            Notify("ENG");
+                                            
                                             ClearCollect(
                                                 assignAssets,
                                                 galSelectedOffers.Selected.assigned_images
@@ -3515,7 +3515,9 @@ offerEditScreen As screen:
                                             assignAssets,
                                             galSelectedOffers.Selected.assigned_logos
                                         );
-                                    )
+                                    );
+                                    
+                                    Collect(assignAssets,{Id:First(assignAsset).ID,Value:First(assignAsset).fullpath})
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
