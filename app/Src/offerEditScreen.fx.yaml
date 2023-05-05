@@ -3517,7 +3517,7 @@ offerEditScreen As screen:
                                         );
                                     );
                                     
-                                    //Collect(assignAssets,{Id:First(assignAsset).ID,Value:First(assignAsset).fullpath})
+                                    Collect(assignAssets,{Id:First(assignAsset).ID,Value:First(assignAsset).fullpath})
                                     //Clear(assignAsset);Clear(assignAssets);
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
