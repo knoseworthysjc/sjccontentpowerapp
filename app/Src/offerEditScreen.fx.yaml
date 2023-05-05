@@ -3489,26 +3489,70 @@ offerEditScreen As screen:
                                     Switch(
                                         ddAssetSearchType.Selected.assetType,
                                         "image",
-                                        ClearCollect(
-                                            assignedImages,
-                                            galSelectedOffers.Selected.assigned_images
-                                        );
-                                        Patch(
-                                            assignedImages,
-                                            {
-                                                Id: First(assignAsset).ID,
-                                                Value: First(assignAsset).fullpath
-                                            }
-                                        );
-                                        Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images:assignedImages});
-                                        Collect(
+                                        If(
+                                            IsMatch(
+                                                ThisItem.FILE_NAME,
+                                                "/FR/i",
+                                                MatchOptions.Contains
+                                            ),
+                                             ClearCollect(
+                                                assignedImages,
+                                                galSelectedOffers.Selected.assigned_images_fre
+                                            );
+                                            Patch(
+                                                assignedImages,
+                                                {
+                                                    Id: First(assignAsset).ID,
+                                                    Value: First(assignAsset).fullpath
+                                                }
+                                            );
+                                            Patch(
+                                                colSelectedOffers,
+                                                galSelectedOffers.Selected,
+                                                {assigned_images_fre: assignedImages,updated: true}
+                                            );
+                                            Collect(
                                                 colSelectedPageProductImages,
                                                 {
                                                     offerId: galSelectedOffers.Selected.ID,
-                                                    id:First(assignAsset).ID,
+                                                    id: First(assignAsset).ID,
                                                     title: Last(
                                                         Split(
-                                                           First(assignAsset).fullpath,
+                                                            First(assignAsset).fullpath,
+                                                            "/"
+                                                        )
+                                                    ).Value,
+                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
+                                                    selected: false,
+                                                    type: "image",
+                                                    lang: "eng",
+                                                    value: First(assignAsset).fullpath
+                                                }
+                                            ),
+                                            ClearCollect(
+                                                assignedImages,
+                                                galSelectedOffers.Selected.assigned_images
+                                            );
+                                            Patch(
+                                                assignedImages,
+                                                {
+                                                    Id: First(assignAsset).ID,
+                                                    Value: First(assignAsset).fullpath
+                                                }
+                                            );
+                                            Patch(
+                                                colSelectedOffers,
+                                                galSelectedOffers.Selected,
+                                                {assigned_images: assignedImages,updated: true}
+                                            );
+                                            Collect(
+                                                colSelectedPageProductImages,
+                                                {
+                                                    offerId: galSelectedOffers.Selected.ID,
+                                                    id: First(assignAsset).ID,
+                                                    title: Last(
+                                                        Split(
+                                                            First(assignAsset).fullpath,
                                                             "/"
                                                         )
                                                     ).Value,
@@ -3519,6 +3563,7 @@ offerEditScreen As screen:
                                                     value: First(assignAsset).fullpath
                                                 }
                                             )
+                                        )
                                     )
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
