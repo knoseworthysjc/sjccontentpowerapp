@@ -777,6 +777,16 @@ offerEditScreen As screen:
                 TemplateSize: =Self.Height/2.0
                 ZIndex: =3
 
+                Rectangle1 As rectangle:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderThickness: =U
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =U
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
                 conSelectedOffersCmds As groupContainer.horizontalAutoLayoutContainer:
                     BorderColor: =If(ThisItem.updated,RGBA(216, 116, 116, 60%),RGBA(255, 255, 255, 1))
                     BorderStyle: =BorderStyle.None
@@ -790,7 +800,7 @@ offerEditScreen As screen:
                     Width: =(Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20)
                     X: =Checkbox2.X+Checkbox2.Width+U*2
                     Y: =Parent.TemplatePadding
-                    ZIndex: =1
+                    ZIndex: =2
 
                     Checkbox1 As checkbox:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -929,7 +939,7 @@ offerEditScreen As screen:
                         =450
                     X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U*2
                     Y: =U
-                    ZIndex: =2
+                    ZIndex: =3
 
                     lblOfferItems_3 As label:
                         Align: =Align.Center
@@ -1294,7 +1304,7 @@ offerEditScreen As screen:
                     Width: =165
                     X: =U
                     Y: =conSelectedOfferPage.Y+conSelectedOfferPage.Height+U
-                    ZIndex: =3
+                    ZIndex: =4
 
                     lblOfferType_1 As label:
                         Align: =Align.Center
@@ -1536,7 +1546,7 @@ offerEditScreen As screen:
                     Width: =165
                     X: =U
                     Y: =U
-                    ZIndex: =4
+                    ZIndex: =5
 
                     lblOfferPg_1 As label:
                         Align: =Align.Center
@@ -1705,7 +1715,7 @@ offerEditScreen As screen:
                     Width: =750
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =U
-                    ZIndex: =5
+                    ZIndex: =6
 
                     Container12 As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -2049,7 +2059,7 @@ offerEditScreen As screen:
                     Width: =467
                     X: =conSelectedOfferUnits.X+conSelectedOfferUnits.Width+U*2
                     Y: =conSelectedOfferPrice.Y+conSelectedOfferPrice.Height+U*2
-                    ZIndex: =6
+                    ZIndex: =7
 
                     lblOfferStatus_12 As label:
                         Align: =Align.Center
@@ -2236,7 +2246,7 @@ offerEditScreen As screen:
                     Width: =467
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
-                    ZIndex: =7
+                    ZIndex: =8
 
                     lblExistingOfferTotalPrice_2 As label:
                         Align: =Align.Center
@@ -2538,7 +2548,7 @@ offerEditScreen As screen:
                     Width: =280
                     X: =conSelectedOfferPrice.X+conSelectedOfferPrice.Width+U*2
                     Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
-                    ZIndex: =8
+                    ZIndex: =9
 
                     offer_eventprice_lbl_3 As label:
                         Align: =Align.Center
@@ -2722,7 +2732,7 @@ offerEditScreen As screen:
                     Width: =280
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =158
-                    ZIndex: =9
+                    ZIndex: =10
 
                     offer_eventprice_lbl_4 As label:
                         Align: =Align.Center
@@ -2879,7 +2889,7 @@ offerEditScreen As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =11
-                        Text: ="Duration"
+                        Text: ="Frequency"
                         Width: =(Parent.Width-U*2)/2
                         ZIndex: =6
 
@@ -2922,7 +2932,7 @@ offerEditScreen As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(116, 116, 116, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.installment_amount
+                        Default: =ThisItem.installment_frequency
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2954,14 +2964,14 @@ offerEditScreen As screen:
                         ZIndex: =8
 
                 conSelectedOfferComments As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.TemplateHeight-Self.Y-U
+                    Height: =Parent.TemplateHeight-Self.Y-Parent.TemplatePadding*4
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
                     Y: =40
-                    ZIndex: =10
+                    ZIndex: =11
 
                     lblOfferType_4 As label:
                         Align: =Align.Center
@@ -3101,7 +3111,7 @@ offerEditScreen As screen:
                     Width: =125
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width
                     Y: =Parent.TemplatePadding
-                    ZIndex: =11
+                    ZIndex: =12
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 AlignInContainer: =AlignInContainer.SetByContainer
