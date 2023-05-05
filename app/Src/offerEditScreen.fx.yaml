@@ -941,25 +941,18 @@ offerEditScreen As screen:
                                     Value,
                                     ","
                                 ) = "AB,BC,MB,NB,NL,NS,ON,PE,QC,SK",
-                                "All",
+                                "All")&
                                 If(
                                 Concat(
                                     iptSelectedOfferUpdate.SelectedItems,
                                     Value,
                                     ","
-                                )="NB,NL,NS,PE","Atl",
-                                If(Concat(
+                                ) <> "AB,BC,MB,NB,NL,NS,ON,PE,QC,SK" And IsMatch(Concat(
                                     iptSelectedOfferUpdate.SelectedItems,
                                     Value,
                                     ","
-                                )="AB,BC,MB,SK","West",
-                                
-                                Concat(
-                                    iptSelectedOfferUpdate.SelectedItems,
-                                    Value,
-                                    ","
-                                )))
-                            ) & ")"
+                                ),"^(?=.*AB)(?=.*BC)(?=.*SK)(?=.MB).",MatchOptions.Contains), "West")
+                                &")"
                         Width: |
                             =450
                         X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
