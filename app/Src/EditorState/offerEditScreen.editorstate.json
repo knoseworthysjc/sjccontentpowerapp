@@ -18284,7 +18284,8 @@
         "ZIndex",
         "BorderThickness",
         "FocusedBorderThickness",
-        "Visible"
+        "Visible",
+        "OnSelect"
       ],
       "DynamicProperties": [
         {
@@ -18462,6 +18463,11 @@
         {
           "Category": "Design",
           "PropertyName": "Visible",
+          "RuleProviderType": "User"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSelect",
           "RuleProviderType": "User"
         }
       ],
