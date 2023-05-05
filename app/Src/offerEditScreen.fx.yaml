@@ -247,6 +247,7 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
+                                    Id:imglist.Id,
                                     Title: Last(
                                         Split(
                                             imglist.Value,
@@ -267,6 +268,7 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
+                                    Id:imglist.Id,
                                     Title: Last(
                                         Split(
                                             imglist.Value,
@@ -287,6 +289,7 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
+                                    Id:imglist.Id,
                                     Title: Last(
                                         Split(
                                             imglist.Value,
@@ -3266,7 +3269,8 @@ offerEditScreen As screen:
                                                 )
                                             }
                                         )
-                                    ))
+                                    ));
+                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Value<>Value))
                                 Width: |
                                     =30
                                 X: =191
