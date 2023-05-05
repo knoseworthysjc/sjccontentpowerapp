@@ -256,7 +256,7 @@ offerEditScreen As screen:
                                     Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "image",
-                                    zone: "eng",
+                                    lang: "eng",
                                     Value: imglist.Value
                                 }
                             )
@@ -276,12 +276,31 @@ offerEditScreen As screen:
                                     Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "image",
-                                    zone: "fre",
+                                    lang: "fre",
                                     Value: imglist.Value
                                 }
                             )
                         );
-                        
+                        ForAll(
+                            offer.assigned_logos As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    Title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang:Blank(),
+                                    Value: imglist.Value
+                                }
+                            )
+                        );
                     );
                     ClearCollect(
                         conSelectedOfferPreviews,
@@ -3219,7 +3238,8 @@ offerEditScreen As screen:
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
                                 OnChange: |-
-                                    =If(
+                                    =Switch(ThisItem.type,"Images",
+                                    If(
                                         IsMatch(
                                             ThisItem.Title,
                                             "/FR/i"
@@ -3246,7 +3266,7 @@ offerEditScreen As screen:
                                                 )
                                             }
                                         )
-                                    )
+                                    ))
                                 Width: |
                                     =30
                                 X: =191
