@@ -9764,66 +9764,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersCmds.Icon3_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersCmds.Icon3_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersCmds.Icon3_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersCmds.Icon3_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersCmds.Icon3_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.conSelectedOffersCmds.Icon3_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
@@ -9854,17 +9794,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.showMergeOffers"
+                  "fullyQualifiedName": "App.displaySplitOffer"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.showMergeOffers",
+                  "fullyQualifiedName": "App.displaySplitOffer",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "showMergeOffers",
+                "member": "displaySplitOffer",
                 "module": "App",
                 "type": "App"
               }

@@ -823,19 +823,28 @@ offerEditScreen As screen:
                         Y: =4
                         ZIndex: =1
 
-                    Icon3_1 As icon.Save:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(168, 0, 0, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =30
-                        Icon: =Icon.Compose
-                        LayoutMinHeight: =25
-                        LayoutMinWidth: =40
-                        OnSelect: =Set(showMergeOffers,true);
-                        Tooltip: ="Merge Offers"
-                        Width: |
-                            =40
+                    "Icon1_16 As 'Fluent Icon (1.0.19)'":
+                        BorderColor: =""
+                        BorderRadius: =0
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: |-
+                            ="#003E7D"
+                        FontSize: =0
+                        Height: =40
+                        IconColor: |-
+                            ="#003E7D"
+                        IconName: ="Split"
+                        IconSize: =28
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =165
+                        OnChange: =Set(displaySplitOffer,true);
+                        Text: ="Upload"
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Tooltip: ="Add Pages"
+                        Width: =40
+                        X: =0
+                        Y: =0
                         ZIndex: =2
 
                     Icon3 As icon.Save:
