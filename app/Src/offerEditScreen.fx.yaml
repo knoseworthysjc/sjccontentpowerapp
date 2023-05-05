@@ -247,18 +247,18 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
-                                    Id:imglist.Id,
-                                    Title: Last(
+                                    id:imglist.Id,
+                                    title: Last(
                                         Split(
                                             imglist.Value,
                                             "/"
                                         )
                                     ).Value,
-                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "image",
                                     lang: "eng",
-                                    Value: imglist.Value
+                                    value: imglist.Value
                                 }
                             )
                         );
@@ -268,18 +268,18 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
-                                    Id:imglist.Id,
-                                    Title: Last(
+                                    id:imglist.Id,
+                                    title: Last(
                                         Split(
                                             imglist.Value,
                                             "/"
                                         )
                                     ).Value,
-                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "image",
                                     lang: "fre",
-                                    Value: imglist.Value
+                                    value: imglist.Value
                                 }
                             )
                         );
@@ -289,18 +289,18 @@ offerEditScreen As screen:
                                 colSelectedPageProductImages,
                                 {
                                     offerId: offer.ID,
-                                    Id:imglist.Id,
-                                    Title: Last(
+                                    id:imglist.Id,
+                                    title: Last(
                                         Split(
                                             imglist.Value,
                                             "/"
                                         )
                                     ).Value,
-                                    Thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "image",
                                     lang:Blank(),
-                                    Value: imglist.Value
+                                    value: imglist.Value
                                 }
                             )
                         );
@@ -3206,7 +3206,7 @@ offerEditScreen As screen:
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                                 Image: |-
-                                    =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.Thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
+                                    =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
                                 OnSelect: =Select(Parent);Launch(ThisItem.Thumbnails)
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
@@ -3228,7 +3228,7 @@ offerEditScreen As screen:
                                 PaddingRight: =0
                                 PaddingTop: =0
                                 Size: =10
-                                Text: =ThisItem.Title
+                                Text: =ThisItem.title
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
@@ -3240,10 +3240,10 @@ offerEditScreen As screen:
                                     =30
                                 IconName: ="RemoveLink"
                                 IconSize: =28
-                                IconType: ='PowerCAT.Icon.IconType'.Icon
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: |-
-                                    =Notify(ThisItem.lang);
-                                    Switch(ThisItem.type,"Images",
+                                    =Patch(colSelectedOffers,galSelectedOffers.Selected,{updated:true});
+                                    Switch(ThisItem.type,"images",
                                     If(
                                         ThisItem.lang="fre",
                                         Patch(
@@ -3269,7 +3269,7 @@ offerEditScreen As screen:
                                             }
                                         )
                                     ));
-                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Id<>Id))
+                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Id<>Id And type=ThisItem.type))
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Unlink Images"
                                 Width: |
