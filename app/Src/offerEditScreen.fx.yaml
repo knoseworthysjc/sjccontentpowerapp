@@ -3518,10 +3518,11 @@ offerEditScreen As screen:
                                     );
                                     
                                     //Collect(assignAssets,{Id:First(assignAsset).ID,Value:First(assignAsset).fullpath})
+                                    //Clear(assignAsset);Clear(assignAssets);
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                                Y: =28
+                                Y: =U
                                 ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
