@@ -3460,18 +3460,19 @@ offerEditScreen As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
-                                OnChange: |
-                                    =
-                                    ClearCollect(
+                                OnChange: |-
+                                    =ClearCollect(
+                                        assignAsset,
+                                        Filter(
+                                            xinet_images,
+                                            Title = ThisItem.FILE_NAME
+                                        )
+                                    );
+                                    If(
+                                        CountRows(xinet_image_exists) = 0,
+                                        Collect(
                                             assignAsset,
-                                            Filter(
-                                                xinet_images,
-                                                Title = ThisItem.FILE_NAME
-                                            )
-                                        );
-                                        If(
-                                            CountRows(xinet_image_exists) = 0,
-                                            Collect(assignAsset,Patch(
+                                            Patch(
                                                 xinet_images,
                                                 Defaults(xinet_images),
                                                 {
@@ -3479,26 +3480,32 @@ offerEditScreen As screen:
                                                     fullpath: ThisItem.FILE_PATH,
                                                     macpath: ThisItem.FILE_PATH,
                                                     pcpath: ThisItem.FILE_PATH,
-                                                    file_id: ThisItem.FILE_ID,xinet_asset_type:
+                                                    file_id: ThisItem.FILE_ID,
+                                                    xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType}
                                                 }
-                                            ))
-                                        );
-                                        Switch(ddAssetSearchType.Selected.searchImageType,
-                                        "images",
-                                             If(
-                                            IsMatch(
-                                                ThisItem.FILE_NAME,
-                                                "/FR/i",
-                                                MatchOptions.Contains
-                                            ),
-                                        "logos",
-                                        Notify("Logos");
-                                        "icons"
-                                        Notify("Icons");   
+                                            )
                                         )
+                                    );
+                                    Switch(
+                                        ddAssetSearchType.Selected.assetType,
+                                        "image",
+                                        ClearCollect(
+                                            assignedImages,
+                                            galSelectedOffers.Selected.assigned_images
+                                        );
+                                        Patch(
+                                            assignedImages,
+                                            {
+                                                Id: First(assignAsset).ID,
+                                                Value: First(assignAsset).fullpath
+                                            }
+                                        );
+                                        Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images:assignedImages});
+                                        
+                                    )
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                                Y: =0
+                                Y: =7
                                 ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
