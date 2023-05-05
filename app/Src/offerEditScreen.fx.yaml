@@ -3278,7 +3278,7 @@ offerEditScreen As screen:
                                 Width: |
                                     =30
                                 X: =191
-                                Y: =25
+                                Y: =U
                                 ZIndex: =3
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
@@ -3537,6 +3537,24 @@ offerEditScreen As screen:
                                         Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_logos:assignAssets,updated:true});
                                     );
                                      
+                                     Collect(
+                                                colSelectedPageProductImages,
+                                                {
+                                                    offerId: galSelectedOffers.Selected.ID,
+                                                    id:First(assignAsset).ID,
+                                                    title: Last(
+                                                        Split(
+                                                            First(assignAsset).fullpath,
+                                                            "/"
+                                                        )
+                                                    ).Value,
+                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
+                                                    selected: false,
+                                                    type: "image",
+                                                    lang: "fre",
+                                                    value: First(assignAsset).fullpath
+                                                }
+                                            );
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =123
