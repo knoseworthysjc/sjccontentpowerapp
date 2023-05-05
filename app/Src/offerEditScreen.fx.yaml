@@ -3456,7 +3456,7 @@ offerEditScreen As screen:
                                     
                                     If(
                                         IsMatch(
-                                            ThisItem.Title,
+                                            ThisItem.FILE_NAME,
                                             "/FR/i"
                                         ),
                                         Patch(
