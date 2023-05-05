@@ -3501,7 +3501,24 @@ offerEditScreen As screen:
                                             }
                                         );
                                         Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images:assignedImages});
-                                        
+                                        Collect(
+                                                colSelectedPageProductImages,
+                                                {
+                                                    offerId: galSelectedOffers.Selected.ID,
+                                                    id:First(assignAsset).ID,
+                                                    title: Last(
+                                                        Split(
+                                                           First(assignAsset).fullpath,
+                                                            "/"
+                                                        )
+                                                    ).Value,
+                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
+                                                    selected: false,
+                                                    type: "image",
+                                                    lang: "eng",
+                                                    value: First(assignAsset).fullpath
+                                                }
+                                            )
                                     )
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
