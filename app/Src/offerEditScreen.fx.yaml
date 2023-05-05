@@ -3219,9 +3219,34 @@ offerEditScreen As screen:
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
                                 OnChange: |-
-                                    =If(IsMatch(ThisItem.Title,"/FR/i"),
-                                    Patch(colSelectedOffers,galSelectedOffers.Selected,{updated:true,assigned_images_fre:Filter(galSelectedOffers.Selected.assigned_images,Value<>ThisItem.Value)}),
-                                    Patch(colSelectedOffers,galSelectedOffers.Selected,{updated:true,assigned_images:Filter(galSelectedOffers.Selected.assigned_images,Value<>ThisItem.Value)}))
+                                    =If(
+                                        IsMatch(
+                                            ThisItem.Title,
+                                            "/FR/i"
+                                        ),
+                                        Patch(
+                                            colSelectedOffers,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                updated: true,
+                                                assigned_images_fre: Filter(
+                                                    galSelectedOffers.Selected.assigned_images,
+                                                    Value <> ThisItem.Value
+                                                )
+                                            }
+                                        ),
+                                        Patch(
+                                            colSelectedOffers,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                updated: true,
+                                                assigned_images: Filter(
+                                                    galSelectedOffers.Selected.assigned_images,
+                                                    Value <> ThisItem.Value
+                                                )
+                                            }
+                                        )
+                                    )
                                 Width: |
                                     =30
                                 X: =191
@@ -3406,7 +3431,57 @@ offerEditScreen As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
-                                OnChange: =
+                                OnChange: |-
+                                    =ClearCollect(
+                                        xinet_image_exists,
+                                        Filter(
+                                            xinet_images,
+                                            Title = ThisItem.FILE_NAME
+                                        )
+                                    );
+                                    If(
+                                        CountRows(xinet_image_exists) = 0,
+                                        Patch(
+                                            xinet_images,
+                                            Defaults(xinet_images),
+                                            {
+                                                Title: ThisItem.FILE_NAME,
+                                                fullpath: ThisItem.FILE_PATH,
+                                                macpath: ThisItem.FILE_PATH,
+                                                pcpath: ThisItem.FILE_PATH,
+                                                file_id: ThisItem.FILE_ID
+                                            }
+                                        )
+                                    );
+                                    
+                                    If(
+                                        IsMatch(
+                                            ThisItem.Title,
+                                            "/FR/i"
+                                        ),
+                                        Patch(
+                                            colSelectedOffers,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                updated: true,
+                                                assigned_images_fre: Filter(
+                                                    galSelectedOffers.Selected.assigned_images,
+                                                    ThisItem.FILE_NAME<>Value
+                                                )
+                                            }
+                                        ),
+                                        Patch(
+                                            colSelectedOffers,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                updated: true,
+                                                assigned_images: Filter(
+                                                    galSelectedOffers.Selected.assigned_images,
+                                                    Value <> ThisItem.FILE_NAME
+                                                )
+                                            }
+                                        )
+                                    )
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
                                 Y: =4
