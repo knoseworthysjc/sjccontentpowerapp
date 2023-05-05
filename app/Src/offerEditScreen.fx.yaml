@@ -3273,7 +3273,8 @@ offerEditScreen As screen:
                                         )
                                     ));
                                     
-                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
+                                    //ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
+                                    Remove(colSelectedPageProductImages,ThisItem);
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Unlink Images"
                                 Width: |
