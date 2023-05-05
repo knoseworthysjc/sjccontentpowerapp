@@ -844,7 +844,7 @@ offerEditScreen As screen:
                                     image_source: ThisItem.image_source,
                                     offer_comments: ThisItem.offer_comments,
                                     assigned_images: ThisItem.assigned_images,
-                                    assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type
+                                    assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre
                                 }
                             );
                             Patch(colSelectedOffers,ThisItem,{updated:false});
@@ -3242,8 +3242,7 @@ offerEditScreen As screen:
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: |-
-                                    =
-                                    Switch(ThisItem.type,"images",
+                                    =Switch(ThisItem.type,"image",
                                     
                                     If(
                                         ThisItem.lang="fre",
