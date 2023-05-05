@@ -3063,42 +3063,6 @@ offerEditScreen As screen:
                     Y: =Parent.TemplatePadding
                     ZIndex: =11
 
-                "Gallery5 As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver4.0'":
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    DelayItemLoading: =true
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =187
-                    Items: =ThisItem.assigned_images
-                    Layout: =Layout.Vertical
-                    LoadingSpinner: =LoadingSpinner.Data
-                    TemplatePadding: =4
-                    TemplateSize: =72
-                    Width: =1052
-                    WrapCount: =2
-                    X: =50
-                    Y: =69
-                    ZIndex: =12
-
-                    TextInput1 As text:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        BorderThickness: =2
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.Value
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =4
-                        Height: =56
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        OnSelect: =Select(Parent)
-                        Size: =13
-                        Width: =503
-                        X: =8
-                        Y: =8
-                        ZIndex: =2
-
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 62, 125, 1)
@@ -3283,7 +3247,7 @@ offerEditScreen As screen:
                                     
                                     If(
                                         ThisItem.lang="fre",
-                                        Notify("Images Fre");
+                                        
                                         Patch(
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
@@ -3295,7 +3259,6 @@ offerEditScreen As screen:
                                                 )
                                             }
                                         ),
-                                        Notify("Images Eng");
                                         Patch(
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
@@ -3496,12 +3459,12 @@ offerEditScreen As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: |
+                                OnChange: |-
                                     =ClearCollect(
                                         assignAsset,
                                         Filter(
                                             xinet_images,
-                                            fullpath = ThisItem.FILE_PATH
+                                            Title = ThisItem.FILE_NAME
                                         )
                                     );
                                     If(
@@ -3528,84 +3491,34 @@ offerEditScreen As screen:
                                         If(
                                             IsMatch(
                                                 ThisItem.FILE_NAME,
-                                                "/FR/i",
+                                                "FR",
                                                 MatchOptions.Contains
                                             ),
-                                             ClearCollect(
-                                                assignedImages,
+                                            ClearCollect(
+                                                assignAssets,
                                                 galSelectedOffers.Selected.assigned_images_fre
                                             );
-                                            Patch(
-                                                assignedImages,
-                                                {
-                                                    Id: First(assignAsset).ID,
-                                                    Value: First(assignAsset).fullpath
-                                                }
-                                            );
-                                            Patch(
-                                                colSelectedOffers,
-                                                galSelectedOffers.Selected,
-                                                {assigned_images_fre: assignedImages,updated: true}
-                                            );
-                                            Collect(
-                                                colSelectedPageProductImages,
-                                                {
-                                                    offerId: galSelectedOffers.Selected.ID,
-                                                    id: First(assignAsset).ID,
-                                                    title: Last(
-                                                        Split(
-                                                            First(assignAsset).fullpath,
-                                                            "/"
-                                                        )
-                                                    ).Value,
-                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
-                                                    selected: false,
-                                                    type: "image",
-                                                    lang: "eng",
-                                                    value: First(assignAsset).fullpath
-                                                }
-                                            ),
+                                            ,
                                             ClearCollect(
-                                                assignedImages,
+                                                assignAssets,
                                                 galSelectedOffers.Selected.assigned_images
                                             );
-                                            Patch(
-                                                assignedImages,
-                                                {
-                                                    Id: First(assignAsset).ID,
-                                                    Value: First(assignAsset).fullpath
-                                                }
-                                            );
-                                            Patch(
-                                                colSelectedOffers,
-                                                galSelectedOffers.Selected,
-                                                {assigned_images: assignedImages,updated: true}
-                                            );
-                                            Collect(
-                                                colSelectedPageProductImages,
-                                                {
-                                                    offerId: galSelectedOffers.Selected.ID,
-                                                    id: First(assignAsset).ID,
-                                                    title: Last(
-                                                        Split(
-                                                            First(assignAsset).fullpath,
-                                                            "/"
-                                                        )
-                                                    ).Value,
-                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
-                                                    selected: false,
-                                                    type: "image",
-                                                    lang: "eng",
-                                                    value: First(assignAsset).fullpath
-                                                }
-                                            )
-                                        )
-                                    );
-                                    Notify("Image Assigned");
+                                        ),
+                                        "logo",
+                                        ClearCollect(
+                                            assignAssets,
+                                            galSelectedOffers.Selected.assigned_logos
+                                        );,
+                                        "icon",
+                                        ClearCollect(
+                                            assignAssets,
+                                            galSelectedOffers.Selected.assigned_logos
+                                        );
+                                    )
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                                Y: =7
+                                Y: =14
                                 ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:

@@ -9524,96 +9524,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.TextInput1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.TextInput1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "offerEditScreen",
-                "type": "offerEditScreen.conOfferIndex.conOffers.galSelectedOffers.Gallery5.TextInput1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
@@ -10278,7 +10188,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offerEditScreen\" is 764, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"offerEditScreen\" is 709, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],

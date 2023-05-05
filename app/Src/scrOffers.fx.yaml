@@ -2463,6 +2463,7 @@ scrOffers As screen:
                 OnSelect: |-
                     =ClearCollect(xinet_image_exists,Filter(xinet_images,Title=ThisItem.FILE_NAME));
                     If(CountRows(xinet_image_exists)=0, Patch(xinet_images,Defaults(xinet_images),{Title:ThisItem.FILE_NAME,fullpath:ThisItem.FILE_PATH,macpath:ThisItem.FILE_PATH,pcpath:ThisItem.FILE_PATH,file_id:ThisItem.FILE_ID}));
+                    
                     If(addImagesField="english",ClearCollect(assignOfferPictures,galExistingOffers.Selected.assigned_images),ClearCollect(assignOfferPictures,galExistingOffers.Selected.assigned_images_fre));
                     Collect(assignOfferPictures,{Id:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).ID,Value:First(Filter(xinet_images,Title = ThisItem.FILE_NAME)).Title});
                     Switch(addImagesField,
