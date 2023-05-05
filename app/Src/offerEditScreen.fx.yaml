@@ -915,7 +915,7 @@ offerEditScreen As screen:
                         =450
                     X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U*2
                     Y: =U
-                    ZIndex: =3
+                    ZIndex: =2
 
                     lblOfferItems_3 As label:
                         Align: =Align.Center
@@ -1254,7 +1254,7 @@ offerEditScreen As screen:
                     Width: =165
                     X: =U
                     Y: =conSelectedOfferPage.Y+conSelectedOfferPage.Height+U
-                    ZIndex: =4
+                    ZIndex: =3
 
                     lblOfferType_1 As label:
                         Align: =Align.Center
@@ -1496,7 +1496,7 @@ offerEditScreen As screen:
                     Width: =165
                     X: =U
                     Y: =U
-                    ZIndex: =5
+                    ZIndex: =4
 
                     lblOfferPg_1 As label:
                         Align: =Align.Center
@@ -1665,7 +1665,7 @@ offerEditScreen As screen:
                     Width: =750
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =U
-                    ZIndex: =7
+                    ZIndex: =5
 
                     Container12 As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -2009,7 +2009,7 @@ offerEditScreen As screen:
                     Width: =467
                     X: =conSelectedOfferUnits.X+conSelectedOfferUnits.Width+U*2
                     Y: =conSelectedOfferPrice.Y+conSelectedOfferPrice.Height+U*2
-                    ZIndex: =8
+                    ZIndex: =6
 
                     lblOfferStatus_12 As label:
                         Align: =Align.Center
@@ -2196,7 +2196,7 @@ offerEditScreen As screen:
                     Width: =467
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
-                    ZIndex: =9
+                    ZIndex: =7
 
                     lblExistingOfferTotalPrice_2 As label:
                         Align: =Align.Center
@@ -2498,7 +2498,7 @@ offerEditScreen As screen:
                     Width: =280
                     X: =conSelectedOfferPrice.X+conSelectedOfferPrice.Width+U*2
                     Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
-                    ZIndex: =12
+                    ZIndex: =8
 
                     offer_eventprice_lbl_3 As label:
                         Align: =Align.Center
@@ -2682,7 +2682,7 @@ offerEditScreen As screen:
                     Width: =280
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =158
-                    ZIndex: =14
+                    ZIndex: =9
 
                     offer_eventprice_lbl_4 As label:
                         Align: =Align.Center
@@ -2921,7 +2921,7 @@ offerEditScreen As screen:
                     Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
                     Y: =40
-                    ZIndex: =15
+                    ZIndex: =10
 
                     lblOfferType_4 As label:
                         Align: =Align.Center
@@ -3061,7 +3061,43 @@ offerEditScreen As screen:
                     Width: =125
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width
                     Y: =Parent.TemplatePadding
-                    ZIndex: =16
+                    ZIndex: =11
+
+                "Gallery5 As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver4.0'":
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DelayItemLoading: =true
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =187
+                    Items: =ThisItem.assigned_images
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =4
+                    TemplateSize: =72
+                    Width: =1052
+                    WrapCount: =2
+                    X: =50
+                    Y: =69
+                    ZIndex: =12
+
+                    TextInput1 As text:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.Value
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Height: =56
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        OnSelect: =Select(Parent)
+                        Size: =13
+                        Width: =503
+                        X: =8
+                        Y: =8
+                        ZIndex: =2
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -3460,7 +3496,7 @@ offerEditScreen As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: |-
+                                OnChange: |
                                     =ClearCollect(
                                         assignAsset,
                                         Filter(
@@ -3564,7 +3600,8 @@ offerEditScreen As screen:
                                                 }
                                             )
                                         )
-                                    )
+                                    );
+                                    Notify("Image Assigned");
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
