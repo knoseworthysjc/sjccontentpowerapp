@@ -3499,8 +3499,10 @@ offerEditScreen As screen:
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
                             LoadingSpinner: =LoadingSpinner.Data
+                            ShowNavigation: =true
                             TemplatePadding: =U
                             TemplateSize: =Self.Width/3
+                            Transition: =Transition.Push
                             WrapCount: =3
                             ZIndex: =2
 
@@ -3512,7 +3514,8 @@ offerEditScreen As screen:
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                                 Image: |-
                                     =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
-                                OnSelect: =Select(Parent);
+                                OnSelect: |-
+                                    =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplatePadding
