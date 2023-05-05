@@ -792,6 +792,42 @@ offerEditScreen As screen:
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
+                    Checkbox1 As checkbox:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                        CheckboxSize: =Self.Height
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.selected
+                        Height: =30
+                        HoverColor: =RGBA(0, 89, 178, 1)
+                        OnCheck: |-
+                            =Patch(colSelectedOffers,ThisItem,{selected:true})
+                        OnUncheck: |-
+                            =Patch(colSelectedOffers,ThisItem,{selected:false})
+                        PaddingBottom: =5
+                        Size: =13
+                        Text: ="Select"
+                        Tooltip: ="Select Offer"
+                        Width: =85
+                        X: =1794
+                        Y: =4
+                        ZIndex: =1
+
+                    Icon3_1 As icon.Save:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Icon: =Icon.Compose
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =40
+                        OnSelect: =Set(showMergeOffers,true);
+                        Tooltip: ="Merge Offers"
+                        Width: |
+                            =40
+                        ZIndex: =2
+
                     Icon3 As icon.Save:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(168, 0, 0, 1)
@@ -852,21 +888,7 @@ offerEditScreen As screen:
                         Visible: =ThisItem.updated
                         Width: |
                             =40
-                        ZIndex: =1
-
-                    Icon4 As icon.Undo:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(168, 0, 0, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =30
-                        Icon: =Icon.Undo
-                        LayoutMinHeight: =25
-                        LayoutMinWidth: =40
-                        Visible: =ThisItem.updated
-                        Width: |
-                            =40
-                        ZIndex: =2
+                        ZIndex: =3
 
                     Icon4_2 As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -880,29 +902,21 @@ offerEditScreen As screen:
                         Visible: =ThisItem.updated
                         Width: |
                             =40
-                        ZIndex: =3
-
-                    Checkbox1 As checkbox:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        CheckboxBorderColor: =RGBA(0, 89, 178, 1)
-                        CheckboxSize: =Self.Height
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.selected
-                        Height: =30
-                        HoverColor: =RGBA(0, 89, 178, 1)
-                        OnCheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{selected:true})
-                        OnUncheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{selected:false})
-                        PaddingBottom: =5
-                        Size: =13
-                        Text: ="Select"
-                        Tooltip: ="Select Offer"
-                        Width: |
-                            =100
-                        X: =1794
-                        Y: =4
                         ZIndex: =4
+
+                    Icon4 As icon.Undo:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Icon: =Icon.Undo
+                        LayoutMinHeight: =25
+                        LayoutMinWidth: =40
+                        Visible: =ThisItem.updated
+                        Width: |
+                            =40
+                        ZIndex: =5
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-U*2
