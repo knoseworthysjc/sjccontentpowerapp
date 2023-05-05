@@ -947,11 +947,18 @@ offerEditScreen As screen:
                                     iptSelectedOfferUpdate.SelectedItems,
                                     Value,
                                     ","
-                                )="NB,NL,NS,PE","Atl",Concat(
+                                )="NB,NL,NS,PE","Atl",
+                                If(Concat(
                                     iptSelectedOfferUpdate.SelectedItems,
                                     Value,
                                     ","
-                                ))
+                                )="AB,BC,MB,SK","West",
+                                
+                                Concat(
+                                    iptSelectedOfferUpdate.SelectedItems,
+                                    Value,
+                                    ","
+                                )))
                             ) & ")"
                         Width: |
                             =450
