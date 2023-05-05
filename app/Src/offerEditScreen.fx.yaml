@@ -3125,7 +3125,7 @@ offerEditScreen As screen:
                     Y: =Parent.TemplatePadding
                     ZIndex: =1
 
-            Container2 As groupContainer.verticalAutoLayoutContainer:
+            conOfferAssets As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
@@ -3560,6 +3560,159 @@ offerEditScreen As screen:
                                 X: =123
                                 Y: =U
                                 ZIndex: =3
+
+            conOfferProducts As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(107, 144, 179, 1)
+                BorderThickness: =1
+                FillPortions: =0
+                Height: =400
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =galSelectedOfferOptions.Selected.Tab="Assigned Products"
+                ZIndex: =6
+
+            conOfferHistory As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(107, 144, 179, 1)
+                BorderThickness: =1
+                FillPortions: =0
+                Height: =400
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =galSelectedOfferOptions.Selected.Tab="History"
+                ZIndex: =7
+
+            conOfferPreview As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(107, 144, 179, 1)
+                BorderThickness: =1
+                FillPortions: =0
+                Height: =400
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =galSelectedOfferOptions.Selected.Tab="Preview"
+                ZIndex: =8
+
+            conOfferPageAssets As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(107, 144, 179, 1)
+                BorderThickness: =1
+                FillPortions: =0
+                Height: =400
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =galSelectedOfferOptions.Selected.Tab="All Assets"
+                ZIndex: =9
+
+                Gallery3_1 As gallery.galleryVertical:
+                    BorderColor: =RGBA(107, 144, 179, 1)
+                    BorderThickness: =1
+                    DelayItemLoading: =true
+                    Items: =SortByColumns(colSelectedPageProductImages,"title",SortOrder.Ascending)
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    OnSelect: =
+                    TemplateSize: =Self.Width/12
+                    Transition: =Transition.Push
+                    WrapCount: |
+                        =6
+                    ZIndex: =1
+
+                    Image5_2 As image:
+                        BorderColor: =RGBA(0, 62, 125, 1)
+                        BorderThickness: =1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                        Image: |-
+                            =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
+                        OnSelect: =Select(Parent);Launch(ThisItem.thumbnails)
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplatePadding
+                        ZIndex: =1
+
+                    Label7_2 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(107, 144, 179, 0.75)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        Text: =ThisItem.title
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
+                        ZIndex: =2
+
+                    "Icon16_2 As 'Fluent Icon (1.0.19)'":
+                        DisplayMode: =DisplayMode.View
+                        Height: |
+                            =30
+                        IconName: ="RemoveLink"
+                        IconSize: =28
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
+                        OnChange: |-
+                            =Switch(ThisItem.type,"image",
+                            
+                            If(
+                                ThisItem.lang="fre",
+                                
+                                Patch(
+                                    colSelectedOffers,
+                                    galSelectedOffers.Selected,
+                                    {
+                                        updated: true,
+                                        assigned_images_fre: Filter(
+                                            galSelectedOffers.Selected.assigned_images,
+                                            Id <> ThisItem.id
+                                        )
+                                    }
+                                ),
+                                Patch(
+                                    colSelectedOffers,
+                                    galSelectedOffers.Selected,
+                                    {
+                                        updated: true,
+                                        assigned_images: Filter(
+                                            galSelectedOffers.Selected.assigned_images,
+                                            Id <> ThisItem.id
+                                        )
+                                    }
+                                )
+                            ));
+                            
+                            ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Tooltip: ="Unlink Images"
+                        Width: |
+                            =30
+                        X: =70.83333333333333
+                        Y: =U
+                        ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
