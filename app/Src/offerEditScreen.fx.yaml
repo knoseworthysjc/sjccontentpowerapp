@@ -779,12 +779,13 @@ offerEditScreen As screen:
 
                 Rectangle1 As rectangle:
                     BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderThickness: =U
-                    Fill: =RGBA(0, 0, 0, 0)
-                    FocusedBorderThickness: =U
-                    Height: =Parent.TemplateHeight
+                    BorderStyle: =BorderStyle.None
+                    Fill: =RGBA(0, 62, 125, 1)
+                    FocusedBorderThickness: =0
+                    Height: =U*4
                     OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth
+                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    Y: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Height
                     ZIndex: =1
 
                 conSelectedOffersCmds As groupContainer.horizontalAutoLayoutContainer:
@@ -839,13 +840,37 @@ offerEditScreen As screen:
                         LayoutMinHeight: =200
                         LayoutMinWidth: =165
                         OnChange: =Set(displaySplitOffer,true);
-                        Text: ="Upload"
+                        Text: =""
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Tooltip: ="Add Pages"
+                        Tooltip: ="Split This Offer"
                         Width: =40
                         X: =0
                         Y: =0
                         ZIndex: =2
+
+                    "Icon1_17 As 'Fluent Icon (1.0.19)'":
+                        BorderColor: =""
+                        BorderRadius: =0
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: |-
+                            ="#003E7D"
+                        FontSize: =0
+                        Height: =40
+                        IconColor: |-
+                            ="#003E7D"
+                        IconName: ="Combine"
+                        IconSize: =28
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =165
+                        OnChange: =Set(displaySplitOffer,true);
+                        Text: ="Combine Selected"
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Tooltip: ="Combine Selected"
+                        Width: =40
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
 
                     Icon3 As icon.Save:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -907,7 +932,7 @@ offerEditScreen As screen:
                         Visible: =ThisItem.updated
                         Width: |
                             =40
-                        ZIndex: =3
+                        ZIndex: =4
 
                     Icon4_2 As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -921,7 +946,7 @@ offerEditScreen As screen:
                         Visible: =ThisItem.updated
                         Width: |
                             =40
-                        ZIndex: =4
+                        ZIndex: =5
 
                     Icon4 As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -935,7 +960,7 @@ offerEditScreen As screen:
                         Visible: =ThisItem.updated
                         Width: |
                             =40
-                        ZIndex: =5
+                        ZIndex: =6
 
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-U*2
