@@ -3621,7 +3621,7 @@ offerEditScreen As screen:
                     BorderColor: =RGBA(107, 144, 179, 1)
                     BorderThickness: =1
                     DelayItemLoading: =true
-                    Items: =SortByColumns(colSelectedPageProductImages,"title",SortOrder.Ascending)
+                    Items: =SortByColumns(colSelectedPageProductImages,"offerId",SortOrder.Ascending,"title",SortOrder.Ascending)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
@@ -3630,7 +3630,7 @@ offerEditScreen As screen:
                     TemplateSize: =Self.Width/12
                     Transition: =Transition.Push
                     WrapCount: |
-                        =6
+                        =8
                     ZIndex: =1
 
                     Image5_2 As image:
@@ -3667,52 +3667,6 @@ offerEditScreen As screen:
                         X: =Parent.TemplatePadding
                         Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
                         ZIndex: =2
-
-                    "Icon16_2 As 'Fluent Icon (1.0.19)'":
-                        DisplayMode: =DisplayMode.View
-                        Height: |
-                            =30
-                        IconName: ="RemoveLink"
-                        IconSize: =28
-                        IconType: ='PowerCAT.Icon.IconType'.IconButon
-                        OnChange: |-
-                            =Switch(ThisItem.type,"image",
-                            
-                            If(
-                                ThisItem.lang="fre",
-                                
-                                Patch(
-                                    colSelectedOffers,
-                                    galSelectedOffers.Selected,
-                                    {
-                                        updated: true,
-                                        assigned_images_fre: Filter(
-                                            galSelectedOffers.Selected.assigned_images,
-                                            Id <> ThisItem.id
-                                        )
-                                    }
-                                ),
-                                Patch(
-                                    colSelectedOffers,
-                                    galSelectedOffers.Selected,
-                                    {
-                                        updated: true,
-                                        assigned_images: Filter(
-                                            galSelectedOffers.Selected.assigned_images,
-                                            Id <> ThisItem.id
-                                        )
-                                    }
-                                )
-                            ));
-                            
-                            ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Tooltip: ="Unlink Images"
-                        Width: |
-                            =30
-                        X: =70.83333333333333
-                        Y: =U
-                        ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
