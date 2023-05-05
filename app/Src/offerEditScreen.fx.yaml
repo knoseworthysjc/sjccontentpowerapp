@@ -3194,6 +3194,7 @@ offerEditScreen As screen:
                             LoadingSpinner: =LoadingSpinner.Data
                             OnSelect: =
                             TemplateSize: =Self.Width/6
+                            Transition: =Transition.Push
                             WrapCount: |
                                 =6
                             ZIndex: =3
@@ -3234,14 +3235,15 @@ offerEditScreen As screen:
                                 ZIndex: =2
 
                             "Icon16 As 'Fluent Icon (1.0.19)'":
-                                DisplayMode: =DisplayMode.Edit
+                                DisplayMode: =DisplayMode.View
                                 Height: |
                                     =30
                                 IconName: ="RemoveLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
                                 OnChange: |-
-                                    =Switch(ThisItem.type,"Images",
+                                    =Notify(ThisItem.lang);
+                                    Switch(ThisItem.type,"Images",
                                     If(
                                         ThisItem.lang="fre",
                                         Patch(
@@ -3268,6 +3270,8 @@ offerEditScreen As screen:
                                         )
                                     ));
                                     ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Id<>Id))
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Tooltip: ="Unlink Images"
                                 Width: |
                                     =30
                                 X: =191
