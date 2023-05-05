@@ -3527,26 +3527,20 @@ offerEditScreen As screen:
                                                 "FR",
                                                 MatchOptions.Contains
                                             ),
-                                            Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images_fre:assignAssets});
+                                            Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images_fre:assignAssets,updated:true});
                                             ,
-                                            Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images:assignAssets});
+                                            Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images:assignAssets,updated:true});
                                         ),
                                         "logo",
-                                        ClearCollect(
-                                            assignAssets,
-                                            galSelectedOffers.Selected.assigned_logos
-                                        );,
+                                        Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_logos:assignAssets,updated:true});,
                                         "icon",
-                                        ClearCollect(
-                                            assignAssets,
-                                            galSelectedOffers.Selected.assigned_logos
-                                        );
+                                        Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_logos:assignAssets,updated:true});
                                     );
                                      
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
-                                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                                Y: =16
+                                X: =123
+                                Y: =23
                                 ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
