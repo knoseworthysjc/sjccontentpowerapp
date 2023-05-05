@@ -935,9 +935,24 @@ offerEditScreen As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: |-
-                            ="Markets("&
-                            If(Concat(iptSelectedOfferUpdate.SelectedItems,Value,",")="AB,BC,MB,NB,NL,NS,ON,PE,QC,SK","All",Concat(iptSelectedOfferUpdate.SelectedItems,Value,","))
-                            &")"
+                            ="Markets(" & If(
+                                Concat(
+                                    iptSelectedOfferUpdate.SelectedItems,
+                                    Value,
+                                    ","
+                                ) = "AB,BC,MB,NB,NL,NS,ON,PE,QC,SK",
+                                "All",
+                                If(
+                                Concat(
+                                    iptSelectedOfferUpdate.SelectedItems,
+                                    Value,
+                                    ","
+                                )="NB,NL,NS,PE","Atl",Concat(
+                                    iptSelectedOfferUpdate.SelectedItems,
+                                    Value,
+                                    ","
+                                ))
+                            ) & ")"
                         Width: |
                             =450
                         X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
