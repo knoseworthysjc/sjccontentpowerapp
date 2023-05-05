@@ -317,7 +317,7 @@ offerEditScreen As screen:
                                     colSelectedPageProductImages,
                                     offerId = ID And type = "image"
                                 )
-                            ).Thumbnails,
+                            ).thumbnails,
                             "SecondImage",
                             If(
                                 CountRows(
@@ -332,7 +332,7 @@ offerEditScreen As screen:
                                         offerId = ID And type = "image"
                                     ),
                                     2
-                                ).Thumbnails,
+                                ).thumbnails,
                                 Blank()
                             ),
                             "ThirdImage",
@@ -349,7 +349,7 @@ offerEditScreen As screen:
                                         offerId = ID And type = "image"
                                     ),
                                     3
-                                ).Thumbnails,
+                                ).thumbnails,
                                 Blank()
                             )
                         )
