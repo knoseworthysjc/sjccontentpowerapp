@@ -3459,7 +3459,7 @@ offerEditScreen As screen:
                                     =30
                                 IconName: ="AddLink"
                                 IconSize: =28
-                                IconType: ='PowerCAT.Icon.IconType'.Icon
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: |-
                                     =ClearCollect(
                                         assignAsset,
@@ -3503,6 +3503,7 @@ offerEditScreen As screen:
                                         Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_images:assignedImages});
                                         
                                     )
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
                                 Y: =7
