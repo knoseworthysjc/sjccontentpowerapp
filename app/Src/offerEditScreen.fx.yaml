@@ -3242,7 +3242,7 @@ offerEditScreen As screen:
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: |-
-                                    =Patch(colSelectedOffers,galSelectedOffers.Selected,{updated:true});
+                                    =Notify(ThisItem.id);
                                     Switch(ThisItem.type,"images",
                                     If(
                                         ThisItem.lang="fre",
@@ -3253,7 +3253,7 @@ offerEditScreen As screen:
                                                 updated: true,
                                                 assigned_images_fre: Filter(
                                                     galSelectedOffers.Selected.assigned_images,
-                                                    Value <> ThisItem.Value
+                                                    Id <> ThisItem.id
                                                 )
                                             }
                                         ),
@@ -3264,12 +3264,12 @@ offerEditScreen As screen:
                                                 updated: true,
                                                 assigned_images: Filter(
                                                     galSelectedOffers.Selected.assigned_images,
-                                                    Value <> ThisItem.Value
+                                                    Id <> ThisItem.id
                                                 )
                                             }
                                         )
                                     ));
-                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Id<>Id And type=ThisItem.type))
+                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Unlink Images"
                                 Width: |
