@@ -3468,7 +3468,7 @@ offerEditScreen As screen:
                                         )
                                     );
                                     If(
-                                        CountRows(xinet_image_exists) = 0,
+                                        CountRows(assignAsset) = 0,
                                         Collect(
                                             assignAsset,
                                             Patch(
