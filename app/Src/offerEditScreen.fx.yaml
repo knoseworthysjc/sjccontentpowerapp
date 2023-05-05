@@ -429,7 +429,8 @@ offerEditScreen As screen:
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
                 OnChange: |-
-                    =Collect(colSelectedOffers, Patch(Offers,Defaults(Offers),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ddPageFilter.Selected.page_from,layout_position:0,Adblock:0}));
+                    =If(IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),Notify("Project/Page Required For Offer Creation"),
+                    Collect(colSelectedOffers, Patch(Offers,Defaults(Offers),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ddPageFilter.Selected.page_from,layout_position:0,Adblock:0})));
                 Text: ="Add Offer"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
@@ -3625,8 +3626,9 @@ offerEditScreen As screen:
                 ZIndex: =2
 
         galRelistResults_1 As gallery.galleryVertical:
-            BorderColor: =RGBA(0, 36, 71, 1)
-            BorderStyle: =BorderStyle.None
+            BorderColor: =RGBA(107, 144, 179, 1)
+            BorderThickness: =1
+            Fill: =RGBA(107, 144, 179, 0.05)
             Height: =Parent.Height-Self.Y
             Items: =SortByColumns(searchOffersRecords,"Modified",SortOrder.Descending)
             Layout: =Layout.Vertical
