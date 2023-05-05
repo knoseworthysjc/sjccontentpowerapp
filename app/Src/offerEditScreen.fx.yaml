@@ -3485,6 +3485,24 @@ offerEditScreen As screen:
                                             )
                                         )
                                     );
+                                    Collect(
+                                                colSelectedPageProductImages,
+                                                {
+                                                    offerId: galSelectedOffers.Selected.ID,
+                                                    id:First(assignAsset).ID,
+                                                    title: Last(
+                                                        Split(
+                                                            First(assignAsset).fullpath,
+                                                            "/"
+                                                        )
+                                                    ).Value,
+                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
+                                                    selected: false,
+                                                    type: "image",
+                                                    lang: "fre",
+                                                    value: First(assignAsset).fullpath
+                                                }
+                                            );
                                     Switch(
                                         ddAssetSearchType.Selected.assetType,
                                         "image",
@@ -3536,25 +3554,6 @@ offerEditScreen As screen:
                                         "icon",
                                         Patch(colSelectedOffers,galSelectedOffers.Selected,{assigned_logos:assignAssets,updated:true});
                                     );
-                                     
-                                     Collect(
-                                                colSelectedPageProductImages,
-                                                {
-                                                    offerId: galSelectedOffers.Selected.ID,
-                                                    id:First(assignAsset).ID,
-                                                    title: Last(
-                                                        Split(
-                                                            First(assignAsset).fullpath,
-                                                            "/"
-                                                        )
-                                                    ).Value,
-                                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
-                                                    selected: false,
-                                                    type: "image",
-                                                    lang: "fre",
-                                                    value: First(assignAsset).fullpath
-                                                }
-                                            );
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =123
