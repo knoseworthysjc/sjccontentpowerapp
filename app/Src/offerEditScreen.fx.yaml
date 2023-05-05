@@ -3487,7 +3487,7 @@ offerEditScreen As screen:
                                     );
                                     Switch(
                                         ddAssetSearchType.Selected.assetType,
-                                        "image",
+                                        "image",Notify("Image");
                                         If(
                                             IsMatch(
                                                 ThisItem.FILE_NAME,
@@ -3497,8 +3497,9 @@ offerEditScreen As screen:
                                             ClearCollect(
                                                 assignAssets,
                                                 galSelectedOffers.Selected.assigned_images_fre
-                                            );
+                                            );Notify("FRE");
                                             ,
+                                            Notify("ENG");
                                             ClearCollect(
                                                 assignAssets,
                                                 galSelectedOffers.Selected.assigned_images
@@ -3518,7 +3519,7 @@ offerEditScreen As screen:
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                                Y: =14
+                                Y: =28
                                 ZIndex: =3
 
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
