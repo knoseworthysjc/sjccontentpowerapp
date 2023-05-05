@@ -3243,7 +3243,7 @@ offerEditScreen As screen:
                                 OnChange: |-
                                     =Switch(ThisItem.type,"Images",
                                     If(
-                                        ThisItem.lang="French",
+                                        ThisItem.lang="fre",
                                         Patch(
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
