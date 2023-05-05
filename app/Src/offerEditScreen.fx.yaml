@@ -3501,7 +3501,7 @@ offerEditScreen As screen:
                                         assignAsset,
                                         Filter(
                                             xinet_images,
-                                            Title = ThisItem.FILE_NAME
+                                            fullpath = ThisItem.FILE_PATH
                                         )
                                     );
                                     If(
