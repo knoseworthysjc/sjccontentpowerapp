@@ -935,8 +935,9 @@ offerEditScreen As screen:
                         PaddingTop: =0
                         Size: =11
                         Text: |-
-                            ="Markets
-                            "
+                            ="Markets("&
+                            If(Concat(iptSelectedOfferUpdate.SelectedItems,Value,",")="AB,BC,MB,NB,NL,NS,ON,PE,QC,SK","All",Concat(iptSelectedOfferUpdate.SelectedItems,Value,","))
+                            &")"
                         Width: |
                             =450
                         X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
@@ -3395,7 +3396,7 @@ offerEditScreen As screen:
                                     ForAll(ddAssetSearchType.Selected.xinetPaths As searchLocals,
                                     Collect(
                                             colOfferAssetSearchResults,
-                                            Xinet.Search(searchLocals.pathId,iptOfferAssetSearch.Text).FILES_INFO
+                                            Xinet.Search(searchLocals.pathId,iptOfferAssetSearch.Text,{fileid_searchsub_0:1,filename_flag_0:1}).FILES_INFO
                                         ))
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
