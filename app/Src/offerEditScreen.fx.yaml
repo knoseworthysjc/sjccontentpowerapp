@@ -3432,7 +3432,10 @@ offerEditScreen As screen:
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
                                 OnChange: |-
-                                    =ClearCollect(
+                                    =
+                                    Switch(ddAssetSearchType.Selected.searchImageType,
+                                    "Images",
+                                    ClearCollect(
                                         xinet_image_exists,
                                         Filter(
                                             xinet_images,
@@ -3453,7 +3456,6 @@ offerEditScreen As screen:
                                             }
                                         )
                                     );
-                                    
                                     If(
                                         IsMatch(
                                             ThisItem.FILE_NAME,
@@ -3466,7 +3468,7 @@ offerEditScreen As screen:
                                                 updated: true,
                                                 assigned_images_fre: Filter(
                                                     galSelectedOffers.Selected.assigned_images,
-                                                    ThisItem.FILE_NAME<>Value
+                                                    ThisItem.FILE_PATH<>Value
                                                 )
                                             }
                                         ),
@@ -3477,11 +3479,11 @@ offerEditScreen As screen:
                                                 updated: true,
                                                 assigned_images: Filter(
                                                     galSelectedOffers.Selected.assigned_images,
-                                                    Value <> ThisItem.FILE_NAME
+                                                    Value <> ThisItem.FILE_PATH
                                                 )
                                             }
                                         )
-                                    )
+                                    ))
                                 Width: =30
                                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
                                 Y: =4
