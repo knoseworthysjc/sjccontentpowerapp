@@ -3207,7 +3207,7 @@ offerEditScreen As screen:
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                                 Image: |-
                                     =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
-                                OnSelect: =Select(Parent);Launch(ThisItem.Thumbnails)
+                                OnSelect: =Select(Parent);Launch(ThisItem.thumbnails)
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplatePadding
@@ -3242,10 +3242,12 @@ offerEditScreen As screen:
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: |-
-                                    =Notify(ThisItem.id);
+                                    =
                                     Switch(ThisItem.type,"images",
+                                    
                                     If(
                                         ThisItem.lang="fre",
+                                        Notify("Images Fre");
                                         Patch(
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
@@ -3257,6 +3259,7 @@ offerEditScreen As screen:
                                                 )
                                             }
                                         ),
+                                        Notify("Images Eng");
                                         Patch(
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
@@ -3276,7 +3279,7 @@ offerEditScreen As screen:
                                 Width: |
                                     =30
                                 X: =191
-                                Y: =11
+                                Y: =25
                                 ZIndex: =3
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
