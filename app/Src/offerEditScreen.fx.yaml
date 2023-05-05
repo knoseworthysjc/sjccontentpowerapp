@@ -3243,10 +3243,7 @@ offerEditScreen As screen:
                                 OnChange: |-
                                     =Switch(ThisItem.type,"Images",
                                     If(
-                                        IsMatch(
-                                            ThisItem.Title,
-                                            "/FR/i"
-                                        ),
+                                        ThisItem.lang="French",
                                         Patch(
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
@@ -3270,7 +3267,7 @@ offerEditScreen As screen:
                                             }
                                         )
                                     ));
-                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Value<>Value))
+                                    ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.Id<>Id))
                                 Width: |
                                     =30
                                 X: =191
