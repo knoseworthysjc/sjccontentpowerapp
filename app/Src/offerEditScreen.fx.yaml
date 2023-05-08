@@ -4660,7 +4660,7 @@ offerEditScreen As screen:
                 BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(107, 144, 179, 1)
+                Fill: =RGBA(0, 94, 146, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
@@ -4684,7 +4684,7 @@ offerEditScreen As screen:
                 BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(107, 144, 179, 1)
+                Fill: =RGBA(0, 94, 146, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
@@ -4708,7 +4708,7 @@ offerEditScreen As screen:
                 BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(107, 144, 179, 1)
+                Fill: =RGBA(0, 94, 146, 1)
                 FillPortions: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -4733,7 +4733,7 @@ offerEditScreen As screen:
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                Fill: =RGBA(107, 144, 179, 1)
+                Fill: =RGBA(0, 94, 146, 1)
                 Height: =32
                 Icon: =Icon.Cancel
                 LayoutMinHeight: =32
@@ -4753,7 +4753,7 @@ offerEditScreen As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
-            iptExistingOfferPage_7 As text:
+            iptNewPageFrom As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(107, 144, 179, 1)
                 Color: =RGBA(0, 62, 125, 1)
@@ -4782,7 +4782,7 @@ offerEditScreen As screen:
                 Y: =
                 ZIndex: =1
 
-            iptExistingOfferPage_8 As text:
+            iptNewPageTo As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(107, 144, 179, 1)
                 Color: =RGBA(0, 62, 125, 1)
@@ -4811,7 +4811,7 @@ offerEditScreen As screen:
                 Y: =
                 ZIndex: =2
 
-            iptSelectedOfferUpdate_1 As combobox:
+            iptNewPageLayout As combobox:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 BorderThickness: =1
                 ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -4820,7 +4820,7 @@ offerEditScreen As screen:
                 ChevronFill: =RGBA(107, 144, 179, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                DefaultSelectedItems: =Choices(FlyerPages.assigned_page_layout)
+                DefaultSelectedItems: =
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -4830,7 +4830,7 @@ offerEditScreen As screen:
                 Height: =Parent.Height-U
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
-                Items: =Choices(Offers.Markets)
+                Items: =Choices(FlyerPages.assigned_page_layout)
                 LayoutMinHeight: =Parent.Height-U
                 LayoutMinWidth: =Parent.Width-32-U
                 PaddingBottom: =0
@@ -4838,7 +4838,7 @@ offerEditScreen As screen:
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 SearchFields: =["Value"]
-                SearchItems: =Choices(Offers.Markets,iptSelectedOfferUpdate_1.SearchText)
+                SearchItems: =Choices(FlyerPages.assigned_page_layout,iptNewPageLayout.SearchText)
                 SelectionFill: =RGBA(107, 144, 179, 1)
                 Width: =lblOfferPg_4.Width
                 X: =lblOfferPg_4.X
@@ -4861,7 +4861,8 @@ offerEditScreen As screen:
                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: =
+                OnChange: |-
+                    =ForAll(Sequence(iptNewPageTo-iptNewPageFrom,iptNewPageFrom),Patch(FlyerPages,Defaults(FlyerPages),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ThisRecord.Value,assigned_page_layout:iptNewPageLayout.Selected.Value}))
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
