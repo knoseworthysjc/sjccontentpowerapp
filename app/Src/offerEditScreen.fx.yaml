@@ -4862,7 +4862,7 @@ offerEditScreen As screen:
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
                 OnChange: |-
-                    =ForAll(Sequence(iptNewPageTo-iptNewPageFrom,iptNewPageFrom),Patch(FlyerPages,Defaults(FlyerPages),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ThisRecord.Value,page_to:ThisRecord.Value,assigned_page_layout:iptNewPageLayout.Selected,Title:ddProjectFilter.Selected.Title&"_PG"&Text(ThisRecord.Value,"00")}))
+                    =ForAll(Sequence(iptNewPageTo-iptNewPageFrom,iptNewPageFrom+1),Patch(FlyerPages,Defaults(FlyerPages),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ThisRecord.Value,page_to:ThisRecord.Value,assigned_page_layout:iptNewPageLayout.Selected,Title:ddProjectFilter.Selected.Title&"_PG"&Text(ThisRecord.Value,"00")}))
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
