@@ -4632,7 +4632,9 @@ offerEditScreen As screen:
     Container2 As groupContainer.verticalAutoLayoutContainer:
         BorderColor: =RGBA(107, 144, 179, 1)
         BorderThickness: =1
+        DropShadow: =DropShadow.Bold
         Fill: =RGBA(255, 255, 255, 1)
+        Height: =64
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
