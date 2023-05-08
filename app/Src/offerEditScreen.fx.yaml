@@ -4840,6 +4840,7 @@ offerEditScreen As screen:
                 SearchFields: =["Value"]
                 SearchItems: =Choices(FlyerPages.assigned_page_layout,iptNewPageLayout.SearchText)
                 SelectionFill: =RGBA(107, 144, 179, 1)
+                SelectMultiple: =false
                 Width: =lblOfferPg_4.Width
                 X: =lblOfferPg_4.X
                 Y: =lblOfferItems_3.Height+U*2
