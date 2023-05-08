@@ -625,6 +625,7 @@ offerEditScreen As screen:
                 IconType: ='PowerCAT.Icon.IconType'.Icon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
+                OnChange: =Set(showEditPages,true);
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
@@ -649,6 +650,7 @@ offerEditScreen As screen:
                 IconType: ='PowerCAT.Icon.IconType'.Icon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
+                OnChange: =Set(showEditPages,true);
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Edit Page Details"
@@ -4632,15 +4634,18 @@ offerEditScreen As screen:
         BorderThickness: =1
         Fill: =RGBA(255, 255, 255, 1)
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
         X: =addPageIcon.X
         Y: =69
         ZIndex: =5
 
         Container10 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(107, 144, 179, 1)
             FillPortions: =0
             Height: =25
             LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
             LayoutMinHeight: =100
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
@@ -4648,14 +4653,15 @@ offerEditScreen As screen:
 
             lblOfferPg_2 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(107, 144, 179, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =20
-                LayoutMinHeight: =28
+                Height: =Parent.Height
+                LayoutMinHeight: =Parent.Height
                 LayoutMinWidth: =50
                 minimumHeight: =30
                 PaddingBottom: =0
@@ -4671,14 +4677,15 @@ offerEditScreen As screen:
 
             lblOfferPg_3 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(107, 144, 179, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =20
-                LayoutMinHeight: =28
+                Height: =Parent.Height
+                LayoutMinHeight: =Parent.Height
                 LayoutMinWidth: =50
                 minimumHeight: =30
                 PaddingBottom: =0
@@ -4694,15 +4701,16 @@ offerEditScreen As screen:
 
             lblOfferPg_4 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(107, 144, 179, 1)
                 FillPortions: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
-                Height: =20
-                LayoutMinHeight: =28
+                Height: =Parent.Height
+                LayoutMinHeight: =Parent.Height
                 LayoutMinWidth: =50
                 minimumHeight: =30
                 PaddingBottom: =0
@@ -4716,33 +4724,26 @@ offerEditScreen As screen:
                 Y: =1
                 ZIndex: =3
 
-            lblOfferPg_5 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+            Icon11 As icon.Cancel:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderThickness: =1
                 Color: =RGBA(255, 255, 255, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
                 Fill: =RGBA(107, 144, 179, 1)
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =20
-                LayoutMinHeight: =28
-                LayoutMinWidth: =50
-                minimumHeight: =30
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =11
-                Text: =""
-                Width: |
-                    =40
-                Y: =1
+                Height: =32
+                Icon: =Icon.Cancel
+                LayoutMinHeight: =32
+                LayoutMinWidth: =32
+                Width: =32
                 ZIndex: =4
 
         Container10_1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Height: =40
+            FillPortions: =0
+            Height: =32
             LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
             LayoutMinHeight: =40
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -4781,7 +4782,7 @@ offerEditScreen As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(107, 144, 179, 1)
                 Color: =RGBA(0, 62, 125, 1)
-                Default: =ThisItem.page_from
+                Default: =
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -4795,8 +4796,6 @@ offerEditScreen As screen:
                 HoverFill: =RGBA(153, 205, 255, 1)
                 LayoutMinHeight: =28
                 LayoutMinWidth: =lblOfferPg_3.Width
-                OnChange: |-
-                    =Patch(colSelectedOffers,ThisItem,{updated:true,page_from:Self.Text})
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
@@ -4817,7 +4816,7 @@ offerEditScreen As screen:
                 ChevronFill: =RGBA(107, 144, 179, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                DefaultSelectedItems: =ThisItem.Markets
+                DefaultSelectedItems: =Choices(FlyerPages.assigned_page_layout)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -4841,4 +4840,29 @@ offerEditScreen As screen:
                 X: =lblOfferPg_4.X
                 Y: =lblOfferItems_3.Height+U*2
                 ZIndex: =3
+
+            "addPageIcon_1 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#003E7D"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =32
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="Save"
+                IconSize: =28
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                OnChange: =
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Add Pages"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =4
 
