@@ -3376,38 +3376,7 @@ scrOfferEdit As screen:
                                 IconName: ="ZoomIn"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: |-
-                                    =Switch(ThisItem.type,"image",
-                                    
-                                    If(
-                                        ThisItem.lang="fre",
-                                        
-                                        Patch(
-                                            colSelectedOffers,
-                                            galSelectedOffers.Selected,
-                                            {
-                                                updated: true,
-                                                assigned_images_fre: Filter(
-                                                    galSelectedOffers.Selected.assigned_images,
-                                                    Id <> ThisItem.id
-                                                )
-                                            }
-                                        ),
-                                        Patch(
-                                            colSelectedOffers,
-                                            galSelectedOffers.Selected,
-                                            {
-                                                updated: true,
-                                                assigned_images: Filter(
-                                                    galSelectedOffers.Selected.assigned_images,
-                                                    Id <> ThisItem.id
-                                                )
-                                            }
-                                        )
-                                    ));
-                                    
-                                    //ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
-                                    Remove(colSelectedPageProductImages,ThisItem);
+                                OnChange: =Launch(ThisItem.thumbnails)
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Preview Image"
                                 Width: |
