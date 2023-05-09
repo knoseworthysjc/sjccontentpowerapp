@@ -3366,9 +3366,56 @@ scrOfferEdit As screen:
                                 Tooltip: ="Unlink Images"
                                 Width: |
                                     =30
-                                X: =191
-                                Y: =U
+                                X: =Image5.X+Image5.Width-Self.Width-Image5.BorderThickness
+                                Y: =Image5.Y+Image5.BorderThickness+U
                                 ZIndex: =3
+
+                            "Icon16_2 As 'Fluent Icon (1.0.19)'":
+                                DisplayMode: =DisplayMode.View
+                                Height: |
+                                    =30
+                                IconName: ="ZoomIn"
+                                IconSize: =28
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                OnChange: |-
+                                    =Switch(ThisItem.type,"image",
+                                    
+                                    If(
+                                        ThisItem.lang="fre",
+                                        
+                                        Patch(
+                                            colSelectedOffers,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                updated: true,
+                                                assigned_images_fre: Filter(
+                                                    galSelectedOffers.Selected.assigned_images,
+                                                    Id <> ThisItem.id
+                                                )
+                                            }
+                                        ),
+                                        Patch(
+                                            colSelectedOffers,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                updated: true,
+                                                assigned_images: Filter(
+                                                    galSelectedOffers.Selected.assigned_images,
+                                                    Id <> ThisItem.id
+                                                )
+                                            }
+                                        )
+                                    ));
+                                    
+                                    //ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
+                                    Remove(colSelectedPageProductImages,ThisItem);
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Tooltip: ="Preview Image"
+                                Width: |
+                                    =30
+                                X: =Image5.X+Image5.BorderThickness+U
+                                Y: =Image5.Y+Image5.BorderThickness+U
+                                ZIndex: =4
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
