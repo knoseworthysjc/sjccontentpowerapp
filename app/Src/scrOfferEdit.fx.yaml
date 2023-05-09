@@ -4280,13 +4280,13 @@ scrOfferEdit As screen:
                 ZIndex: =1
 
             previewOfferContainer As groupContainer.verticalAutoLayoutContainer:
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                Height: =previewOffer_offerCopy_2.Height+previewOffer_offerCOO_2.Height+previewOffer_offerItemNumber_2.Height+previewOffer_offerWasPricing_2.Height
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
                 Width: =previewOffer_assets_2.Width*0.6
                 X: =previewOffer_boarder_2.BorderThickness+previewOffer_boarder_2.X
-                Y: =previewOffer_assets_2.Y+previewOffer_assets_2.Height
+                Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_2.BorderThickness*2
                 ZIndex: =2
 
                 previewOffer_offerCopy_2 As label:
@@ -4387,7 +4387,7 @@ scrOfferEdit As screen:
 
             previewOffer_assets_2 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.7
+                Height: =previewOfferContainer.Y-Self.Y
                 Items: =ThisItem.assigned_images
                 TemplatePadding: =0
                 TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
@@ -4491,7 +4491,7 @@ scrOfferEdit As screen:
                     FontWeight: =FontWeight.Semibold
                     Height: =Parent.Height
                     LineHeight: =1
-                    Size: =11
+                    Size: =10
                     Text: |-
                         =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from
                     Width: =100
