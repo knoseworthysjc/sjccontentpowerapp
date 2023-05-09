@@ -1,9 +1,14 @@
 App As appinfo:
     BackEnabled: =false
-    Formulas: |-
+    Formulas: |
         =U=2;
         ProjectGridWidth=200;
         GutterHeight=100;
+        
+        MinCellWidth=100;
+        CellHeight=70;
+        PeopleGridWidth=200;
+        TaskGridWidth=200;
     OnStart: |
         =Set(collapseNewOffer,true);
         ClearCollect(navItems,Table(

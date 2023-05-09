@@ -4,19 +4,20 @@ scrProjectManagement As screen:
 
     Container11 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
         conOfferNav_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderStyle: =BorderStyle.None
             Fill: =RGBA(0, 62, 125, 1)
             FillPortions: =0
             Height: =32
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutGap: =U
-            LayoutMinHeight: =100
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
@@ -205,4 +206,69 @@ scrProjectManagement As screen:
                 X: =lblProject_2.X+lblProject_2.Width
                 Y: =(Self.BorderThickness*8)/2
                 ZIndex: =7
+
+            "addPageIcon_2 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#FFFFFF"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#FFFFFF"
+                FontSize: =0
+                Height: =Parent.Height-2
+                IconColor: |-
+                    ="#FFFFFF"
+                IconName: ="CircleAddition"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                OnChange: =Set(showEditPages,true);
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Add Pages"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =8
+
+            "Icon1_18 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#FFFFFF"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#FFFFFF"
+                FontSize: =0
+                Height: =Parent.Height-2
+                IconColor: |-
+                    ="#FFFFFF"
+                IconName: ="Edit"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                OnChange: =Set(showEditPages,true);
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Edit Page Details"
+                Width: =24
+                X: =0
+                Y: =0
+                ZIndex: =9
+
+        Container14 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =32
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+        Container15 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
 
