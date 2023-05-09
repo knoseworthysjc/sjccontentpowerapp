@@ -4272,10 +4272,10 @@ scrOfferEdit As screen:
                 Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.6
                 Items: =ThisItem.assigned_images
                 TemplateSize: =(Self.Width/CountRows(ThisItem.assigned_images))-CountRows(ThisItem.assigned_images)*Self.TemplatePadding*2
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-20
+                Width: =previewOffer_boarder_2.Width-previewOffer_boarder_2.BorderThickness*2
                 WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
-                X: =1
-                Y: =conRelistHeading.Y+conRelistHeading.Height
+                X: =previewOffer_boarder_2.X+previewOffer_boarder_2.BorderThickness
+                Y: =conRelistHeading.Y+conRelistHeading.Height+previewOffer_boarder_2.BorderThickness+U
                 ZIndex: =2
 
                 Image2_5 As image:
@@ -4294,13 +4294,13 @@ scrOfferEdit As screen:
                 BorderColor: =RGBA(255, 0, 0, 1)
                 BorderThickness: =5
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
                 OnSelect: =Select(Parent)
                 Width: |-
                     =Parent.TemplateWidth-
-                    Parent.TemplatePadding*2-20
+                    Parent.TemplatePadding*2-15
                 X: =1
-                Y: =conRelistHeading.Y+conRelistHeading.Height
+                Y: =conRelistHeading.Y+conRelistHeading.Height+U
                 ZIndex: =3
 
             previewOffer_price_rectangle_2 As rectangle:
@@ -4809,7 +4809,7 @@ scrOfferEdit As screen:
                 Icon: =Icon.Cancel
                 LayoutMinHeight: =32
                 LayoutMinWidth: =32
-                OnSelect: =Set(showEditPages,false)
+                OnSelect: =Set(showNewPages,false)
                 Width: =32
                 ZIndex: =5
 
