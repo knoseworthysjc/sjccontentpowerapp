@@ -8,7 +8,7 @@ App As appinfo:
         =Set(collapseNewOffer,true);
         ClearCollect(navItems,Table(
         {Title:"Home",icon:Icon.Home,screen:scrOffers},
-        {Title:"Projects/Pages",icon:Icon.Folder,screen:projects_pages_screen},
+        {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
         {Title:"Images",icon:Icon.Folder,screen:images_screen},
         {Title:"Products",icon:Icon.Information,screen:products_screen},
         {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}

@@ -1,4 +1,4 @@
-offerEditScreen As screen:
+scrOfferEdit As screen:
     Fill: =RGBA(232, 232, 232, 1)
 
     conOfferIndex As groupContainer.verticalAutoLayoutContainer:
@@ -4561,9 +4561,8 @@ offerEditScreen As screen:
             Height: =Parent.Height
             Items: |-
                 =Table(
-                {Title:"PM Edit",icon:Icon.Home,screen:offerEditScreen},
-                {Title:"OrginalEdit",icon:Icon.Home,screen:scrOffers},
-                {Title:"Projects/Pages",icon:Icon.Folder,screen:projects_pages_screen},
+                {Title:"Edit Offers",icon:Icon.Home,screen:scrOfferEdit},
+                {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
                 {Title:"Images",icon:Icon.Folder,screen:images_screen},
                 {Title:"Products",icon:Icon.Information,screen:products_screen},
                 {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
