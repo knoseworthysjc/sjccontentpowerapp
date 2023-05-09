@@ -4356,9 +4356,13 @@ scrOfferEdit As screen:
                     Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     FontWeight: =FontWeight.Bold
-                    Height: =Parent.Height
+                    Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow.Height,  "Rollback", Parent.Height-previewOffer_rollBack_2.Height,Parent.Height)
                     LineHeight: =1
-                    Size: =Switch(ThisItem.offer_type.Value,"Save Now",24,"Rollback",24,"Multi-Save",24,48)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =Switch(ThisItem.offer_type.Value,"Save Now",18,"Rollback",18,"Multi-Save",18,32)
                     Text: |-
                         =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
                         "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
