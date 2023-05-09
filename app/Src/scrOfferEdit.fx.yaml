@@ -3681,7 +3681,7 @@ scrOfferEdit As screen:
                 Visible: =galSelectedOfferOptions.Selected.Tab="Assigned Products"
                 ZIndex: =6
 
-            conOfferHistory As groupContainer.verticalAutoLayoutContainer:
+            conOfferUsage As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(107, 144, 179, 1)
                 BorderThickness: =1
@@ -3696,6 +3696,7 @@ scrOfferEdit As screen:
                 ZIndex: =7
 
                 galRelistResults_2 As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(107, 144, 179, 1)
                     BorderThickness: =1
                     Fill: =RGBA(107, 144, 179, 0.05)
