@@ -4267,9 +4267,118 @@ scrOfferEdit As screen:
             Y: =relistPanelHeader_2.Height+100
             ZIndex: =4
 
+            previewOfferContainer As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                Width: =previewOffer_assets_2.Width*0.6
+                X: =previewOffer_boarder_2.BorderThickness+previewOffer_boarder_2.X
+                Y: =previewOffer_assets_2.Y+previewOffer_assets_2.Height
+                ZIndex: =1
+
+                previewOffer_offerCopy_2 As label:
+                    Align: =Align.Right
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: |
+                        =10
+                    LayoutMinHeight: =10
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =12
+                    Text: =ThisItem.offer_copy
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.Width
+                    X: =1
+                    Y: =previewOffer_assets_2.Y+previewOffer_assets_2.Height
+                    ZIndex: =1
+
+                previewOffer_offerCOO_2 As label:
+                    Align: =Align.Right
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    Height: |
+                        =10
+                    LayoutMinHeight: =10
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =10
+                    Text: =ThisItem.'Country of Origin'
+                    VerticalAlign: =VerticalAlign.Top
+                    Visible: =!IsBlankOrError(ThisItem.'Country of Origin')
+                    Width: =Parent.Width
+                    X: =1
+                    Y: =previewOffer_offerCopy_2.Y+previewOffer_offerCopy_2.Height
+                    ZIndex: =2
+
+                previewOffer_offerItemNumber_2 As label:
+                    Align: =Align.Right
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    Height: |
+                        =10
+                    LayoutMinHeight: =10
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =10
+                    Text: |-
+                        ="#"&ThisItem.combined_item_number
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.Width
+                    X: =1
+                    Y: =previewOffer_offerCOO_2.Y+previewOffer_offerCOO_2.Height
+                    ZIndex: =3
+
+                previewOffer_offerWasPricing_2 As label:
+                    Align: =Align.Right
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: |
+                        =10
+                    LayoutMinHeight: =10
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: ="Was "&ThisItem.regular_price
+                    VerticalAlign: =VerticalAlign.Top
+                    Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
+                    Width: =Parent.Width
+                    X: =1
+                    Y: =previewOffer_offerItemNumber_2.Y+previewOffer_offerItemNumber_2.Height
+                    ZIndex: =4
+
             previewOffer_assets_2 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.6
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.55
                 Items: =ThisItem.assigned_images
                 TemplateSize: =(Self.Width/CountRows(ThisItem.assigned_images))-CountRows(ThisItem.assigned_images)*Self.TemplatePadding*2
                 Width: =previewOffer_boarder_2.Width-previewOffer_boarder_2.BorderThickness*2
@@ -4367,83 +4476,6 @@ scrOfferEdit As screen:
                 Y: =previewOffer_price_rectangle_2.Y-Self.Height+2
                 ZIndex: =7
 
-            previewOffer_offerCOO_2 As label:
-                Align: =Align.Right
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =If(ThisItem.'Country of Origin'="",0,40)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =10
-                Text: =ThisItem.'Country of Origin'
-                Visible: =If(ThisItem.'Country of Origin'="",false,true)
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =1
-                Y: =previewOffer_offerCopy_2.Y+previewOffer_offerCopy_2.Height
-                ZIndex: =8
-
-            previewOffer_offerCopy_2 As label:
-                Align: =Align.Right
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =12
-                Text: =ThisItem.offer_copy
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =1
-                Y: =previewOffer_assets_2.Y+previewOffer_assets_2.Height
-                ZIndex: =9
-
-            previewOffer_offerItemNumber_2 As label:
-                Align: =Align.Right
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =10
-                Text: |-
-                    ="#"&ThisItem.combined_item_number
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =1
-                Y: =previewOffer_offerCOO_2.Y+previewOffer_offerCOO_2.Height
-                ZIndex: =10
-
-            previewOffer_offerWasPricing_2 As label:
-                Align: =Align.Right
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: ="Was "&ThisItem.regular_price
-                Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
-                Width: =(Parent.TemplateWidth-Parent.TemplatePadding*2)*0.6
-                X: =1
-                Y: =previewOffer_offerItemNumber_2.Y+previewOffer_offerItemNumber_2.Height
-                ZIndex: =11
-
             previewOffer_MultiSaveEach_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 89, 178, 1)
@@ -4501,7 +4533,7 @@ scrOfferEdit As screen:
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
                 X: =Parent.TemplatePadding
-                ZIndex: =15
+                ZIndex: =14
 
                 "Icon1_11 As 'Fluent Icon (1.0.19)'":
                     BorderColor: =""
