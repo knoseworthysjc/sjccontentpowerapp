@@ -4280,7 +4280,7 @@ scrOfferEdit As screen:
                 ZIndex: =1
 
             previewOfferContainer As groupContainer.verticalAutoLayoutContainer:
-                Height: =previewOffer_offerCopy_2.Height+previewOffer_offerCOO_2.Height+previewOffer_offerItemNumber_2.Height+previewOffer_offerWasPricing_2.Height
+                Height: =Max(previewOffer_offerCopy_2.Height+If(previewOffer_offerCOO_2.Text<>"",previewOffer_offerCOO_2.Height,0)+If(previewOffer_offerItemNumber_2.Text<>"",previewOffer_offerItemNumber_2.Height,0)+If(previewOffer_offerWasPricing_2.Text<>"",previewOffer_offerWasPricing_2.Height,0),(Parent.TemplateHeight-Parent.TemplatePadding*2)*0.2)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
@@ -4297,8 +4297,7 @@ scrOfferEdit As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
-                    Height: |
-                        =10
+                    Height: =10
                     LayoutMinHeight: =10
                     LineHeight: =1
                     PaddingBottom: =0
@@ -4320,8 +4319,7 @@ scrOfferEdit As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
-                    Height: |
-                        =10
+                    Height: =10
                     LayoutMinHeight: =10
                     LineHeight: =1
                     PaddingBottom: =0
@@ -4344,8 +4342,7 @@ scrOfferEdit As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
-                    Height: |
-                        =10
+                    Height: =10
                     LayoutMinHeight: =10
                     LineHeight: =1
                     PaddingBottom: =0
@@ -4369,8 +4366,7 @@ scrOfferEdit As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
-                    Height: |
-                        =10
+                    Height: =10
                     LayoutMinHeight: =10
                     LineHeight: =1
                     PaddingBottom: =0
@@ -4522,13 +4518,13 @@ scrOfferEdit As screen:
                     ZIndex: =3
 
             previewOfferContainerLockup As groupContainer.verticalAutoLayoutContainer:
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                Height: =previewOfferContainer.Height
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-15
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
                 X: =previewOfferContainer.X+previewOfferContainer.Width
-                Y: =previewOfferContainer.Y
+                Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_2.BorderThickness*2
                 ZIndex: =6
 
                 previewOffer_rollBack_2 As label:
