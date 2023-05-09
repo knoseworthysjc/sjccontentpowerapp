@@ -185,20 +185,7 @@ scrProjectManagement As screen:
                     SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value And Week = Value(iptWeekFilter_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
                 LayoutMinHeight: =30
                 minimumHeight: =30
-                OnChange: |-
-                    =//ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title));
-                    
-                    
-                    //ClearCollect(colProjectPages,Filter(FlyerPages,assigned_project.Value = Self.Selected.Title));
-                    
-                    /*
-                    Clear(colSelectedPages);
-                    ForAll(colProjectPages,If(ThisRecord.page_from=ThisRecord.page_to,
-                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))}),
-                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
-                    Collect(colSelectedPages,{page_from:ThisRecord.page_to,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
-                    ));
-                    */
+                OnChange: =
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
