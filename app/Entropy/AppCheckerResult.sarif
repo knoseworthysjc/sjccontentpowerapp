@@ -5502,6 +5502,18 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 8
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -8632,36 +8644,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "scrOfferEdit",
-                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3.TabIndex"
                 }
               ],
@@ -8686,6 +8668,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOffer_assets_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -15442,6 +15454,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_rollBack_3.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_rollBack_3.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_rollBack_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_rollBack_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_rollBack_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_rollBack_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageFrom_1.AccessibleLabel"
                 }
               ],
@@ -15575,6 +15647,186 @@
                 "member": "TabIndex",
                 "module": "scrOfferEdit",
                 "type": "scrOfferEdit.conRelistPanel_1.galRelistResults_1.previewOfferContainerLockup.previewOffer_rollBack_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_saveNow_3.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_saveNow_3.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_saveNow_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_saveNow_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_saveNow_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_saveNow_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_MultiSaveEach_3.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_MultiSaveEach_3.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_MultiSaveEach_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_MultiSaveEach_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_MultiSaveEach_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_MultiSaveEach_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_price_3.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_price_3.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_price_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_price_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_price_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferHistory.galRelistResults_2.previewOfferContainerLockup_1.previewOffer_price_3"
               }
             }
           ],
@@ -16089,7 +16341,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOfferEdit\" is 903, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOfferEdit\" is 908, which exceeds the maximum threshold recommended (300)."
               }
             },
             {
