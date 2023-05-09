@@ -2,91 +2,207 @@ scrProjectManagement As screen:
     Fill: =RGBA(232, 232, 232, 1)
     OnVisible: =Set(showNav,false)
 
-    screen_title_1 As label:
-        Align: =Align.Center
-        BorderColor: =RGBA(0, 89, 178, 1)
-        Color: =RGBA(0, 0, 0, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        Fill: =RGBA(0, 36, 71, 1)
-        Size: =13
-        Text: =""
+    Container11 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
-    nav_icon_1 As icon.Waffle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(255, 255, 255, 1)
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(244, 244, 244, 1)
-        FocusedBorderThickness: =0
-        Height: =38
-        Icon: =Icon.Waffle
-        OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
-        Width: |
-            =38
-        X: =1
-        Y: =1
-        ZIndex: =2
-
-    screen_logo_1 As image:
-        BorderColor: =RGBA(0, 89, 178, 1)
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(250, 250, 250, 1)
-        Height: =screen_title_1.Height*2
-        Image: |-
-            =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
-        ImagePosition: =ImagePosition.Fill
-        Width: =220
-        X: =Parent.Width-Self.Width-Self.BorderThickness
-        ZIndex: =3
-
-    nav_container_1 As groupContainer.manualLayoutContainer:
-        BorderColor: =RGBA(0, 51, 102, 1)
-        BorderThickness: =1
-        Fill: =RGBA(250, 250, 250, 1)
-        Height: =CountRows(nav_gallery.AllItems)*(nav_gallery.TemplateHeight+nav_gallery.TemplatePadding*2)
-        Visible: =showNav
-        Width: =Parent.Width*0.2
-        X: =nav_icon_1.X+5
-        Y: =nav_icon_1.Y+nav_icon_1.Height+5
-        ZIndex: =4
-
-        nav_gallery_1 As gallery.galleryVertical:
-            BorderColor: =RGBA(0, 89, 178, 1)
-            Height: =Parent.Height
-            Items: =navItems
-            Layout: =Layout.Vertical
-            TemplateSize: =45
-            Width: =Parent.Width
+        conOfferNav_1 As groupContainer.horizontalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(0, 62, 125, 1)
+            FillPortions: =0
+            Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-            nav_label_1 As label:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(204, 222, 240, 1)
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
-                PaddingLeft: =nav_label_icon_1.Width+nav_label_icon_1.X+5
-                Size: =13
-                Text: =ThisItem.Title
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
-                ZIndex: =1
-
-            nav_label_icon_1 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 51, 102, 1)
+            nav_icon_8 As icon.Waffle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                Icon: =ThisItem.icon
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);
-                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
+                FocusedBorderThickness: =0
+                Height: =30
+                Icon: =Icon.Waffle
+                LayoutMinHeight: =30
+                LayoutMinWidth: |
+                    =Self.Height
+                OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
+                Width: =Self.Height
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+            lblSeason_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Year:"
+                Width: |
+                    =70
+                X: =Parent.Width/12
+                Y: =1
                 ZIndex: =2
+
+            ddSeasonFilter_1 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =Year(Now())
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: =Choices(Offers.Season)
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PaddingBottom: =0
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =0
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Width: =105
+                ZIndex: =3
+
+            lblWeek_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Week:"
+                Width: |
+                    =70
+                X: =ddSeasonFilter_1.X+ddSeasonFilter_1.Width
+                Y: =1
+                ZIndex: =4
+
+            iptWeekFilter_1 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =WeekNum(Now())
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                LayoutMinHeight: =30
+                OnChange: =ClearCollect(colSelectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter_1.Selected.Title))
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Reset: =true
+                Size: =11
+                Width: =70
+                X: =lblWeek_2.X+lblWeek_2.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =5
+
+            lblProject_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Project:"
+                Width: |
+                    =70
+                X: =iptWeekFilter_1.Width+iptWeekFilter_1.X
+                ZIndex: =6
+
+            ddProjectFilter_1 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: |-
+                    =If(iptWeekFilter_1.Text="", 
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value And Week = Value(iptWeekFilter_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                OnChange: |-
+                    =//ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title));
+                    
+                    
+                    //ClearCollect(colProjectPages,Filter(FlyerPages,assigned_project.Value = Self.Selected.Title));
+                    
+                    /*
+                    Clear(colSelectedPages);
+                    ForAll(colProjectPages,If(ThisRecord.page_from=ThisRecord.page_to,
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))}),
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_to,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
+                    ));
+                    */
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                X: =lblProject_2.X+lblProject_2.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =7
 
