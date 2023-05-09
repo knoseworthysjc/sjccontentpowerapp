@@ -4151,7 +4151,7 @@ scrOfferEdit As screen:
         LayoutMode: =LayoutMode.Auto
         Visible: =showRelistPanel
         Width: =Parent.Width-Self.X
-        X: =Parent.Width*0.7
+        X: =Parent.Width*0.6
         Y: =69
         ZIndex: =2
 
@@ -4263,6 +4263,7 @@ scrOfferEdit As screen:
             TemplateSize: =Self.Width/2
             Visible: =showRelistPanel
             Width: =Parent.Width-10
+            WrapCount: =2
             X: =5
             Y: =relistPanelHeader_2.Height+100
             ZIndex: =4
@@ -4386,9 +4387,10 @@ scrOfferEdit As screen:
 
             previewOffer_assets_2 As gallery.galleryHorizontal:
                 BorderColor: =RGBA(0, 89, 178, 1)
-                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.55
+                Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2)*.7
                 Items: =ThisItem.assigned_images
-                TemplateSize: =(Self.Width/CountRows(ThisItem.assigned_images))-CountRows(ThisItem.assigned_images)*Self.TemplatePadding*2
+                TemplatePadding: =0
+                TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
                 Width: =previewOffer_boarder_2.Width-previewOffer_boarder_2.BorderThickness*2
                 WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
                 X: =previewOffer_boarder_2.X+previewOffer_boarder_2.BorderThickness
@@ -4399,10 +4401,10 @@ scrOfferEdit As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
-                    Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                    Height: =Parent.Height
                     Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
                     OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                    Width: =Parent.TemplateWidth
                     X: =1
                     Y: =Parent.TemplatePadding
                     ZIndex: =2
@@ -4473,20 +4475,22 @@ scrOfferEdit As screen:
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                     Tooltip: ="Add Pages"
                     Width: |
-                        =95
+                        =90
                     X: =0
                     Y: =0
                     ZIndex: =1
 
                 lblPreviewOffer_Source As label:
                     Align: =Align.Center
+                    AutoHeight: =true
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 36, 71, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =1
                     FontWeight: =FontWeight.Semibold
-                    Height: =20
+                    Height: =Parent.Height
+                    LineHeight: =1
                     Size: =11
                     Text: |-
                         =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from
@@ -4512,7 +4516,7 @@ scrOfferEdit As screen:
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                     Tooltip: ="Add Pages"
                     Width: |
-                        =95
+                        =90
                     X: =0
                     Y: =0
                     ZIndex: =3
