@@ -9286,19 +9286,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10.Icon11.AccessibleLabel"
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10.Icon11.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10.Icon11.AccessibleLabel",
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10.Icon11.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOfferEdit",
-                "type": "scrOfferEdit.Container2.Container10.Icon11"
+                "type": "scrOfferEdit.newpagecontainer.Container10.Icon11"
               }
             }
           ],
@@ -9316,19 +9316,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10.Icon11.TabIndex"
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10.Icon11.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10.Icon11.TabIndex",
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10.Icon11.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "scrOfferEdit",
-                "type": "scrOfferEdit.Container2.Container10.Icon11"
+                "type": "scrOfferEdit.newpagecontainer.Container10.Icon11"
               }
             }
           ],
@@ -9346,19 +9346,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10_1.iptNewPageLayout.AccessibleLabel"
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageLayout.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10_1.iptNewPageLayout.AccessibleLabel",
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageLayout.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOfferEdit",
-                "type": "scrOfferEdit.Container2.Container10_1.iptNewPageLayout"
+                "type": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageLayout"
               }
             }
           ],
@@ -9376,19 +9376,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10_1.iptNewPageFrom.AccessibleLabel"
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageFrom.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10_1.iptNewPageFrom.AccessibleLabel",
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageFrom.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOfferEdit",
-                "type": "scrOfferEdit.Container2.Container10_1.iptNewPageFrom"
+                "type": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageFrom"
               }
             }
           ],
@@ -9406,19 +9406,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10_1.iptNewPageTo.AccessibleLabel"
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageTo.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOfferEdit.Container2.Container10_1.iptNewPageTo.AccessibleLabel",
+                  "fullyQualifiedName": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageTo.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOfferEdit",
-                "type": "scrOfferEdit.Container2.Container10_1.iptNewPageTo"
+                "type": "scrOfferEdit.newpagecontainer.Container10_1.iptNewPageTo"
               }
             }
           ],
@@ -15297,6 +15297,36 @@
               },
               "properties": {
                 "member": "collapseNewOffer",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.showEditPages"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showEditPages",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showEditPages",
                 "module": "App",
                 "type": "App"
               }

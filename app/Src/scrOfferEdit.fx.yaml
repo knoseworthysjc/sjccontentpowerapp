@@ -493,37 +493,6 @@ scrOfferEdit As screen:
                 Y: =0
                 ZIndex: =3
 
-            "Icon1_9 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =""
-                BorderRadius: =0
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =24
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="Preview"
-                IconSize: =24
-                IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                OnChange: |-
-                    =Launch(
-                        "https://prod-49.westus.logic.azure.com/workflows/aa5829e5c9024d4e86bd4db441f415bd/triggers/manual/paths/invoke/Walmart/"&ddSeasonFilter.Selected.Value&"/"&ddProjectFilter.Selected.Title&"/"&ddPageFilter.Selected.page_from&"/ON/?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=osuf_6Vyo7mfWjuEhAs7OUR9nBQ0BGrCLvMLSxlI2e0#",
-                        {        
-                        },
-                        LaunchTarget.New
-                    )
-                Text: ="Preview Page"
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Add Pages"
-                Width: |
-                    =95
-                X: =0
-                Y: =0
-                ZIndex: =4
-
             "Icon1_10 As 'Fluent Icon (1.0.19)'":
                 BorderColor: =""
                 BorderRadius: =0
@@ -556,7 +525,7 @@ scrOfferEdit As screen:
                     =95
                 X: =0
                 Y: =0
-                ZIndex: =5
+                ZIndex: =4
 
             lblPage_1 As label:
                 Align: =Align.Center
@@ -574,7 +543,7 @@ scrOfferEdit As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =7
+                ZIndex: =5
 
             ddPageFilter As dropdown:
                 AllowEmptySelection: =true
@@ -607,7 +576,7 @@ scrOfferEdit As screen:
                     =100
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
-                ZIndex: =8
+                ZIndex: =6
 
             "addPageIcon As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
@@ -625,14 +594,14 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: =Set(showEditPages,true);
+                OnChange: =Set(showNewPages,true);Set(editOfferPageMode,"New");
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
                 Width: =24
                 X: =0
                 Y: =0
-                ZIndex: =9
+                ZIndex: =7
 
             "Icon1_5 As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
@@ -650,14 +619,44 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: =Set(showEditPages,true);
+                OnChange: =Set(showNewPages,true);Set(editOfferPageMode,"Edit");
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Edit Page Details"
                 Width: =24
                 X: =0
                 Y: =0
-                ZIndex: =10
+                ZIndex: =8
+
+            "Icon1_9 As 'Fluent Icon (1.0.19)'":
+                BorderColor: =""
+                BorderRadius: =0
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =24
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="Preview"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =Self.Height
+                OnChange: |-
+                    =Launch(
+                        "https://prod-49.westus.logic.azure.com/workflows/aa5829e5c9024d4e86bd4db441f415bd/triggers/manual/paths/invoke/Walmart/"&ddSeasonFilter.Selected.Value&"/"&ddProjectFilter.Selected.Title&"/"&ddPageFilter.Selected.page_from&"/ON/?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=osuf_6Vyo7mfWjuEhAs7OUR9nBQ0BGrCLvMLSxlI2e0#",
+                        {        
+                        },
+                        LaunchTarget.New
+                    )
+                Text: ="Preview Page"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Add Pages"
+                Width: =Self.Height
+                X: =0
+                Y: =0
+                ZIndex: =9
 
             lblPage_2 As label:
                 Align: =Align.Center
@@ -675,7 +674,7 @@ scrOfferEdit As screen:
                 Width: |
                     =50
                 X: =ddProjectFilter.X+ddProjectFilter.Width
-                ZIndex: =11
+                ZIndex: =10
 
             ddSBUFilter As dropdown:
                 AllowEmptySelection: =true
@@ -708,7 +707,7 @@ scrOfferEdit As screen:
                     =200
                 X: =lblPage_1.X+lblPage_1.Width
                 Y: =2
-                ZIndex: =12
+                ZIndex: =11
 
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -4675,7 +4674,7 @@ scrOfferEdit As screen:
         X: =Parent.Width-Self.Width
         ZIndex: =4
 
-    Container2 As groupContainer.verticalAutoLayoutContainer:
+    newpagecontainer As groupContainer.verticalAutoLayoutContainer:
         BorderColor: =RGBA(107, 144, 179, 1)
         BorderThickness: =1
         DropShadow: =DropShadow.Bold
@@ -4684,12 +4683,13 @@ scrOfferEdit As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
-        Visible: =showEditPages
+        Visible: =showNewPages
         X: =addPageIcon.X
         Y: =69
         ZIndex: =5
 
         Container10 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(107, 144, 179, 1)
             FillPortions: =0
             Height: =25
@@ -4803,7 +4803,7 @@ scrOfferEdit As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(107, 144, 179, 1)
                 Color: =RGBA(0, 62, 125, 1)
-                Default: =
+                Default: =If(editOfferPageMode="New","",ddPageFilter.Selected.page_from)
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -4832,7 +4832,7 @@ scrOfferEdit As screen:
                 Align: =Align.Center
                 BorderColor: =RGBA(107, 144, 179, 1)
                 Color: =RGBA(0, 62, 125, 1)
-                Default: =
+                Default: =If(editOfferPageMode="New","",ddPageFilter.Selected.page_to)
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -4866,7 +4866,8 @@ scrOfferEdit As screen:
                 ChevronFill: =RGBA(107, 144, 179, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                DefaultSelectedItems: =
+                DefaultSelectedItems: |-
+                    =If(editOfferPageMode<>"New",{Value:ddPageFilter.Selected.assigned_page_layout.Value,Id:ddPageFilter.Selected.assigned_page_layout.Id})
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
