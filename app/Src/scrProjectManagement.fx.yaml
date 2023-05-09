@@ -207,6 +207,27 @@ scrProjectManagement As screen:
                 Y: =(Self.BorderThickness*8)/2
                 ZIndex: =7
 
+            "Icon1_1 As 'Fluent Icon (1.0.19)'":
+                BorderColor: ="White"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: ="White"
+                FontSize: =20
+                Height: =Parent.Height-2
+                IconColor: ="White"
+                IconName: ="refresh"
+                IconSize: =20
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnChange: =
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Width: =Self.Height
+                X: =0
+                Y: =0
+                ZIndex: =8
+
             "addPageIcon_2 As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
                     ="#FFFFFF"
@@ -227,10 +248,10 @@ scrProjectManagement As screen:
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
-                Width: =24
+                Width: =Self.Height
                 X: =0
                 Y: =0
-                ZIndex: =8
+                ZIndex: =9
 
             "Icon1_18 As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
@@ -252,10 +273,10 @@ scrProjectManagement As screen:
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Edit Page Details"
-                Width: =24
+                Width: =Self.Height
                 X: =0
                 Y: =0
-                ZIndex: =9
+                ZIndex: =10
 
         Container14 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
