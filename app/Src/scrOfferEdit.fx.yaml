@@ -4720,7 +4720,8 @@ scrOfferEdit As screen:
                 Size: =11
                 Text: ="ID"
                 Visible: =editOfferPageMode<>"New"
-                Width: =100
+                Width: |
+                    =65
                 Y: =1
                 ZIndex: =1
 
@@ -4841,7 +4842,7 @@ scrOfferEdit As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 LayoutMinHeight: =28
-                LayoutMinWidth: =lblOfferPg_2.Width
+                LayoutMinWidth: =lblOfferPg_5.Width
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
@@ -4849,7 +4850,7 @@ scrOfferEdit As screen:
                 Reset: =true
                 Size: =11
                 Visible: =editOfferPageMode<>"New"
-                Width: =lblOfferPg_2.Width
+                Width: =lblOfferPg_5.Width
                 X: =lblOfferPg_2.X
                 Y: =
                 ZIndex: =1
