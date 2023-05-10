@@ -230,7 +230,9 @@ splitOffer As screen:
 
             Container24 As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
-                LayoutMinHeight: =100
+                FillPortions: =0
+                Height: =350
+                LayoutMinHeight: =250
                 LayoutMinWidth: =250
                 ZIndex: =1
 
