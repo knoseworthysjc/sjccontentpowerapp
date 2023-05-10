@@ -129,7 +129,6 @@ scrOfferEdit As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(153, 205, 255, 1)
                 LayoutMinHeight: =30
-                OnChange: =ClearCollect(colSelectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title))
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
