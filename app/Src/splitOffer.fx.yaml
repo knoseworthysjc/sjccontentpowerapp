@@ -315,16 +315,7 @@ splitOffer As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Size: =13
-                            Text: |-
-                                =If(
-                                    Concat(
-                                        ThisItem.Markets,
-                                        Value
-                                    ) = "ABBCMBNBNLNSONPEQCSK",
-                                    "All",
-                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"AB.*BC.*MB.*SK",MatchOptions.Contains),"West","")&
-                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"NB.*NL.*NS.*PE",MatchOptions.Contains),"Atl","")
-                                )
+                            Text: ="Markets"
                             Visible: =false
                             ZIndex: =1
 
@@ -1222,7 +1213,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.multi_save
+                        Default: =First(colMergeOffers).multi_save
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1238,8 +1229,6 @@ splitOffer As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =(Parent.Width-U*3)/3
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,multi_save:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1257,7 +1246,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.multi_save_fre
+                        Default: =First(colMergeOffers).multi_save_fre
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1273,8 +1262,6 @@ splitOffer As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =(Parent.Width-U*3)/3
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,multi_save_fre:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1316,7 +1303,7 @@ splitOffer As screen:
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.callout
+                        Default: =First(colMergeOffers).callout
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1331,8 +1318,6 @@ splitOffer As screen:
                         LayoutMinHeight: =150
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,callout:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1476,7 +1461,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.total_event_price
+                        Default: =First(colMergeOffers).total_event_price
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1491,8 +1476,7 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,total_event_price:Self.Text})
+                        OnChange: =
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1511,7 +1495,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.event_price
+                        Default: =First(colMergeOffers).event_price
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1526,8 +1510,7 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,event_price:Self.Text})
+                        OnChange: =
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1546,7 +1529,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.regular_price
+                        Default: =First(colMergeOffers).regular_price
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1561,8 +1544,7 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,regular_price:Self.Text})
+                        OnChange: =
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1580,7 +1562,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =If((Value(iptExistingEventPrice_11.Text)>0 And Value(iptExistingOfferRegPrice_7.Text)>0) Or Value(ThisItem.savings)>0, If(Value(ThisItem.savings)>0,ThisItem.savings,Value(iptExistingEventPrice_11.Text)-Value(iptExistingOfferRegPrice_7.Text)))
+                        Default: =First(colMergeOffers).savings
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1595,8 +1577,7 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,savings:Self.Text})
+                        OnChange: =
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1616,7 +1597,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.eco_fee
+                        Default: =First(colMergeOffers).eco_fee
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1631,8 +1612,7 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =75  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,eco_fee:Self.Text})
+                        OnChange: =
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1731,7 +1711,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.event_price
+                        Default: =First(colMergeOffers).event_price_lb
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1746,8 +1726,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,event_price_lb:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1766,7 +1744,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.regular_price
+                        Default: =First(colMergeOffers).regular_price_lb
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1781,8 +1759,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,regular_price_lb:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1800,7 +1776,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =If((Value(iptExistingEventPrice_12.Text)>0 And Value(iptExistingOfferRegPrice_8.Text)>0) Or Value(ThisItem.savings)>0, If(Value(ThisItem.savings)>0,ThisItem.savings,Value(iptExistingEventPrice_12.Text)-Value(iptExistingOfferRegPrice_8.Text)))
+                        Default: =First(colMergeOffers).savings
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1815,8 +1791,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,'Savings(LB)':Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1892,7 +1866,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(116, 116, 116, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.unit
+                        Default: =First(colMergeOffers).unit
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1907,8 +1881,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,unit:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1927,7 +1899,7 @@ splitOffer As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(116, 116, 116, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.unit_fre
+                        Default: =First(colMergeOffers).unit_fre
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1942,8 +1914,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =60  
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,unit_fre:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2021,8 +1991,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =(Parent.Width-U*2)/2
                         LineHeight: =1
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,installment_amount:Value(Self.Text)})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2056,7 +2024,6 @@ splitOffer As screen:
                         LayoutMinHeight: =25
                         LayoutMinWidth: =(Parent.Width-U*2)/2
                         LineHeight: =1
-                        OnChange: =
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2072,11 +2039,11 @@ splitOffer As screen:
                         ZIndex: =8
 
                 conSelectedOfferComments_2 As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.TemplateHeight-Self.Y-Parent.TemplatePadding*4
+                    Height: =Parent.Height-Self.Y-U*4
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
+                    Width: =Parent.Width-Self.X-U
                     X: =conSelectedOfferCopy_2.X+conSelectedOfferCopy_2.Width+U*2
                     Y: =40
                     ZIndex: =9
@@ -2114,7 +2081,7 @@ splitOffer As screen:
                         ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                         ChevronHoverFill: =RGBA(255, 255, 255, 1)
                         Color: =RGBA(0, 36, 71, 1)
-                        Default: =ThisItem.image_source.Value
+                        Default: =First(colMergeOffers).image_source.Value
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2127,8 +2094,6 @@ splitOffer As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,image_source:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -2169,7 +2134,10 @@ splitOffer As screen:
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.offer_comments
+                        Default: |-
+                            =Concat(Distinct(colMergeOffers,offer_comments),Value," 
+                            &
+                             ")
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2185,8 +2153,6 @@ splitOffer As screen:
                         LayoutMinHeight: =150
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_comments:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -2203,7 +2169,7 @@ splitOffer As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     CheckboxBorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
-                    Default: =ThisItem.record_type.Value="line list"
+                    Default: =First(colMergeOffers).record_type.Value="line list"
                     Fill: =RGBA(107, 144, 179, 1)
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
@@ -2211,7 +2177,6 @@ splitOffer As screen:
                     HoverColor: =RGBA(0, 89, 178, 1)
                     OnCheck: |-
                         =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"line list"}})
-                    OnSelect: =Select(Parent)
                     OnUncheck: |-
                         =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"featured"}})
                     PaddingBottom: =4
