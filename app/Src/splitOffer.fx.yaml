@@ -219,6 +219,26 @@ splitOffer As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
+            lblSeason_4 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 62, 125, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: ="Merge Record"
+                Width: |
+                    =70
+                X: =Parent.Width/12
+                Y: =1
+                ZIndex: =1
+
         conPageContent As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -4486,16 +4506,6 @@ splitOffer As screen:
                         X: =conSelectedOfferCopy_1.X+conSelectedOfferCopy_1.Width
                         Y: =Parent.TemplatePadding
                         ZIndex: =12
-
-                Gallery7 As gallery.galleryVertical:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    DelayItemLoading: =true
-                    Items: =colMergeOffers
-                    Layout: =Layout.Vertical
-                    LoadingSpinner: =LoadingSpinner.Data
-                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
-                    ZIndex: =1
 
     imgOfferLogo_1 As image:
         BorderColor: =RGBA(0, 36, 71, 1)
