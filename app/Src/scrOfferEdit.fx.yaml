@@ -824,7 +824,7 @@ scrOfferEdit As screen:
                         Y: =4
                         ZIndex: =1
 
-                    "Icon1_16 As 'Fluent Icon (1.0.19)'":
+                    "icnSplitOffer As 'Fluent Icon (1.0.19)'":
                         BorderColor: =""
                         BorderRadius: =0
                         DisplayMode: =DisplayMode.Edit
@@ -839,7 +839,9 @@ scrOfferEdit As screen:
                         IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =165
-                        OnChange: =Set(displaySplitOffer,true);
+                        OnChange: |
+                            =Set(selectedSplitOffers,ThisItem);
+                            Navigate(splitOffer);
                         Text: =""
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Split This Offer"
@@ -848,7 +850,7 @@ scrOfferEdit As screen:
                         Y: =0
                         ZIndex: =2
 
-                    "Icon1_17 As 'Fluent Icon (1.0.19)'":
+                    "iconCombineOffers As 'Fluent Icon (1.0.19)'":
                         BorderColor: =""
                         BorderRadius: =0
                         DisplayMode: =DisplayMode.Edit
@@ -863,7 +865,10 @@ scrOfferEdit As screen:
                         IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =165
-                        OnChange: =Set(displaySplitOffer,true);
+                        OnChange: |-
+                            =ClearCollect(colMergeOffers,Filter(colSelectedOffers,selected=true));
+                            If(CountRows(colMergeOffers)<2,Notify("Select More then 1 offer"),
+                            Navigate(splitOffer));
                         Text: ="Combine Selected"
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Combine Selected"
