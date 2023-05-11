@@ -2775,8 +2775,37 @@ mergeOffer As screen:
                     assigned_images: colMergeAssetsEng,
                     assigned_images_fre: colMergeAssetsFre,
                     assigned_logos: colMergeAssetsLogo,
-                    offer_copy:Concat(Distinct(colMergeOffers,offer_copy),Value," & "),
-                    offer_copy_french:Concat(Distinct(colMergeOffers,offer_copy_french),Value," & ")
+                    offer_copy: Concat(
+                        Distinct(
+                            colMergeOffers,
+                            offer_copy
+                        ),
+                        Value,
+                        " & "
+                    ),
+                    offer_copy_french: Concat(
+                        Distinct(
+                            colMergeOffers,
+                            offer_copy_french
+                        ),
+                        Value,
+                        " & "
+                    ),
+                    'Country of Origin': Concat(
+                        Distinct(
+                            colMergeOffers,
+                            'Country of Origin'
+                        ),
+                        Value,
+                        " & "
+                    ),'Country of Origin(Fre)': Concat(
+                        Distinct(
+                            colMergeOffers,
+                            'Country of Origin(Fre)'
+                        ),
+                        Value,
+                        " & "
+                    )
                 }
             )
         Size: =15
