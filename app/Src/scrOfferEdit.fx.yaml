@@ -3649,7 +3649,7 @@ scrOfferEdit As screen:
                                             )
                                         );
                                         If(
-                                            CountRows(assignAsset) = 0,
+                                            CountRows(assignAssetLogo) = 0,
                                             Collect(
                                                 assignAssetLogo,
                                                 Patch(
