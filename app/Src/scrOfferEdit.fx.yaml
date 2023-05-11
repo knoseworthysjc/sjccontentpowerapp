@@ -3712,7 +3712,6 @@ scrOfferEdit As screen:
                                                         pcpath: ThisItem.FILE_PATH,
                                                         file_id: ThisItem.FILE_ID,
                                                         xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType},
-                                                        preview_url: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH,
                                                         download_url:"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=streamfile&path=" & ThisItem.FILE_PATH
                                                     }
                                                 )
