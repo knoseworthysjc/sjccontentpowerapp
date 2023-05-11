@@ -297,7 +297,7 @@ scrOfferEdit As screen:
                                     ).Value,
                                     thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
-                                    type: "image",
+                                    type: "logo",
                                     lang:Blank(),
                                     value: imglist.Value
                                 }
@@ -3403,6 +3403,17 @@ scrOfferEdit As screen:
                                 X: =Image5.X+Image5.BorderThickness+U
                                 Y: =Image5.Y+Image5.BorderThickness+U
                                 ZIndex: =4
+
+                            Label6 As label:
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                OnSelect: =Select(Parent)
+                                Size: =13
+                                Text: =ThisItem.type
+                                X: =40
+                                Y: =40
+                                ZIndex: =5
 
                     Container6 As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
