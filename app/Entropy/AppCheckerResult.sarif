@@ -7158,6 +7158,18 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 8
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -17651,6 +17663,66 @@
                 "member": "AccessibleLabel",
                 "module": "mergeOffer",
                 "type": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.conSelectedOfferPage_3.iptExistingOfferPage_32"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.offerSaveIcon_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.offerSaveIcon_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "mergeOffer",
+                "type": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.offerSaveIcon_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.offerSaveIcon_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.offerSaveIcon_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "mergeOffer",
+                "type": "mergeOffer.conPageIndex.conPageContent.conOffers_2.galMergedOffer_1.offerSaveIcon_1"
               }
             }
           ],
