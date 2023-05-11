@@ -2734,7 +2734,6 @@ mergeOffer As screen:
             Clear(colMergeAssetsEng);
             Clear(colMergeAssetsFre);
             Clear(colMergeAssetsLogo);
-            
             ForAll(
                 colMergeOffers As off,
                 ForAll(
@@ -2765,8 +2764,20 @@ mergeOffer As screen:
                         img
                     )
                 );
+                
             );
-            Patch(mergeOfferRecords,First(mergeOfferRecords),{Markets:colMergeMarkets,assigned_images:colMergeAssetsEng,assigned_images_fre:colMergeAssetsFre,assigned_logos:colMergeAssetsLogo})
+            Patch(
+                mergeOfferRecords,
+                First(mergeOfferRecords),
+                {
+                    Markets: colMergeMarkets,
+                    assigned_images: colMergeAssetsEng,
+                    assigned_images_fre: colMergeAssetsFre,
+                    assigned_logos: colMergeAssetsLogo,
+                    offer_copy:Concat(Distinct(colMergeOffers,offer_copy),Value," & "),
+                    offer_copy_french:Concat(Distinct(colMergeOffers,offer_copy_french),Value," & ")
+                }
+            )
         Size: =15
         Text: ="Button"
         X: =248
