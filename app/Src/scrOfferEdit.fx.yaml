@@ -3711,8 +3711,7 @@ scrOfferEdit As screen:
                                                         macpath: ThisItem.FILE_PATH,
                                                         pcpath: ThisItem.FILE_PATH,
                                                         file_id: ThisItem.FILE_ID,
-                                                        xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType},
-                                                        download_url:"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=streamfile&path=" & ThisItem.FILE_PATH
+                                                        xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType}
                                                     }
                                                 )
                                             )
