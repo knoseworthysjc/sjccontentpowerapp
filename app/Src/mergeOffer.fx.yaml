@@ -128,8 +128,8 @@ mergeOffer As screen:
                         LayoutGap: =U
                         LayoutMode: =LayoutMode.Auto
                         LayoutWrap: =true
-                        Width: =467
-                        X: =903
+                        Width: =450
+                        X: =conSelectedOfferUnits_3.X+conSelectedOfferUnits_3.Width+U
                         Y: =conSelectedOfferPrice_3.Y+conSelectedOfferPrice_3.Height+5
                         ZIndex: =2
 
@@ -1537,8 +1537,7 @@ mergeOffer As screen:
                         LayoutGap: =U
                         LayoutMode: =LayoutMode.Auto
                         LayoutWrap: =true
-                        Width: |
-                            =450
+                        Width: =475
                         X: =conSelectedOfferPage_3.X+conSelectedOfferPage_3.Width+U*2
                         Y: =1
                         ZIndex: =9
@@ -1653,6 +1652,7 @@ mergeOffer As screen:
                                 SearchFields: =["Value"]
                                 SearchItems: =Choices(Offers.Markets,iptSelectedOfferUpdate_3.SearchText)
                                 SelectionFill: =RGBA(107, 144, 179, 1)
+                                Size: =10
                                 Width: =Parent.Width-32-U
                                 X: =conSelectedOfferPage_3.X+conSelectedOfferPage_3.Width+U
                                 Y: =lblOfferItems_10.Height+U*2
