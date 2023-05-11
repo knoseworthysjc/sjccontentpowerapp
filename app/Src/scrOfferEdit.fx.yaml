@@ -877,7 +877,7 @@ scrOfferEdit As screen:
                         Y: =0
                         ZIndex: =3
 
-                    Icon3 As icon.Save:
+                    offerSaveIcon As icon.Save:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(168, 0, 0, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -939,7 +939,7 @@ scrOfferEdit As screen:
                             =40
                         ZIndex: =4
 
-                    Icon4 As icon.Undo:
+                    offerUndoIcon As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(168, 0, 0, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -953,7 +953,7 @@ scrOfferEdit As screen:
                             =40
                         ZIndex: =5
 
-                    Icon4_2 As icon.Undo:
+                    offerDeleteIcon As icon.Undo:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Color: =RGBA(118, 0, 0, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -3586,7 +3586,7 @@ scrOfferEdit As screen:
                                 IconName: ="AddLink"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: |-
+                                OnChange: |
                                     =Switch(
                                         ddAssetSearchType.Selected.assetType,
                                         "image",
@@ -3640,7 +3640,40 @@ scrOfferEdit As screen:
                                                 ),
                                                 value: First(assignAsset).fullpath
                                             }
-                                        );,
+                                        );
+                                        Collect(
+                                        assignAssets,
+                                        {
+                                            Id: First(assignAsset).ID,
+                                            Value: First(assignAsset).fullpath
+                                        }
+                                        );
+                                        If(
+                                            IsMatch(
+                                                ThisItem.FILE_NAME,
+                                                "FR",
+                                                MatchOptions.Contains
+                                            ),
+                                            Patch(
+                                                colSelectedOffers,
+                                                galSelectedOffers.Selected,
+                                                {
+                                                    assigned_images_fre: assignAssets,
+                                                    updated: true
+                                                }
+                                            );
+                                            ,
+                                            Patch(
+                                                colSelectedOffers,
+                                                galSelectedOffers.Selected,
+                                                {
+                                                    assigned_images: assignAssets,
+                                                    updated: true
+                                                }
+                                            );
+                                        )
+                                        
+                                        ,
                                         "logo",
                                         ClearCollect(
                                             assignAssetLogo,
@@ -3687,93 +3720,6 @@ scrOfferEdit As screen:
                                     
                                         
                                     );
-                                    Switch(
-                                        ddAssetSearchType.Selected.assetType,
-                                        "image",
-                                        If(
-                                            IsMatch(
-                                                ThisItem.FILE_NAME,
-                                                "FR",
-                                                MatchOptions.Contains
-                                            ),
-                                            ClearCollect(
-                                                assignAssets,
-                                                galSelectedOffers.Selected.assigned_images_fre
-                                            );
-                                            ,
-                                            ClearCollect(
-                                                assignAssets,
-                                                galSelectedOffers.Selected.assigned_images
-                                            );
-                                        ),
-                                        "logo",
-                                        ClearCollect(
-                                            assignAssetLogo,
-                                            galSelectedOffers.Selected.assigned_logos
-                                        );
-                                        ,
-                                        "icon",
-                                        ClearCollect(
-                                            assignAssetLogo,
-                                            galSelectedOffers.Selected.assigned_logos
-                                        );
-                                        
-                                    );
-                                    Collect(
-                                        assignAssets,
-                                        {
-                                            Id: First(assignAsset).ID,
-                                            Value: First(assignAsset).fullpath
-                                        }
-                                    );
-                                    Switch(
-                                        ddAssetSearchType.Selected.assetType,
-                                        "image",
-                                        If(
-                                            IsMatch(
-                                                ThisItem.FILE_NAME,
-                                                "FR",
-                                                MatchOptions.Contains
-                                            ),
-                                            Patch(
-                                                colSelectedOffers,
-                                                galSelectedOffers.Selected,
-                                                {
-                                                    assigned_images_fre: assignAssets,
-                                                    updated: true
-                                                }
-                                            );
-                                            ,
-                                            Patch(
-                                                colSelectedOffers,
-                                                galSelectedOffers.Selected,
-                                                {
-                                                    assigned_images: assignAssets,
-                                                    updated: true
-                                                }
-                                            );
-                                        ),
-                                        "logo",
-                                        Patch(
-                                            colSelectedOffers,
-                                            galSelectedOffers.Selected,
-                                            {
-                                                assigned_logos: assignAssetLogo,
-                                                updated: true
-                                            }
-                                        );
-                                        ,
-                                        "icon",
-                                        Patch(
-                                            colSelectedOffers,
-                                            galSelectedOffers.Selected,
-                                            {
-                                                assigned_logos: assignAssetLogo,
-                                                updated: true
-                                            }
-                                        );
-                                        
-                                    )
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Assign Asset"
                                 Width: =30
