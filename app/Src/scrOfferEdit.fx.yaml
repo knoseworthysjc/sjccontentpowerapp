@@ -843,6 +843,27 @@ scrOfferEdit As screen:
                                     ),
                                     Value,
                                     ","
+                                ),combined_item_number: Concat(
+                                    SortByColumns(
+                                        Distinct(
+                                            Split(
+                                                Concat(
+                                                    Distinct(
+                                                        colMergeOffers,
+                                                        combined_item_number
+                                                    ),
+                                                    Value,
+                                                    "/"
+                                                ),
+                                                "/"
+                                            ),
+                                            Value
+                                        ),
+                                        "Value",
+                                        SortOrder.Ascending
+                                    ),
+                                    Value,
+                                    "/"
                                 )
                             }
                         );
