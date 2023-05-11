@@ -2346,20 +2346,39 @@ mergeOffer As screen:
                                 ColResizable: true
                             },
                             {
+                                ColName: "layout_position",
+                                ColDisplayName: "Pos",
+                                ColWidth: 25,
+                                ColSortable: true,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
                                 ColName: "adblock",
                                 ColDisplayName: "Adblock",
                                 ColWidth: 50,
                                 ColSortable: true,
                                 ColIsBold: true,
                                 ColResizable: true
+                            },
+                            {
+                                ColName: "Markets",
+                                ColDisplayName: "Markets",
+                                ColWidth: 50,
+                                ColSortable: true,
+                                ColIsBold: true,
+                                ColResizable: true
                             }
                         )
+                    CurrentSortColumn: ="adblock"
+                    CurrentSortDirection: ='PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
                     Height: =200
                     Items: =colMergeOffers
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
+                    SelectionAlwaysVisible: =true
                     SelectRowsOnFocus: =true
                     Tooltip: ="List of Offers to merge"
                     Width: =200
