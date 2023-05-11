@@ -4343,7 +4343,8 @@ mergeOffer As screen:
                         img
                     )
                 );
-            )
+            );
+            Patch(mergeOfferRecords,First(mergeOfferRecords),{Markets:colMergeMarkets,assigned_images:colMergeAssetsEng,assigned_images_fre:colMergeAssetsFre,assigned_logos:colMergeAssetsLogo})
         Size: =15
         Text: ="Button"
         X: =198
