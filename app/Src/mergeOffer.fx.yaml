@@ -2335,16 +2335,335 @@ mergeOffer As screen:
                     ZIndex: =1
 
                 "FluentDetailsList1 As 'Fluent Details List (1.0.19)'.pcfdataset":
+                    columns_Items: |-
+                        =Table(
+                            {
+                                ColName: "page_from",
+                                ColDisplayName: "Pg",
+                                ColWidth: 25,
+                                ColSortable: true,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "adblock",
+                                ColDisplayName: "AdBlk",
+                                ColWidth: 30,
+                                ColSortable: true,
+                                ColIsBold: true,
+                                ColResizable: true
+                            }
+                        )
                     DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
                     Height: =200
                     Items: =colMergeOffers
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
+                    SelectRowsOnFocus: =true
                     Tooltip: ="List of Offers to merge"
                     Width: =200
                     X: =0
                     Y: =0
                     ZIndex: =3
+
+                    adblock1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="adblock"
+                        FieldName: ="adblock"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =13
+
+                    assigned_images1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="assigned_images"
+                        FieldName: ="assigned_images"
+                        FieldType: |-
+                            ="*[Id:n, Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =2
+                        ZIndex: =14
+
+                    assigned_images_fre1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="assigned_images_fre"
+                        FieldName: ="assigned_images_fre"
+                        FieldType: |-
+                            ="*[Id:n, Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =3
+                        ZIndex: =15
+
+                    assigned_logos1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="assigned_logos"
+                        FieldName: ="assigned_logos"
+                        FieldType: |-
+                            ="*[Id:n, Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =4
+                        ZIndex: =16
+
+                    event_price1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="event_price"
+                        FieldName: ="event_price"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =5
+                        ZIndex: =17
+
+                    event_price_lb1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="event_price_lb"
+                        FieldName: ="event_price_lb"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =6
+                        ZIndex: =18
+
+                    featured_item_numbers1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="featured_item_numbers"
+                        FieldName: ="featured_item_numbers"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =7
+                        ZIndex: =19
+
+                    ID1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="ID"
+                        FieldName: ="ID"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =8
+                        ZIndex: =20
+
+                    installment_amount1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="installment_amount"
+                        FieldName: ="installment_amount"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =9
+                        ZIndex: =21
+
+                    installment_frequency1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="installment_frequency"
+                        FieldName: ="installment_frequency"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =10
+                        ZIndex: =22
+
+                    item_name1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="item_name"
+                        FieldName: ="item_name"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =11
+                        ZIndex: =23
+
+                    layout_position1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="layout_position"
+                        FieldName: ="layout_position"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =12
+                        ZIndex: =24
+
+                    markets1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="markets"
+                        FieldName: ="markets"
+                        FieldType: |-
+                            ="*[Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =13
+                        ZIndex: =25
+
+                    multi_save1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="multi_save"
+                        FieldName: ="multi_save"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =14
+                        ZIndex: =26
+
+                    multi_save_fre1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="multi_save_fre"
+                        FieldName: ="multi_save_fre"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =15
+                        ZIndex: =27
+
+                    offer_copy1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="offer_copy"
+                        FieldName: ="offer_copy"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =16
+                        ZIndex: =28
+
+                    offer_copy_french1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="offer_copy_french"
+                        FieldName: ="offer_copy_french"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =17
+                        ZIndex: =29
+
+                    offer_layout1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="offer_layout"
+                        FieldName: ="offer_layout"
+                        FieldType: |-
+                            ="![Id:n, Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =18
+                        ZIndex: =30
+
+                    offer_status1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="offer_status"
+                        FieldName: ="offer_status"
+                        FieldType: |-
+                            ="![Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =19
+                        ZIndex: =31
+
+                    offer_type1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="offer_type"
+                        FieldName: ="offer_type"
+                        FieldType: |-
+                            ="![Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =20
+                        ZIndex: =32
+
+                    page_from1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="page_from"
+                        FieldName: ="page_from"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =21
+                        ZIndex: =33
+
+                    regular_price1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="regular_price"
+                        FieldName: ="regular_price"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =22
+                        ZIndex: =34
+
+                    regular_price_lb1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="regular_price_lb"
+                        FieldName: ="regular_price_lb"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =23
+                        ZIndex: =35
+
+                    savings1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="savings"
+                        FieldName: ="savings"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =24
+                        ZIndex: =36
+
+                    record_type1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="record_type"
+                        FieldName: ="record_type"
+                        FieldType: |-
+                            ="![Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =25
+                        ZIndex: =37
+
+                    savings_lb1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="savings_lb"
+                        FieldName: ="savings_lb"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =26
+                        ZIndex: =38
+
+                    sbu1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="sbu"
+                        FieldName: ="sbu"
+                        FieldType: |-
+                            ="![Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =27
+                        ZIndex: =39
+
+                    season1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="season"
+                        FieldName: ="season"
+                        FieldType: |-
+                            ="![Value:s]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =28
+                        ZIndex: =40
+
+                    selected1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="selected"
+                        FieldName: ="selected"
+                        FieldType: ="b"
+                        FieldVariantName: ="textualColumn"
+                        Order: =29
+                        ZIndex: =41
+
+                    Title1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="Title"
+                        FieldName: ="Title"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =30
+                        ZIndex: =42
+
+                    total_event_price1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="total_event_price"
+                        FieldName: ="total_event_price"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =31
+                        ZIndex: =43
+
+                    unit1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="unit"
+                        FieldName: ="unit"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =32
+                        ZIndex: =44
+
+                    unit_fre1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="unit_fre"
+                        FieldName: ="unit_fre"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =33
+                        ZIndex: =45
+
+                    updated1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="updated"
+                        FieldName: ="updated"
+                        FieldType: ="b"
+                        FieldVariantName: ="textualColumn"
+                        Order: =34
+                        ZIndex: =46
+
+                    Week1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="Week"
+                        FieldName: ="Week"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =35
+                        ZIndex: =47
+
+                    zone_idx1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="zone_idx"
+                        FieldName: ="zone_idx"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =36
+                        ZIndex: =48
 
     imgOfferLogo_1 As image:
         BorderColor: =RGBA(0, 36, 71, 1)
