@@ -2465,14 +2465,15 @@ mergeOffer As screen:
                                 ColResizable: true
                             },
                             {
-                                ColName: "assigned_images",
+                                ColName: "_assigned_images_value",
                                 ColDisplayName: "Assigned Images",
                                 ColMultiValueDelimiter:",",
                                 ColWidth: 350,
                                 ColIsBold: true,
                                 ColResizable: true,
                                 ColMultiLine: true,
-                                ColCellType:"image"
+                                ColCellType:"image",
+                                ColImageWidth:"60"
                             }
                         )
                     CurrentSortColumn: ="adblock"
