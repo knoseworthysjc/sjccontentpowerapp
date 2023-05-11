@@ -3707,13 +3707,13 @@ scrOfferEdit As screen:
                                         ),
                                         "logo",
                                         ClearCollect(
-                                            assignAssets,
+                                            assignAssetLogo,
                                             galSelectedOffers.Selected.assigned_logos
                                         );
                                         ,
                                         "icon",
                                         ClearCollect(
-                                            assignAssets,
+                                            assignAssetLogo,
                                             galSelectedOffers.Selected.assigned_logos
                                         );
                                         
@@ -3757,7 +3757,7 @@ scrOfferEdit As screen:
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
                                             {
-                                                assigned_logos: assignAssets,
+                                                assigned_logos: assignAssetLogo,
                                                 updated: true
                                             }
                                         );
@@ -3767,7 +3767,7 @@ scrOfferEdit As screen:
                                             colSelectedOffers,
                                             galSelectedOffers.Selected,
                                             {
-                                                assigned_logos: assignAssets,
+                                                assigned_logos: assignAssetLogo,
                                                 updated: true
                                             }
                                         );
