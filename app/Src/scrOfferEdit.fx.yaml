@@ -3642,6 +3642,14 @@ scrOfferEdit As screen:
                                                 value: First(assignAsset).fullpath
                                             }
                                         );
+                                    
+                                        If(
+                                            IsMatch(
+                                                ThisItem.FILE_NAME,
+                                                "FR",
+                                                MatchOptions.Contains
+                                            ),
+                                                ClearCollect(assignAssets,galSelectedOffers.Selected.assigned_images_fre);
                                         Collect(
                                         assignAssets,
                                         {
@@ -3649,12 +3657,6 @@ scrOfferEdit As screen:
                                             Value: First(assignAsset).fullpath
                                         }
                                         );
-                                        If(
-                                            IsMatch(
-                                                ThisItem.FILE_NAME,
-                                                "FR",
-                                                MatchOptions.Contains
-                                            ),
                                             Patch(
                                                 colSelectedOffers,
                                                 galSelectedOffers.Selected,
@@ -3664,6 +3666,14 @@ scrOfferEdit As screen:
                                                 }
                                             );
                                             ,
+                                            ClearCollect(assignAssets,galSelectedOffers.Selected.assigned_images);
+                                        Collect(
+                                        assignAssets,
+                                        {
+                                            Id: First(assignAsset).ID,
+                                            Value: First(assignAsset).fullpath
+                                        }
+                                        );
                                             Patch(
                                                 colSelectedOffers,
                                                 galSelectedOffers.Selected,
