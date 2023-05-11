@@ -2356,7 +2356,13 @@ mergeOffer As screen:
                                     assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout
                                 }
                             );
-                            ForAll(Filter(colMergeOffers, ID<>ThisItem.ID) As off, Remove(colSelectedOffers,off));
+                            ForAll(Filter(colMergeOffers, ID<>ThisItem.ID) As off, Remove(colSelectedOffers,off);Patch(Offers,First(
+                                    DropColumns(
+                                        Table(ThisItem),
+                                        "updated",
+                                        "selected"
+                                    )
+                                ),{offer_status:{Value:"Deleted"}});
                             /*
                             Patch(
                                 Offers,
