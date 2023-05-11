@@ -2317,28 +2317,7 @@ mergeOffer As screen:
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =2
 
-                lblSeason_5 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 62, 125, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    LayoutMinWidth: =125
-                    minimumHeight: =30
-                    Size: =11
-                    Text: |-
-                        ="Selected Records
-                        "
-                    Width: |
-                        =70
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =1
-
-                "FluentDetailsList1 As 'Fluent Details List (1.0.19)'.pcfdataset":
+                "dlSelectedMergeOffers As 'Fluent Details List (1.0.19)'.pcfdataset":
                     columns_Items: |-
                         =Table(
                             {
@@ -2388,6 +2367,55 @@ mergeOffer As screen:
                                 ColSortable: true,
                                 ColIsBold: true,
                                 ColResizable: true
+                            },
+                            {
+                                ColName: "total_event_price",
+                                ColDisplayName: "Total Price",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "event_price",
+                                ColDisplayName: "Event Price",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "savings",
+                                ColDisplayName: "Savings",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "eco_fee",
+                                ColDisplayName: "Eco-Fee",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "event_price_lb",
+                                ColDisplayName: "Event Price(LB)",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "reg_price_lb",
+                                ColDisplayName: "Event Price(LB)",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
+                            },
+                            {
+                                ColName: "savings_lb",
+                                ColDisplayName: "Event Price(LB)",
+                                ColWidth: 100,
+                                ColIsBold: true,
+                                ColResizable: true
                             }
                         )
                     CurrentSortColumn: ="adblock"
@@ -2404,7 +2432,7 @@ mergeOffer As screen:
                     Width: =200
                     X: =0
                     Y: =0
-                    ZIndex: =3
+                    ZIndex: =1
 
                     adblock1 As pcfDataField.textualColumn:
                         FieldDisplayName: ="adblock"
@@ -2703,6 +2731,27 @@ mergeOffer As screen:
                         FieldVariantName: ="textualColumn"
                         Order: =36
                         ZIndex: =48
+
+                lblSeason_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 62, 125, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =125
+                    minimumHeight: =30
+                    Size: =11
+                    Text: |-
+                        ="Selected Records
+                        "
+                    Width: |
+                        =70
+                    X: =Parent.Width/12
+                    Y: =1
+                    ZIndex: =2
 
     imgOfferLogo_1 As image:
         BorderColor: =RGBA(0, 36, 71, 1)
