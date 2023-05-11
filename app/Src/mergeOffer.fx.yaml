@@ -2317,6 +2317,27 @@ mergeOffer As screen:
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =2
 
+                lblSeason_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 62, 125, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =125
+                    minimumHeight: =30
+                    Size: =11
+                    Text: |-
+                        ="Selected Records
+                        "
+                    Width: |
+                        =70
+                    X: =Parent.Width/12
+                    Y: =1
+                    ZIndex: =1
+
                 "dlSelectedMergeOffers As 'Fluent Details List (1.0.19)'.pcfdataset":
                     columns_Items: |-
                         =Table(
@@ -2432,7 +2453,7 @@ mergeOffer As screen:
                     Width: =200
                     X: =0
                     Y: =0
-                    ZIndex: =1
+                    ZIndex: =2
 
                     adblock1 As pcfDataField.textualColumn:
                         FieldDisplayName: ="adblock"
@@ -2732,27 +2753,6 @@ mergeOffer As screen:
                         Order: =36
                         ZIndex: =48
 
-                lblSeason_5 As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 62, 125, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =30
-                    LayoutMinHeight: =30
-                    LayoutMinWidth: =125
-                    minimumHeight: =30
-                    Size: =11
-                    Text: |-
-                        ="Selected Records
-                        "
-                    Width: |
-                        =70
-                    X: =Parent.Width/12
-                    Y: =1
-                    ZIndex: =2
-
     imgOfferLogo_1 As image:
         BorderColor: =RGBA(0, 36, 71, 1)
         BorderThickness: =1
@@ -2847,13 +2847,22 @@ mergeOffer As screen:
                         ),
                         Value,
                         " & "
-                    ),'Country of Origin(Fre)': Concat(
+                    ),
+                    'Country of Origin(Fre)': Concat(
                         Distinct(
                             colMergeOffers,
                             'Country of Origin(Fre)'
                         ),
                         Value,
                         " & "
+                    ), offer_comments: Concat(
+                        Distinct(
+                            colMergeOffers,
+                            offer_comments
+                        ),
+                        Value,
+                        " 
+                         "
                     )
                 }
             )
