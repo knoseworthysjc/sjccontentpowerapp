@@ -120,6 +120,7 @@ mergeOffer As screen:
                         OnSelect: =Select(Parent)
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                         X: =4
+                        Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
                         ZIndex: =1
 
                     conSelectedOfferMultiSave_3 As groupContainer.horizontalAutoLayoutContainer:
