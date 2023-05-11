@@ -202,7 +202,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =(Parent.Width-U*3)/3
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,multi_save:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,multi_save:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -237,7 +237,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =(Parent.Width-U*3)/3
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,multi_save_fre:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,multi_save_fre:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -295,7 +295,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,callout:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,callout:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -385,7 +385,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,unit:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,unit:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -400,7 +400,7 @@ mergeOffer As screen:
                             Y: =32
                             ZIndex: =3
 
-                        iptExistingOfferRegPrice_12 As text:
+                        "'iptMergeOffer-unit_french' As text":
                             Align: =Align.Center
                             BorderColor: =RGBA(116, 116, 116, 1)
                             Color: =RGBA(0, 0, 0, 1)
@@ -420,7 +420,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,unit_fre:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,unit_fre:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -499,7 +499,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =(Parent.Width-U*2)/2
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,installment_amount:Value(Self.Text)})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,installment_amount:Value(Self.Text)})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -534,7 +534,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =(Parent.Width-U*2)/2
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,installment_frequency:Value(Self.Text)})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,installment_frequency:Value(Self.Text)})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -695,7 +695,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,total_event_price:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,total_event_price:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -730,7 +730,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,event_price:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,event_price:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -765,7 +765,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,regular_price:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,regular_price:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -799,7 +799,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,savings:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,savings:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -835,7 +835,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =75  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,eco_fee:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,eco_fee:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -950,7 +950,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,event_price_lb:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,event_price_lb:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -985,7 +985,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,regular_price_lb:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,regular_price_lb:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1019,7 +1019,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =60  
                             LineHeight: =1
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,'Savings(LB)':Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,'Savings(LB)':Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1092,7 +1092,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,image_source:Self.Selected})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,image_source:Self.Selected})
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingRight: =5
@@ -1150,7 +1150,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,offer_comments:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_comments:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingTop: =0
@@ -1174,10 +1174,10 @@ mergeOffer As screen:
                         Height: =32
                         HoverColor: =RGBA(0, 89, 178, 1)
                         OnCheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"line list"}})
+                            =Patch(mergeOfferRecords,ThisItem,{updated:true,record_type:{Value:"line list"}})
                         OnSelect: =Select(Parent)
                         OnUncheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"featured"}})
+                            =Patch(mergeOfferRecords,ThisItem,{updated:true,record_type:{Value:"featured"}})
                         PaddingBottom: =4
                         Text: ="Line List"
                         Width: =125
@@ -1349,7 +1349,7 @@ mergeOffer As screen:
                                 LayoutMinWidth: =Parent.Width
                                 Mode: =TextMode.MultiLine
                                 OnChange: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Self.Text})
+                                    =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_copy:Self.Text})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -1516,7 +1516,7 @@ mergeOffer As screen:
                                 LayoutMinWidth: =Parent.Width
                                 Mode: =TextMode.MultiLine
                                 OnChange: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Self.Text})
+                                    =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_copy_french:Self.Text})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -1668,7 +1668,7 @@ mergeOffer As screen:
                                 Icon: =Icon.Save
                                 LayoutMinWidth: =32
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:iptSelectedOfferUpdate_3.SelectedItems})
+                                    =Patch(mergeOfferRecords,ThisItem,{updated:true,Markets:iptSelectedOfferUpdate_3.SelectedItems})
                                 Width: |
                                     =32
                                 ZIndex: =3
@@ -1715,7 +1715,7 @@ mergeOffer As screen:
                             LayoutMinHeight: =28
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,featured_item_numbers:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,featured_item_numbers:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1769,7 +1769,7 @@ mergeOffer As screen:
                             LayoutMinHeight: =28
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,combined_item_number:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,combined_item_number:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1824,7 +1824,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin':Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,'Country of Origin':Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1883,7 +1883,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin(Fre)':Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,'Country of Origin(Fre)':Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1955,7 +1955,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,offer_type:Self.Selected})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_type:Self.Selected})
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingRight: =5
@@ -2015,7 +2015,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             minimumHeight: =30
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,SBU:Self.Selected})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,SBU:Self.Selected})
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingRight: =5
@@ -2068,7 +2068,7 @@ mergeOffer As screen:
                             LayoutMinHeight: =28
                             LayoutMinWidth: =Parent.Width
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,department_name:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,department_name:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -2238,7 +2238,7 @@ mergeOffer As screen:
                             LayoutMinHeight: =28
                             LayoutMinWidth: =50
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,page_from:Self.Text})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,page_from:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -2268,7 +2268,7 @@ mergeOffer As screen:
                             HoverFill: =RGBA(153, 205, 255, 1)
                             LayoutMinHeight: =28
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,layout_position:Value(Self.Text)})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,layout_position:Value(Self.Text)})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -2298,7 +2298,7 @@ mergeOffer As screen:
                             LayoutMinWidth: |
                                 =60
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,Adblock:Value(Self.Text)})
+                                =Patch(mergeOfferRecords,ThisItem,{updated:true,Adblock:Value(Self.Text)})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
