@@ -2366,12 +2366,20 @@ mergeOffer As screen:
                                 ColResizable: true
                             },
                             {
-                                ColName: "Markets",
+                                ColName: "markets",
                                 ColDisplayName: "Markets",
                                 ColWidth: 50,
                                 ColSortable: true,
                                 ColIsBold: true,
                                 ColResizable: true
+                            },{
+                                ColName: "featured_item_numbers",
+                                ColDisplayName: "Items",
+                                ColWidth: 100,
+                                ColSortable: true,
+                                ColIsBold: true,
+                                ColResizable: true,
+                                ColIsMultiLine:true
                             },
                             {
                                 ColName: "offer_copy",
