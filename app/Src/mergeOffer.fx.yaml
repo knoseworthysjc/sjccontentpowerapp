@@ -2353,17 +2353,13 @@ mergeOffer As screen:
                                     image_source: ThisItem.image_source,
                                     offer_comments: ThisItem.offer_comments,
                                     assigned_images: ThisItem.assigned_images,
-                                    assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout
+                                    assigned_logos: ThisItem.assigned_logos,
+                                    record_type: ThisItem.record_type,
+                                    assigned_images_fre: ThisItem.assigned_images_fre,
+                                    offer_layout: ThisItem.offer_layout
                                 }
                             );
-                            ForAll(Filter(colMergeOffers, ID<>ThisItem.ID) As off, Remove(colSelectedOffers,off);Patch(Offers,First(
-                                    DropColumns(
-                                        Table(ThisItem),
-                                        "updated",
-                                        "selected"
-                                    )
-                                ),{offer_status:{Value:"Deleted"}});
-                            /*
+                            
                             Patch(
                                 Offers,
                                 First(
@@ -2409,7 +2405,28 @@ mergeOffer As screen:
                                     assigned_images: ThisItem.assigned_images,
                                     assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout
                                 }
-                            );*/
+                            );
+                            ForAll(
+                                Filter(
+                                    colMergeOffers,
+                                    ID <> ThisItem.ID
+                                ) As off,
+                                Remove(
+                                    colSelectedOffers,
+                                    off
+                                );
+                                Patch(
+                                    Offers,
+                                    First(
+                                        DropColumns(
+                                            Table(ThisItem),
+                                            "updated",
+                                            "selected"
+                                        )
+                                    ),
+                                    {offer_status: {Value: "Deleted"}}
+                                )
+                            );
                         Width: |
                             =40
                         X: =1525
