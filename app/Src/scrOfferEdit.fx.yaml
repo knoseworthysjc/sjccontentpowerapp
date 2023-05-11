@@ -841,7 +841,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =165
                         OnChange: |
                             =Set(selectedSplitOffers,ThisItem);
-                            Navigate(splitOffer);
+                            Navigate(mergeOffer);
                         Text: =""
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Split This Offer"
@@ -868,7 +868,7 @@ scrOfferEdit As screen:
                         OnChange: |-
                             =ClearCollect(colMergeOffers,Filter(colSelectedOffers,selected=true));
                             If(CountRows(colMergeOffers)<2,Notify("Select More then 1 offer"),
-                            Navigate(splitOffer));
+                            Navigate(mergeOffer));
                         Text: ="Combine Selected"
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Combine Selected"

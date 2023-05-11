@@ -1,4 +1,4 @@
-splitOffer As screen:
+mergeOffer As screen:
     Fill: =RGBA(232, 232, 232, 1)
 
     conPageIndex As groupContainer.verticalAutoLayoutContainer:
@@ -756,7 +756,7 @@ splitOffer As screen:
                         Y: =1
                         ZIndex: =3
 
-                    iptExistingOfferPage_32 As text:
+                    iptMergeOffer As text:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 62, 125, 1)
@@ -4294,4 +4294,59 @@ splitOffer As screen:
         Width: =220
         X: =Parent.Width-Self.Width
         ZIndex: =3
+
+    Button2 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 51, 102, 1)
+        FontWeight: =FontWeight.Semibold
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+        OnSelect: |-
+            =ClearCollect(
+                mergeOfferRecords,
+                First(galMergedOffer.AllItems)
+            );
+            Clear(colMergeMarkets);
+            Clear(colMergeAssetsEng);
+            Clear(colMergeAssetsFre);
+            Clear(colMergeAssetsLogo);
+            
+            ForAll(
+                colMergeOffers As off,
+                ForAll(
+                    off.markets As MKT,
+                    Collect(
+                        colMergeMarkets,
+                        MKT
+                    )
+                );
+                ForAll(
+                    off.assigned_images As img,
+                    Collect(
+                        colMergeAssetsEng,
+                        img
+                    )
+                );
+                ForAll(
+                    off.assigned_images_fre As img,
+                    Collect(
+                        colMergeAssetsFre,
+                        img
+                    )
+                );
+                ForAll(
+                    off.assigned_logos As img,
+                    Collect(
+                        colMergeAssetsLogo,
+                        img
+                    )
+                );
+            )
+        Size: =15
+        Text: ="Button"
+        X: =198
+        Y: =70
+        ZIndex: =4
 
