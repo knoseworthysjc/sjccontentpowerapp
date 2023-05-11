@@ -3404,17 +3404,6 @@ scrOfferEdit As screen:
                                 Y: =Image5.Y+Image5.BorderThickness+U
                                 ZIndex: =4
 
-                            Label6 As label:
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =RGBA(0, 0, 0, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                OnSelect: =Select(Parent)
-                                Size: =13
-                                Text: =ThisItem.type
-                                X: =40
-                                Y: =40
-                                ZIndex: =5
-
                     Container6 As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
                         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -3622,9 +3611,8 @@ scrOfferEdit As screen:
                                                         macpath: ThisItem.FILE_PATH,
                                                         pcpath: ThisItem.FILE_PATH,
                                                         file_id: ThisItem.FILE_ID,
-                                                        xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType},
-                                                        preview_url: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH,
-                                                        download_url:"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=streamfile&path=" & ThisItem.FILE_PATH
+                                                        xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType}
+                                                        
                                                     }
                                                 )
                                             )
