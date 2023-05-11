@@ -3513,10 +3513,11 @@ scrOfferEdit As screen:
                                 OnChange: |-
                                     =Clear(colOfferAssetSearchResults);
                                     ForAll(ddAssetSearchType.Selected.xinetPaths As searchLocals,
-                                    Collect(
+                                        ForAll(Split(iptOfferAssetSearch.Text,","),
+                                        Collect(
                                             colOfferAssetSearchResults,
-                                            Xinet.Search(searchLocals.pathId,iptOfferAssetSearch.Text,{fileid_searchsub_0:1,filename_flag_0:1}).FILES_INFO
-                                        ))
+                                            Xinet.Search(searchLocals.pathId,ThisRecord.Value,{fileid_searchsub_0:1,filename_flag_0:1}).FILES_INFO
+                                        )));
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Width: =Parent.Width*0.2
