@@ -2946,6 +2946,7 @@ mergeOffer As screen:
             Clear(colMergeAssetsEng);
             Clear(colMergeAssetsFre);
             Clear(colMergeAssetsLogo);
+            
             ForAll(
                 colMergeOffers As off,
                 ForAll(
@@ -3025,11 +3026,12 @@ mergeOffer As screen:
                         Value,
                         " 
                          "
-                    )
+                    ),featured_item_numbers:Concat(SortByColumns(Distinct(Split(Concat(Distinct(colMergeOffers,featured_item_numbers),Value,","),","),Value),"Value",SortOrder.Ascending),Value,",")
                 }
             )
         Size: =15
         Text: ="Button"
-        X: =248
+        X: =334
+        Y: =28
         ZIndex: =4
 
