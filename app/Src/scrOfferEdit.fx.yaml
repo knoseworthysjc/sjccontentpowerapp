@@ -3709,7 +3709,9 @@ scrOfferEdit As screen:
                                                         macpath: ThisItem.FILE_PATH,
                                                         pcpath: ThisItem.FILE_PATH,
                                                         file_id: ThisItem.FILE_ID,
-                                                        xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType}
+                                                        xinet_asset_type: {Value: ddAssetSearchType.Selected.assetType},
+                                                        preview_url: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH,
+                                                        download_url:"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=streamfile&path=" & ThisItem.FILE_PATH
                                                     }
                                                 )
                                             )
@@ -3725,11 +3727,11 @@ scrOfferEdit As screen:
                                                         "/"
                                                     )
                                                 ).Value,
-                                                thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
+                                                thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAssetlogo).fullpath,
                                                 selected: false,
                                                 type: "image",
                                                 lang: Blank(),
-                                                value: First(assignAsset).fullpath
+                                                value: First(assignAssetlogo).fullpath
                                             }
                                         );
                                         ClearCollect(
@@ -3757,7 +3759,7 @@ scrOfferEdit As screen:
                                 Tooltip: ="Assign Asset"
                                 Width: =30
                                 X: =123
-                                Y: =U
+                                Y: =0
                                 ZIndex: =3
 
             conOfferProducts As groupContainer.verticalAutoLayoutContainer:
