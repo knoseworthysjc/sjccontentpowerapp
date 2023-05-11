@@ -280,3 +280,72 @@ scrProjectManagement As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
+    nav_container_8 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 51, 102, 1)
+        BorderThickness: =1
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =CountRows(nav_gallery_8.AllItems)*(nav_gallery_8.TemplateHeight+nav_gallery_8.TemplatePadding*2)
+        Visible: =showNav
+        Width: =Parent.Width*0.2
+        X: =nav_icon_7.X+nav_icon_7.Width/2
+        Y: =nav_icon_7.Height
+        ZIndex: =2
+
+        nav_gallery_8 As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height
+            Items: |-
+                =Table(
+                {Title:"Edit Offers",icon:Icon.Home,screen:scrOfferEdit},
+                {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
+                {Title:"Images",icon:Icon.Folder,screen:images_screen},
+                {Title:"Products",icon:Icon.Information,screen:products_screen},
+                {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
+                )
+            Layout: =Layout.Vertical
+            TemplateSize: =45
+            Width: =Parent.Width
+            ZIndex: =1
+
+            nav_label_8 As label:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 222, 240, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                PaddingLeft: =nav_label_icon_8.Width+nav_label_icon_8.X+5
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
+            nav_label_icon_8 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =ThisItem.icon
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+            nav_label_arrow_2 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =Icon.NextArrow
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
+                Y: =Parent.TemplatePadding
+                ZIndex: =3
+
