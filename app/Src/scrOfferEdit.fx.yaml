@@ -3663,7 +3663,7 @@ scrOfferEdit As screen:
                                                 ).Value,
                                                 thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAssetLogo).fullpath,
                                                 selected: false,
-                                                type: "image",
+                                                type: "logo",
                                                 value: First(assignAssetLogo).fullpath
                                             }
                                         );
