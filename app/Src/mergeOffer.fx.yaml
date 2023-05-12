@@ -1142,7 +1142,7 @@ mergeOffer As screen:
                         Width: =Parent.Width
                         ZIndex: =6
 
-                Checkbox2_3 As checkbox:
+                cbMergeOfferLineList As checkbox:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     CheckboxBorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(255, 255, 255, 1)
@@ -1160,7 +1160,7 @@ mergeOffer As screen:
                     PaddingBottom: =4
                     Text: ="Line List"
                     Width: =125
-                    X: =511
+                    X: =conSelectedOfferCopy_3.X+conSelectedOfferCopy_3.Width+U*2
                     Y: =Parent.TemplatePadding
                     ZIndex: =7
 
@@ -2408,8 +2408,8 @@ mergeOffer As screen:
                         );
                     Width: |
                         =40
-                    X: =conSelectedOfferCopy_3.X+conSelectedOfferCopy_3.Width+U*2
-                    Y: =3
+                    X: =cbMergeOfferLineList.X+cbMergeOfferLineList.Width+U*2
+                    Y: =U
                     ZIndex: =12
 
         conMergeOffers As groupContainer.verticalAutoLayoutContainer:
