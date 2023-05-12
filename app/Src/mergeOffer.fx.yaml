@@ -1328,7 +1328,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_copy:Self.Text})
+                                =Patch(colMergeOfferRecord,ThisItem,{updated:true,offer_copy:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1495,7 +1495,7 @@ mergeOffer As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_copy_french:Self.Text})
+                                =Patch(colMergeOfferRecord,ThisItem,{updated:true,offer_copy_french:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
