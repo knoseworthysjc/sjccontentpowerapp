@@ -885,6 +885,38 @@ scrOfferEdit As screen:
                 Y: =0
                 ZIndex: =12
 
+            "iconCombineOffers_3 As 'Fluent Icon (1.0.19)'":
+                BorderColor: =""
+                BorderRadius: =0
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =40
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="ClearFilter"
+                IconSize: =28
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =160
+                OnChange: =
+                Text: ="Clear Selected"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                Tooltip: ="Combine Selected"
+                Visible: |-
+                    =If(
+                        CountRows(
+                            Filter(
+                            colSelectedOffers,
+                            selected = true
+                        )
+                        )>0,true,false)
+                Width: =160
+                X: =0
+                Y: =0
+                ZIndex: =13
+
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
