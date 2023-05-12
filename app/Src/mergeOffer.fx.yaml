@@ -69,6 +69,7 @@ mergeOffer As screen:
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Color: =RGBA(0, 62, 125, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =30
@@ -96,7 +97,7 @@ mergeOffer As screen:
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplateFill: |
-                    =RGBA(216, 116, 116, 20%)
+                    =RGBA(255, 255, 255, 1%)
                 TemplatePadding: =U
                 TemplateSize: =Self.Height
                 Transition: =Transition.Push
@@ -2413,6 +2414,7 @@ mergeOffer As screen:
                     ZIndex: =12
 
         conMergeOffers As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =U
@@ -2469,6 +2471,7 @@ mergeOffer As screen:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =1
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
