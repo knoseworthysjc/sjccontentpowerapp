@@ -2350,7 +2350,7 @@ mergeOffer As screen:
                                 Offers,
                                 First(
                                     DropColumns(
-                                        Table(ThisItem),
+                                        Table(off),
                                         "updated",
                                         "selected"
                                     )
