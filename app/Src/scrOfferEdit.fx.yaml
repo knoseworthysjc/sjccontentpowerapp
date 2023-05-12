@@ -233,10 +233,7 @@ scrOfferEdit As screen:
                             false
                         )
                     );
-                    ClearCollect(
-                        colSelectedPageOffers,
-                        colSelectedOffers
-                    );
+                    
                     Clear(colSelectedPageProductImages);
                     ForAll(
                         colSelectedOffers As offer,
