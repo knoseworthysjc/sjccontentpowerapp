@@ -900,7 +900,14 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =160
-                OnChange: =
+                OnChange: |-
+                    =ForAll(
+                        Filter(
+                            colSelectedOffers,
+                            selected = true
+                        ),
+                        Patch(colSelectedOffers,ThisRecord,{selected:false});
+                    )
                 Text: ="Clear Selected"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                 Tooltip: ="Combine Selected"
