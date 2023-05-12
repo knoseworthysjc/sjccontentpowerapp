@@ -2422,6 +2422,11 @@ mergeOffer As screen:
             ZIndex: =5
 
             Container2 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =32
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -2442,152 +2447,7 @@ mergeOffer As screen:
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
                     LayoutMinWidth: =160
-                    OnChange: |
-                        =ClearCollect(
-                            colMergeOffers,
-                            Filter(
-                                colSelectedOffers,
-                                selected = true
-                            )
-                        );
-                        If(
-                            CountRows(colMergeOffers) < 2,
-                            Notify("Select More then 1 offer"),
-                            ClearCollect(
-                                mergeOfferRecords,
-                                First(colMergeOffers)
-                            );
-                            Clear(colMergeMarkets);
-                            Clear(colMergeAssetsEng);
-                            Clear(colMergeAssetsFre);
-                            Clear(colMergeAssetsLogo);
-                            ForAll(
-                                colMergeOffers As off,
-                                ForAll(
-                                    off.markets As MKT,
-                                    Collect(
-                                        colMergeMarkets,
-                                        MKT
-                                    )
-                                );
-                                ForAll(
-                                    off.assigned_images As img,
-                                    Collect(
-                                        colMergeAssetsEng,
-                                        img
-                                    )
-                                );
-                                ForAll(
-                                    off.assigned_images_fre As img,
-                                    Collect(
-                                        colMergeAssetsFre,
-                                        img
-                                    )
-                                );
-                                ForAll(
-                                    off.assigned_logos As img,
-                                    Collect(
-                                        colMergeAssetsLogo,
-                                        img
-                                    )
-                                );
-                            );
-                            Patch(
-                                mergeOfferRecords,
-                                First(mergeOfferRecords),
-                                {
-                                    Markets: colMergeMarkets,
-                                    assigned_images: colMergeAssetsEng,
-                                    assigned_images_fre: colMergeAssetsFre,
-                                    assigned_logos: colMergeAssetsLogo,
-                                    offer_copy: Concat(
-                                        Distinct(
-                                            colMergeOffers,
-                                            offer_copy
-                                        ),
-                                        Value,
-                                        " & "
-                                    ),
-                                    offer_copy_french: Concat(
-                                        Distinct(
-                                            colMergeOffers,
-                                            offer_copy_french
-                                        ),
-                                        Value,
-                                        " & "
-                                    ),
-                                    'Country of Origin': Concat(
-                                        Distinct(
-                                            colMergeOffers,
-                                            'Country of Origin'
-                                        ),
-                                        Value,
-                                        " & "
-                                    ),
-                                    'Country of Origin(Fre)': Concat(
-                                        Distinct(
-                                            colMergeOffers,
-                                            'Country of Origin(Fre)'
-                                        ),
-                                        Value,
-                                        " & "
-                                    ),
-                                    offer_comments: Concat(
-                                        Distinct(
-                                            colMergeOffers,
-                                            offer_comments
-                                        ),
-                                        Value,
-                                        " 
-                                     "
-                                    ),
-                                    featured_item_numbers: Concat(
-                                        SortByColumns(
-                                            Distinct(
-                                                Split(
-                                                    Concat(
-                                                        Distinct(
-                                                            colMergeOffers,
-                                                            featured_item_numbers
-                                                        ),
-                                                        Value,
-                                                        ","
-                                                    ),
-                                                    ","
-                                                ),
-                                                Value
-                                            ),
-                                            "Value",
-                                            SortOrder.Ascending
-                                        ),
-                                        Value,
-                                        ","
-                                    ),combined_item_number: Concat(
-                                        SortByColumns(
-                                            Distinct(
-                                                Split(
-                                                    Concat(
-                                                        Distinct(
-                                                            colMergeOffers,
-                                                            combined_item_number
-                                                        ),
-                                                        Value,
-                                                        "/"
-                                                    ),
-                                                    "/"
-                                                ),
-                                                Value
-                                            ),
-                                            "Value",
-                                            SortOrder.Ascending
-                                        ),
-                                        Value,
-                                        "/"
-                                    )
-                                }
-                            );
-                            Navigate(mergeOffer)
-                        );
+                    OnChange: =false
                     Text: ="Remove From Grouping"
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                     Tooltip: ="Combine Selected"
@@ -2616,6 +2476,7 @@ mergeOffer As screen:
                     LayoutMinHeight: =30
                     LayoutMinWidth: =125
                     minimumHeight: =30
+                    PaddingRight: =160
                     Size: =11
                     Text: |-
                         ="Selected Records
