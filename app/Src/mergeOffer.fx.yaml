@@ -1071,7 +1071,7 @@ mergeOffer As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(mergeOfferRecords,ThisItem,{updated:true,image_source:Self.Selected})
+                            =Patch(colMergeOfferRecord,ThisItem,{updated:true,image_source:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1129,7 +1129,7 @@ mergeOffer As screen:
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(mergeOfferRecords,ThisItem,{updated:true,offer_comments:Self.Text})
+                            =Patch(colMergeOfferRecord,ThisItem,{updated:true,offer_comments:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -2300,6 +2300,10 @@ mergeOffer As screen:
                             Offers,
                             Defaults(Offers),
                             {
+                                Season:ThisItem.Season,
+                                Week:ThisItem.Week,
+                                assigned_project:ThisItem.assigned_project,
+                                record_type:ThisItem.record_type,
                                 page_from: ThisItem.page_from,
                                 layout_position: ThisItem.layout_position,
                                 Adblock: ThisItem.Adblock,
@@ -2333,7 +2337,7 @@ mergeOffer As screen:
                                 image_source: ThisItem.image_source,
                                 offer_comments: ThisItem.offer_comments,
                                 assigned_images: ThisItem.assigned_images,
-                                assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout
+                                assigned_logos: ThisItem.assigned_logos,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout,category_name:ThisItem.category_name,item_name:ThisItem.item_name,adblock_theme:ThisItem.adblock_theme,offer_status:ThisItem.offer_status
                             }
                         ));
                         ForAll(
