@@ -720,7 +720,7 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =160
-                OnChange: |
+                OnChange: |+
                     =ClearCollect(
                         colMergeOffers,
                         Filter(
@@ -728,11 +728,9 @@ scrOfferEdit As screen:
                             selected = true
                         )
                     );
-                    If(
-                        CountRows(colMergeOffers) < 2,
-                        Notify("Select More then 1 offer"),
+                    
                         ClearCollect(
-                            mergeOfferRecords,
+                            colMergeOfferRecord,
                             First(colMergeOffers)
                         );
                         Clear(colMergeMarkets);
@@ -771,8 +769,8 @@ scrOfferEdit As screen:
                             );
                         );
                         Patch(
-                            mergeOfferRecords,
-                            First(mergeOfferRecords),
+                            colMergeOfferRecord,
+                            First(colMergeOfferRecord),
                             {
                                 Markets: SortByColumns(colMergeMarkets,"Value",SortOrder.Ascending),
                                 assigned_images: colMergeAssetsEng,
@@ -865,7 +863,7 @@ scrOfferEdit As screen:
                             }
                         );
                         Navigate(mergeOffer)
-                    );
+                    
                 Text: ="Combine Selected Offers"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                 Tooltip: ="Combine Selected"
