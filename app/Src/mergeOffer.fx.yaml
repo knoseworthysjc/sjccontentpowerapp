@@ -2355,6 +2355,7 @@ mergeOffer As screen:
                             )
                         );
                         Collect(colSelectedOffers,newMergeRecord);
+                        Navigate(scrOfferEdit);
                     Width: |
                         =40
                     X: =cbMergeOfferLineList.X+cbMergeOfferLineList.Width+U*2
