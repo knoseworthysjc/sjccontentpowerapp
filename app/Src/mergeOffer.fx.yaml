@@ -2337,15 +2337,12 @@ mergeOffer As screen:
                             }
                         ));
                         ForAll(
-                            Filter(
-                                colMergeOffers,
-                                ID <> ThisItem.ID
-                            ) As off,
+                                colMergeOffers As off,
                             Remove(
                                 colSelectedOffers,
                                 off
                             );
-                            /*Patch(
+                            Patch(
                                 Offers,
                                 First(
                                     DropColumns(
@@ -2355,7 +2352,7 @@ mergeOffer As screen:
                                     )
                                 ),
                                 {offer_status: {Value: "Deleted"}}
-                            )*/
+                            )
                         );
                     Width: |
                         =40
