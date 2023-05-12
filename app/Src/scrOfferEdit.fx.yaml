@@ -777,7 +777,7 @@ scrOfferEdit As screen:
                             mergeOfferRecords,
                             First(mergeOfferRecords),
                             {
-                                Markets: colMergeMarkets,
+                                Markets: SortByColumns(colMergeMarkets,"Value",SortOrder.Ascending),
                                 assigned_images: colMergeAssetsEng,
                                 assigned_images_fre: colMergeAssetsFre,
                                 assigned_logos: colMergeAssetsLogo,

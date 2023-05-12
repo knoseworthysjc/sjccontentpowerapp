@@ -2394,7 +2394,7 @@ mergeOffer As screen:
                                 colSelectedOffers,
                                 off
                             );
-                            Patch(
+                            /*Patch(
                                 Offers,
                                 First(
                                     DropColumns(
@@ -2404,13 +2404,34 @@ mergeOffer As screen:
                                     )
                                 ),
                                 {offer_status: {Value: "Deleted"}}
-                            )
+                            )*/
                         );
                     Width: |
                         =40
                     X: =cbMergeOfferLineList.X+cbMergeOfferLineList.Width+U*2
                     Y: =U
                     ZIndex: =12
+
+                lblOfferBlock_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(107, 144, 179, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =20
+                    minimumHeight: =30
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =11
+                    Text: =ThisItem.ID
+                    Width: =60
+                    X: =1834
+                    Y: =2
+                    ZIndex: =13
 
         conMergeOffers As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
