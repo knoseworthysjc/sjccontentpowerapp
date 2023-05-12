@@ -102,24 +102,13 @@ mergeOffer As screen:
                 Transition: =Transition.Push
                 ZIndex: =2
 
-                Rectangle1_2 As rectangle:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderStyle: =BorderStyle.None
-                    Fill: =RGBA(0, 62, 125, 1)
-                    FocusedBorderThickness: =0
-                    Height: =U*4
-                    OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                    X: =4
-                    ZIndex: =1
-
                 conSelectedOfferMultiSave_3 As groupContainer.horizontalAutoLayoutContainer:
                     Height: =122
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =450
-                    X: =186
+                    X: =conSelectedOfferUnits_3.X+conSelectedOfferUnits_3.Width+U*2
                     Y: =conSelectedOfferPrice_3.Y+conSelectedOfferPrice_3.Height+5
                     ZIndex: =2
 
@@ -306,7 +295,7 @@ mergeOffer As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =280
-                    X: =356
+                    X: =conSelectedOfferPrice_3.X
                     Y: =conSelectedOfferPrice_3.Y+conSelectedOfferPrice_3.Height+5
                     ZIndex: =3
 
@@ -546,8 +535,8 @@ mergeOffer As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =467
-                    X: =169
-                    Y: =conSelectedOfferCopy_3.Y+conSelectedOfferCopy_3.Height+U
+                    X: =conSelectedOfferCopy_3.X
+                    Y: =conSelectedOfferCopy_3.Y+conSelectedOfferCopy_3.Height+U*2
                     ZIndex: =4
 
                     lblExistingOfferTotalPrice_5 As label:
@@ -848,8 +837,8 @@ mergeOffer As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =280
-                    X: =356
-                    Y: =conSelectedOfferCopy_3.Y+conSelectedOfferCopy_3.Height+U
+                    X: =conSelectedOfferPrice_3.X+conSelectedOfferPrice_3.Width+U*2
+                    Y: =conSelectedOfferCopy_3.Y+conSelectedOfferCopy_3.Height+U*2
                     ZIndex: =5
 
                     offer_eventprice_lbl_15 As label:
@@ -1031,7 +1020,7 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
-                    X: =636
+                    X: =conSelectedOfferCopy_3.X+conSelectedOfferCopy_3.Width+U*2
                     Y: =40
                     ZIndex: =6
 
@@ -1182,6 +1171,7 @@ mergeOffer As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =750
+                    X: =conSelectedOfferMarketsItems_3.X+conSelectedOfferMarketsItems_3.Width+U*2
                     Y: =U
                     ZIndex: =8
 
@@ -1527,8 +1517,8 @@ mergeOffer As screen:
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
                     Width: =475
-                    X: =161
-                    Y: =1
+                    X: =conSelectedOfferPage_3.X+conSelectedOfferPage_3.Width+U*2
+                    Y: =U
                     ZIndex: =9
 
                     lblOfferItems_10 As label:
@@ -1894,6 +1884,7 @@ mergeOffer As screen:
                     LayoutMode: =LayoutMode.Auto
                     Width: =165
                     X: =U
+                    Y: =conSelectedOfferPage_3.Height+conSelectedOfferPage_3.Y+U*2
                     ZIndex: =10
 
                     lblOfferType_17 As label:
@@ -2417,7 +2408,7 @@ mergeOffer As screen:
                         );
                     Width: |
                         =40
-                    X: =596
+                    X: =conSelectedOfferCopy_3.X+conSelectedOfferCopy_3.Width+U*2
                     Y: =3
                     ZIndex: =12
 
