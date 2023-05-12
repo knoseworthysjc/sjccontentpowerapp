@@ -729,10 +729,6 @@ scrOfferEdit As screen:
                         )
                     );
                     
-                        ClearCollect(
-                            colMergeOfferRecord,
-                            First(colMergeOffers)
-                        );
                         Clear(colMergeMarkets);
                         Clear(colMergeAssetsEng);
                         Clear(colMergeAssetsFre);
@@ -767,6 +763,10 @@ scrOfferEdit As screen:
                                     img
                                 )
                             );
+                        );
+                        ClearCollect(
+                            colMergeOfferRecord,
+                            First(colMergeOffers)
                         );
                         Patch(
                             colMergeOfferRecord,
