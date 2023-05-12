@@ -2354,6 +2354,7 @@ mergeOffer As screen:
                                 {offer_status: {Value: "Deleted"}}
                             )
                         );
+                        Collect(colSelectedOffers,newMergeRecord);
                     Width: |
                         =40
                     X: =cbMergeOfferLineList.X+cbMergeOfferLineList.Width+U*2
