@@ -301,7 +301,7 @@ scrOfferEdit As screen:
                             )
                         );
                     );
-                    ClearCollect(
+                    /*ClearCollect(
                         conSelectedOfferPreviews,
                         AddColumns(
                             colSelectedOffers,
@@ -350,7 +350,7 @@ scrOfferEdit As screen:
                             )
                         )
                     );
-                    /*Clear(colSelectedPageProducts);
+                    Clear(colSelectedPageProducts);
                     ForAll(
                         colSelectedOffers As Off,
                         ForAll(
