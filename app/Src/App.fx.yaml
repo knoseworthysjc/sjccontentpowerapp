@@ -12,7 +12,7 @@ App As appinfo:
     OnStart: |
         =Set(collapseNewOffer,true);
         ClearCollect(navItems,Table(
-        {Title:"Home",icon:Icon.Home,screen:scrOffers},
+        {Title:"Home",icon:Icon.Home,screen:scrOfferEdit},
         {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
         {Title:"Images",icon:Icon.Folder,screen:images_screen},
         {Title:"Products",icon:Icon.Information,screen:products_screen},

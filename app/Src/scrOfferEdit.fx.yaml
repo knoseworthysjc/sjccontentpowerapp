@@ -4299,7 +4299,7 @@ scrOfferEdit As screen:
                             Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             FontWeight: =FontWeight.Bold
-                            Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow.Height-previewOffer_MultiSaveEach_3.Height,  "Rollback", Parent.Height-previewOffer_rollBack_3.Height,"Multi-Save",Parent.Height-previewOffer_MultiSaveEach_3.Height,Parent.Height)
+                            Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow_3.Height-previewOffer_MultiSaveEach_3.Height,  "Rollback", Parent.Height-previewOffer_rollBack_3.Height,"Multi-Save",Parent.Height-previewOffer_MultiSaveEach_3.Height,Parent.Height)
                             LayoutMinHeight: |
                                 =20
                             LineHeight: =1
@@ -4852,7 +4852,7 @@ scrOfferEdit As screen:
                     Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     FontWeight: =FontWeight.Bold
-                    Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow.Height-previewOffer_MultiSaveEach_2.Height,  "Rollback", Parent.Height-previewOffer_rollBack_2.Height,"Multi-Save",Parent.Height-previewOffer_MultiSaveEach_2.Height,Parent.Height)
+                    Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow_2.Height-previewOffer_MultiSaveEach_2.Height,  "Rollback", Parent.Height-previewOffer_rollBack_2.Height,"Multi-Save",Parent.Height-previewOffer_MultiSaveEach_2.Height,Parent.Height)
                     LayoutMinHeight: |
                         =20
                     LineHeight: =1
@@ -4969,7 +4969,7 @@ scrOfferEdit As screen:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(250, 250, 250, 1)
-        Height: =conHeader.Height*2
+        Height: =64
         Image: |-
             =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
         ImagePosition: =ImagePosition.Fill
