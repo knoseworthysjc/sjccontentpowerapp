@@ -2620,11 +2620,12 @@ mergeOffer As screen:
                         {
                             ColName: "markets",
                             ColDisplayName: "Markets",
-                            ColWidth: 50,
+                            ColWidth: 100,
                             ColSortable: true,
                             ColIsBold: true,
                             ColResizable: true,
-                            ColMultiLine: true
+                            ColMultiLine: true,
+                             ColMultiValueDelimiter:","
                         },
                         {
                             ColName: "featured_item_numbers",
