@@ -2411,7 +2411,9 @@ mergeOffer As screen:
                             Remove(
                                 colMergeOffers,
                                 ThisRecord
-                            );Patch(colSelectedOffers,First(Filter(colSelectedOffers,ID=ThisRecord.ID)),{selected:false});
+                            );
+                            Notify(ThisRecord.ID);
+                            Patch(colSelectedOffers,First(Filter(colSelectedOffers,ID=ThisRecord.ID)),{selected:false});
                         );
                         Clear(colMergeMarkets);
                         Clear(colMergeAssetsEng);
