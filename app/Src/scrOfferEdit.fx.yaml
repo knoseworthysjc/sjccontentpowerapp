@@ -1273,7 +1273,7 @@ scrOfferEdit As screen:
                                 Navigate(mergeOffer);
                             Text: =""
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                            Tooltip: ="Split This Offer"
+                            Tooltip: ="Split This Offer By Zone"
                             Width: =32
                             X: =0
                             Y: =0
@@ -3565,7 +3565,7 @@ scrOfferEdit As screen:
                                 IconName: ="ZoomIn"
                                 IconSize: =28
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: =Launch(ThisItem.thumbnails)
+                                OnChange: =Launch(ThisItem.thumbnails,{},LaunchTarget.New)
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Preview Image"
                                 Width: |

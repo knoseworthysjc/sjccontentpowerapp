@@ -1584,24 +1584,6 @@ mergeOffer As screen:
                         Width: =Parent.Width
                         ZIndex: =2
 
-                        Label5_3 As label:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Size: =13
-                            Text: |-
-                                =If(
-                                    Concat(
-                                        ThisItem.Markets,
-                                        Value
-                                    ) = "ABBCMBNBNLNSONPEQCSK",
-                                    "All",
-                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"AB.*BC.*MB.*SK",MatchOptions.Contains),"West","")&
-                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"NB.*NL.*NS.*PE",MatchOptions.Contains),"Atl","")
-                                )
-                            Visible: =false
-                            ZIndex: =1
-
                         iptSelectedOfferUpdate_3 As combobox:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =1
@@ -2423,7 +2405,137 @@ mergeOffer As screen:
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
                     LayoutMinWidth: =160
-                    OnChange: =false
+                    OnChange: |-
+                        =ForAll(dlSelectedMergeOffers.SelectedItems,Remove(colMergeOffers,ThisRecord));
+                        Clear(colMergeMarkets);
+                            Clear(colMergeAssetsEng);
+                            Clear(colMergeAssetsFre);
+                            Clear(colMergeAssetsLogo);
+                            ForAll(
+                                colMergeOffers As off,
+                                ForAll(
+                                    off.markets As MKT,
+                                    Collect(
+                                        colMergeMarkets,
+                                        MKT
+                                    )
+                                );
+                                ForAll(
+                                    off.assigned_images As img,
+                                    Collect(
+                                        colMergeAssetsEng,
+                                        img
+                                    )
+                                );
+                                ForAll(
+                                    off.assigned_images_fre As img,
+                                    Collect(
+                                        colMergeAssetsFre,
+                                        img
+                                    )
+                                );
+                                ForAll(
+                                    off.assigned_logos As img,
+                                    Collect(
+                                        colMergeAssetsLogo,
+                                        img
+                                    )
+                                );
+                            );
+                         Patch(
+                                colMergeOfferRecord,
+                                First(colMergeOfferRecord),
+                                {
+                                    Markets: SortByColumns(colMergeMarkets,"Value",SortOrder.Ascending),
+                                    assigned_images: colMergeAssetsEng,
+                                    assigned_images_fre: colMergeAssetsFre,
+                                    assigned_logos: colMergeAssetsLogo,
+                                    offer_copy: Concat(
+                                        Distinct(
+                                            colMergeOffers,
+                                            offer_copy
+                                        ),
+                                        Value,
+                                        " & "
+                                    ),
+                                    offer_copy_french: Concat(
+                                        Distinct(
+                                            colMergeOffers,
+                                            offer_copy_french
+                                        ),
+                                        Value,
+                                        " & "
+                                    ),
+                                    'Country of Origin': Concat(
+                                        Distinct(
+                                            colMergeOffers,
+                                            'Country of Origin'
+                                        ),
+                                        Value,
+                                        " & "
+                                    ),
+                                    'Country of Origin(Fre)': Concat(
+                                        Distinct(
+                                            colMergeOffers,
+                                            'Country of Origin(Fre)'
+                                        ),
+                                        Value,
+                                        " & "
+                                    ),
+                                    offer_comments: Concat(
+                                        Distinct(
+                                            colMergeOffers,
+                                            offer_comments
+                                        ),
+                                        Value,
+                                        " 
+                                     "
+                                    ),
+                                    featured_item_numbers: Concat(
+                                        SortByColumns(
+                                            Distinct(
+                                                Split(
+                                                    Concat(
+                                                        Distinct(
+                                                            colMergeOffers,
+                                                            featured_item_numbers
+                                                        ),
+                                                        Value,
+                                                        ","
+                                                    ),
+                                                    ","
+                                                ),
+                                                Value
+                                            ),
+                                            "Value",
+                                            SortOrder.Ascending
+                                        ),
+                                        Value,
+                                        ","
+                                    ),combined_item_number: Concat(
+                                        SortByColumns(
+                                            Distinct(
+                                                Split(
+                                                    Concat(
+                                                        Distinct(
+                                                            colMergeOffers,
+                                                            combined_item_number
+                                                        ),
+                                                        Value,
+                                                        "/"
+                                                    ),
+                                                    "/"
+                                                ),
+                                                Value
+                                            ),
+                                            "Value",
+                                            SortOrder.Ascending
+                                        ),
+                                        Value,
+                                        "/"
+                                    )
+                                }
+                            );
                     Text: ="Remove From Grouping"
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                     Tooltip: ="Combine Selected"
