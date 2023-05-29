@@ -1202,24 +1202,6 @@ scrOfferEdit As screen:
                         Width: =Parent.Width
                         ZIndex: =2
 
-                        Label5 As label:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Size: =13
-                            Text: |-
-                                =If(
-                                    Concat(
-                                        ThisItem.Markets,
-                                        Value
-                                    ) = "ABBCMBNBNLNSONPEQCSK",
-                                    "All",
-                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"AB.*BC.*MB.*SK",MatchOptions.Contains),"West","")&
-                                    If(IsMatch(Concat(ThisItem.Markets,Value,","),"NB.*NL.*NS.*PE",MatchOptions.Contains),"Atl","")
-                                )
-                            Visible: =false
-                            ZIndex: =1
-
                         iptSelectedOfferUpdate As combobox:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =1
@@ -1234,6 +1216,7 @@ scrOfferEdit As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             DisplayFields: =["Value"]
+                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.Height-U
@@ -1268,6 +1251,32 @@ scrOfferEdit As screen:
                             Width: |
                                 =32
                             ZIndex: =3
+
+                        "icnSplitOffer_1 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: =""
+                            BorderRadius: =0
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#003E7D"
+                            FontSize: =0
+                            Height: =32
+                            IconColor: |-
+                                ="#003E7D"
+                            IconName: ="Split"
+                            IconSize: =28
+                            IconType: ='PowerCAT.Icon.IconType'.IconButon
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =165
+                            OnChange: |
+                                =Set(selectedSplitOffers,ThisItem);
+                                Navigate(mergeOffer);
+                            Text: =""
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Tooltip: ="Split This Offer"
+                            Width: =32
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
 
                     lblOfferItems_1 As label:
                         Align: =Align.Center
