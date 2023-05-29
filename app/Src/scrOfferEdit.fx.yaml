@@ -1219,12 +1219,12 @@ scrOfferEdit As screen:
                             FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =Parent.Height-U
+                            Height: =28
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
                             Items: =Choices(Offers.Markets)
                             LayoutMinHeight: =Parent.Height-U
-                            LayoutMinWidth: =Parent.Width-32-U
+                            LayoutMinWidth: =60
                             PaddingBottom: =0
                             PaddingTop: =0
                             PressedColor: =RGBA(255, 255, 255, 1)
@@ -1232,7 +1232,8 @@ scrOfferEdit As screen:
                             SearchFields: =["Value"]
                             SearchItems: =Choices(Offers.Markets,iptSelectedOfferUpdate.SearchText)
                             SelectionFill: =RGBA(107, 144, 179, 1)
-                            Width: =Parent.Width-32-U
+                            Width: |
+                                =60
                             X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U
                             Y: =lblOfferItems_3.Height+U*2
                             ZIndex: =2
@@ -1243,7 +1244,7 @@ scrOfferEdit As screen:
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(255, 255, 255, 1)
-                            Height: =32
+                            Height: =28
                             Icon: =Icon.Save
                             LayoutMinWidth: =32
                             OnSelect: |-
@@ -1259,7 +1260,7 @@ scrOfferEdit As screen:
                             FontColor: |-
                                 ="#003E7D"
                             FontSize: =0
-                            Height: =32
+                            Height: =28
                             IconColor: |-
                                 ="#003E7D"
                             IconName: ="Split"
