@@ -8553,6 +8553,14 @@
           "InvariantPropertyName": "CurrentSortDirection",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "SelectionType",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -8646,6 +8654,11 @@
         {
           "Category": "Data",
           "PropertyName": "CurrentSortColumn",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "SelectionType",
           "RuleProviderType": "Unknown"
         },
         {
