@@ -629,6 +629,35 @@ scrPageManagement As screen:
                     TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
                     ZIndex: =1
 
+                    Image2 As image:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                        Image: =First(Filter(colSelectedFlyerPagePDF,page_from=ThisItem.page_from)).Thumbnail.Large
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplatePadding
+                        ZIndex: =1
+
+                    Label1 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(0, 62, 125, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        OnSelect: =Select(Parent)
+                        Size: =11
+                        Text: =ThisItem.Title
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding
+                        ZIndex: =2
+
             Container18 As groupContainer.verticalAutoLayoutContainer:
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
