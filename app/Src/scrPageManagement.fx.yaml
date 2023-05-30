@@ -2,42 +2,656 @@ scrPageManagement As screen:
     Fill: =RGBA(232, 232, 232, 1)
     OnVisible: =Set(showNav,false)
 
-    screen_title_5 As label:
-        Align: =Align.Center
-        BorderColor: =RGBA(0, 89, 178, 1)
-        Color: =RGBA(0, 0, 0, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        Fill: =RGBA(0, 36, 71, 1)
-        Size: =13
-        Text: =""
+    Container3 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
-    nav_icon_5 As icon.Waffle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(255, 255, 255, 1)
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(244, 244, 244, 1)
-        FocusedBorderThickness: =0
-        Height: =38
-        Icon: =Icon.Waffle
-        OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
-        Width: |
-            =38
-        X: =1
-        Y: =1
-        ZIndex: =2
+        conOfferNav_2 As groupContainer.horizontalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(0, 62, 125, 1)
+            FillPortions: =0
+            Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
 
-    screen_logo_5 As image:
-        BorderColor: =RGBA(0, 89, 178, 1)
+            nav_icon_10 As icon.Waffle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =0
+                Height: =30
+                Icon: =Icon.BackArrow
+                LayoutMinHeight: =30
+                LayoutMinWidth: |
+                    =Self.Height
+                OnSelect: =Navigate(scrOfferEdit);
+                Tooltip: ="Return"
+                Width: =Self.Height
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+            lblSeason_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Year:"
+                Width: |
+                    =70
+                X: =Parent.Width/12
+                Y: =1
+                ZIndex: =2
+
+            ddSeasonFilter_6 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =selectedProject.Season.Value
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: =Choices(Offers.Season)
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PaddingBottom: =0
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =0
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Width: =105
+                ZIndex: =3
+
+            lblWeek_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Week:"
+                Width: |
+                    =70
+                X: =ddSeasonFilter_6.X+ddSeasonFilter_6.Width
+                Y: =1
+                ZIndex: =4
+
+            iptWeekFilter_2 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =selectedProject.Week
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                LayoutMinHeight: =30
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Reset: =true
+                Size: =11
+                Width: =70
+                X: =lblWeek_3.X+lblWeek_3.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =5
+
+            lblProject_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Project:"
+                Width: |
+                    =70
+                X: =iptWeekFilter_2.Width+iptWeekFilter_2.X
+                ZIndex: =6
+
+            ddProjectFilter_2 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =selectedProject.Title
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: |-
+                    =If(iptWeekFilter_2.Text="", 
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_6.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_6.Selected.Value And Week = Value(iptWeekFilter_2.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                OnChange: =
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                X: =lblProject_3.X+lblProject_3.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =7
+
+            "Icon1_2 As 'Fluent Icon (1.0.19)'":
+                BorderColor: ="White"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: ="White"
+                FontSize: =20
+                Height: |
+                    =28
+                IconColor: ="White"
+                IconName: ="refresh"
+                IconSize: =20
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnChange: |-
+                    =ClearCollect(colSelectedFlyerPages,Filter(FlyerPages,assigned_project.Value=ddProjectFilter_2.Selected.Title))
+                    
+                    /*ClearCollect(
+                        colSelectedOffers,
+                        AddColumns(
+                            Filter(
+                                Offers,
+                                assigned_project.Value = ddProjectFilter_2.Selected.Title
+                            ),
+                            "updated",
+                            false,
+                            "selected",
+                            false
+                        )
+                    );
+                    
+                    Clear(colSelectedPageProductImages);
+                    ForAll(
+                        colSelectedOffers As offer,
+                        ForAll(
+                            offer.assigned_images As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang: "eng",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.assigned_images_fre As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang: "fre",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.assigned_logos As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "logo",
+                                    lang:Blank(),
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                    );
+                    /*ClearCollect(
+                        conSelectedOfferPreviews,
+                        AddColumns(
+                            colSelectedOffers,
+                            "Zone",
+                            "selectedOfferPreview",
+                            "FirstImage",
+                            First(
+                                Filter(
+                                    colSelectedPageProductImages,
+                                    offerId = ID And type = "image"
+                                )
+                            ).thumbnails,
+                            "SecondImage",
+                            If(
+                                CountRows(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    )
+                                ) > 1,
+                                Index(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    ),
+                                    2
+                                ).thumbnails,
+                                Blank()
+                            ),
+                            "ThirdImage",
+                            If(
+                                CountRows(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    )
+                                ) > 2,
+                                Index(
+                                    Filter(
+                                        colSelectedPageProductImages,
+                                        offerId = ID And type = "image"
+                                    ),
+                                    3
+                                ).thumbnails,
+                                Blank()
+                            )
+                        )
+                    );
+                    Clear(colSelectedPageProducts);
+                    ForAll(
+                        colSelectedOffers As Off,
+                        ForAll(
+                            Split(
+                                Off.featured_item_numbers,
+                                ","
+                            ) As itemNum,
+                            Collect(
+                                colSelectedPageProducts,
+                                AddColumns(
+                                    Filter(
+                                        Products,
+                                        Title = itemNum.Value
+                                    ),
+                                    "offer_id",
+                                    Off.ID,
+                                    "selected",
+                                    false
+                                )
+                            )
+                        )
+                    );
+                    UpdateContext({ctxSortCol: "layout_position"});
+                    UpdateContext({ctxSortAsc: true});
+                    */
+                Text: ="Load Pages"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Width: =150
+                X: =0
+                Y: =0
+                ZIndex: =8
+
+        conOfferPageDetails_1 As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =RGBA(0, 62, 125, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =5
+            ZIndex: =2
+
+            "iconCombineOffers_4 As 'Fluent Icon (1.0.19)'":
+                BorderColor: =""
+                BorderRadius: =0
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =40
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="Combine"
+                IconSize: =28
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =160
+                OnChange: |+
+                    =ClearCollect(
+                        colMergeOffers,
+                        Filter(
+                            colSelectedOffers,
+                            selected = true
+                        )
+                    );
+                    
+                        Clear(colMergeMarkets);
+                        Clear(colMergeAssetsEng);
+                        Clear(colMergeAssetsFre);
+                        Clear(colMergeAssetsLogo);
+                        ForAll(
+                            colMergeOffers As off,
+                            ForAll(
+                                off.markets As MKT,
+                                Collect(
+                                    colMergeMarkets,
+                                    MKT
+                                )
+                            );
+                            ForAll(
+                                off.assigned_images As img,
+                                Collect(
+                                    colMergeAssetsEng,
+                                    img
+                                )
+                            );
+                            ForAll(
+                                off.assigned_images_fre As img,
+                                Collect(
+                                    colMergeAssetsFre,
+                                    img
+                                )
+                            );
+                            ForAll(
+                                off.assigned_logos As img,
+                                Collect(
+                                    colMergeAssetsLogo,
+                                    img
+                                )
+                            );
+                        );
+                        ClearCollect(
+                            colMergeOfferRecord,
+                            First(colMergeOffers)
+                        );
+                        Patch(
+                            colMergeOfferRecord,
+                            First(colMergeOfferRecord),
+                            {
+                                Markets: SortByColumns(colMergeMarkets,"Value",SortOrder.Ascending),
+                                assigned_images: colMergeAssetsEng,
+                                assigned_images_fre: colMergeAssetsFre,
+                                assigned_logos: colMergeAssetsLogo,
+                                offer_copy: Concat(
+                                    Distinct(
+                                        colMergeOffers,
+                                        offer_copy
+                                    ),
+                                    Value,
+                                    " & "
+                                ),
+                                offer_copy_french: Concat(
+                                    Distinct(
+                                        colMergeOffers,
+                                        offer_copy_french
+                                    ),
+                                    Value,
+                                    " & "
+                                ),
+                                'Country of Origin': Concat(
+                                    Distinct(
+                                        colMergeOffers,
+                                        'Country of Origin'
+                                    ),
+                                    Value,
+                                    " & "
+                                ),
+                                'Country of Origin(Fre)': Concat(
+                                    Distinct(
+                                        colMergeOffers,
+                                        'Country of Origin(Fre)'
+                                    ),
+                                    Value,
+                                    " & "
+                                ),
+                                offer_comments: Concat(
+                                    Distinct(
+                                        colMergeOffers,
+                                        offer_comments
+                                    ),
+                                    Value,
+                                    " 
+                                 "
+                                ),
+                                featured_item_numbers: Concat(
+                                    SortByColumns(
+                                        Distinct(
+                                            Split(
+                                                Concat(
+                                                    Distinct(
+                                                        colMergeOffers,
+                                                        featured_item_numbers
+                                                    ),
+                                                    Value,
+                                                    ","
+                                                ),
+                                                ","
+                                            ),
+                                            Value
+                                        ),
+                                        "Value",
+                                        SortOrder.Ascending
+                                    ),
+                                    Value,
+                                    ","
+                                ),combined_item_number: Concat(
+                                    SortByColumns(
+                                        Distinct(
+                                            Split(
+                                                Concat(
+                                                    Distinct(
+                                                        colMergeOffers,
+                                                        combined_item_number
+                                                    ),
+                                                    Value,
+                                                    "/"
+                                                ),
+                                                "/"
+                                            ),
+                                            Value
+                                        ),
+                                        "Value",
+                                        SortOrder.Ascending
+                                    ),
+                                    Value,
+                                    "/"
+                                )
+                            }
+                        );
+                        Navigate(mergeOffer)
+                    
+                Text: ="Combine Selected Offers"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                Tooltip: ="Combine Selected"
+                Visible: |-
+                    =If(
+                        CountRows(
+                            Filter(
+                            colSelectedOffers,
+                            selected = true
+                        )
+                        )>1,true,false)
+                Width: =160
+                X: =0
+                Y: =0
+                ZIndex: =12
+
+            "iconCombineOffers_5 As 'Fluent Icon (1.0.19)'":
+                BorderColor: =""
+                BorderRadius: =0
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#003E7D"
+                FontSize: =0
+                Height: =40
+                IconColor: |-
+                    ="#003E7D"
+                IconName: ="ClearFilter"
+                IconSize: =28
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =160
+                OnChange: |-
+                    =ForAll(
+                        Filter(
+                            colSelectedOffers,
+                            selected = true
+                        ),
+                        Patch(colSelectedOffers,ThisRecord,{selected:false});
+                    )
+                Text: ="Clear Selected"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                Tooltip: ="Combine Selected"
+                Visible: |-
+                    =If(
+                        CountRows(
+                            Filter(
+                            colSelectedOffers,
+                            selected = true
+                        )
+                        )>0,true,false)
+                Width: =160
+                X: =0
+                Y: =0
+                ZIndex: =13
+
+        Container16 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Container17 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width*0.2+U
+                ZIndex: =1
+
+                Gallery1 As gallery.galleryVertical:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DelayItemLoading: =true
+                    Items: =CustomGallerySample
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                    ZIndex: =1
+
+            Container18 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+            Container19 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =Parent.Width*0.2+U
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width*0.2+U
+                ZIndex: =3
+
+    imgOfferLogo_2 As image:
+        BorderColor: =RGBA(0, 36, 71, 1)
+        BorderThickness: =1
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(250, 250, 250, 1)
-        Height: =screen_title_5.Height*2
+        Height: =64
         Image: |-
             =Xinet.GetImageByPath("getimage","/vol03/Walmart Assets/Common_Elements/WM_LockUps_Icons_etc/Walmart_SMLB_2020_logo_Revised_TM_MC/Walmart_SMLB_2020_RGB_EN.ai",{filetype:"large"})
         ImagePosition: =ImagePosition.Fill
         Width: =220
-        X: =Parent.Width-Self.Width-Self.BorderThickness
-        ZIndex: =3
+        X: =Parent.Width-Self.Width
+        ZIndex: =2
 

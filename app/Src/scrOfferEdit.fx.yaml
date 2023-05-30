@@ -616,7 +616,9 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: =Set(showNewPages,true);Set(editOfferPageMode,"Edit");
+                OnChange: |-
+                    =Set(selectedProject,ddProjectFilter.Selected);
+                    Navigate(scrPageManagement);
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Goto Pages"
