@@ -208,8 +208,9 @@ scrPageManagement As screen:
                 LayoutMinHeight: =200
                 LayoutMinWidth: =200
                 OnChange: |-
-                    =ClearCollect(colSelectedFlyerPages,Filter(FlyerPages,assigned_project.Value=ddProjectFilter_2.Selected.Title))
-                    
+                    =ClearCollect(colSelectedFlyerPages,Filter(FlyerPages,assigned_project.Value=ddProjectFilter_2.Selected.Title));
+                    ClearCollect(colSelectedFlyerPageDocuments,Filter('Flyer Pages',assigned_project.Value=ddProjectFilter_2.Selected.Title));
+                    ClearCollect(colSelectedFlyerPagePDF,Filter('Flyer PDFs',assigned_project.Value=ddProjectFilter_2.Selected.Title));
                     /*ClearCollect(
                         colSelectedOffers,
                         AddColumns(
@@ -608,7 +609,9 @@ scrPageManagement As screen:
             ZIndex: =3
 
             Container17 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -617,9 +620,10 @@ scrPageManagement As screen:
                 ZIndex: =1
 
                 Gallery1 As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
-                    Items: =CustomGallerySample
+                    Items: =colSelectedFlyerPages
                     Layout: =Layout.Vertical
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
