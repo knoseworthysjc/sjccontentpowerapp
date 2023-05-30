@@ -4818,6 +4818,18 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 8
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -9398,19 +9410,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "pagelayout_screen.nav_icon_5.AccessibleLabel"
+                  "fullyQualifiedName": "scrPageManagement.nav_icon_5.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "pagelayout_screen.nav_icon_5.AccessibleLabel",
+                  "fullyQualifiedName": "scrPageManagement.nav_icon_5.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "pagelayout_screen",
-                "type": "pagelayout_screen.nav_icon_5"
+                "module": "scrPageManagement",
+                "type": "scrPageManagement.nav_icon_5"
               }
             }
           ],
@@ -9428,19 +9440,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "pagelayout_screen.nav_icon_5.TabIndex"
+                  "fullyQualifiedName": "scrPageManagement.nav_icon_5.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "pagelayout_screen.nav_icon_5.TabIndex",
+                  "fullyQualifiedName": "scrPageManagement.nav_icon_5.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "pagelayout_screen",
-                "type": "pagelayout_screen.nav_icon_5"
+                "module": "scrPageManagement",
+                "type": "scrPageManagement.nav_icon_5"
               }
             }
           ],
@@ -9458,19 +9470,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "pagelayout_screen.nav_icon_5.FocusedBorderThickness"
+                  "fullyQualifiedName": "scrPageManagement.nav_icon_5.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "pagelayout_screen.nav_icon_5.FocusedBorderThickness",
+                  "fullyQualifiedName": "scrPageManagement.nav_icon_5.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "pagelayout_screen",
-                "type": "pagelayout_screen.nav_icon_5"
+                "module": "scrPageManagement",
+                "type": "scrPageManagement.nav_icon_5"
               }
             }
           ],
@@ -11995,7 +12007,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOfferEdit\" is 904, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"scrOfferEdit\" is 905, which exceeds the maximum threshold recommended (300)."
               }
             },
             {
