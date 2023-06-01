@@ -388,219 +388,24 @@ scrPageManagement As screen:
             PaddingLeft: =5
             ZIndex: =2
 
-            "iconCombineOffers_4 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =""
-                BorderRadius: =0
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =40
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="Combine"
-                IconSize: =28
-                IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                LayoutMinHeight: =200
-                LayoutMinWidth: =160
-                OnChange: |+
-                    =ClearCollect(
-                        colMergeOffers,
-                        Filter(
-                            colSelectedOffers,
-                            selected = true
-                        )
-                    );
-                    
-                        Clear(colMergeMarkets);
-                        Clear(colMergeAssetsEng);
-                        Clear(colMergeAssetsFre);
-                        Clear(colMergeAssetsLogo);
-                        ForAll(
-                            colMergeOffers As off,
-                            ForAll(
-                                off.markets As MKT,
-                                Collect(
-                                    colMergeMarkets,
-                                    MKT
-                                )
-                            );
-                            ForAll(
-                                off.assigned_images As img,
-                                Collect(
-                                    colMergeAssetsEng,
-                                    img
-                                )
-                            );
-                            ForAll(
-                                off.assigned_images_fre As img,
-                                Collect(
-                                    colMergeAssetsFre,
-                                    img
-                                )
-                            );
-                            ForAll(
-                                off.assigned_logos As img,
-                                Collect(
-                                    colMergeAssetsLogo,
-                                    img
-                                )
-                            );
-                        );
-                        ClearCollect(
-                            colMergeOfferRecord,
-                            First(colMergeOffers)
-                        );
-                        Patch(
-                            colMergeOfferRecord,
-                            First(colMergeOfferRecord),
-                            {
-                                Markets: SortByColumns(colMergeMarkets,"Value",SortOrder.Ascending),
-                                assigned_images: colMergeAssetsEng,
-                                assigned_images_fre: colMergeAssetsFre,
-                                assigned_logos: colMergeAssetsLogo,
-                                offer_copy: Concat(
-                                    Distinct(
-                                        colMergeOffers,
-                                        offer_copy
-                                    ),
-                                    Value,
-                                    " & "
-                                ),
-                                offer_copy_french: Concat(
-                                    Distinct(
-                                        colMergeOffers,
-                                        offer_copy_french
-                                    ),
-                                    Value,
-                                    " & "
-                                ),
-                                'Country of Origin': Concat(
-                                    Distinct(
-                                        colMergeOffers,
-                                        'Country of Origin'
-                                    ),
-                                    Value,
-                                    " & "
-                                ),
-                                'Country of Origin(Fre)': Concat(
-                                    Distinct(
-                                        colMergeOffers,
-                                        'Country of Origin(Fre)'
-                                    ),
-                                    Value,
-                                    " & "
-                                ),
-                                offer_comments: Concat(
-                                    Distinct(
-                                        colMergeOffers,
-                                        offer_comments
-                                    ),
-                                    Value,
-                                    " 
-                                 "
-                                ),
-                                featured_item_numbers: Concat(
-                                    SortByColumns(
-                                        Distinct(
-                                            Split(
-                                                Concat(
-                                                    Distinct(
-                                                        colMergeOffers,
-                                                        featured_item_numbers
-                                                    ),
-                                                    Value,
-                                                    ","
-                                                ),
-                                                ","
-                                            ),
-                                            Value
-                                        ),
-                                        "Value",
-                                        SortOrder.Ascending
-                                    ),
-                                    Value,
-                                    ","
-                                ),combined_item_number: Concat(
-                                    SortByColumns(
-                                        Distinct(
-                                            Split(
-                                                Concat(
-                                                    Distinct(
-                                                        colMergeOffers,
-                                                        combined_item_number
-                                                    ),
-                                                    Value,
-                                                    "/"
-                                                ),
-                                                "/"
-                                            ),
-                                            Value
-                                        ),
-                                        "Value",
-                                        SortOrder.Ascending
-                                    ),
-                                    Value,
-                                    "/"
-                                )
-                            }
-                        );
-                        Navigate(mergeOffer)
-                    
-                Text: ="Combine Selected Offers"
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
-                Tooltip: ="Combine Selected"
-                Visible: |-
-                    =If(
-                        CountRows(
-                            Filter(
-                            colSelectedOffers,
-                            selected = true
-                        )
-                        )>1,true,false)
-                Width: =160
-                X: =0
-                Y: =0
-                ZIndex: =12
-
-            "iconCombineOffers_5 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =""
-                BorderRadius: =0
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =40
-                IconColor: |-
-                    ="#003E7D"
-                IconName: ="ClearFilter"
-                IconSize: =28
-                IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                LayoutMinHeight: =200
-                LayoutMinWidth: =160
-                OnChange: |-
-                    =ForAll(
-                        Filter(
-                            colSelectedOffers,
-                            selected = true
-                        ),
-                        Patch(colSelectedOffers,ThisRecord,{selected:false});
-                    )
-                Text: ="Clear Selected"
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
-                Tooltip: ="Combine Selected"
-                Visible: |-
-                    =If(
-                        CountRows(
-                            Filter(
-                            colSelectedOffers,
-                            selected = true
-                        )
-                        )>0,true,false)
-                Width: =160
-                X: =0
-                Y: =0
-                ZIndex: =13
+            lblWeek_4 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 62, 125, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(246, 246, 246, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: ="Selected Page"
+                Width: =Container17.Width-U*2
+                X: |
+                    =0
+                ZIndex: =2
 
         Container16 As groupContainer.horizontalAutoLayoutContainer:
             LayoutMinHeight: =100
@@ -613,6 +418,7 @@ scrPageManagement As screen:
                 FillPortions: =0
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =U
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -662,6 +468,7 @@ scrPageManagement As screen:
 
             Container18 As groupContainer.verticalAutoLayoutContainer:
                 LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =U
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -670,6 +477,7 @@ scrPageManagement As screen:
             Container19 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
                 LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =U
                 LayoutMinHeight: =100
                 LayoutMinWidth: =Parent.Width*0.2+U
                 LayoutMode: =LayoutMode.Auto
