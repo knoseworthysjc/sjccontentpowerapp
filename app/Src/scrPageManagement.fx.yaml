@@ -407,13 +407,15 @@ scrPageManagement As screen:
                     =0
                 ZIndex: =2
 
-        Container16 As groupContainer.horizontalAutoLayoutContainer:
+        conSelectedPages As groupContainer.horizontalAutoLayoutContainer:
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
             Container17 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -422,6 +424,7 @@ scrPageManagement As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
                 Width: =Parent.Width*0.2+U
                 ZIndex: =1
 
@@ -434,6 +437,7 @@ scrPageManagement As screen:
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
+                    ShowScrollbar: =false
                     TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
                     ZIndex: =1
 
@@ -467,6 +471,7 @@ scrPageManagement As screen:
                         ZIndex: =2
 
             Container18 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =U
                 LayoutMinHeight: =100
@@ -475,6 +480,7 @@ scrPageManagement As screen:
                 ZIndex: =2
 
             Container19 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =U
