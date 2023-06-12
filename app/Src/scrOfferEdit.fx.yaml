@@ -739,7 +739,7 @@ scrOfferEdit As screen:
                         ForAll(
                             colMergeOffers As off,
                             ForAll(
-                                off.markets As MKT,
+                                off.Markets As MKT,
                                 Collect(
                                     colMergeMarkets,
                                     MKT
@@ -1441,7 +1441,7 @@ scrOfferEdit As screen:
                         Align: =Align.Center
                         BorderColor: =RGBA(107, 144, 179, 1)
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =ThisItem.'Country of Origin(Fre)'
+                        Default: =ThisItem.'Country of Origin'
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)

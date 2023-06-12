@@ -2422,7 +2422,7 @@ mergeOffer As screen:
                         ForAll(
                             colMergeOffers As off,
                             ForAll(
-                                off.markets As MKT,
+                                off.Markets As MKT,
                                 Collect(
                                     colMergeMarkets,
                                     MKT
