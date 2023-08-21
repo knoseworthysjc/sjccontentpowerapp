@@ -20,6 +20,7 @@ App As appinfo:
         {Title:"Products",icon:Icon.Information,screen:products_screen},
         {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
         ));
+    Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
