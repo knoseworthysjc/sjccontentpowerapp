@@ -986,6 +986,7 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: =ClearCollect(selectedOfferHistory,Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers))
                 TemplateFill: =If(ThisItem.updated,RGBA(216, 116, 116, 20%),RGBA(255, 255, 255, 1))
                 TemplatePadding: =U
                 TemplateSize: =Self.Height/2.0
@@ -3367,7 +3368,7 @@ scrOfferEdit As screen:
                             Icon: "Articles"
                         },
                         {
-                            Tab: "Usage",
+                            Tab: "History",
                             Icon: "History"
                         },
                         {
@@ -3398,7 +3399,18 @@ scrOfferEdit As screen:
                     IconName: =ThisItem.Icon
                     IconSize: =18
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                    OnChange: =Switch(ThisItem.Tab,"History",ClearCollect(selectedOfferHistory,Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers)))
+                    OnChange: |-
+                        =Switch(
+                            ThisItem.Tab,
+                            "History",
+                            ClearCollect(
+                                selectedOfferHistory,
+                                Filter(
+                                    Offers,
+                                    featured_item_numbers = galSelectedOffers.Selected.featured_item_numbers
+                                )
+                            )
+                        )
                     Text: =ThisItem.Tab
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                     Tooltip: =ThisItem.Tab
