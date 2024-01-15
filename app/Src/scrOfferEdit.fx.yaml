@@ -3404,12 +3404,15 @@ scrOfferEdit As screen:
                             ThisItem.Tab,
                             "History",
                             ClearCollect(
-                                selectedOfferHistory,
+                                colSelectedOfferHistory,
                                 Filter(
                                     Offers,
                                     featured_item_numbers = galSelectedOffers.Selected.featured_item_numbers
                                 )
-                            )
+                            ),
+                            "Products",
+                            Clear(colSelectedOfferProducts);
+                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers) As Item, Collect(colSelectedOfferProducts,Filter(Products,Title=Item)))
                         )
                     Text: =ThisItem.Tab
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
