@@ -6088,7 +6088,7 @@
       "MetaDataIDKey": "",
       "Name": "conRelistHeading",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15264,7 +15264,7 @@
       "MetaDataIDKey": "",
       "Name": "galleryTemplate5_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17665,7 +17665,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(\n    Offers,\n    Defaults(Offers),\n    {\n        page_from: ddPageFilter.Selected.page_from,\n        layout_position: 0,\n        Adblock: 0,\n        offer_type: ThisItem.offer_type,\n        SBU: ThisItem.SBU,\n        department_name: ThisItem.department_name,\n        Markets: ThisItem.Markets,\n        featured_item_numbers: ThisItem.featured_item_numbers,\n        combined_item_number: ThisItem.combined_item_number,\n        'Country of Origin': ThisItem.'Country of Origin',\n        'Country of Origin(Fre)': ThisItem.'Country of Origin(Fre)',\n        Grade: ThisItem.Grade,\n        'Grade(Fre)': ThisItem.'Grade(Fre)',\n        offer_copy: ThisItem.offer_copy,\n        offer_copy_french: ThisItem.offer_copy,\n        unit: ThisItem.unit,\n        unit_fre: ThisItem.unit_fre,\n        callout: ThisItem.callout,assigned_images:ThisItem.assigned_images,assigned_logos:ThisItem.assigned_logos\n    }\n)",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -17716,7 +17723,7 @@
       "MetaDataIDKey": "",
       "Name": "Icon1_11",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -51424,7 +51431,7 @@
       "MetaDataIDKey": "",
       "Name": "lblPreviewOffer_Source",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -60816,7 +60823,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_assets_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -61250,7 +61257,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_boarder_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -64303,7 +64310,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerItemNumber_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -65163,7 +65170,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerWasPricing_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -66648,7 +66655,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_rectangle_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -68657,7 +68664,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainer",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -68943,7 +68950,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainerLockup",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

@@ -4745,6 +4745,7 @@ scrOfferEdit As screen:
                             Offers,
                             Defaults(Offers),
                             {
+                                assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},
                                 page_from: ddPageFilter.Selected.page_from,
                                 layout_position: 0,
                                 Adblock: 0,
@@ -4762,7 +4763,9 @@ scrOfferEdit As screen:
                                 offer_copy_french: ThisItem.offer_copy,
                                 unit: ThisItem.unit,
                                 unit_fre: ThisItem.unit_fre,
-                                callout: ThisItem.callout,assigned_images:ThisItem.assigned_images,assigned_logos:ThisItem.assigned_logos
+                                callout: ThisItem.callout,
+                                assigned_images: ThisItem.assigned_images,
+                                assigned_logos: ThisItem.assigned_logos
                             }
                         )
                     Text: ="Add Offer"
