@@ -3412,7 +3412,7 @@ scrOfferEdit As screen:
                             ),
                             "Products",
                             Clear(colSelectedOfferProducts);
-                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers) As Item, Collect(colSelectedOfferProducts,Filter(Products,Title=Item)))
+                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,Filter(Products,Title=Item.Value)))
                         )
                     Text: =ThisItem.Tab
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
