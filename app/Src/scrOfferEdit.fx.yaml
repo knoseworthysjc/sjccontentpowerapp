@@ -989,7 +989,7 @@ scrOfferEdit As screen:
                 OnSelect: =ClearCollect(selectedOfferHistory,Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers))
                 TemplateFill: =If(ThisItem.updated,RGBA(216, 116, 116, 20%),RGBA(255, 255, 255, 1))
                 TemplatePadding: =U
-                TemplateSize: =Self.Height/2.0
+                TemplateSize: =Self.Height/1.9
                 Transition: =Transition.Push
                 ZIndex: =3
 
@@ -1084,7 +1084,7 @@ scrOfferEdit As screen:
                                         "selected"
                                     )
                                 ),
-                                {
+                                {offer_status:ThisItem.offer_status,
                                     page_from: ThisItem.page_from,
                                     layout_position: ThisItem.layout_position,
                                     Adblock: ThisItem.Adblock,
@@ -1557,6 +1557,68 @@ scrOfferEdit As screen:
                     Y: =conSelectedOfferPage.Y+conSelectedOfferPage.Height+U
                     ZIndex: =4
 
+                    lblOfferType_6 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(107, 144, 179, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =18
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        LineHeight: =1
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        Text: ="Status"
+                        Width: =Parent.Width
+                        Y: =1
+                        ZIndex: =1
+
+                    ddOfferStatus As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =RGBA(107, 144, 179, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =RGBA(0, 36, 71, 1)
+                        Default: =ThisItem.offer_status.Value
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =24
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =Choices(Offers.offer_status)
+                        LayoutMinHeight: =28
+                        LayoutMinWidth: =Parent.Width
+                        minimumHeight: =30
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_type:Self.Selected})
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =0
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SelectionColor: =RGBA(0, 62, 125, 1)
+                        SelectionFill: =RGBA(235, 245, 255, 1)
+                        Size: =10
+                        Width: =Parent.Width
+                        ZIndex: =2
+
                     lblOfferType_1 As label:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -1565,21 +1627,22 @@ scrOfferEdit As screen:
                         Fill: =RGBA(107, 144, 179, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =20
+                        Height: =18
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
+                        LineHeight: =1
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =11
+                        Size: =10
                         Text: ="Type"
                         Width: =Parent.Width
                         Y: =1
-                        ZIndex: =1
+                        ZIndex: =3
 
-                    ddSeasonFilter_2 As dropdown:
+                    ddOfferType As dropdown:
                         AllowEmptySelection: =true
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderThickness: =1
@@ -1596,7 +1659,7 @@ scrOfferEdit As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =28
+                        Height: =24
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.offer_type)
@@ -1604,7 +1667,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_type:Self.Selected})
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_status:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1614,8 +1677,9 @@ scrOfferEdit As screen:
                         Reset: =true
                         SelectionColor: =RGBA(0, 62, 125, 1)
                         SelectionFill: =RGBA(235, 245, 255, 1)
+                        Size: =10
                         Width: =Parent.Width
-                        ZIndex: =2
+                        ZIndex: =4
 
                     lblOfferType_2 As label:
                         Align: =Align.Center
@@ -1625,19 +1689,20 @@ scrOfferEdit As screen:
                         Fill: =RGBA(107, 144, 179, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =20
+                        Height: =18
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
+                        LineHeight: =1
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =11
+                        Size: =10
                         Text: ="SBU"
                         Width: =Parent.Width
                         Y: =1
-                        ZIndex: =3
+                        ZIndex: =5
 
                     iptOfferSBU As dropdown:
                         AllowEmptySelection: =true
@@ -1656,7 +1721,7 @@ scrOfferEdit As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =28
+                        Height: =24
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.SBU)
@@ -1674,8 +1739,9 @@ scrOfferEdit As screen:
                         Reset: =true
                         SelectionColor: =RGBA(0, 62, 125, 1)
                         SelectionFill: =RGBA(235, 245, 255, 1)
+                        Size: =10
                         Width: =Parent.Width
-                        ZIndex: =4
+                        ZIndex: =6
 
                     lblOfferType_3 As label:
                         Align: =Align.Center
@@ -1685,19 +1751,20 @@ scrOfferEdit As screen:
                         Fill: =RGBA(107, 144, 179, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =20
+                        Height: =18
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
+                        LineHeight: =1
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =11
+                        Size: =10
                         Text: ="Dept"
                         Width: =Parent.Width
                         Y: =1
-                        ZIndex: =5
+                        ZIndex: =7
 
                     iptExistingOfferPage_6 As text:
                         Align: =Align.Center
@@ -1710,7 +1777,7 @@ scrOfferEdit As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =28
+                        Height: =24
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
@@ -1723,9 +1790,9 @@ scrOfferEdit As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Reset: =true
-                        Size: =11
+                        Size: =10
                         Width: =Parent.Width
-                        ZIndex: =6
+                        ZIndex: =8
 
                     lblOfferType_5 As label:
                         Align: =Align.Center
@@ -1735,19 +1802,20 @@ scrOfferEdit As screen:
                         Fill: =RGBA(107, 144, 179, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =20
+                        Height: =18
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
+                        LineHeight: =1
                         minimumHeight: =30
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =11
+                        Size: =10
                         Text: ="Offer Layout"
                         Width: =Parent.Width
                         Y: =1
-                        ZIndex: =7
+                        ZIndex: =9
 
                     ddSeasonFilter_5 As dropdown:
                         AllowEmptySelection: =true
@@ -1766,7 +1834,7 @@ scrOfferEdit As screen:
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =28
+                        Height: =24
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
                         Items: =Choices(Offers.offer_layout)
@@ -1784,8 +1852,9 @@ scrOfferEdit As screen:
                         Reset: =true
                         SelectionColor: =RGBA(0, 62, 125, 1)
                         SelectionFill: =RGBA(235, 245, 255, 1)
+                        Size: =10
                         Width: =Parent.Width
-                        ZIndex: =8
+                        ZIndex: =10
 
                 conSelectedOfferPage As groupContainer.horizontalAutoLayoutContainer:
                     Height: |

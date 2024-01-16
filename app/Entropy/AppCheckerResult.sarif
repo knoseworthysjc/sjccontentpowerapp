@@ -3744,19 +3744,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddSeasonFilter_2.AccessibleLabel"
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddOfferType.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddSeasonFilter_2.AccessibleLabel",
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddOfferType.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "scrOfferEdit",
-                "type": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddSeasonFilter_2"
+                "type": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddOfferType"
               }
             }
           ],
@@ -6888,6 +6888,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddOfferStatus.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddOfferStatus.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.galSelectedOffers.conSelectedOfferCategory.ddOfferStatus"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
         },
         {
           "locations": [
