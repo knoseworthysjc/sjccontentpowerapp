@@ -1695,7 +1695,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_status:Self.Selected})
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_type:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
