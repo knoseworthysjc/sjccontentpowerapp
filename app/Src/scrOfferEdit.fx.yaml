@@ -3525,7 +3525,7 @@ scrOfferEdit As screen:
                             ),
                             "Products",
                             Clear(colSelectedOfferProducts);
-                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,Filter(Products,Title=Item.Value)))
+                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
                         )
                     Text: =ThisItem.Tab
                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
@@ -4113,7 +4113,7 @@ scrOfferEdit As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Height: =72
-                        Image: =ThisItem.product_url
+                        Image: =ThisItem.Item.Value
                         OnSelect: =Select(Parent)
                         RadiusBottomLeft: =8
                         RadiusBottomRight: =8
@@ -4134,7 +4134,7 @@ scrOfferEdit As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Text: =ThisItem.'Compliance Asset Id'
+                        Text: =ThisItem.Item.Value
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Parent.TemplateWidth - 173
                         X: =103
@@ -4152,7 +4152,7 @@ scrOfferEdit As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.'Color Tag'
+                        Text: =ThisItem.Item.Value
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title2.Width
                         X: =Title2.X
