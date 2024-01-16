@@ -6984,6 +6984,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferProducts.galAssignedProducts.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferProducts.galAssignedProducts.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferProducts.galAssignedProducts"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferProducts.galAssignedProducts.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "scrOfferEdit.conOfferIndex.conOffers.conOfferProducts.galAssignedProducts.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "scrOfferEdit",
+                "type": "scrOfferEdit.conOfferIndex.conOffers.conOfferProducts.galAssignedProducts"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.collapseNewOffer"
                 }
               ],
