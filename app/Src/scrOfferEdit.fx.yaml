@@ -1150,6 +1150,21 @@ scrOfferEdit As screen:
                         Icon: =Icon.Trash
                         LayoutMinHeight: =25
                         LayoutMinWidth: =40
+                        OnSelect: |-
+                            =Patch(
+                                Offers,
+                                First(
+                                    DropColumns(
+                                        Table(ThisItem),
+                                        "updated",
+                                        "selected"
+                                    )
+                                ),
+                                {
+                                 offer_status:{Value:"Deleted"}
+                                }
+                            );
+                            Patch(colSelectedOffers,ThisItem,{updated:false,offer_status:{Value:"Deleted"}});
                         Width: |
                             =40
                         ZIndex: =6
