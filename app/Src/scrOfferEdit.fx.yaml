@@ -922,6 +922,34 @@ scrOfferEdit As screen:
                 Y: =0
                 ZIndex: =13
 
+            galStatus As gallery.galleryHorizontal:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(0, 89, 178, 1)
+                DelayItemLoading: =true
+                Height: =Parent.Height-U*2
+                Items: =Distinct(colSelectedOffers,offer_status.Value)
+                LayoutMinHeight: =Parent.Height-Font.'Segoe UI'
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: |
+                    =100
+                ZIndex: =14
+
+                Label2 As label:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =18
+                    OnSelect: =Select(Parent)
+                    Size: =11
+                    Text: |-
+                        =ThisItem.Value&": "&CountRows(Filter(colSelectedOffers,offer_status.Value=ThisItem.Value))
+                    Width: =Parent.TemplateWidth-U*2
+                    X: =U
+                    Y: =U
+                    ZIndex: =1
+
         conOffers As groupContainer.verticalAutoLayoutContainer:
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
