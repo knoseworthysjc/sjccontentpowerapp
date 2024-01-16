@@ -3312,7 +3312,7 @@ scrOfferEdit As screen:
                         ZIndex: =8
 
                 conSelectedOfferComments As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.TemplateHeight-Self.Y-Parent.TemplatePadding*4
+                    Height: =Parent.TemplateHeight-Self.Y-U*8
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
@@ -3418,11 +3418,12 @@ scrOfferEdit As screen:
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
-                        Height: =150
+                        Height: =100
                         HoverBorderColor: =RGBA(0, 89, 178, 1)
                         HoverColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(153, 205, 255, 1)
-                        LayoutMinHeight: =150
+                        LayoutMinHeight: |
+                            =100
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
