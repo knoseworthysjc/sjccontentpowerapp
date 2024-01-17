@@ -4112,7 +4112,7 @@ scrOfferEdit As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Height: =72
-                        Image: =ThisItem.Item.Value
+                        Image: =
                         OnSelect: =Select(Parent)
                         RadiusBottomLeft: =8
                         RadiusBottomRight: =8
@@ -4133,7 +4133,7 @@ scrOfferEdit As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Text: =ThisItem.Item.Value
+                        Text: =ThisItem.item_number
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Parent.TemplateWidth - 173
                         X: =103
@@ -4151,7 +4151,7 @@ scrOfferEdit As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.Item.Value
+                        Text: =ThisItem.Title
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title2.Width
                         X: =Title2.X
