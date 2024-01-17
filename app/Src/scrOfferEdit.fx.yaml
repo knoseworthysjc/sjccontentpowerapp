@@ -931,8 +931,7 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =Parent.Height-Font.'Segoe UI'
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
-                TemplateSize: |
-                    =100
+                TemplateSize: =Parent.Width/4
                 ZIndex: =14
 
                 Label2 As label:
