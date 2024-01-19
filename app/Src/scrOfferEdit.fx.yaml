@@ -4674,6 +4674,8 @@ scrOfferEdit As screen:
                     DelayItemLoading: =true
                     Items: =Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers)
                     Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =0
                     TemplateSize: =116
