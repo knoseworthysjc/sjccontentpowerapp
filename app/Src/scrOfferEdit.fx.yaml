@@ -1378,7 +1378,7 @@ scrOfferEdit As screen:
                             Icon: =Icon.Save
                             LayoutMinWidth: =32
                             OnSelect: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:iptSelectedOfferUpdate.SelectedItems})
+                                =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:SortByColumns(iptSelectedOfferUpdate.SelectedItems,"Value",SortOrder.Ascending)})
                             Width: |
                                 =32
                             ZIndex: =3

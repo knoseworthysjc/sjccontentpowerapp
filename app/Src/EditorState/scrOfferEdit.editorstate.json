@@ -22906,7 +22906,14 @@
         "ZIndex",
         "BorderThickness",
         "FocusedBorderThickness",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,Markets:iptSelectedOfferUpdate.SelectedItems})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -23085,7 +23092,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultIconStyle",
