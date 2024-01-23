@@ -4095,6 +4095,47 @@ scrOfferEdit As screen:
                 Visible: =galSelectedOfferOptions.Selected.Tab="Assigned Products"
                 ZIndex: =6
 
+                Container16 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =32
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    "Icon1_16 As 'Fluent Icon (1.0.19)'":
+                        BorderColor: =""
+                        BorderRadius: =0
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: |-
+                            ="#003E7D"
+                        FontSize: =0
+                        Height: =24
+                        IconColor: |-
+                            ="#003E7D"
+                        IconName: ="Refresh"
+                        IconSize: =24
+                        IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =165
+                        OnChange: |-
+                            =Clear(colSelectedOfferProducts);
+                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
+                        Text: ="Refresh"
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Tooltip: ="Add Pages"
+                        Width: |
+                            =95
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
                 "galAssignedProducts As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
@@ -4105,7 +4146,7 @@ scrOfferEdit As screen:
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =0
                     TemplateSize: =104
-                    ZIndex: =1
+                    ZIndex: =2
 
                     Image1 As image:
                         BorderColor: =RGBA(0, 89, 178, 1)
