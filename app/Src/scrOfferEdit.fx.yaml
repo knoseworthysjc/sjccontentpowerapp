@@ -1146,7 +1146,7 @@ scrOfferEdit As screen:
                             ));
                         Text: =""
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Tooltip: ="Split This Offer"
+                        Tooltip: ="Copy / Offer "
                         Width: =40
                         X: =0
                         Y: =0
@@ -3546,6 +3546,10 @@ scrOfferEdit As screen:
                         {
                             Tab: "Preview",
                             Icon: "Preview"
+                        },
+                        {
+                            Tab: "MMS",
+                            Icon: ""
                         }
                     )
                 LayoutMinHeight: =287
