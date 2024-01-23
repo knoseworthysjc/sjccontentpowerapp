@@ -18635,7 +18635,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Set(selectedSplitOffers,ThisItem);\nNavigate(mergeOffer);\n",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -18777,7 +18784,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -21688,7 +21695,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),Notify(\"Project/Page Required For Offer Creation\"),\nCollect(colSelectedOffers, Patch(Offers,Defaults(Offers),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ddPageFilter.Selected.page_from,layout_position:0,Adblock:0})));",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {

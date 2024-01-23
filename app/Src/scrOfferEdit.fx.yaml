@@ -424,9 +424,27 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: |-
-                    =If(IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),Notify("Project/Page Required For Offer Creation"),
-                    Collect(colSelectedOffers, Patch(Offers,Defaults(Offers),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ddPageFilter.Selected.page_from,layout_position:0,Adblock:0})));
+                OnChange: |
+                    =If(
+                        IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),
+                        Notify("Project/Page Required For Offer Creation"),
+                        Collect(
+                            colSelectedOffers,
+                            Patch(
+                                Offers,
+                                Defaults(Offers),
+                                {
+                                    assigned_project: {
+                                        Id: ddProjectFilter.Selected.ID,
+                                        Value: ddProjectFilter.Selected.Title
+                                    },
+                                    page_from: ddPageFilter.Selected.page_from,
+                                    layout_position: 0,
+                                    Adblock: 0
+                                }
+                            )
+                        )
+                    );
                 Text: ="Add Offer"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
@@ -1082,8 +1100,50 @@ scrOfferEdit As screen:
                         LayoutMinHeight: =200
                         LayoutMinWidth: =165
                         OnChange: |
-                            =Set(selectedSplitOffers,ThisItem);
-                            Navigate(mergeOffer);
+                            =Collect(
+                                    colSelectedOffers,
+                            Patch(
+                                Offers,
+                                Defaults(Offers),
+                                {
+                                    assigned_project: ThisItem.assigned_project,
+                                    offer_status:ThisItem.offer_status,
+                                    page_from: ThisItem.page_from,
+                                    layout_position: ThisItem.layout_position,
+                                    Adblock: ThisItem.Adblock,
+                                    offer_type: ThisItem.offer_type,
+                                    SBU: ThisItem.SBU,
+                                    department_name: ThisItem.department_name,
+                                    Markets: ThisItem.Markets,
+                                    featured_item_numbers: ThisItem.featured_item_numbers,
+                                    combined_item_number: ThisItem.combined_item_number,
+                                    'Country of Origin': ThisItem.'Country of Origin',
+                                    'Country of Origin(Fre)': ThisItem.'Country of Origin(Fre)',
+                                    Grade: ThisItem.Grade,
+                                    'Grade(Fre)': ThisItem.'Grade(Fre)',
+                                    offer_copy: ThisItem.offer_copy,
+                                    offer_copy_french: ThisItem.offer_copy_french,
+                                    total_event_price: ThisItem.total_event_price,
+                                    event_price: ThisItem.event_price,
+                                    regular_price: ThisItem.regular_price,
+                                    savings: ThisItem.savings,
+                                    eco_fee: ThisItem.eco_fee,
+                                    event_price_lb: ThisItem.event_price_lb,
+                                    regular_price_lb: ThisItem.regular_price_lb,
+                                    'Savings(LB)': ThisItem.'Savings(LB)',
+                                    unit: ThisItem.unit,
+                                    unit_fre: ThisItem.unit_fre,
+                                    installment_amount: ThisItem.installment_amount,
+                                    installment_frequency: ThisItem.installment_frequency,
+                                    multi_save: ThisItem.multi_save,
+                                    multi_save_fre: ThisItem.multi_save_fre,
+                                    callout: ThisItem.callout,
+                                    image_source: ThisItem.image_source,
+                                    offer_comments: ThisItem.offer_comments,
+                                    assigned_images: ThisItem.assigned_images,
+                                    assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout
+                                }
+                            ));
                         Text: =""
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Split This Offer"
