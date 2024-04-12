@@ -3656,13 +3656,14 @@ scrOfferEdit As screen:
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
-                                FontColor: =
+                                FontColor: =RGBA(0, 0, 0, 1)
                                 Height: =32
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 Size: =16
                                 Text: ="French Only Images"
                                 VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                                Visible: =Gallery3_2.AllItemsCount>0
                                 Weight: ='TextCanvas.Weight'.Semibold
                                 Width: =96
                                 X: =0
@@ -3692,9 +3693,10 @@ scrOfferEdit As screen:
                                 LayoutMinWidth: =320
                                 LoadingSpinner: =LoadingSpinner.Data
                                 OnSelect: =
-                                TemplateSize: =Self.Width/2
+                                TemplatePadding: =U
+                                TemplateSize: =If(Gallery3_2.AllItemsCount=0,Self.Width/6,Self.Width/2)
                                 Transition: =Transition.Push
-                                WrapCount: =2
+                                WrapCount: =If(Gallery3_2.AllItemsCount=0,6,2)
                                 ZIndex: =1
 
                                 Image5 As image:
@@ -3810,9 +3812,11 @@ scrOfferEdit As screen:
                                 LayoutMinWidth: =320
                                 LoadingSpinner: =LoadingSpinner.Data
                                 OnSelect: =
-                                TemplateSize: =Self.Width/2
+                                TemplatePadding: =U
+                                TemplateSize: =If(Gallery3_2.AllItemsCount=0,Self.Width/6,Self.Width/2)
                                 Transition: =Transition.Push
-                                WrapCount: =2
+                                Visible: =Gallery3_2.AllItemsCount>0
+                                WrapCount: =If(Gallery3_2.AllItemsCount=0,6,2)
                                 ZIndex: =2
 
                                 Image5_3 As image:
