@@ -5729,7 +5729,7 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
                 OnChange: |-
-                    =If(editOfferPageMode="New",ForAll(Sequence(iptNewPageTo-iptNewPageFrom+1,iptNewPageFrom),Patch(FlyerPages,Defaults(FlyerPages),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ThisRecord.Value,page_to:ThisRecord.Value,assigned_page_layout:iptNewPageLayout.Selected,Title:ddProjectFilter.Selected.Title&"_PG"&Text(ThisRecord.Value,"00")})),Patch(FlyerPages,ddPageFilter.Selected,{page_from:iptNewPageFrom.Text,page_to:iptNewPageTo.Text,assigned_page_layout:iptNewPageLayout.Selected}));
+                    =If(editOfferPageMode="New",ForAll(Sequence(iptNewPageTo.Text-iptNewPageFrom.Text+1,iptNewPageFrom.Text),Patch(FlyerPages,Defaults(FlyerPages),{assigned_project:{Id:ddProjectFilter.Selected.ID,Value:ddProjectFilter.Selected.Title},page_from:ThisRecord.Value,page_to:ThisRecord.Value,assigned_page_layout:iptNewPageLayout.Selected,Title:ddProjectFilter.Selected.Title&"_PG"&Text(ThisRecord.Value,"00")})),Patch(FlyerPages,ddPageFilter.Selected,{page_from:iptNewPageFrom.Text,page_to:iptNewPageTo.Text,assigned_page_layout:iptNewPageLayout.Selected}));
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Pages"
