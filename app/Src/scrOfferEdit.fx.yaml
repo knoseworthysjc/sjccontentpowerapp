@@ -4182,7 +4182,7 @@ scrOfferEdit As screen:
                                                 thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
                                                 selected: false,
                                                 type: "image",
-                                                lang: ddAssetSearchLang.Selected.Value,
+                                                lang: Lower(ddAssetSearchLang.Selected.Value),
                                                 value: First(assignAsset).fullpath
                                             }
                                         );
