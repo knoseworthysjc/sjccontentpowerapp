@@ -3861,31 +3861,19 @@ scrOfferEdit As screen:
                                         =Switch(
                                             ThisItem.type,
                                             "image",
-                                            If(
-                                                ThisItem.lang = "fre",
+                                            
                                                 Patch(
                                                     colSelectedOffers,
                                                     galSelectedOffers.Selected,
                                                     {
                                                         updated: true,
                                                         assigned_images_fre: Filter(
-                                                            galSelectedOffers.Selected.assigned_images,
-                                                            Id <> ThisItem.id
-                                                        )
-                                                    }
-                                                ),
-                                                Patch(
-                                                    colSelectedOffers,
-                                                    galSelectedOffers.Selected,
-                                                    {
-                                                        updated: true,
-                                                        assigned_images: Filter(
-                                                            galSelectedOffers.Selected.assigned_images,
+                                                            galSelectedOffers.Selected.assigned_images_fre,
                                                             Id <> ThisItem.id
                                                         )
                                                     }
                                                 )
-                                            ),
+                                            ,
                                             "logo",
                                             Patch(
                                                     colSelectedOffers,

@@ -24511,7 +24511,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Switch(\n    ThisItem.type,\n    \"image\",\n    If(\n        ThisItem.lang = \"fre\",\n        Patch(\n            colSelectedOffers,\n            galSelectedOffers.Selected,\n            {\n                updated: true,\n                assigned_images_fre: Filter(\n                    galSelectedOffers.Selected.assigned_images,\n                    Id <> ThisItem.id\n                )\n            }\n        ),\n        Patch(\n            colSelectedOffers,\n            galSelectedOffers.Selected,\n            {\n                updated: true,\n                assigned_images: Filter(\n                    galSelectedOffers.Selected.assigned_images,\n                    Id <> ThisItem.id\n                )\n            }\n        )\n    ),\n    \"logo\",\n    Patch(\n            colSelectedOffers,\n            galSelectedOffers.Selected,\n            {\n                updated: true,\n                assigned_logos: Filter(\n                    galSelectedOffers.Selected.assigned_logos,\n                    Id <> ThisItem.id\n                )\n            }\n        )\n\n);\n//ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))\nRemove(\n    colSelectedPageProductImages,\n    ThisItem\n);\n",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -24601,7 +24608,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
