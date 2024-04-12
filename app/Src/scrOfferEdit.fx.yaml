@@ -4182,24 +4182,12 @@ scrOfferEdit As screen:
                                                 thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
                                                 selected: false,
                                                 type: "image",
-                                                lang: If(
-                                                    IsMatch(
-                                                        First(assignAsset).Title,
-                                                        "FR",
-                                                        MatchOptions.Contains
-                                                    ),
-                                                    "fre",
-                                                    "eng"
-                                                ),
+                                                lang: ddAssetSearchLang.Selected.Value,
                                                 value: First(assignAsset).fullpath
                                             }
                                         );
                                         If(
-                                            IsMatch(
-                                                ThisItem.FILE_NAME,
-                                                "FR",
-                                                MatchOptions.Contains
-                                            ),
+                                            ddAssetSearchLang.SelectedText.Value="Fre",
                                             ClearCollect(
                                                 assignAssets,
                                                 galSelectedOffers.Selected.assigned_images_fre
