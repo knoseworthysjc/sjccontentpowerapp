@@ -4269,7 +4269,7 @@ scrOfferEdit As screen:
                                                 thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAssetlogo).fullpath,
                                                 selected: false,
                                                 type: "image",
-                                                lang: Blank(),
+                                                lang: "eng",
                                                 value: First(assignAssetlogo).fullpath
                                             }
                                         );
