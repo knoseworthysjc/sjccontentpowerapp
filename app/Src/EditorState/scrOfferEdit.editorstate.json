@@ -20135,7 +20135,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ClearCollect(\n    colSelectedOffers,\n    AddColumns(\n        Filter(\n            Offers,\n            assigned_project.Value = ddProjectFilter.Selected.Title\n        ),\n        \"updated\",\n        false,\n        \"selected\",\n        false\n    )\n);\n\nClear(colSelectedPageProductImages);\nForAll(\n    colSelectedOffers As offer,\n    ForAll(\n        offer.assigned_images As imglist,\n        Collect(\n            colSelectedPageProductImages,\n            {\n                offerId: offer.ID,\n                id:imglist.Id,\n                title: Last(\n                    Split(\n                        imglist.Value,\n                        \"/\"\n                    )\n                ).Value,\n                thumbnails: \"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=\" & imglist.Value,\n                selected: false,\n                type: \"image\",\n                lang: \"eng\",\n                value: imglist.Value\n            }\n        )\n    );\n    ForAll(\n        offer.assigned_images_fre As imglist,\n        Collect(\n            colSelectedPageProductImages,\n            {\n                offerId: offer.ID,\n                id:imglist.Id,\n                title: Last(\n                    Split(\n                        imglist.Value,\n                        \"/\"\n                    )\n                ).Value,\n                thumbnails: \"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=\" & imglist.Value,\n                selected: false,\n                type: \"image\",\n                lang: \"fre\",\n                value: imglist.Value\n            }\n        )\n    );\n    ForAll(\n        offer.assigned_logos As imglist,\n        Collect(\n            colSelectedPageProductImages,\n            {\n                offerId: offer.ID,\n                id:imglist.Id,\n                title: Last(\n                    Split(\n                        imglist.Value,\n                        \"/\"\n                    )\n                ).Value,\n                thumbnails: \"https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=\" & imglist.Value,\n                selected: false,\n                type: \"logo\",\n                lang:Blank(),\n                value: imglist.Value\n            }\n        )\n    );\n);\n/*ClearCollect(\n    conSelectedOfferPreviews,\n    AddColumns(\n        colSelectedOffers,\n        \"Zone\",\n        \"selectedOfferPreview\",\n        \"FirstImage\",\n        First(\n            Filter(\n                colSelectedPageProductImages,\n                offerId = ID And type = \"image\"\n            )\n        ).thumbnails,\n        \"SecondImage\",\n        If(\n            CountRows(\n                Filter(\n                    colSelectedPageProductImages,\n                    offerId = ID And type = \"image\"\n                )\n            ) > 1,\n            Index(\n                Filter(\n                    colSelectedPageProductImages,\n                    offerId = ID And type = \"image\"\n                ),\n                2\n            ).thumbnails,\n            Blank()\n        ),\n        \"ThirdImage\",\n        If(\n            CountRows(\n                Filter(\n                    colSelectedPageProductImages,\n                    offerId = ID And type = \"image\"\n                )\n            ) > 2,\n            Index(\n                Filter(\n                    colSelectedPageProductImages,\n                    offerId = ID And type = \"image\"\n                ),\n                3\n            ).thumbnails,\n            Blank()\n        )\n    )\n);\nClear(colSelectedPageProducts);\nForAll(\n    colSelectedOffers As Off,\n    ForAll(\n        Split(\n            Off.featured_item_numbers,\n            \",\"\n        ) As itemNum,\n        Collect(\n            colSelectedPageProducts,\n            AddColumns(\n                Filter(\n                    Products,\n                    Title = itemNum.Value\n                ),\n                \"offer_id\",\n                Off.ID,\n                \"selected\",\n                false\n            )\n        )\n    )\n);*/\nUpdateContext({ctxSortCol: \"layout_position\"});\nUpdateContext({ctxSortAsc: true});\n",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -76478,7 +76485,8 @@
           "InvariantPropertyName": "Text",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "FontColor"
       ],
       "DynamicProperties": [
         {
@@ -76567,6 +76575,11 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FontColor",
           "RuleProviderType": "Unknown"
         },
         {

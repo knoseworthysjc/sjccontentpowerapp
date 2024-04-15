@@ -295,7 +295,7 @@ scrOfferEdit As screen:
                                     thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
                                     selected: false,
                                     type: "logo",
-                                    lang:Blank(),
+                                    lang:"eng",
                                     value: imglist.Value
                                 }
                             )
@@ -3639,6 +3639,7 @@ scrOfferEdit As screen:
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
+                                FontColor: =
                                 Height: =32
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
