@@ -862,10 +862,10 @@ scrProjectManagement As screen:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
                             DisabledColor: =RGBA(166, 166, 166, 1)
+                            FillPortions: =1
                             FontWeight: =FontWeight.Bold
                             Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow_4.Height-previewOffer_MultiSaveEach_4.Height,  "Rollback", Parent.Height-previewOffer_rollBack_4.Height,"Multi-Save",Parent.Height-previewOffer_MultiSaveEach_4.Height,Parent.Height)
-                            LayoutMinHeight: |
-                                =20
+                            LayoutMinHeight: =25
                             LineHeight: =1
                             PaddingBottom: =0
                             PaddingLeft: =0
