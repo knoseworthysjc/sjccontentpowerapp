@@ -326,6 +326,23 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 ZIndex: =2
 
+                TextCanvas2_1 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Size: =16
+                    Text: ="Pages"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
             conControlProjectExlusions As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
@@ -339,6 +356,23 @@ scrProjectManagement As screen:
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
                 ZIndex: =3
+
+                TextCanvas2_2 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Size: =16
+                    Text: ="Exclusions"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
 
         conContentPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
