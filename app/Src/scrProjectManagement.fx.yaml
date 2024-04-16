@@ -1,6 +1,6 @@
 scrProjectManagement As screen:
     Fill: =RGBA(232, 232, 232, 1)
-    OnVisible: =Set(showNav,false)
+    OnVisible: =Set(showNav,false);Set(projectEditMode,"edit");
 
     conRootPM As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -218,56 +218,6 @@ scrProjectManagement As screen:
                 Y: =0
                 ZIndex: =8
 
-            "icnAddContent As 'Fluent Icon (1.0.19)'":
-                BorderColor: |-
-                    ="#FFFFFF"
-                BorderRadius: =5
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#FFFFFF"
-                FontSize: =0
-                Height: =Parent.Height-2
-                IconColor: |-
-                    ="#FFFFFF"
-                IconName: ="CircleAddition"
-                IconSize: =24
-                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                OnChange: =Set(showEditPages,true);
-                Text: =""
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Add Pages"
-                Width: =Self.Height
-                X: =0
-                Y: =0
-                ZIndex: =9
-
-            "icnEditContent As 'Fluent Icon (1.0.19)'":
-                BorderColor: |-
-                    ="#FFFFFF"
-                BorderRadius: =5
-                DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#FFFFFF"
-                FontSize: =0
-                Height: =Parent.Height-2
-                IconColor: |-
-                    ="#FFFFFF"
-                IconName: ="Edit"
-                IconSize: =24
-                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                OnChange: =Set(showEditPages,true);
-                Text: =""
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Edit Page Details"
-                Width: =Self.Height
-                X: =0
-                Y: =0
-                ZIndex: =10
-
         conControlsPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(214, 221, 224, 1)
@@ -378,6 +328,31 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 ZIndex: =2
 
+                "icnAddContent_2 As 'Fluent Icon (1.0.19)'":
+                    BorderColor: |-
+                        ="#003E7D"
+                    BorderRadius: =8
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#003E7D"
+                    FontSize: =0
+                    Height: =Parent.Height-2
+                    IconColor: |-
+                        ="#003E7D"
+                    IconName: ="CircleAddition"
+                    IconSize: =24
+                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =165
+                    OnChange: =Set(showEditPages,true);
+                    Text: =""
+                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                    Tooltip: ="Add Pages"
+                    Width: =Self.Height
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
                 TextCanvas2_1 As Text:
                     Align: ='TextCanvas.Align'.Center
                     DisplayMode: =DisplayMode.Edit
@@ -393,7 +368,32 @@ scrProjectManagement As screen:
                     Width: =96
                     X: =0
                     Y: =0
-                    ZIndex: =1
+                    ZIndex: =2
+
+                "icnEditContent_2 As 'Fluent Icon (1.0.19)'":
+                    BorderColor: |-
+                        ="#003E7D"
+                    BorderRadius: =8
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#003E7D"
+                    FontSize: =0
+                    Height: =Parent.Height-2
+                    IconColor: |-
+                        ="#003E7D"
+                    IconName: ="Edit"
+                    IconSize: =24
+                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =165
+                    OnChange: =Set(showEditPages,true);
+                    Text: =""
+                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                    Tooltip: ="Edit Page Details"
+                    Width: =Self.Height
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
 
             conControlProjectExlusions As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -820,6 +820,7 @@ scrProjectManagement As screen:
             conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
@@ -831,101 +832,30 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 ZIndex: =2
 
-                "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                Gallery2 As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
-                    Items: =CustomGallerySample
+                    Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_from",SortOrder.Ascending)
                     Layout: =Layout.Vertical
-                    LayoutMinHeight: =287
-                    LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
-                    TemplatePadding: =0
-                    TemplateSize: =104
+                    ShowNavigation: =true
+                    ShowScrollbar: =false
+                    TemplatePadding: =Gap
+                    TemplateSize: =Self.Width/2
+                    WrapCount: =2
                     ZIndex: =1
 
-                    Image3 As image:
+                    Image6 As image:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        Height: =72
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                         OnSelect: =Select(Parent)
-                        RadiusBottomLeft: =8
-                        RadiusBottomRight: =8
-                        RadiusTopLeft: =8
-                        RadiusTopRight: =8
-                        Width: =72
-                        X: =16
-                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        Width: =Parent.TemplateHeight-Parent.TemplatePadding*2-15
+                        X: =Gap
+                        Y: =Gap
                         ZIndex: =1
-
-                    Title4 As label:
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =ThisItem.SampleHeading
-                        VerticalAlign: =VerticalAlign.Top
-                        Width: =Parent.TemplateWidth - 173
-                        X: =103
-                        Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle3.Size * 1.8)) / 2
-                        ZIndex: =2
-
-                    Subtitle3 As label:
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =12
-                        Text: =ThisItem.SampleText
-                        VerticalAlign: =VerticalAlign.Top
-                        Width: =Title4.Width
-                        X: =Title4.X
-                        Y: =Title4.Y + Title4.Height
-                        ZIndex: =3
-
-                    NextArrow3 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        Color: =RGBA(166, 166, 166, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =16
-                        PaddingLeft: =16
-                        PaddingRight: =16
-                        PaddingTop: =16
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =Parent.TemplateWidth - Self.Width - 12
-                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                        ZIndex: =4
-
-                    Separator3 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Height: =8
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth
-                        Y: =Parent.TemplateHeight - Self.Height
-                        ZIndex: =5
-
-                    Rectangle4 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Fill: =RGBA(0, 89, 178, 1)
-                        Height: =Parent.TemplateHeight - Separator3.Height
-                        OnSelect: =Select(Parent)
-                        Visible: =ThisItem.IsSelected
-                        Width: =4
-                        ZIndex: =6
 
             conControlProjectExclusionsContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
