@@ -292,7 +292,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                Width: =Parent.Width*0.25
+                Width: =conControlProjectDetailsContent.Width
                 ZIndex: =1
 
                 TextCanvas2 As Text:
@@ -398,7 +398,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                Width: =Parent.Width*0.25
+                Width: =Parent.Width*0.2
                 ZIndex: =1
 
                 Label3 As label:
@@ -443,7 +443,7 @@ scrProjectManagement As screen:
                     ZIndex: =3
 
                 "iptProjectDocket As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
                     FontSize: =16
@@ -473,7 +473,7 @@ scrProjectManagement As screen:
                     ZIndex: =5
 
                 "iptProjectDocket_1 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
@@ -505,7 +505,7 @@ scrProjectManagement As screen:
                     ZIndex: =7
 
                 "iptProjectDocket_2 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
@@ -565,7 +565,7 @@ scrProjectManagement As screen:
                     ZIndex: =11
 
                 "iptProjectDocket_3 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
@@ -597,7 +597,7 @@ scrProjectManagement As screen:
                     ZIndex: =13
 
                 "iptProjectDocket_4 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
@@ -629,7 +629,7 @@ scrProjectManagement As screen:
                     ZIndex: =15
 
                 "iptProjectDocket_5 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
@@ -661,7 +661,7 @@ scrProjectManagement As screen:
                     ZIndex: =17
 
                 "iptProjectDocket_6 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
@@ -693,7 +693,7 @@ scrProjectManagement As screen:
                     ZIndex: =19
 
                 "iptProjectDocket_7 As 'Text input'":
-                    Align: ='TextInputCanvas.Align'.Center
+                    Align: ='TextInputCanvas.Align'.Justify
                     BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
