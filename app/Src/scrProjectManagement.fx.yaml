@@ -457,6 +457,22 @@ scrProjectManagement As screen:
                         Y: =0
                         ZIndex: =1
 
+                    TextCanvas3_1 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: ="From"
+                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =64
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
                     TextCanvas3 As Text:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
@@ -470,22 +486,6 @@ scrProjectManagement As screen:
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width*0.6
-                        X: =0
-                        Y: =0
-                        ZIndex: =2
-
-                    TextCanvas3_1 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        Font: =Font.'Segoe UI'
-                        FontColor: =RGBA(255, 255, 255, 1)
-                        Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =96
-                        Text: ="From"
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =64
                         X: =0
                         Y: =0
                         ZIndex: =3
