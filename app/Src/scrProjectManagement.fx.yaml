@@ -2,22 +2,23 @@ scrProjectManagement As screen:
     Fill: =RGBA(232, 232, 232, 1)
     OnVisible: =Set(showNav,false)
 
-    Container11 As groupContainer.verticalAutoLayoutContainer:
+    conRootPM As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =Gap
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
-        conOfferNav_1 As groupContainer.horizontalAutoLayoutContainer:
+        conNavPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderStyle: =BorderStyle.None
             Fill: =RGBA(0, 62, 125, 1)
             FillPortions: =0
             Height: =32
             LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutGap: =U
+            LayoutGap: =Gap
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
@@ -266,20 +267,68 @@ scrProjectManagement As screen:
                 Y: =0
                 ZIndex: =10
 
-        Container14 As groupContainer.horizontalAutoLayoutContainer:
+        conControlsPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(214, 221, 224, 1)
             FillPortions: =0
             Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =Gap
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
-        Container15 As groupContainer.horizontalAutoLayoutContainer:
+        conContentPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =Gap
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
+
+            Container21 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =1
+
+            Container22 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+            Container23 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =3
 
     nav_container_8 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
