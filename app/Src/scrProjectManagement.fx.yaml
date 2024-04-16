@@ -327,7 +327,7 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 ZIndex: =2
 
-                TextCanvas2_2 As Text:
+                "'Preview/Offers' As Text":
                     Align: ='TextCanvas.Align'.Center
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
@@ -337,7 +337,7 @@ scrProjectManagement As screen:
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     Size: =16
-                    Text: ="Exclusions"
+                    Text: =""
                     Weight: ='TextCanvas.Weight'.Semibold
                     Width: =96
                     X: =0
@@ -552,6 +552,7 @@ scrProjectManagement As screen:
             conControlProjectPageDetails As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
@@ -592,6 +593,7 @@ scrProjectManagement As screen:
                         ZIndex: =1
 
                 "Gallery5 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
                     Items: =Filter(Offers,assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)
@@ -629,7 +631,7 @@ scrProjectManagement As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.Season.Value
+                        Text: =ThisItem.Adblock&" "&ThisItem.zone_idx
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title6.Width
                         X: =Title6.X
@@ -647,7 +649,7 @@ scrProjectManagement As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.Week
+                        Text: =ThisItem.offer_copy
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title6.Width
                         X: =Title6.X
