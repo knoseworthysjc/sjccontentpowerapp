@@ -518,7 +518,7 @@ scrProjectManagement As screen:
                         Y: =0
                         ZIndex: =3
 
-                Gallery2 As gallery.galleryVertical:
+                galProjectManagementPages As gallery.galleryVertical:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
@@ -569,8 +569,8 @@ scrProjectManagement As screen:
                         Height: =32
                         Label: =""
                         OnCheck: |+
-                            =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from));
-                            Collect(colProjectManagementSelectedOffers,Filter('Offers',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from));
+                            =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                            Collect(colProjectManagementSelectedOffers,Filter('Offers',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
                             
                         OnSelect: =Select(Parent)
                         OnUncheck: |
@@ -582,7 +582,7 @@ scrProjectManagement As screen:
                         Y: =Gap
                         ZIndex: =5
 
-            Container30 As groupContainer.verticalAutoLayoutContainer:
+            conProjectManagementPlanning As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
@@ -592,6 +592,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Visible: =Gallery7.Selected.Title="Planning"
                 ZIndex: =2
 
             conControlProjectPageOffers As groupContainer.verticalAutoLayoutContainer:
@@ -607,6 +608,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Visible: =Gallery7.Selected.Title="Pages/PDF"
                 ZIndex: =3
 
                 Container27 As groupContainer.verticalAutoLayoutContainer:
@@ -625,7 +627,7 @@ scrProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =1
 
-                    Gallery6 As gallery.galleryHorizontal:
+                    galProjectManagementPDFs As gallery.galleryHorizontal:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -682,12 +684,12 @@ scrProjectManagement As screen:
                                 Text: =ThisItem.'File name with extension'
                                 VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                                 Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                                Width: =100
                                 X: =Gap
-                                Y: =Parent.TemplateHeight-Gap-Self.Height-15
+                                Y: =0
                                 ZIndex: =1
 
-                "Gallery5 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+                "galProjectManagementOffers As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
