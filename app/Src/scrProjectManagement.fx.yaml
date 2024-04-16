@@ -572,7 +572,7 @@ scrProjectManagement As screen:
                     DropShadow: =DropShadow.Light
                     FillPortions: =0
                     Height: =Parent.Height*0.5
-                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
@@ -589,6 +589,7 @@ scrProjectManagement As screen:
                         DelayItemLoading: =true
                         Items: =SortByColumns(colProjectManagementSelectedPages,"page_from",SortOrder.Ascending,"Title",SortOrder.Ascending)
                         LoadingSpinner: =LoadingSpinner.Data
+                        ShowNavigation: =true
                         TemplatePadding: =Gap
                         TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
                         ZIndex: =1
