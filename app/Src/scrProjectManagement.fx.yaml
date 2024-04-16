@@ -572,6 +572,19 @@ scrProjectManagement As screen:
                     Width: =Parent.Width-64
                     ZIndex: =11
 
+                Container25 As groupContainer.horizontalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =64
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =12
+
             conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
