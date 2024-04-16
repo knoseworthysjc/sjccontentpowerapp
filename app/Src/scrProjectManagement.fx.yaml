@@ -301,7 +301,6 @@ scrProjectManagement As screen:
                 TextCanvas2_1 As Text:
                     Align: ='TextCanvas.Align'.Center
                     DisplayMode: =DisplayMode.Edit
-                    FillPortions: =1
                     Font: =Font.'Segoe UI'
                     FontColor: =RGBA(0, 0, 0, 1)
                     Height: =32
@@ -583,7 +582,19 @@ scrProjectManagement As screen:
                         Y: =Gap
                         ZIndex: =5
 
-            conControlProjectPageDetails As groupContainer.verticalAutoLayoutContainer:
+            Container30 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+            conControlProjectPageOffers As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -596,7 +607,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                ZIndex: =2
+                ZIndex: =3
 
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -647,19 +658,34 @@ scrProjectManagement As screen:
                             Y: =TextCanvas4.Y
                             ZIndex: =2
 
-                        TextCanvas4 As Text:
-                            Align: ='TextCanvas.Align'.Center
-                            AutoHeight: =true
-                            DisplayMode: =DisplayMode.Edit
-                            Font: =Font.'Segoe UI'
-                            Height: =
-                            Text: =ThisItem.'File name with extension'
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
-                            Weight: ='TextCanvas.Weight'.Semibold
-                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                            X: =Gap
-                            Y: =Parent.TemplateHeight-Gap-Self.Height-15
-                            ZIndex: =3
+                        Container29 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderStyle: =BorderStyle.None
+                            Height: =32
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =320
+                            ZIndex: =4
+
+                            TextCanvas4 As Text:
+                                Align: ='TextCanvas.Align'.Center
+                                AutoHeight: =true
+                                DisplayMode: =DisplayMode.Edit
+                                Font: =Font.'Segoe UI'
+                                FontColor: =
+                                Height: =
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Text: =ThisItem.'File name with extension'
+                                VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                                X: =Gap
+                                Y: =Parent.TemplateHeight-Gap-Self.Height-15
+                                ZIndex: =1
 
                 "Gallery5 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -780,7 +806,7 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 Visible: =showEditProject
                 Width: =Parent.Width*0.2
-                ZIndex: =3
+                ZIndex: =4
 
                 Label3 As label:
                     BorderColor: =RGBA(0, 89, 178, 1)
