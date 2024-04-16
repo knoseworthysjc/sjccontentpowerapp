@@ -782,6 +782,82 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 ZIndex: =2
 
+                Container27 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    Image6_1 As image:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FillPortions: =1
+                        Height: |
+                            =500
+                        Image: =First(Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)).Thumbnail.Large
+                        Width: |
+                            =500
+                        X: =Gap
+                        Y: =Gap
+                        ZIndex: =1
+
+                    Container26_1 As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =64
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: |
+                            =10
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: |
+                            =250
+                        X: =Gap
+                        ZIndex: =2
+
+                        "TextInputCanvas2_1 As 'Text input'":
+                            BasePaletteColor: =
+                            DelayOutput: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Type: ='TextInputCanvas.Type'.Text
+                            Value: =ThisItem.page_from
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        DropdownCanvas2_1 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.assigned_page_layout
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =Choices(FlyerPages.assigned_page_layout)
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
                 Gallery2 As gallery.galleryVertical:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -792,9 +868,11 @@ scrProjectManagement As screen:
                     ShowNavigation: =true
                     ShowScrollbar: =false
                     TemplatePadding: =Gap
-                    TemplateSize: =Self.Width/2
-                    WrapCount: =2
-                    ZIndex: =1
+                    TemplateSize: |
+                        =128
+                    WrapCount: |
+                        =
+                    ZIndex: =2
 
                     Image6 As image:
                         BorderColor: =RGBA(0, 89, 178, 1)
