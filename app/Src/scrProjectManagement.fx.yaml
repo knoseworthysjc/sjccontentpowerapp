@@ -545,7 +545,9 @@ scrProjectManagement As screen:
                             Collect(colProjectManagementSelectedOffers,Filter('Offers',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from));
                             
                         OnSelect: =Select(Parent)
-                        OnUncheck: =false
+                        OnUncheck: |
+                            =ClearCollect(colProjectManagementSelectedPages,Filter(colProjectManagementSelectedPages,page_from<>ThisItem.page_from));
+                            ClearCollect(colProjectManagementSelectedOffers,Filter(colProjectManagementSelectedOffers,page_from<>ThisItem.page_from));
                         Width: |
                             =40
                         X: =TextCanvas3_2.X
