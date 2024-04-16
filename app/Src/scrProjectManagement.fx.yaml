@@ -605,6 +605,17 @@ scrProjectManagement As screen:
                             Image: =ThisItem.Thumbnail.Large
                             Width: =320
                             Y: =Gap
+                            ZIndex: =1
+
+                        Rectangle7 As rectangle:
+                            BorderColor: =RGBA(13, 50, 61, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(214, 221, 224, 0.65)
+                            Height: =TextCanvas4.Height
+                            OnSelect: =Select(Parent)
+                            Width: =TextCanvas4.Width
+                            X: =TextCanvas4.X
+                            Y: =TextCanvas4.Y
                             ZIndex: =2
 
                         TextCanvas4 As Text:
