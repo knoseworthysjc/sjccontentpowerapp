@@ -188,7 +188,7 @@ scrProjectManagement As screen:
                     SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value And Week = Value(iptWeekFilter_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
                 LayoutMinHeight: =30
                 minimumHeight: =30
-                OnChange: =
+                OnChange: =Clear(colProjectManagementSelectedPages);Clear(colProjectManagementSelectedOffers);
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 89, 178, 1)
                 Reset: =true
@@ -623,13 +623,13 @@ scrProjectManagement As screen:
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
-                            Height: =60
+                            Height: =
                             Text: =ThisItem.'File name with extension'
                             VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                             X: =Gap
-                            Y: =Parent.TemplateHeight-Gap-Self.Height
+                            Y: =Parent.TemplateHeight-Gap-Self.Height-15
                             ZIndex: =3
 
                 "Gallery5 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
