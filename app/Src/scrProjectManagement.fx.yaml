@@ -328,31 +328,6 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 ZIndex: =2
 
-                "icnAddContent_2 As 'Fluent Icon (1.0.19)'":
-                    BorderColor: |-
-                        ="#003E7D"
-                    BorderRadius: =8
-                    DisplayMode: =DisplayMode.Edit
-                    FontColor: |-
-                        ="#003E7D"
-                    FontSize: =0
-                    Height: =Parent.Height-2
-                    IconColor: |-
-                        ="#003E7D"
-                    IconName: ="CircleAddition"
-                    IconSize: =24
-                    IconType: ='PowerCAT.Icon.IconType'.IconButon
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =165
-                    OnChange: =Set(showEditPages,true);
-                    Text: =""
-                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                    Tooltip: ="Add Pages"
-                    Width: =Self.Height
-                    X: =0
-                    Y: =0
-                    ZIndex: =1
-
                 TextCanvas2_1 As Text:
                     Align: ='TextCanvas.Align'.Center
                     DisplayMode: =DisplayMode.Edit
@@ -369,31 +344,6 @@ scrProjectManagement As screen:
                     X: =0
                     Y: =0
                     ZIndex: =2
-
-                "icnEditContent_2 As 'Fluent Icon (1.0.19)'":
-                    BorderColor: |-
-                        ="#003E7D"
-                    BorderRadius: =8
-                    DisplayMode: =DisplayMode.Edit
-                    FontColor: |-
-                        ="#003E7D"
-                    FontSize: =0
-                    Height: =Parent.Height-2
-                    IconColor: |-
-                        ="#003E7D"
-                    IconName: ="Edit"
-                    IconSize: =24
-                    IconType: ='PowerCAT.Icon.IconType'.IconButon
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =165
-                    OnChange: =Set(showEditPages,true);
-                    Text: =""
-                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                    Tooltip: ="Edit Page Details"
-                    Width: =Self.Height
-                    X: =0
-                    Y: =0
-                    ZIndex: =3
 
             conControlProjectExlusions As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -851,11 +801,55 @@ scrProjectManagement As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                        Image: =First(Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from)).Thumbnail.Medium
                         OnSelect: =Select(Parent)
                         Width: =Parent.TemplateHeight-Parent.TemplatePadding*2-15
                         X: =Gap
                         Y: =Gap
                         ZIndex: =1
+
+                    Container26 As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Height: |
+                            =96
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: |
+                            =10
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
+                        X: =Gap
+                        Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
+                        ZIndex: =2
+
+                        "TextInputCanvas2 As 'Text input'":
+                            DelayOutput: =true
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Type: ='TextInputCanvas.Type'.Text
+                            Value: =ThisItem.page_from
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        DropdownCanvas2 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.assigned_page_layout
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =Choices(FlyerPages.assigned_page_layout)
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
 
             conControlProjectExclusionsContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
