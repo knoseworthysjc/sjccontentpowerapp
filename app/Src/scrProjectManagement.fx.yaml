@@ -570,6 +570,8 @@ scrProjectManagement As screen:
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =Parent.Height*0.5
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
@@ -582,10 +584,12 @@ scrProjectManagement As screen:
                     ZIndex: =1
 
                     Gallery6 As gallery.galleryHorizontal:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
-                        Items: =CustomGallerySample
+                        Items: =SortByColumns(colProjectManagementSelectedPages,"page_from",SortOrder.Ascending,"Title",SortOrder.Ascending)
                         LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =Gap
                         TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
                         ZIndex: =1
 
@@ -595,7 +599,7 @@ scrProjectManagement As screen:
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Height: |
                                 =500
-                            Image: =First(Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)).Thumbnail.Large
+                            Image: =ThisItem.Thumbnail.Large
                             Width: =320
                             Y: =Gap
                             ZIndex: =2
