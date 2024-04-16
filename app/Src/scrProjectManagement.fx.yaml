@@ -607,6 +607,20 @@ scrProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =2
 
+                        TextCanvas4 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            Height: =60
+                            Text: =ThisItem.'File name with extension'
+                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =Gap
+                            Y: =Parent.TemplateHeight-Gap-Self.Height
+                            ZIndex: =3
+
                 "Gallery5 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
