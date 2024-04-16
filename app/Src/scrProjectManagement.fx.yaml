@@ -441,9 +441,26 @@ scrProjectManagement As screen:
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =2
 
+                    TextCanvas3_2 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =""
+                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =40
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
                     TextCanvas3 As Text:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
                         Font: =Font.'Segoe UI'
                         FontColor: =RGBA(255, 255, 255, 1)
                         Height: =32
@@ -455,7 +472,7 @@ scrProjectManagement As screen:
                         Width: =Parent.Width*0.6
                         X: =0
                         Y: =0
-                        ZIndex: =1
+                        ZIndex: =2
 
                     TextCanvas3_1 As Text:
                         Align: ='TextCanvas.Align'.Center
@@ -469,23 +486,6 @@ scrProjectManagement As screen:
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =64
-                        X: =0
-                        Y: =0
-                        ZIndex: =2
-
-                    TextCanvas3_2 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
-                        Font: =Font.'Segoe UI'
-                        FontColor: =RGBA(255, 255, 255, 1)
-                        Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =96
-                        Text: ="Template"
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =96
                         X: =0
                         Y: =0
                         ZIndex: =3
@@ -518,16 +518,6 @@ scrProjectManagement As screen:
                         Y: =Gap
                         ZIndex: =2
 
-                    DropdownCanvas2 As Dropdown.pcfdataset:
-                        DefaultSelectedItems: =ThisItem.assigned_page_layout
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        Items: =Choices(FlyerPages.assigned_page_layout)
-                        Width: =TextCanvas3_2.Width
-                        X: =TextCanvas3_2.X
-                        Y: =Gap
-                        ZIndex: =3
-
                     "TextInputCanvas2_1 As 'Text input'":
                         BasePaletteColor: =
                         DelayOutput: =true
@@ -541,6 +531,23 @@ scrProjectManagement As screen:
                         X: =TextCanvas3.X
                         Y: =Gap
                         ZIndex: =4
+
+                    CheckboxCanvas1 As Checkbox:
+                        BasePaletteColor: =RGBA(5, 102, 178, 1)
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontSize: =16
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        Label: =""
+                        OnCheck: =false
+                        OnSelect: =Select(Parent)
+                        OnUncheck: =false
+                        Width: |
+                            =40
+                        X: =TextCanvas3_2.X
+                        Y: =Gap
+                        ZIndex: =5
 
             conControlProjectPageDetails As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
