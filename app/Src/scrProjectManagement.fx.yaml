@@ -218,6 +218,56 @@ scrProjectManagement As screen:
                 Y: =0
                 ZIndex: =8
 
+            "icnAddContent_2 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#FFFFFF"
+                BorderRadius: =8
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#FFFFFF"
+                FontSize: =0
+                Height: =Parent.Height-2
+                IconColor: |-
+                    ="#FFFFFF"
+                IconName: ="CircleAddition"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                OnChange: =Set(showEditProject,true);Set(editProjectMode,"New");
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Add Pages"
+                Width: =Self.Height
+                X: =0
+                Y: =0
+                ZIndex: =9
+
+            "icnEditContent_2 As 'Fluent Icon (1.0.19)'":
+                BorderColor: |-
+                    ="#FFFFFF"
+                BorderRadius: =8
+                DisplayMode: =DisplayMode.Edit
+                FontColor: |-
+                    ="#FFFFFF"
+                FontSize: =0
+                Height: =Parent.Height-2
+                IconColor: |-
+                    ="#FFFFFF"
+                IconName: ="Edit"
+                IconSize: =24
+                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                LayoutMinHeight: =200
+                LayoutMinWidth: =165
+                OnChange: =Set(showEditProject,true);Set(editProjectMode,"Edit");
+                Text: =""
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Edit Page Details"
+                Width: =Self.Height
+                X: =0
+                Y: =0
+                ZIndex: =10
+
         conControlsPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(214, 221, 224, 1)
@@ -228,90 +278,6 @@ scrProjectManagement As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
-
-            conControlProjectDetails As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.Light
-                FillPortions: =0
-                Height: =32
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutGap: =Gap
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
-                Width: =conControlProjectDetailsContent.Width
-                ZIndex: =1
-
-                "icnAddContent_1 As 'Fluent Icon (1.0.19)'":
-                    BorderColor: |-
-                        ="#003E7D"
-                    BorderRadius: =8
-                    DisplayMode: =DisplayMode.Edit
-                    FontColor: |-
-                        ="#003E7D"
-                    FontSize: =0
-                    Height: =Parent.Height-2
-                    IconColor: |-
-                        ="#003E7D"
-                    IconName: ="CircleAddition"
-                    IconSize: =24
-                    IconType: ='PowerCAT.Icon.IconType'.IconButon
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =165
-                    OnChange: =Set(showEditPages,true);
-                    Text: =""
-                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                    Tooltip: ="Add Pages"
-                    Width: =Self.Height
-                    X: =0
-                    Y: =0
-                    ZIndex: =1
-
-                TextCanvas2 As Text:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    FillPortions: =1
-                    Font: =Font.'Segoe UI'
-                    FontColor: =RGBA(0, 0, 0, 1)
-                    Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
-                    Size: =16
-                    Text: ="Project"
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =96
-                    X: =0
-                    Y: =0
-                    ZIndex: =2
-
-                "icnEditContent_1 As 'Fluent Icon (1.0.19)'":
-                    BorderColor: |-
-                        ="#003E7D"
-                    BorderRadius: =8
-                    DisplayMode: =DisplayMode.Edit
-                    FontColor: |-
-                        ="#003E7D"
-                    FontSize: =0
-                    Height: =Parent.Height-2
-                    IconColor: |-
-                        ="#003E7D"
-                    IconName: ="Edit"
-                    IconSize: =24
-                    IconType: ='PowerCAT.Icon.IconType'.IconButon
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =165
-                    OnChange: =Set(showEditPages,true);
-                    Text: =""
-                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                    Tooltip: ="Edit Page Details"
-                    Width: =Self.Height
-                    X: =0
-                    Y: =0
-                    ZIndex: =3
 
             conControlProjectPages As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -326,7 +292,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                ZIndex: =2
+                ZIndex: =1
 
                 TextCanvas2_1 As Text:
                     Align: ='TextCanvas.Align'.Center
@@ -358,7 +324,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                ZIndex: =3
+                ZIndex: =2
 
                 TextCanvas2_2 As Text:
                     Align: ='TextCanvas.Align'.Center
@@ -377,6 +343,40 @@ scrProjectManagement As screen:
                     Y: =0
                     ZIndex: =1
 
+            conControlProjectDetails As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                FillPortions: =0
+                Height: =32
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =conControlProjectDetailsContent.Width
+                ZIndex: =3
+
+                TextCanvas2 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Size: =16
+                    Text: ="Project"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
         conContentPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
@@ -386,6 +386,274 @@ scrProjectManagement As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
+
+            conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =1
+
+                Container27 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    Image6_1 As image:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FillPortions: =1
+                        Height: |
+                            =500
+                        Image: =First(Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)).Thumbnail.Large
+                        Width: |
+                            =500
+                        X: =Gap
+                        Y: =Gap
+                        ZIndex: =1
+
+                    Container26_1 As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =64
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: |
+                            =10
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: |
+                            =250
+                        X: =Gap
+                        ZIndex: =2
+
+                        "TextInputCanvas2_1 As 'Text input'":
+                            BasePaletteColor: =
+                            DelayOutput: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Type: ='TextInputCanvas.Type'.Text
+                            Value: =ThisItem.page_from
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        DropdownCanvas2_1 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.assigned_page_layout
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =Choices(FlyerPages.assigned_page_layout)
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                Container28 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =32
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                Gallery2 As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DelayItemLoading: =true
+                    Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_from",SortOrder.Ascending)
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    ShowNavigation: =true
+                    ShowScrollbar: =false
+                    TemplatePadding: =Gap
+                    TemplateSize: |
+                        =128
+                    WrapCount: |
+                        =
+                    ZIndex: =3
+
+                    Container26 As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Height: |
+                            =96
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: |
+                            =10
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
+                        X: =Gap
+                        Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
+                        ZIndex: =2
+
+                        "TextInputCanvas2 As 'Text input'":
+                            DelayOutput: =true
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Type: ='TextInputCanvas.Type'.Text
+                            Value: =ThisItem.page_from
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        DropdownCanvas2 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.assigned_page_layout
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =Choices(FlyerPages.assigned_page_layout)
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+            conControlProjectExclusionsContent As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+                "Gallery5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DelayItemLoading: =true
+                    Items: =CustomGallerySample
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =104
+                    ZIndex: =1
+
+                    Image4 As image:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =72
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =72
+                        X: =16
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =1
+
+                    Title5 As label:
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.SampleHeading
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - 173
+                        X: =103
+                        Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle4.Size * 1.8)) / 2
+                        ZIndex: =2
+
+                    Subtitle4 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.SampleText
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title5.Width
+                        X: =Title5.X
+                        Y: =Title5.Y + Title5.Height
+                        ZIndex: =3
+
+                    NextArrow4 As icon.ChevronRight:
+                        AccessibleLabel: =Self.Tooltip
+                        Color: =RGBA(166, 166, 166, 1)
+                        Height: =50
+                        Icon: =Icon.ChevronRight
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="View item details"
+                        Width: =50
+                        X: =Parent.TemplateWidth - Self.Width - 12
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =4
+
+                    Separator4 As rectangle:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                        ZIndex: =5
+
+                    Rectangle5 As rectangle:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Fill: =RGBA(0, 89, 178, 1)
+                        Height: =Parent.TemplateHeight - Separator4.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                        ZIndex: =6
 
             conControlProjectDetailsContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -402,7 +670,7 @@ scrProjectManagement As screen:
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
                 Width: =Parent.Width*0.2
-                ZIndex: =1
+                ZIndex: =3
 
                 Label3 As label:
                     BorderColor: =RGBA(0, 89, 178, 1)
@@ -766,278 +1034,6 @@ scrProjectManagement As screen:
                         X: =0
                         Y: =0
                         ZIndex: =2
-
-            conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.Light
-                LayoutAlignItems: =LayoutAlignItems.Stretch
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutGap: =Gap
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
-                ZIndex: =2
-
-                Container27 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    DropShadow: =DropShadow.Light
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
-                    ZIndex: =1
-
-                    Image6_1 As image:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FillPortions: =1
-                        Height: |
-                            =500
-                        Image: =First(Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)).Thumbnail.Large
-                        Width: |
-                            =500
-                        X: =Gap
-                        Y: =Gap
-                        ZIndex: =1
-
-                    Container26_1 As groupContainer.verticalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        DropShadow: =DropShadow.Light
-                        FillPortions: =0
-                        Height: =64
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutGap: |
-                            =10
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
-                        Width: |
-                            =250
-                        X: =Gap
-                        ZIndex: =2
-
-                        "TextInputCanvas2_1 As 'Text input'":
-                            BasePaletteColor: =
-                            DelayOutput: =true
-                            DisplayMode: =DisplayMode.Edit
-                            FontColor: =
-                            Height: =32
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =320
-                            Type: ='TextInputCanvas.Type'.Text
-                            Value: =ThisItem.page_from
-                            Width: =320
-                            X: =0
-                            Y: =0
-                            ZIndex: =1
-
-                        DropdownCanvas2_1 As Dropdown.pcfdataset:
-                            DefaultSelectedItems: =ThisItem.assigned_page_layout
-                            DisplayMode: =DisplayMode.Edit
-                            Height: =32
-                            Items: =Choices(FlyerPages.assigned_page_layout)
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =320
-                            Width: =320
-                            X: =0
-                            Y: =0
-                            ZIndex: =2
-
-                Gallery2 As gallery.galleryVertical:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    DelayItemLoading: =true
-                    Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_from",SortOrder.Ascending)
-                    Layout: =Layout.Vertical
-                    LoadingSpinner: =LoadingSpinner.Data
-                    ShowNavigation: =true
-                    ShowScrollbar: =false
-                    TemplatePadding: =Gap
-                    TemplateSize: |
-                        =128
-                    WrapCount: |
-                        =
-                    ZIndex: =2
-
-                    Image6 As image:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                        Image: =First(Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from)).Thumbnail.Medium
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateHeight-Parent.TemplatePadding*2-15
-                        X: =Gap
-                        Y: =Gap
-                        ZIndex: =1
-
-                    Container26 As groupContainer.verticalAutoLayoutContainer:
-                        DropShadow: =DropShadow.Light
-                        Height: |
-                            =96
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutGap: |
-                            =10
-                        LayoutMode: =LayoutMode.Auto
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
-                        X: =Gap
-                        Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
-                        ZIndex: =2
-
-                        "TextInputCanvas2 As 'Text input'":
-                            DelayOutput: =true
-                            DisplayMode: =DisplayMode.Edit
-                            Height: =32
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =320
-                            Type: ='TextInputCanvas.Type'.Text
-                            Value: =ThisItem.page_from
-                            Width: =320
-                            X: =0
-                            Y: =0
-                            ZIndex: =1
-
-                        DropdownCanvas2 As Dropdown.pcfdataset:
-                            DefaultSelectedItems: =ThisItem.assigned_page_layout
-                            DisplayMode: =DisplayMode.Edit
-                            Height: =32
-                            Items: =Choices(FlyerPages.assigned_page_layout)
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =320
-                            Width: =320
-                            X: =0
-                            Y: =0
-                            ZIndex: =2
-
-            conControlProjectExclusionsContent As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.Light
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutGap: =Gap
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
-                ZIndex: =3
-
-                "Gallery5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    DelayItemLoading: =true
-                    Items: =CustomGallerySample
-                    Layout: =Layout.Vertical
-                    LayoutMinHeight: =287
-                    LayoutMinWidth: =320
-                    LoadingSpinner: =LoadingSpinner.Data
-                    TemplatePadding: =0
-                    TemplateSize: =104
-                    ZIndex: =1
-
-                    Image4 As image:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Height: =72
-                        OnSelect: =Select(Parent)
-                        RadiusBottomLeft: =8
-                        RadiusBottomRight: =8
-                        RadiusTopLeft: =8
-                        RadiusTopRight: =8
-                        Width: =72
-                        X: =16
-                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                        ZIndex: =1
-
-                    Title5 As label:
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =ThisItem.SampleHeading
-                        VerticalAlign: =VerticalAlign.Top
-                        Width: =Parent.TemplateWidth - 173
-                        X: =103
-                        Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle4.Size * 1.8)) / 2
-                        ZIndex: =2
-
-                    Subtitle4 As label:
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =12
-                        Text: =ThisItem.SampleText
-                        VerticalAlign: =VerticalAlign.Top
-                        Width: =Title5.Width
-                        X: =Title5.X
-                        Y: =Title5.Y + Title5.Height
-                        ZIndex: =3
-
-                    NextArrow4 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        Color: =RGBA(166, 166, 166, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =16
-                        PaddingLeft: =16
-                        PaddingRight: =16
-                        PaddingTop: =16
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =Parent.TemplateWidth - Self.Width - 12
-                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                        ZIndex: =4
-
-                    Separator4 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Height: =8
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth
-                        Y: =Parent.TemplateHeight - Self.Height
-                        ZIndex: =5
-
-                    Rectangle5 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Fill: =RGBA(0, 89, 178, 1)
-                        Height: =Parent.TemplateHeight - Separator4.Height
-                        OnSelect: =Select(Parent)
-                        Visible: =ThisItem.IsSelected
-                        Width: =4
-                        ZIndex: =6
 
     nav_container_8 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
