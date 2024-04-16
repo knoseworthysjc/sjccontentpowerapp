@@ -282,31 +282,32 @@ scrProjectManagement As screen:
             conControlProjectPages As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
+                FillPortions: =0
                 Height: =32
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
-                LayoutMinWidth: =250
+                LayoutMinWidth: =conControlProjectPagesContent.Width
                 LayoutMode: =LayoutMode.Auto
                 RadiusBottomLeft: =4
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Width: =conControlProjectPagesContent.Width
                 ZIndex: =1
 
                 TextCanvas2_1 As Text:
                     Align: ='TextCanvas.Align'.Center
                     DisplayMode: =DisplayMode.Edit
-                    FillPortions: =1
                     Font: =Font.'Segoe UI'
                     FontColor: =RGBA(0, 0, 0, 1)
                     Height: =32
                     LayoutMinHeight: =32
-                    LayoutMinWidth: =96
+                    LayoutMinWidth: =conControlProjectPagesContent.Width
                     Size: =16
                     Text: ="Pages"
                     Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =96
+                    Width: =conControlProjectPagesContent.Width
                     X: =0
                     Y: =0
                     ZIndex: =2
@@ -416,6 +417,7 @@ scrProjectManagement As screen:
             conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
+                FillPortions: =0
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =Gap
@@ -426,6 +428,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Width: =Parent.Width*0.2
                 ZIndex: =1
 
                 Container27 As groupContainer.verticalAutoLayoutContainer:
