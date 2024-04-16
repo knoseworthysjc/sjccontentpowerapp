@@ -764,7 +764,7 @@ scrProjectManagement As screen:
 
                 Container25 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
-                    DropShadow: =DropShadow.Light
+                    BorderStyle: =BorderStyle.None
                     FillPortions: =0
                     Height: =64
                     LayoutAlignItems: =LayoutAlignItems.Center
@@ -776,12 +776,6 @@ scrProjectManagement As screen:
                     LayoutWrap: =true
                     PaddingLeft: =20
                     PaddingRight: =20
-                    PaddingTop: |
-                        =4
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
                     Width: =Parent.Width-64
                     ZIndex: =21
 
@@ -793,8 +787,10 @@ scrProjectManagement As screen:
                         FontColor: =RGBA(255, 255, 255, 1)
                         FontSize: =16
                         FontWeight: =FontWeight.Semibold
-                        Height: =32
-                        LayoutMinHeight: =32
+                        Height: |
+                            =40
+                        LayoutMinHeight: |
+                            =40
                         LayoutMinWidth: =96
                         Text: ="Save"
                         Width: =96
@@ -810,8 +806,10 @@ scrProjectManagement As screen:
                         FontColor: =RGBA(255, 255, 255, 1)
                         FontSize: =16
                         FontWeight: =FontWeight.Semibold
-                        Height: =32
-                        LayoutMinHeight: =32
+                        Height: |
+                            =40
+                        LayoutMinHeight: |
+                            =40
                         LayoutMinWidth: =96
                         Text: ="Reset"
                         Width: =96
