@@ -609,11 +609,13 @@ scrProjectManagement As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
-                    Items: =Filter(Offers,assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)
+                    Items: =SortByColumns(colProjectManagementSelectedOffers,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
                     Layout: =Layout.Vertical
+                    LayoutMinHeight: =100
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =0
-                    TemplateSize: =116
+                    TemplateSize: =128
+                    WrapCount: =2
                     ZIndex: =2
 
                     Title6 As label:
