@@ -357,6 +357,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Visible: =showEditProject
                 Width: =conControlProjectDetailsContent.Width
                 ZIndex: =3
 
@@ -376,6 +377,31 @@ scrProjectManagement As screen:
                     X: =0
                     Y: =0
                     ZIndex: =2
+
+                "icnEditContent_3 As 'Fluent Icon (1.0.19)'":
+                    BorderColor: |-
+                        ="#003E7D"
+                    BorderRadius: =8
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#003E7D"
+                    FontSize: =0
+                    Height: =Parent.Height-2
+                    IconColor: |-
+                        ="#003E7D"
+                    IconName: ="Cancel"
+                    IconSize: =24
+                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =165
+                    OnChange: =Set(showEditProject,false);
+                    Text: =""
+                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                    Tooltip: ="Edit Page Details"
+                    Width: =Self.Height
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
 
         conContentPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -669,6 +695,7 @@ scrProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Visible: =showEditProject
                 Width: =Parent.Width*0.2
                 ZIndex: =3
 
