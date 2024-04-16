@@ -315,34 +315,65 @@ scrProjectManagement As screen:
             conControlProjectExlusions As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
+                Fill: =RGBA(255, 255, 255, 1)
                 Height: =32
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
                 RadiusBottomLeft: =4
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
                 ZIndex: =2
 
-                "'Preview/Offers' As Text":
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    FillPortions: =1
-                    Font: =Font.'Segoe UI'
-                    FontColor: =RGBA(0, 0, 0, 1)
+                Gallery7 As gallery.galleryHorizontal:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DelayItemLoading: =true
                     Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
-                    Size: =16
-                    Text: =""
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =96
-                    X: =0
-                    Y: =0
+                    Items: |-
+                        =Table({Title:"Planning",Icon:"ProjectLogoInverse"},{Title:"Pages/PDF",Icon:"PDF"},{Title:"Exclusions",Icon:"ReportDocument"})
+                    LayoutMinHeight: |
+                        =32
+                    LoadingSpinner: =LoadingSpinner.Data
+                    ShowScrollbar: =false
+                    TemplatePadding: =1
+                    TemplateSize: =Self.Width/3
                     ZIndex: =1
+
+                    Rectangle8 As rectangle:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderStyle: =BorderStyle.None
+                        Fill: =RGBA(214, 221, 224, 1)
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplatePadding+5
+                        ZIndex: =1
+
+                    "Icon2 As 'Fluent Icon (1.0.19)'":
+                        BorderRadius: =10
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: |-
+                            ="#D6DDE0"
+                        FontColor: |-
+                            ="#003E7D"
+                        FontSize: =18
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                        IconColor: |-
+                            ="#003E7D"
+                        IconName: =ThisItem.Icon
+                        IconSize: =24
+                        IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                        Text: =ThisItem.Title
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplatePadding
+                        ZIndex: =2
 
             conControlProjectDetails As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
