@@ -540,7 +540,10 @@ scrProjectManagement As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =32
                         Label: =""
-                        OnCheck: =false
+                        OnCheck: |+
+                            =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from));
+                            Collect(colProjectManagementSelectedOffers,Filter('Offers',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from));
+                            
                         OnSelect: =Select(Parent)
                         OnUncheck: =false
                         Width: |
@@ -578,19 +581,24 @@ scrProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =1
 
-                    Image6_1 As image:
+                    Gallery6 As gallery.galleryHorizontal:
                         BorderColor: =RGBA(0, 89, 178, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FillPortions: =1
-                        Height: |
-                            =500
-                        Image: =First(Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)).Thumbnail.Large
-                        Width: |
-                            =500
-                        X: =Gap
-                        Y: =Gap
+                        DelayItemLoading: =true
+                        Items: =CustomGallerySample
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
                         ZIndex: =1
+
+                        Image6_1 As image:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: |
+                                =500
+                            Image: =First(Filter('Flyer PDFs',assigned_project.Value=Gallery2.Selected.assigned_project.Value And page_from=Gallery2.Selected.page_from)).Thumbnail.Large
+                            Width: =320
+                            Y: =Gap
+                            ZIndex: =2
 
                 "Gallery5 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
