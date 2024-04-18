@@ -698,7 +698,7 @@ scrProjectManagement As screen:
                     BorderThickness: =1
                     Fill: =RGBA(107, 144, 179, 0.05)
                     Height: =Parent.Height-Self.Y
-                    Items: =SortByColumns(colProjectManagementSelectedOffers,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
+                    Items: =SortByColumns(Filter(colProjectManagementSelectedOffers,page_from=galProjectManagementPages.Selected.page_from),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
@@ -827,6 +827,7 @@ scrProjectManagement As screen:
 
                     previewOfferContainerLockup_2 As groupContainer.verticalAutoLayoutContainer:
                         Height: =previewOfferContainer_2.Height
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
@@ -835,93 +836,158 @@ scrProjectManagement As screen:
                         Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height+Gap
                         ZIndex: =3
 
-                        previewOffer_rollBack_4 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(255, 0, 0, 1)
-                            BorderThickness: =2
-                            Color: =RGBA(255, 255, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(255, 0, 0, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Bold
-                            Height: =32
+                        Container14 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            BorderStyle: =BorderStyle.None
+                            LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutMinHeight: =20
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: ="R🙂llback"
-                            Visible: =ThisItem.offer_type.Value="Rollback"
-                            Width: =Parent.Width
-                            X: =previewOffer_price_rectangle_4.X+1
-                            Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
+                            LayoutMinWidth: =20
+                            LayoutMode: =LayoutMode.Auto
                             ZIndex: =1
 
-                        previewOffer_saveNow_4 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(255, 0, 0, 1)
-                            BorderThickness: =2
-                            Color: =RGBA(255, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(255, 255, 0, 1)
-                            FontWeight: =FontWeight.Bold
-                            Height: =32
-                            LineHeight: =1
-                            Text: ="SAVE NOW!"
-                            Visible: =ThisItem.offer_type.Value="Save Now"
-                            Width: =Parent.Width
-                            X: =previewOffer_price_4.X
-                            Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
-                            ZIndex: =2
+                            HtmlText1 As htmlViewer:
+                                AutoHeight: =true
+                                Color: =RGBA(215, 58, 60, 1)
+                                DisplayMode: =DisplayMode.View
+                                Font: =Font.'Segoe UI'
+                                HtmlText: |
+                                    ="<div style='
+                                    width:40px;
+                                    overflow:hidden;
+                                    padding:0,0;
+                                    margin:0,0;
+                                    color:#FF0000;
+                                    background-color:#FFED69;
+                                    text-align: center; 
+                                    transform: rotate(-90deg); 
+                                    display=" & If(
+                                        ThisItem.offer_type.Value = "Mulit-Buy",
+                                        "flex",
+                                        "none"
+                                    ) & "'><span>
+                                    *Multi</span>
+                                    </div>
+                                    "
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Visible: =ThisItem.offer_type.Value="Multi-Save"
+                                Width: =32
+                                ZIndex: =1
 
-                        previewOffer_price_4 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            FillPortions: =1
-                            FontWeight: =FontWeight.Bold
-                            Height: =Switch(ThisItem.offer_type.Value, "Save Now", Parent.Height-previewOffer_saveNow_4.Height-previewOffer_MultiSaveEach_4.Height,  "Rollback", Parent.Height-previewOffer_rollBack_4.Height,"Multi-Save",Parent.Height-previewOffer_MultiSaveEach_4.Height,Parent.Height)
-                            LayoutMinHeight: =25
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =Switch(ThisItem.offer_type.Value,"Save Now",18,"Rollback",18,"Multi-Save",18,32)
-                            Text: |-
-                                =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
-                                "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
-                                ","")&
-                                If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
-                            Width: =Parent.Width
-                            X: =previewOffer_price_rectangle_4.X
-                            Y: =previewOffer_price_rectangle_4.Y
-                            ZIndex: =3
+                            Container15 As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderStyle: =BorderStyle.None
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =50
+                                LayoutMinWidth: =50
+                                LayoutMode: =LayoutMode.Auto
+                                ZIndex: =2
 
-                        previewOffer_MultiSaveEach_4 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.None
-                            Color: =RGBA(255, 237, 105, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =RGBA(255, 0, 0, 1)
-                            FontWeight: =FontWeight.Bold
-                            Height: =20
-                            LayoutMinHeight: =20
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =13
-                            Text: ="or "&ThisItem.regular_price&" "&"each"
-                            Visible: |
-                                =If(ThisItem.offer_type.Value = "Multi-Save",true,false)
-                            Width: =Parent.Width
-                            X: =previewOffer_price_rectangle_4.X
-                            Y: =conRelistHeading_2.Y+conRelistHeading_2.Height
-                            ZIndex: =5
+                                previewOffer_rollBack_4 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(255, 0, 0, 1)
+                                    BorderThickness: =2
+                                    Color: =RGBA(255, 255, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Fill: =RGBA(255, 0, 0, 1)
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =32
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =Parent.Width
+                                    LineHeight: =1
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Text: ="R🙂llback"
+                                    Visible: =ThisItem.offer_type.Value="Rollback"
+                                    Width: =Parent.Width
+                                    Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
+                                    ZIndex: =1
+
+                                previewOffer_saveNow_4 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(255, 0, 0, 1)
+                                    BorderThickness: =2
+                                    Color: =RGBA(255, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Fill: =RGBA(255, 255, 0, 1)
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =32
+                                    LayoutMinWidth: =Parent.Width
+                                    LineHeight: =1
+                                    Text: ="SAVE NOW!"
+                                    Visible: =ThisItem.offer_type.Value="Save Now"
+                                    Width: =Parent.Width
+                                    Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
+                                    ZIndex: =2
+
+                                previewOffer_price_4 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 89, 178, 1)
+                                    Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Bold
+                                    Height: |-
+                                        =Switch(
+                                            ThisItem.offer_type.Value,
+                                            "Save Now",
+                                            Parent.Height - previewOffer_saveNow_4.Height - previewOffer_MultiSaveEach_4.Height,
+                                            "Rollback",
+                                            Parent.Height - previewOffer_rollBack_4.Height,
+                                            "Multi-Save",
+                                            Parent.Height - previewOffer_MultiSaveEach_4.Height,
+                                            Parent.Height
+                                        )
+                                    LayoutMinHeight: =25
+                                    LayoutMinWidth: =Parent.Width
+                                    LineHeight: =1
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =Switch(ThisItem.offer_type.Value,"Save Now",16,"Rollback",16,"Multi-Save",16,32)
+                                    Text: |-
+                                        =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
+                                        "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
+                                        ","")&
+                                        If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
+                                    Width: =Parent.Width
+                                    Y: =previewOffer_price_rectangle_4.Y
+                                    ZIndex: =3
+
+                                previewOffer_MultiSaveEach_4 As label:
+                                    Align: =Align.Center
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 89, 178, 1)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(255, 237, 105, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Fill: =RGBA(255, 0, 0, 1)
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =20
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =Parent.Width
+                                    LineHeight: =1
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =12
+                                    Text: ="or "&ThisItem.regular_price&" "&"each"
+                                    Visible: |
+                                        =If(ThisItem.offer_type.Value = "Multi-Save",true,false)
+                                    Width: =Parent.Width
+                                    Y: =conRelistHeading_2.Y+conRelistHeading_2.Height
+                                    ZIndex: =4
 
                     previewOffer_assets_4 As gallery.galleryHorizontal:
                         BorderColor: =RGBA(0, 89, 178, 1)
