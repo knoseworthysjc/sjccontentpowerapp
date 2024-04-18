@@ -1172,7 +1172,7 @@ scrProjectManagement As screen:
 
                         previewOfferContainerLockup_2 As groupContainer.verticalAutoLayoutContainer:
                             Height: =previewOfferContainer_2.Height
-                            LayoutAlignItems: =LayoutAlignItems.Stretch
+                            LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMode: =LayoutMode.Auto
                             LayoutOverflowY: =LayoutOverflow.Scroll
@@ -1184,20 +1184,26 @@ scrProjectManagement As screen:
                             Container14 As groupContainer.horizontalAutoLayoutContainer:
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderStyle: =BorderStyle.None
+                                Height: =Parent.Height
                                 LayoutAlignItems: =LayoutAlignItems.Stretch
-                                LayoutMinHeight: =20
+                                LayoutMinHeight: =Parent.Height
                                 LayoutMinWidth: =20
                                 LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
                                 ZIndex: =1
 
                                 Container23 As groupContainer.verticalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.SetByContainer
+                                    Fill: =RGBA(255, 255, 0, 1)
+                                    Height: =Parent.Height
                                     LayoutAlignItems: =LayoutAlignItems.Stretch
                                     LayoutDirection: =LayoutDirection.Vertical
-                                    LayoutMinHeight: =100
+                                    LayoutMinHeight: =Parent.Height
                                     LayoutMinWidth: =40
                                     LayoutMode: =LayoutMode.Auto
                                     Visible: =ThisItem.offer_type.Value = "Multi-Save"
+                                    Width: |
+                                        =40
                                     ZIndex: =2
 
                                     HtmlText1 As htmlViewer:
@@ -1206,28 +1212,41 @@ scrProjectManagement As screen:
                                         DisplayMode: =DisplayMode.View
                                         FillPortions: =1
                                         Font: =Font.'Segoe UI'
-                                        HtmlText: |-
+                                        Height: =Parent.Height
+                                        HtmlText: |+
                                             ="
-                                            <div style='display:flex;align-items:stretch;'>
-                                            <div style='transform:rotate(-90deg);background-color:#FFED69'>*Multi</div>
+                                                
+                                                <div style='display: flex;width:105px;height:105px;'>
+                                                <div style='text-align:center;background-color: yellow; color: red;width:100%;height:100%;'>
+                                                    <p style='font-weight:bold;font-size:15pt;transform:rotate(-90deg);width:100%;height:100%;'>&nbsp;&nbsp;*Multiple</p>
+                                                </div>
                                             </div>
+                                            
                                             "
+                                            
+                                            
+                                            
+                                            
+                                        LayoutMinHeight: =Parent.Height
+                                        LayoutMinWidth: =Parent.Width
                                         PaddingBottom: =0
                                         PaddingLeft: =0
                                         PaddingRight: =0
                                         PaddingTop: =0
                                         Size: =12
                                         Visible: =ThisItem.offer_type.Value="Multi-Save"
-                                        Width: =32
+                                        Width: =Parent.Width
                                         ZIndex: =1
 
                                 Container15 As groupContainer.verticalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.SetByContainer
                                     BorderStyle: =BorderStyle.None
+                                    Height: =Parent.Height
                                     LayoutDirection: =LayoutDirection.Vertical
-                                    LayoutMinHeight: =50
-                                    LayoutMinWidth: =50
+                                    LayoutMinHeight: =Parent.Height
+                                    LayoutMinWidth: =Parent.Width-40
                                     LayoutMode: =LayoutMode.Auto
+                                    Width: =Parent.Width-40
                                     ZIndex: =3
 
                                     previewOffer_rollBack_4 As label:
