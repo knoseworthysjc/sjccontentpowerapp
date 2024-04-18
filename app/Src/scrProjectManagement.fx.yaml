@@ -812,117 +812,10 @@ scrProjectManagement As screen:
                         Y: =0
                         ZIndex: =2
 
-            conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                LayoutAlignItems: =LayoutAlignItems.Stretch
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutGap: =Gap
-                LayoutMode: =LayoutMode.Auto
-                Visible: =If(galProjectManagementTabs.Selected.Title="Pages/PDF" And showEditProject=false,true,false)
-                Width: =Parent.Width*0.15
-                ZIndex: =2
-
-                Container28 As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderStyle: =BorderStyle.None
-                    Fill: =RGBA(12, 59, 94, 1)
-                    Height: =32
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =50
-                    ZIndex: =2
-
-                    TextCanvas3_2 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        Font: =Font.'Segoe UI'
-                        FontColor: =RGBA(255, 255, 255, 1)
-                        Height: =32
-                        Text: =""
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =40
-                        X: =0
-                        Y: =0
-                        ZIndex: =1
-
-                    TextCanvas3 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
-                        Font: =Font.'Segoe UI'
-                        FontColor: =RGBA(255, 255, 255, 1)
-                        Height: =32
-                        Text: ="Title"
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width*0.6
-                        X: =0
-                        Y: =0
-                        ZIndex: =3
-
-                galProjectManagementPages As gallery.galleryVertical:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    BorderStyle: =BorderStyle.None
-                    DelayItemLoading: =true
-                    Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
-                    Layout: =Layout.Vertical
-                    LoadingSpinner: =LoadingSpinner.Data
-                    ShowNavigation: =true
-                    ShowScrollbar: =false
-                    TemplatePadding: =Gap
-                    TemplateSize: |+
-                        =40
-                        
-                    ZIndex: =3
-
-                    "TextInputCanvas2_1 As 'Text input'":
-                        Align: ='TextInputCanvas.Align'.Center
-                        BasePaletteColor: =
-                        DelayOutput: =true
-                        DisplayMode: =DisplayMode.Edit
-                        Font: =Font.'Segoe UI'
-                        FontColor: =
-                        FontSize: =14
-                        FontWeight: =FontWeight.Semibold
-                        Height: =32
-                        Mode: ='TextInputCanvas.Mode'.Multiline
-                        Type: ='TextInputCanvas.Type'.Text
-                        Value: =ThisItem.Title
-                        Width: =TextCanvas3.Width
-                        X: =TextCanvas3.X
-                        Y: =Gap
-                        ZIndex: =4
-
-                    CheckboxCanvas1 As Checkbox:
-                        BasePaletteColor: =
-                        DisplayMode: =DisplayMode.Edit
-                        Font: =Font.'Segoe UI'
-                        FontColor: =
-                        FontSize: =16
-                        FontWeight: =FontWeight.Semibold
-                        Height: =32
-                        Label: =""
-                        OnCheck: |+
-                            =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
-                            Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
-                            
-                        OnSelect: =Select(Parent)
-                        OnUncheck: |
-                            =ClearCollect(colProjectManagementSelectedPages,Filter(colProjectManagementSelectedPages,page_from<>ThisItem.page_from));
-                            ClearCollect(colProjectManagementSelectedOffers,Filter(colProjectManagementSelectedOffers,page_from<>ThisItem.page_from));
-                        Width: |
-                            =40
-                        X: =TextCanvas3_2.X
-                        Y: =Gap
-                        ZIndex: =5
-
             conControlProjectPageOffers As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
-                LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -933,6 +826,122 @@ scrProjectManagement As screen:
                 RadiusTopRight: =4
                 Visible: =galProjectManagementTabs.Selected.Title="Pages/PDF"
                 ZIndex: =3
+
+                conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =Gap
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width*0.15
+                    ZIndex: =1
+
+                    Container28 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderStyle: =BorderStyle.None
+                        Fill: =RGBA(12, 59, 94, 1)
+                        FillPortions: =0
+                        Height: =32
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =50
+                        ZIndex: =2
+
+                        TextCanvas3_3 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Text: =""
+                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =40
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        TextCanvas3_1 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Text: ="Title"
+                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.6
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                    galProjectManagementPages As gallery.galleryVertical:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderStyle: =BorderStyle.None
+                        DelayItemLoading: =true
+                        Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        ShowNavigation: =true
+                        ShowScrollbar: =false
+                        TemplatePadding: =Gap
+                        TemplateSize: |+
+                            =40
+                            
+                        ZIndex: =3
+
+                        "TextInputCanvas2_2 As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =
+                            DelayOutput: =true
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            FontSize: =14
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Mode: ='TextInputCanvas.Mode'.Multiline
+                            Type: ='TextInputCanvas.Type'.Text
+                            Value: =ThisItem.Title
+                            Width: =TextCanvas3_1.Width
+                            X: =TextCanvas3_1.X
+                            Y: =Gap
+                            ZIndex: =4
+
+                        CheckboxCanvas1_1 As Checkbox:
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            FontSize: =16
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Label: =""
+                            OnCheck: |+
+                                =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                                Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                                
+                            OnSelect: =Select(Parent)
+                            OnUncheck: |
+                                =ClearCollect(colProjectManagementSelectedPages,Filter(colProjectManagementSelectedPages,page_from<>ThisItem.page_from));
+                                ClearCollect(colProjectManagementSelectedOffers,Filter(colProjectManagementSelectedOffers,page_from<>ThisItem.page_from));
+                            Width: |
+                                =40
+                            X: =TextCanvas3_3.X
+                            Y: =Gap
+                            ZIndex: =5
 
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -948,7 +957,7 @@ scrProjectManagement As screen:
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
-                    ZIndex: =1
+                    ZIndex: =2
 
                     galProjectManagementPDFs As gallery.galleryHorizontal:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1030,367 +1039,367 @@ scrProjectManagement As screen:
                                 Y: =0
                                 ZIndex: =2
 
-                galProjectManagementOffers As gallery.galleryVertical:
-                    BorderColor: =RGBA(107, 144, 179, 1)
-                    BorderThickness: =1
-                    Fill: =RGBA(107, 144, 179, 0.05)
-                    Height: =Parent.Height-Self.Y
-                    Items: =SortByColumns(Filter(colProjectManagementSelectedOffers,page_from=galProjectManagementPages.Selected.page_from),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
-                    Layout: =Layout.Vertical
-                    LayoutMinHeight: =287
-                    LayoutMinWidth: =320
-                    TemplateFill: =RGBA(255, 255, 255, 1)
-                    TemplateSize: =Self.Width/5
-                    Width: =Parent.Width-10
-                    WrapCount: |
-                        =5
-                    X: =5
-                    Y: =relistPanelHeader_2.Height+100
-                    ZIndex: =2
-
-                    previewOffer_price_rectangle_4 As rectangle:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        BorderStyle: =BorderStyle.None
-                        Fill: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 255, 0, 1),RGBA(255,0,0,1))
-                        Height: =previewOfferContainerLockup_2.Height
-                        OnSelect: =Select(Parent)
-                        Width: =previewOfferContainerLockup_2.Width
-                        X: =previewOfferContainerLockup_2.X
-                        Y: =previewOfferContainerLockup_2.Y
-                        ZIndex: =1
-
-                    previewOfferContainer_2 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y-previewOffer_boarder_4.BorderThickness*2
-                        LayoutAlignItems: =LayoutAlignItems.Stretch
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =previewOffer_assets_4.Width*0.6
-                        X: =1
-                        Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height+Gap
+                    galProjectManagementOffers As gallery.galleryVertical:
+                        BorderColor: =RGBA(107, 144, 179, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(107, 144, 179, 0.05)
+                        Height: =Parent.Height-Self.Y
+                        Items: =SortByColumns(Filter(colProjectManagementSelectedOffers,page_from=galProjectManagementPages.Selected.page_from),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        TemplateFill: =RGBA(255, 255, 255, 1)
+                        TemplateSize: =Self.Width/5
+                        Width: =Parent.Width-10
+                        WrapCount: |
+                            =5
+                        X: =5
+                        Y: =relistPanelHeader_2.Height+100
                         ZIndex: =2
 
-                        previewOffer_offerCopy_4 As label:
-                            Align: =Align.Right
-                            AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =10
-                            LayoutMinHeight: =10
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =11
-                            Text: =ThisItem.offer_copy
-                            VerticalAlign: =VerticalAlign.Top
-                            Width: =Parent.Width
-                            X: =1
-                            Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height
+                        previewOffer_price_rectangle_4 As rectangle:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            Fill: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 255, 0, 1),RGBA(255,0,0,1))
+                            Height: =previewOfferContainerLockup_2.Height
+                            OnSelect: =Select(Parent)
+                            Width: =previewOfferContainerLockup_2.Width
+                            X: =previewOfferContainerLockup_2.X
+                            Y: =1
                             ZIndex: =1
 
-                        previewOffer_offerCOO_4 As label:
-                            Align: =Align.Right
-                            AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Font: =Font.'Segoe UI'
-                            Height: =10
-                            LayoutMinHeight: =10
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =9
-                            Text: =ThisItem.'Country of Origin'
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =!IsBlankOrError(ThisItem.'Country of Origin')
-                            Width: =Parent.Width
+                        previewOfferContainer_2 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y-previewOffer_boarder_4.BorderThickness*2
+                            LayoutAlignItems: =LayoutAlignItems.Stretch
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =previewOffer_assets_4.Width*0.6
                             X: =1
-                            Y: =previewOffer_offerCopy_4.Y+previewOffer_offerCopy_4.Height
+                            Y: =1
                             ZIndex: =2
 
-                        previewOffer_offerItemNumber_4 As label:
-                            Align: =Align.Right
-                            AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Font: =Font.'Segoe UI'
-                            Height: =10
-                            LayoutMinHeight: =10
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =8
-                            Text: |-
-                                ="#"&ThisItem.combined_item_number
-                            VerticalAlign: =VerticalAlign.Top
-                            Width: =Parent.Width
-                            X: =1
-                            Y: =previewOffer_offerCOO_4.Y+previewOffer_offerCOO_4.Height
-                            ZIndex: =3
-
-                        previewOffer_offerWasPricing_4 As label:
-                            Align: =Align.Right
-                            AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =10
-                            LayoutMinHeight: =10
-                            LineHeight: =1
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =12
-                            Text: ="Was "&ThisItem.regular_price
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
-                            Width: =Parent.Width
-                            X: =1
-                            Y: =previewOffer_offerItemNumber_4.Y+previewOffer_offerItemNumber_4.Height
-                            ZIndex: =4
-
-                    previewOfferContainerLockup_2 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =previewOfferContainer_2.Height
-                        LayoutAlignItems: =LayoutAlignItems.Stretch
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutMode: =LayoutMode.Auto
-                        LayoutOverflowY: =LayoutOverflow.Scroll
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
-                        X: =previewOfferContainer_2.X+previewOfferContainer_2.Width
-                        Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height+Gap
-                        ZIndex: =3
-
-                        Container14 As groupContainer.horizontalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            BorderStyle: =BorderStyle.None
-                            LayoutAlignItems: =LayoutAlignItems.Stretch
-                            LayoutMinHeight: =20
-                            LayoutMinWidth: =20
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =1
-
-                            HtmlText1 As htmlViewer:
+                            previewOffer_offerCopy_4 As label:
+                                Align: =Align.Right
                                 AutoHeight: =true
-                                Color: =RGBA(215, 58, 60, 1)
-                                DisplayMode: =DisplayMode.View
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
                                 Font: =Font.'Segoe UI'
-                                HtmlText: |-
-                                    ="<div style='
-                                    align-items:stretch;
-                                    text-align: center; 
-                                    display=" & If(
-                                        ThisItem.offer_type.Value = "Mulit-Buy",
-                                        "flex",
-                                        "none"
-                                    ) & "'>
-                                    <div style='
-                                    transform: rotate(-90deg); 
-                                    transform-origin:left top;
-                                    white-space:nowrap;
-                                    padding:1rem;
-                                    width:40px;
-                                    color:#FF0000;
-                                    background-color:#FFED69;'>*Multi</div>
-                                    </div>
-                                    "
+                                FontWeight: =FontWeight.Semibold
+                                Height: =10
+                                LayoutMinHeight: =10
+                                LineHeight: =1
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =11
+                                Text: =ThisItem.offer_copy
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =Parent.Width
+                                X: =1
+                                Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height
+                                ZIndex: =1
+
+                            previewOffer_offerCOO_4 As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =Font.'Segoe UI'
+                                Height: =10
+                                LayoutMinHeight: =10
+                                LineHeight: =1
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =9
+                                Text: =ThisItem.'Country of Origin'
+                                VerticalAlign: =VerticalAlign.Top
+                                Visible: =!IsBlankOrError(ThisItem.'Country of Origin')
+                                Width: =Parent.Width
+                                X: =1
+                                Y: =previewOffer_offerCopy_4.Y+previewOffer_offerCopy_4.Height
+                                ZIndex: =2
+
+                            previewOffer_offerItemNumber_4 As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =Font.'Segoe UI'
+                                Height: =10
+                                LayoutMinHeight: =10
+                                LineHeight: =1
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =8
+                                Text: |-
+                                    ="#"&ThisItem.combined_item_number
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =Parent.Width
+                                X: =1
+                                Y: =previewOffer_offerCOO_4.Y+previewOffer_offerCOO_4.Height
+                                ZIndex: =3
+
+                            previewOffer_offerWasPricing_4 As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =10
+                                LayoutMinHeight: =10
+                                LineHeight: =1
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
                                 PaddingTop: =0
                                 Size: =12
-                                Visible: =ThisItem.offer_type.Value="Multi-Save"
-                                Width: =32
-                                ZIndex: =1
+                                Text: ="Was "&ThisItem.regular_price
+                                VerticalAlign: =VerticalAlign.Top
+                                Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
+                                Width: =Parent.Width
+                                X: =1
+                                Y: =previewOffer_offerItemNumber_4.Y+previewOffer_offerItemNumber_4.Height
+                                ZIndex: =4
 
-                            Container15 As groupContainer.verticalAutoLayoutContainer:
+                        previewOfferContainerLockup_2 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =previewOfferContainer_2.Height
+                            LayoutAlignItems: =LayoutAlignItems.Stretch
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMode: =LayoutMode.Auto
+                            LayoutOverflowY: =LayoutOverflow.Scroll
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
+                            X: =previewOfferContainer_2.X+previewOfferContainer_2.Width
+                            Y: =1
+                            ZIndex: =3
+
+                            Container14 As groupContainer.horizontalAutoLayoutContainer:
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderStyle: =BorderStyle.None
-                                LayoutDirection: =LayoutDirection.Vertical
-                                LayoutMinHeight: =50
-                                LayoutMinWidth: =50
+                                LayoutAlignItems: =LayoutAlignItems.Stretch
+                                LayoutMinHeight: =20
+                                LayoutMinWidth: =20
                                 LayoutMode: =LayoutMode.Auto
-                                ZIndex: =2
+                                ZIndex: =1
 
-                                previewOffer_rollBack_4 As label:
-                                    Align: =Align.Center
-                                    BorderColor: =RGBA(255, 0, 0, 1)
-                                    BorderThickness: =2
-                                    Color: =RGBA(255, 255, 0, 1)
-                                    DisabledColor: =RGBA(166, 166, 166, 1)
-                                    Fill: =RGBA(255, 0, 0, 1)
-                                    Font: =Font.'Segoe UI'
-                                    FontWeight: =FontWeight.Bold
-                                    Height: =32
-                                    LayoutMinHeight: =20
-                                    LayoutMinWidth: =Parent.Width
-                                    LineHeight: =1
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Text: ="R🙂llback"
-                                    Visible: =ThisItem.offer_type.Value="Rollback"
-                                    Width: =Parent.Width
-                                    Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
-                                    ZIndex: =1
-
-                                previewOffer_saveNow_4 As label:
-                                    Align: =Align.Center
-                                    BorderColor: =RGBA(255, 0, 0, 1)
-                                    BorderThickness: =2
-                                    Color: =RGBA(255, 0, 0, 1)
-                                    DisabledColor: =RGBA(166, 166, 166, 1)
-                                    Fill: =RGBA(255, 255, 0, 1)
-                                    Font: =Font.'Segoe UI'
-                                    FontWeight: =FontWeight.Bold
-                                    Height: =32
-                                    LayoutMinWidth: =Parent.Width
-                                    LineHeight: =1
-                                    Text: ="SAVE NOW!"
-                                    Visible: =ThisItem.offer_type.Value="Save Now"
-                                    Width: =Parent.Width
-                                    Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
-                                    ZIndex: =2
-
-                                previewOffer_price_4 As label:
-                                    Align: =Align.Center
-                                    BorderColor: =RGBA(0, 89, 178, 1)
-                                    Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
-                                    DisabledColor: =RGBA(166, 166, 166, 1)
-                                    FillPortions: =1
-                                    Font: =Font.'Segoe UI'
-                                    FontWeight: =FontWeight.Bold
-                                    Height: |-
-                                        =Switch(
-                                            ThisItem.offer_type.Value,
-                                            "Save Now",
-                                            Parent.Height - previewOffer_saveNow_4.Height - previewOffer_MultiSaveEach_4.Height,
-                                            "Rollback",
-                                            Parent.Height - previewOffer_rollBack_4.Height,
-                                            "Multi-Save",
-                                            Parent.Height - previewOffer_MultiSaveEach_4.Height,
-                                            Parent.Height
-                                        )
-                                    LayoutMinHeight: =25
-                                    LayoutMinWidth: =Parent.Width
-                                    LineHeight: =1
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Size: =Switch(ThisItem.offer_type.Value,"Save Now",16,"Rollback",16,"Multi-Save",16,32)
-                                    Text: |-
-                                        =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
-                                        "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
-                                        ","")&
-                                        If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
-                                    Width: =Parent.Width
-                                    Y: =previewOffer_price_rectangle_4.Y
-                                    ZIndex: =3
-
-                                previewOffer_MultiSaveEach_4 As label:
-                                    Align: =Align.Center
+                                HtmlText1 As htmlViewer:
                                     AutoHeight: =true
-                                    BorderColor: =RGBA(0, 89, 178, 1)
-                                    BorderStyle: =BorderStyle.None
-                                    Color: =RGBA(255, 237, 105, 1)
-                                    DisabledColor: =RGBA(166, 166, 166, 1)
-                                    Fill: =RGBA(255, 0, 0, 1)
+                                    Color: =RGBA(215, 58, 60, 1)
+                                    DisplayMode: =DisplayMode.View
                                     Font: =Font.'Segoe UI'
-                                    FontWeight: =FontWeight.Semibold
-                                    Height: =20
-                                    LayoutMinHeight: =20
-                                    LayoutMinWidth: =Parent.Width
-                                    LineHeight: =1
+                                    HtmlText: |-
+                                        ="<div style='
+                                        align-items:stretch;
+                                        text-align: center; 
+                                        display=" & If(
+                                            ThisItem.offer_type.Value = "Mulit-Buy",
+                                            "flex",
+                                            "none"
+                                        ) & "'>
+                                        <div style='
+                                        transform: rotate(-90deg); 
+                                        transform-origin:left top;
+                                        white-space:nowrap;
+                                        padding:1rem;
+                                        width:40px;
+                                        color:#FF0000;
+                                        background-color:#FFED69;'>*Multi</div>
+                                        </div>
+                                        "
                                     PaddingBottom: =0
                                     PaddingLeft: =0
                                     PaddingRight: =0
                                     PaddingTop: =0
                                     Size: =12
-                                    Text: ="or "&ThisItem.regular_price&" "&"each"
-                                    Visible: |
-                                        =If(ThisItem.offer_type.Value = "Multi-Save",true,false)
-                                    Width: =Parent.Width
-                                    Y: =conRelistHeading_2.Y+conRelistHeading_2.Height
-                                    ZIndex: =4
+                                    Visible: =ThisItem.offer_type.Value="Multi-Save"
+                                    Width: =32
+                                    ZIndex: =1
 
-                    previewOffer_assets_4 As gallery.galleryHorizontal:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y)*0.6
-                        Items: =ThisItem.assigned_images
-                        TemplatePadding: =0
-                        TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
-                        Width: =previewOffer_boarder_4.Width-previewOffer_boarder_4.BorderThickness*2
-                        WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
-                        X: =1
-                        Y: =conRelistHeading_2.Y+conRelistHeading_2.Height+previewOffer_boarder_4.BorderThickness+U
-                        ZIndex: =4
+                                Container15 As groupContainer.verticalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderStyle: =BorderStyle.None
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMinHeight: =50
+                                    LayoutMinWidth: =50
+                                    LayoutMode: =LayoutMode.Auto
+                                    ZIndex: =2
 
-                        Image2_7 As image:
+                                    previewOffer_rollBack_4 As label:
+                                        Align: =Align.Center
+                                        BorderColor: =RGBA(255, 0, 0, 1)
+                                        BorderThickness: =2
+                                        Color: =RGBA(255, 255, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        Fill: =RGBA(255, 0, 0, 1)
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Bold
+                                        Height: =32
+                                        LayoutMinHeight: =20
+                                        LayoutMinWidth: =Parent.Width
+                                        LineHeight: =1
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: ="R🙂llback"
+                                        Visible: =ThisItem.offer_type.Value="Rollback"
+                                        Width: =Parent.Width
+                                        Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
+                                        ZIndex: =1
+
+                                    previewOffer_saveNow_4 As label:
+                                        Align: =Align.Center
+                                        BorderColor: =RGBA(255, 0, 0, 1)
+                                        BorderThickness: =2
+                                        Color: =RGBA(255, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        Fill: =RGBA(255, 255, 0, 1)
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Bold
+                                        Height: =32
+                                        LayoutMinWidth: =Parent.Width
+                                        LineHeight: =1
+                                        Text: ="SAVE NOW!"
+                                        Visible: =ThisItem.offer_type.Value="Save Now"
+                                        Width: =Parent.Width
+                                        Y: =previewOffer_price_rectangle_4.Y-Self.Height+2
+                                        ZIndex: =2
+
+                                    previewOffer_price_4 As label:
+                                        Align: =Align.Center
+                                        BorderColor: =RGBA(0, 89, 178, 1)
+                                        Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FillPortions: =1
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Bold
+                                        Height: |-
+                                            =Switch(
+                                                ThisItem.offer_type.Value,
+                                                "Save Now",
+                                                Parent.Height - previewOffer_saveNow_4.Height - previewOffer_MultiSaveEach_4.Height,
+                                                "Rollback",
+                                                Parent.Height - previewOffer_rollBack_4.Height,
+                                                "Multi-Save",
+                                                Parent.Height - previewOffer_MultiSaveEach_4.Height,
+                                                Parent.Height
+                                            )
+                                        LayoutMinHeight: =25
+                                        LayoutMinWidth: =Parent.Width
+                                        LineHeight: =1
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =Switch(ThisItem.offer_type.Value,"Save Now",16,"Rollback",16,"Multi-Save",16,32)
+                                        Text: |-
+                                            =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
+                                            "),If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="Save Now","Save "&ThisItem.savings&"
+                                            ","")&
+                                            If(Value(ThisItem.event_price)<1.00,Substitute(ThisItem.event_price,"0.","")&"¢",ThisItem.event_price))
+                                        Width: =Parent.Width
+                                        Y: =previewOffer_price_rectangle_4.Y
+                                        ZIndex: =3
+
+                                    previewOffer_MultiSaveEach_4 As label:
+                                        Align: =Align.Center
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 89, 178, 1)
+                                        BorderStyle: =BorderStyle.None
+                                        Color: =RGBA(255, 237, 105, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        Fill: =RGBA(255, 0, 0, 1)
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =20
+                                        LayoutMinHeight: =20
+                                        LayoutMinWidth: =Parent.Width
+                                        LineHeight: =1
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =12
+                                        Text: ="or "&ThisItem.regular_price&" "&"each"
+                                        Visible: |
+                                            =If(ThisItem.offer_type.Value = "Multi-Save",true,false)
+                                        Width: =Parent.Width
+                                        Y: =conRelistHeading_2.Y+conRelistHeading_2.Height
+                                        ZIndex: =4
+
+                        previewOffer_assets_4 As gallery.galleryHorizontal:
                             BorderColor: =RGBA(0, 89, 178, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Height: =Parent.Height
-                            Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                            Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y)*0.6
+                            Items: =ThisItem.assigned_images
+                            TemplatePadding: =0
+                            TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
+                            Width: =previewOffer_boarder_4.Width-previewOffer_boarder_4.BorderThickness*2
+                            WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
+                            X: =1
+                            Y: =1
+                            ZIndex: =4
+
+                            Image2_7 As image:
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height
+                                Image: =If(ThisItem.Id > 0, Xinet.GetImageByPath("getimage",First(Filter(xinet_images,ID=ThisItem.Id)).fullpath))
+                                OnSelect: =Select(Parent)
+                                Width: =Parent.TemplateWidth
+                                Y: =Parent.TemplatePadding
+                                ZIndex: =2
+
+                        conRelistHeading_2 As groupContainer.horizontalAutoLayoutContainer:
+                            Fill: =RGBA(214, 221, 224, 1)
+                            Height: =1
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
+                            X: =1
+                            ZIndex: =5
+
+                            lblPreviewOffer_Source_2 As label:
+                                Align: =Align.Center
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                Color: =RGBA(0, 36, 71, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FillPortions: =1
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                LineHeight: =1
+                                Size: =10
+                                Text: |-
+                                    =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" AdBlock:"&ThisItem.Adblock
+                                Width: =100
+                                ZIndex: =2
+
+                        previewOffer_boarder_4 As rectangle:
+                            BorderColor: =RGBA(255, 0, 0, 1)
+                            BorderThickness: =5
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
                             OnSelect: =Select(Parent)
-                            Width: =Parent.TemplateWidth
-                            Y: =Parent.TemplatePadding
-                            ZIndex: =2
-
-                    conRelistHeading_2 As groupContainer.horizontalAutoLayoutContainer:
-                        Fill: =RGBA(214, 221, 224, 1)
-                        Height: =32
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
-                        X: =1
-                        ZIndex: =5
-
-                        lblPreviewOffer_Source_2 As label:
-                            Align: =Align.Center
-                            AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 36, 71, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            FillPortions: =1
-                            FontWeight: =FontWeight.Semibold
-                            Height: =Parent.Height
-                            LineHeight: =1
-                            Size: =10
-                            Text: |-
-                                =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" AdBlock:"&ThisItem.Adblock
-                            Width: =100
-                            ZIndex: =2
-
-                    previewOffer_boarder_4 As rectangle:
-                        BorderColor: =RGBA(255, 0, 0, 1)
-                        BorderThickness: =5
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
-                        OnSelect: =Select(Parent)
-                        Width: |-
-                            =Parent.TemplateWidth-
-                            Parent.TemplatePadding*2-15
-                        X: =1
-                        Y: =1
-                        ZIndex: =6
+                            Width: |-
+                                =Parent.TemplateWidth-
+                                Parent.TemplatePadding*2-15
+                            X: =1
+                            Y: =1
+                            ZIndex: =6
 
             conProjectManagementPlanning As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
-                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -1401,8 +1410,28 @@ scrProjectManagement As screen:
                 Visible: =galProjectManagementTabs.Selected.Title="Planning"
                 ZIndex: =4
 
-                Container11 As groupContainer.horizontalAutoLayoutContainer:
+                Container21 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
+
+                    Gallery5 As gallery.galleryVertical:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Items: =CustomGallerySample
+                        Layout: =Layout.Vertical
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                        ZIndex: =1
+
+                Container22 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
+                    LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -1410,15 +1439,7 @@ scrProjectManagement As screen:
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
-                    ZIndex: =1
-
-                    Label5 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Size: =13
-                        Text: ="Planning"
-                        ZIndex: =1
+                    ZIndex: =2
 
     nav_container_8 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
