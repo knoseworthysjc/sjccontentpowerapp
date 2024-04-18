@@ -335,21 +335,22 @@ scrProjectManagement As screen:
                     Height: =32
                     Items: |
                         =Table(
-                            {
-                                Title: "Planning",
-                                Icon: "ProjectLogoInverse"
-                            },
+                            
                             {
                                 Title: "Pages/PDF",
                                 Icon: "PDF"
                             },
                             {
-                                Title: "Exclusions",
-                                Icon: "ReportDocument"
+                                Title: "Planning",
+                                Icon: "ProjectLogoInverse"
                             },
                             {
                                 Title: "Files",
                                 Icon: "FolderHorizontal"
+                            },
+                            {
+                                Title: "Exclusions",
+                                Icon: "ReportDocument"
                             }
                         )
                     LayoutMinHeight: |
