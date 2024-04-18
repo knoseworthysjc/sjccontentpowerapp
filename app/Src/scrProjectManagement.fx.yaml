@@ -723,13 +723,13 @@ scrProjectManagement As screen:
                         ZIndex: =1
 
                     previewOfferContainer_2 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =Max(previewOffer_offerCopy_4.Height+If(previewOffer_offerCOO_4.Text<>"",previewOffer_offerCOO_4.Height,0)+If(previewOffer_offerItemNumber_4.Text<>"",previewOffer_offerItemNumber_4.Height,0)+If(previewOffer_offerWasPricing_4.Text<>"",previewOffer_offerWasPricing_4.Height,0),(Parent.TemplateHeight-Parent.TemplatePadding*2)*0.2)
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y-previewOffer_boarder_4.BorderThickness*2
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
                         Width: =previewOffer_assets_4.Width*0.6
                         X: =1
-                        Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_4.BorderThickness*2
+                        Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height+Gap
                         ZIndex: =2
 
                         previewOffer_offerCopy_4 As label:
@@ -747,7 +747,7 @@ scrProjectManagement As screen:
                             PaddingLeft: =0
                             PaddingRight: =0
                             PaddingTop: =0
-                            Size: =12
+                            Size: =11
                             Text: =ThisItem.offer_copy
                             VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width
@@ -769,7 +769,7 @@ scrProjectManagement As screen:
                             PaddingLeft: =0
                             PaddingRight: =0
                             PaddingTop: =0
-                            Size: =10
+                            Size: =9
                             Text: =ThisItem.'Country of Origin'
                             VerticalAlign: =VerticalAlign.Top
                             Visible: =!IsBlankOrError(ThisItem.'Country of Origin')
@@ -792,7 +792,7 @@ scrProjectManagement As screen:
                             PaddingLeft: =0
                             PaddingRight: =0
                             PaddingTop: =0
-                            Size: =10
+                            Size: =8
                             Text: |-
                                 ="#"&ThisItem.combined_item_number
                             VerticalAlign: =VerticalAlign.Top
@@ -816,6 +816,7 @@ scrProjectManagement As screen:
                             PaddingLeft: =0
                             PaddingRight: =0
                             PaddingTop: =0
+                            Size: =12
                             Text: ="Was "&ThisItem.regular_price
                             VerticalAlign: =VerticalAlign.Top
                             Visible: =If(ThisItem.offer_type.Value="Rollback" Or ThisItem.offer_type.Value="SAVE NOW",true,false)
@@ -831,7 +832,7 @@ scrProjectManagement As screen:
                         LayoutOverflowY: =LayoutOverflow.Scroll
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
                         X: =previewOfferContainer_2.X+previewOfferContainer_2.Width
-                        Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_4.BorderThickness*2
+                        Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height+Gap
                         ZIndex: =3
 
                         previewOffer_rollBack_4 As label:
@@ -843,14 +844,13 @@ scrProjectManagement As screen:
                             Fill: =RGBA(255, 0, 0, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Bold
-                            Height: =20
+                            Height: =32
                             LayoutMinHeight: =20
                             LineHeight: =1
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
                             PaddingTop: =0
-                            Size: =16
                             Text: ="R🙂llback"
                             Visible: =ThisItem.offer_type.Value="Rollback"
                             Width: =Parent.Width
@@ -866,9 +866,8 @@ scrProjectManagement As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =RGBA(255, 255, 0, 1)
                             FontWeight: =FontWeight.Bold
-                            Height: =20
+                            Height: =32
                             LineHeight: =1
-                            Size: =16
                             Text: ="SAVE NOW!"
                             Visible: =ThisItem.offer_type.Value="Save Now"
                             Width: =Parent.Width
@@ -926,7 +925,7 @@ scrProjectManagement As screen:
 
                     previewOffer_assets_4 As gallery.galleryHorizontal:
                         BorderColor: =RGBA(0, 89, 178, 1)
-                        Height: =previewOfferContainer_2.Y-Self.Y
+                        Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y)*0.6
                         Items: =ThisItem.assigned_images
                         TemplatePadding: =0
                         TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
