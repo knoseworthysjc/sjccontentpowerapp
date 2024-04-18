@@ -976,7 +976,7 @@ scrProjectManagement As screen:
                         Container29 As groupContainer.horizontalAutoLayoutContainer:
                             BorderStyle: =BorderStyle.None
                             Fill: =RGBA(214, 221, 224, 0.9)
-                            Height: =32
+                            Height: =Max(32,TextCanvas4.Height)
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                             LayoutMode: =LayoutMode.Auto
@@ -987,7 +987,7 @@ scrProjectManagement As screen:
 
                             TextCanvas4 As Text:
                                 Align: ='TextCanvas.Align'.Center
-                                AutoHeight: =false
+                                AutoHeight: =true
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
@@ -995,6 +995,7 @@ scrProjectManagement As screen:
                                 Height: =32
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
+                                Size: =16
                                 Text: =ThisItem.'File name with extension'
                                 VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                                 Weight: ='TextCanvas.Weight'.Semibold
