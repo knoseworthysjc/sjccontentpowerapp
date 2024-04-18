@@ -1190,38 +1190,36 @@ scrProjectManagement As screen:
                                 LayoutMode: =LayoutMode.Auto
                                 ZIndex: =1
 
-                                HtmlText1 As htmlViewer:
-                                    AutoHeight: =true
-                                    Color: =RGBA(215, 58, 60, 1)
-                                    DisplayMode: =DisplayMode.View
-                                    Font: =Font.'Segoe UI'
-                                    HtmlText: |-
-                                        ="<div style='
-                                        align-items:stretch;
-                                        text-align: center; 
-                                        display=" & If(
-                                            ThisItem.offer_type.Value = "Mulit-Buy",
-                                            "flex",
-                                            "none"
-                                        ) & "'>
-                                        <div style='
-                                        transform: rotate(-90deg); 
-                                        transform-origin:left top;
-                                        white-space:nowrap;
-                                        padding:1rem;
-                                        width:40px;
-                                        color:#FF0000;
-                                        background-color:#FFED69;'>*Multi</div>
-                                        </div>
-                                        "
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Size: =12
-                                    Visible: =ThisItem.offer_type.Value="Multi-Save"
-                                    Width: =32
-                                    ZIndex: =1
+                                Container23 As groupContainer.verticalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =40
+                                    LayoutMode: =LayoutMode.Auto
+                                    Visible: =ThisItem.offer_type.Value = "Multi-Save"
+                                    ZIndex: =2
+
+                                    HtmlText1 As htmlViewer:
+                                        AutoHeight: =true
+                                        Color: =RGBA(215, 58, 60, 1)
+                                        DisplayMode: =DisplayMode.View
+                                        FillPortions: =1
+                                        Font: =Font.'Segoe UI'
+                                        HtmlText: |-
+                                            ="
+                                            <div style='display:flex;align-items:stretch;'>
+                                            <div style='transform:rotate(-90deg);background-color:#FFED69'>*Multi</div>
+                                            </div>
+                                            "
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =12
+                                        Visible: =ThisItem.offer_type.Value="Multi-Save"
+                                        Width: =32
+                                        ZIndex: =1
 
                                 Container15 As groupContainer.verticalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -1230,7 +1228,7 @@ scrProjectManagement As screen:
                                     LayoutMinHeight: =50
                                     LayoutMinWidth: =50
                                     LayoutMode: =LayoutMode.Auto
-                                    ZIndex: =2
+                                    ZIndex: =3
 
                                     previewOffer_rollBack_4 As label:
                                         Align: =Align.Center
