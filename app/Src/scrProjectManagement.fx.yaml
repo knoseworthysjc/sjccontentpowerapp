@@ -968,6 +968,7 @@ scrProjectManagement As screen:
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Height: =Parent.TemplateHeight-Self.Y
                             Image: =ThisItem.Thumbnail.Large
+                            OnSelect: =Select(Parent)
                             Width: =320
                             Y: =Parent.TemplatePadding+Container29.Height+Gap
                             ZIndex: =1
@@ -1001,6 +1002,32 @@ scrProjectManagement As screen:
                                 X: =Gap
                                 Y: =0
                                 ZIndex: =1
+
+                            "icnEditContent_4 As 'Fluent Icon (1.0.19)'":
+                                BorderColor: |-
+                                    ="#003E7D"
+                                BorderRadius: =8
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: |-
+                                    ="#003E7D"
+                                FontSize: =0
+                                Height: =Parent.Height-2
+                                IconColor: |-
+                                    ="#003E7D"
+                                IconName: ="Download"
+                                IconSize: =24
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =165
+                                OnChange: |-
+                                    =Launch(ThisItem.'Link to item',{Target:LaunchTarget.New})
+                                Text: =""
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Tooltip: ="Edit Page Details"
+                                Width: =Self.Height
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
 
                 galProjectManagementOffers As gallery.galleryVertical:
                     BorderColor: =RGBA(107, 144, 179, 1)
