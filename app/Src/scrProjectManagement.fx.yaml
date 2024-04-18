@@ -334,14 +334,15 @@ scrProjectManagement As screen:
                     FillPortions: =0
                     Height: =32
                     Items: |-
-                        =Table({Title:"Planning",Icon:"ProjectLogoInverse"},{Title:"Pages/PDF",Icon:"PDF"},{Title:"Exclusions",Icon:"ReportDocument"})
+                        =Table({Title:"Planning",Icon:"ProjectLogoInverse"},{Title:"Pages/PDF",Icon:"PDF"},{Title:"Exclusions",Icon:"ReportDocument"},{Title:"Files",Icon:"FileFolder"})
                     LayoutMinHeight: |
                         =32
-                    LayoutMinWidth: =320
+                    LayoutMinWidth: =400
                     LoadingSpinner: =LoadingSpinner.Data
                     ShowScrollbar: =false
                     TemplatePadding: =1
-                    TemplateSize: =Self.Width/3
+                    TemplateSize: =Self.Width/Self.AllItemsCount
+                    Width: =Self.AllItemsCount*200
                     ZIndex: =1
 
                     Rectangle8 As rectangle:
