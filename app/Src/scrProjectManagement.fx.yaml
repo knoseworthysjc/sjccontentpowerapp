@@ -293,7 +293,7 @@ scrProjectManagement As screen:
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
                 Visible: =showEditProject
-                Width: =conControlProjectDetailsContent.Width
+                Width: =conProjectManagementNewUpdateProject.Width
                 ZIndex: =1
 
                 TextCanvas2 As Text:
@@ -390,7 +390,7 @@ scrProjectManagement As screen:
                     Rectangle8 As rectangle:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderStyle: =BorderStyle.None
-                        Fill: =RGBA(214, 221, 224, 1)
+                        Fill: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,RGBA(0, 0, 0, 1),RGBA(214, 221, 224, 1))
                         Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
                         OnSelect: =Select(Parent)
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
@@ -402,13 +402,13 @@ scrProjectManagement As screen:
                         BorderRadius: =10
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
-                            ="#D6DDE0"
+                            =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,"#003E7D","#D6DDE0")
                         FontColor: |-
-                            ="#003E7D"
+                            =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,"#D6DDE0","#003E7D")
                         FontSize: =18
                         Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                         IconColor: |-
-                            ="#003E7D"
+                            =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,"#D6DDE0","#003E7D")
                         IconName: =ThisItem.Icon
                         IconSize: =24
                         IconType: ='PowerCAT.Icon.IconType'.ActionButton
@@ -429,7 +429,7 @@ scrProjectManagement As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
-            conControlProjectDetailsContent As groupContainer.verticalAutoLayoutContainer:
+            conProjectManagementNewUpdateProject As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.Light
                 FillPortions: =0
@@ -1410,36 +1410,55 @@ scrProjectManagement As screen:
                 Visible: =galProjectManagementTabs.Selected.Title="Planning"
                 ZIndex: =4
 
-                Container21 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    LayoutAlignItems: =LayoutAlignItems.Stretch
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
+                Label6 As label:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Size: =13
+                    Text: ="Files"
                     ZIndex: =1
 
-                    Gallery5 As gallery.galleryVertical:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DelayItemLoading: =true
-                        Items: =CustomGallerySample
-                        Layout: =Layout.Vertical
-                        LoadingSpinner: =LoadingSpinner.Data
-                        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
-                        ZIndex: =1
+            conProjectManagementFiles As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =galProjectManagementTabs.Selected.Title="Files"
+                ZIndex: =5
 
-                Container22 As groupContainer.verticalAutoLayoutContainer:
-                    DropShadow: =DropShadow.Light
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
-                    ZIndex: =2
+                Label6_1 As label:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Size: =13
+                    Text: ="Planning"
+                    ZIndex: =1
+
+            conProjectManagementExclusions As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =galProjectManagementTabs.Selected.Title="Exclusions"
+                ZIndex: =6
+
+                Label6_2 As label:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Size: =13
+                    Text: ="Exclusions"
+                    ZIndex: =1
 
     nav_container_8 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
