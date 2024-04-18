@@ -333,8 +333,25 @@ scrProjectManagement As screen:
                     DelayItemLoading: =true
                     FillPortions: =0
                     Height: =32
-                    Items: |-
-                        =Table({Title:"Planning",Icon:"ProjectLogoInverse"},{Title:"Pages/PDF",Icon:"PDF"},{Title:"Exclusions",Icon:"ReportDocument"},{Title:"Files",Icon:"FileFolder"})
+                    Items: |
+                        =Table(
+                            {
+                                Title: "Planning",
+                                Icon: "ProjectLogoInverse"
+                            },
+                            {
+                                Title: "Pages/PDF",
+                                Icon: "PDF"
+                            },
+                            {
+                                Title: "Exclusions",
+                                Icon: "ReportDocument"
+                            },
+                            {
+                                Title: "Files",
+                                Icon: "FolderCollection"
+                            }
+                        )
                     LayoutMinHeight: |
                         =32
                     LayoutMinWidth: =400
