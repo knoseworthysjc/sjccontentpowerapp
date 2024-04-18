@@ -850,22 +850,23 @@ scrProjectManagement As screen:
                                 Color: =RGBA(215, 58, 60, 1)
                                 DisplayMode: =DisplayMode.View
                                 Font: =Font.'Segoe UI'
-                                HtmlText: |
+                                HtmlText: |-
                                     ="<div style='
-                                    width:40px;
-                                    overflow:hidden;
-                                    padding:0,0;
-                                    margin:0,0;
-                                    color:#FF0000;
-                                    background-color:#FFED69;
+                                    align-items:stretch;
                                     text-align: center; 
-                                    transform: rotate(-90deg); 
                                     display=" & If(
                                         ThisItem.offer_type.Value = "Mulit-Buy",
                                         "flex",
                                         "none"
-                                    ) & "'><span>
-                                    *Multi</span>
+                                    ) & "'>
+                                    <div style='
+                                    transform: rotate(-90deg); 
+                                    transform-origin:left top;
+                                    white-space:nowrap;
+                                    padding:1rem;
+                                    width:40px;
+                                    color:#FF0000;
+                                    background-color:#FFED69;'>*Multi</div>
                                     </div>
                                     "
                                 PaddingBottom: =0
