@@ -331,6 +331,7 @@ scrProjectManagement As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
+                    FillPortions: =0
                     Height: =32
                     Items: |-
                         =Table({Title:"Planning",Icon:"ProjectLogoInverse"},{Title:"Pages/PDF",Icon:"PDF"},{Title:"Exclusions",Icon:"ReportDocument"})
@@ -454,7 +455,7 @@ scrProjectManagement As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width*0.2
+                Width: =Parent.Width*0.15
                 ZIndex: =1
 
                 Container28 As groupContainer.horizontalAutoLayoutContainer:
@@ -491,10 +492,11 @@ scrProjectManagement As screen:
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
-                        Text: ="From"
+                        Text: ="Pg"
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                         Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =64
+                        Width: |
+                            =40
                         X: =0
                         Y: =0
                         ZIndex: =2
@@ -596,88 +598,16 @@ scrProjectManagement As screen:
                 Visible: =galProjectManagementTabs.Selected.Title="Planning"
                 ZIndex: =2
 
-                "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    DelayItemLoading: =true
-                    Items: =colProjectMangementPlanning
-                    Layout: =Layout.Vertical
-                    LoadingSpinner: =LoadingSpinner.Data
-                    TemplatePadding: =0
-                    TemplateSize: =90
+                Container11 As groupContainer.horizontalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     ZIndex: =1
-
-                    Title5 As label:
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =ThisItem.title
-                        VerticalAlign: =VerticalAlign.Top
-                        Width: =Parent.TemplateWidth - 86
-                        X: =16
-                        Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle4.Size * 1.8)) / 2
-                        ZIndex: =1
-
-                    Subtitle4 As label:
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =12
-                        Text: ="Text"
-                        VerticalAlign: =VerticalAlign.Top
-                        Width: =Title5.Width
-                        X: =Title5.X
-                        Y: =Title5.Y + Title5.Height
-                        ZIndex: =2
-
-                    NextArrow4 As icon.ChevronRight:
-                        AccessibleLabel: =Self.Tooltip
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(166, 166, 166, 1)
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(244, 244, 244, 1)
-                        Height: =50
-                        Icon: =Icon.ChevronRight
-                        OnSelect: =Select(Parent)
-                        PaddingBottom: =16
-                        PaddingLeft: =16
-                        PaddingRight: =16
-                        PaddingTop: =16
-                        Tooltip: ="View item details"
-                        Width: =50
-                        X: =Parent.TemplateWidth - Self.Width - 12
-                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                        ZIndex: =3
-
-                    Separator4 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Height: =8
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth
-                        Y: =Parent.TemplateHeight - Self.Height
-                        ZIndex: =4
-
-                    Rectangle5 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Fill: =RGBA(0, 89, 178, 1)
-                        Height: =Parent.TemplateHeight - Separator4.Height
-                        OnSelect: =Select(Parent)
-                        Visible: =ThisItem.IsSelected
-                        Width: =4
-                        ZIndex: =5
 
             conControlProjectPageOffers As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -773,10 +703,10 @@ scrProjectManagement As screen:
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
                     TemplateFill: =RGBA(255, 255, 255, 1)
-                    TemplateSize: =Self.Width/4
-                    Visible: =showRelistPanel
+                    TemplateSize: =Self.Width/5
                     Width: =Parent.Width-10
-                    WrapCount: =4
+                    WrapCount: |
+                        =5
                     X: =5
                     Y: =relistPanelHeader_2.Height+100
                     ZIndex: =2
