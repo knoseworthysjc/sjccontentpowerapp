@@ -336,6 +336,7 @@ scrProjectManagement As screen:
                         =Table({Title:"Planning",Icon:"ProjectLogoInverse"},{Title:"Pages/PDF",Icon:"PDF"},{Title:"Exclusions",Icon:"ReportDocument"})
                     LayoutMinHeight: |
                         =32
+                    LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     ShowScrollbar: =false
                     TemplatePadding: =1
@@ -518,8 +519,10 @@ scrProjectManagement As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
-                    Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_from",SortOrder.Ascending)
+                    Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
                     Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     ShowNavigation: =true
                     ShowScrollbar: =false
@@ -560,13 +563,14 @@ scrProjectManagement As screen:
                         BasePaletteColor: =RGBA(5, 102, 178, 1)
                         DisplayMode: =DisplayMode.Edit
                         Font: =Font.'Segoe UI'
+                        FontColor: =
                         FontSize: =16
                         FontWeight: =FontWeight.Semibold
                         Height: =32
                         Label: =""
                         OnCheck: |+
                             =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
-                            Collect(colProjectManagementSelectedOffers,Filter('Offers',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                            Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
                             
                         OnSelect: =Select(Parent)
                         OnUncheck: |
@@ -628,6 +632,7 @@ scrProjectManagement As screen:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
                         Items: =SortByColumns(colProjectManagementSelectedPages,"page_from",SortOrder.Ascending,"Title",SortOrder.Ascending)
+                        LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
                         ShowNavigation: =true
                         TemplatePadding: =Gap
@@ -1027,8 +1032,10 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.'Segoe UI'
+                    FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
