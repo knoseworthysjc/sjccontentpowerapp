@@ -1064,7 +1064,7 @@ scrProjectManagement As screen:
                             OnSelect: =Select(Parent)
                             Width: =previewOfferContainerLockup_2.Width
                             X: =previewOfferContainerLockup_2.X
-                            Y: =1
+                            Y: =previewOfferContainerLockup_2.Y
                             ZIndex: =1
 
                         previewOfferContainer_2 As groupContainer.verticalAutoLayoutContainer:
@@ -1074,7 +1074,7 @@ scrProjectManagement As screen:
                             LayoutMode: =LayoutMode.Auto
                             Width: =previewOffer_assets_4.Width*0.6
                             X: =1
-                            Y: =1
+                            Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height
                             ZIndex: =2
 
                             previewOffer_offerCopy_4 As label:
@@ -1178,7 +1178,7 @@ scrProjectManagement As screen:
                             LayoutOverflowY: =LayoutOverflow.Scroll
                             Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
                             X: =previewOfferContainer_2.X+previewOfferContainer_2.Width
-                            Y: =1
+                            Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height
                             ZIndex: =3
 
                             Container14 As groupContainer.horizontalAutoLayoutContainer:
@@ -1344,7 +1344,7 @@ scrProjectManagement As screen:
                             Width: =previewOffer_boarder_4.Width-previewOffer_boarder_4.BorderThickness*2
                             WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
                             X: =1
-                            Y: =1
+                            Y: =conRelistHeading_2.Y+conRelistHeading_2.Height+Gap
                             ZIndex: =4
 
                             Image2_7 As image:
@@ -1360,7 +1360,7 @@ scrProjectManagement As screen:
 
                         conRelistHeading_2 As groupContainer.horizontalAutoLayoutContainer:
                             Fill: =RGBA(214, 221, 224, 1)
-                            Height: =1
+                            Height: =32
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutMode: =LayoutMode.Auto
                             Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
@@ -1414,7 +1414,7 @@ scrProjectManagement As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Size: =13
-                    Text: ="Files"
+                    Text: ="Planning"
                     ZIndex: =1
 
             conProjectManagementFiles As groupContainer.verticalAutoLayoutContainer:
@@ -1435,7 +1435,7 @@ scrProjectManagement As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Size: =13
-                    Text: ="Planning"
+                    Text: ="Files"
                     ZIndex: =1
 
             conProjectManagementExclusions As groupContainer.verticalAutoLayoutContainer:
