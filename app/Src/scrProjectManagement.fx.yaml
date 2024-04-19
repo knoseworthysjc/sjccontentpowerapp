@@ -828,6 +828,7 @@ scrProjectManagement As screen:
 
                 conControlProjectPagesContent As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =Gap
@@ -849,22 +850,6 @@ scrProjectManagement As screen:
                         LayoutMode: =LayoutMode.Auto
                         Width: =50
                         ZIndex: =2
-
-                        TextCanvas3_3 As Text:
-                            Align: ='TextCanvas.Align'.Center
-                            DisplayMode: =DisplayMode.Edit
-                            Font: =Font.'Segoe UI'
-                            FontColor: =RGBA(255, 255, 255, 1)
-                            Height: =32
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =96
-                            Text: =""
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
-                            Weight: ='TextCanvas.Weight'.Semibold
-                            Width: =40
-                            X: =0
-                            Y: =0
-                            ZIndex: =1
 
                         TextCanvas3_1 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -893,6 +878,10 @@ scrProjectManagement As screen:
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
+                        OnSelect: |+
+                            =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                            Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                            
                         ShowNavigation: =true
                         ShowScrollbar: =false
                         TemplatePadding: =Gap
@@ -919,33 +908,9 @@ scrProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =4
 
-                        CheckboxCanvas1_1 As Checkbox:
-                            BasePaletteColor: =
-                            DisplayMode: =DisplayMode.Edit
-                            Font: =Font.'Segoe UI'
-                            FontColor: =
-                            FontSize: =16
-                            FontWeight: =FontWeight.Semibold
-                            Height: =32
-                            Label: =""
-                            OnCheck: |+
-                                =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
-                                Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
-                                
-                            OnSelect: =Select(Parent)
-                            OnUncheck: |
-                                =ClearCollect(colProjectManagementSelectedPages,Filter(colProjectManagementSelectedPages,page_from<>ThisItem.page_from));
-                                ClearCollect(colProjectManagementSelectedOffers,Filter(colProjectManagementSelectedOffers,page_from<>ThisItem.page_from));
-                            Width: |
-                                =40
-                            X: =TextCanvas3_3.X
-                            Y: =Gap
-                            ZIndex: =5
-
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
-                    FillPortions: =0
                     Height: =Parent.Height*0.5
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
