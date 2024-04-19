@@ -236,7 +236,7 @@ scrProjectManagement As screen:
                 OnChange: =Set(showEditProject,true);Set(editProjectMode,"New");
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Add Pages"
+                Tooltip: ="Add Project"
                 Width: =Self.Height
                 X: =0
                 Y: =0
@@ -261,7 +261,7 @@ scrProjectManagement As screen:
                 OnChange: =Set(showEditProject,true);Set(editProjectMode,"Edit");
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Tooltip: ="Edit Page Details"
+                Tooltip: ="Edit Project Details"
                 Width: =Self.Height
                 X: =0
                 Y: =0
