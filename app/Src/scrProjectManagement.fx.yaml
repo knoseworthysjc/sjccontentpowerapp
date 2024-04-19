@@ -846,9 +846,9 @@ scrProjectManagement As screen:
                         Height: =32
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutMinHeight: =100
-                        LayoutMinWidth: =250
+                        LayoutMinWidth: =Parent.Width
                         LayoutMode: =LayoutMode.Auto
-                        Width: =50
+                        Width: =Parent.Width
                         ZIndex: =2
 
                         TextCanvas3_1 As Text:
@@ -876,10 +876,11 @@ scrProjectManagement As screen:
                         Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
-                        LayoutMinWidth: =320
+                        LayoutMinWidth: =Parent.Width
                         LoadingSpinner: =LoadingSpinner.Data
                         OnSelect: |+
-                            =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                            =Notify("Selected");
+                            Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
                             Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
                             
                         ShowNavigation: =true
@@ -888,25 +889,22 @@ scrProjectManagement As screen:
                         TemplateSize: |+
                             =40
                             
+                        Width: =Parent.Width
                         ZIndex: =3
 
-                        "TextInputCanvas2_2 As 'Text input'":
-                            Align: ='TextInputCanvas.Align'.Center
-                            BasePaletteColor: =
-                            DelayOutput: =true
-                            DisplayMode: =DisplayMode.Edit
-                            Font: =Font.'Segoe UI'
-                            FontColor: =
-                            FontSize: =14
-                            FontWeight: =FontWeight.Semibold
-                            Height: =32
-                            Mode: ='TextInputCanvas.Mode'.Multiline
-                            Type: ='TextInputCanvas.Type'.Text
-                            Value: =ThisItem.Title
-                            Width: =TextCanvas3_1.Width
-                            X: =TextCanvas3_1.X
+                        Rectangle4 As rectangle:
+                            BorderColor: =RGBA(12, 59, 94, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =Parent.TemplateHeight-Gap*2
+                            OnSelect: |+
+                                =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                                Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                                
+                            Width: =Parent.TemplateWidth-Gap*2
+                            X: =Gap
                             Y: =Gap
-                            ZIndex: =4
+                            ZIndex: =1
 
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
