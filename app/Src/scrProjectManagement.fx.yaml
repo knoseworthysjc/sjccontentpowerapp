@@ -851,6 +851,31 @@ scrProjectManagement As screen:
                         Width: =Parent.Width
                         ZIndex: =2
 
+                        "icnAddContent_3 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#FFFFFF"
+                            BorderRadius: =8
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#FFFFFF"
+                            FontSize: =0
+                            Height: =Parent.Height-2
+                            IconColor: |-
+                                ="#FFFFFF"
+                            IconName: ="CircleAddition"
+                            IconSize: =24
+                            IconType: ='PowerCAT.Icon.IconType'.IconButon
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =165
+                            OnChange: =Set(showEditProject,true);Set(editProjectMode,"New");
+                            Text: =""
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Tooltip: ="Add Pages"
+                            Width: =Self.Height
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
                         TextCanvas3_1 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
@@ -864,6 +889,31 @@ scrProjectManagement As screen:
                             VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =Parent.Width*0.6
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "icnEditContent_5 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#FFFFFF"
+                            BorderRadius: =8
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#FFFFFF"
+                            FontSize: =0
+                            Height: =Parent.Height-2
+                            IconColor: |-
+                                ="#FFFFFF"
+                            IconName: ="Edit"
+                            IconSize: =24
+                            IconType: ='PowerCAT.Icon.IconType'.IconButon
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =165
+                            OnChange: =Set(showEditProject,true);Set(editProjectMode,"Edit");
+                            Text: =""
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Tooltip: ="Edit Page Details"
+                            Width: =Self.Height
                             X: =0
                             Y: =0
                             ZIndex: =3
@@ -905,6 +955,20 @@ scrProjectManagement As screen:
                             X: =Gap
                             Y: =Gap
                             ZIndex: =1
+
+                        TextCanvas3 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            Size: =12
+                            Text: =ThisItem.Title
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.TemplateWidth-Gap*2
+                            X: =Gap
+                            Y: =Gap
+                            ZIndex: =2
 
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
