@@ -970,6 +970,33 @@ scrProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =2
 
+                        "icnEditContent_6 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#003E7D"
+                            BorderRadius: =8
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="##003E7D"
+                            FontSize: =0
+                            Height: =40
+                            IconColor: |-
+                                ="##003E7D"
+                            IconName: ="CheckBox"
+                            IconSize: =24
+                            IconType: ='PowerCAT.Icon.IconType'.IconButon
+                            OnChange: |+
+                                =Collect(colProjectManagementSelectedPages,Filter('Flyer PDFs',assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                                Collect(colProjectManagementSelectedOffers,Filter(Offers,assigned_project.Value=galProjectManagementPages.Selected.assigned_project.Value And page_from=galProjectManagementPages.Selected.page_from));
+                                
+                            Text: =""
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Tooltip: ="Select Page"
+                            Width: |
+                                =32
+                            X: =Parent.TemplateWidth-Gap*2-Self.Width
+                            Y: =0
+                            ZIndex: =3
+
                 Container27 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
