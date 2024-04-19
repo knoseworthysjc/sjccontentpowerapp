@@ -306,7 +306,7 @@ scrProjectManagement As screen:
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     Size: =16
-                    Text: ="Project"
+                    Text: =If(editProjectMode="New","New Project","Edit Project")
                     Weight: ='TextCanvas.Weight'.Semibold
                     Width: =96
                     X: =0
@@ -461,7 +461,7 @@ scrProjectManagement As screen:
 
                 iptProjectStatus As Dropdown.pcfdataset:
                     BasePaletteColor: =
-                    DefaultSelectedItems: =ddProjectFilter_1.Selected.project_status
+                    DefaultSelectedItems: =If(editProjectMode="New",{},ddProjectFilter_1.Selected.project_status)
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16
                     Height: =32
@@ -499,7 +499,7 @@ scrProjectManagement As screen:
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
-                    Value: =ddProjectFilter_1.Selected.Docket
+                    Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Docket)
                     Width: =Parent.Width-64
                     X: =0
                     Y: =0
@@ -531,7 +531,7 @@ scrProjectManagement As screen:
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
-                    Value: =ddProjectFilter_1.Selected.Season.Value
+                    Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Season.Value)
                     Width: =Parent.Width-64
                     X: =0
                     Y: =0
@@ -563,7 +563,7 @@ scrProjectManagement As screen:
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
-                    Value: =ddProjectFilter_1.Selected.Week
+                    Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Week)
                     Width: =Parent.Width-64
                     X: =0
                     Y: =0
@@ -585,7 +585,7 @@ scrProjectManagement As screen:
                     ZIndex: =9
 
                 iptProjectCampaign As Dropdown.pcfdataset:
-                    DefaultSelectedItems: =ddProjectFilter_1.Selected.Campaign
+                    DefaultSelectedItems: =If(editProjectMode="New",{},ddProjectFilter_1.Selected.Campaign)
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16
                     Height: =32
@@ -623,7 +623,7 @@ scrProjectManagement As screen:
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
-                    Value: =ddProjectFilter_1.Selected.Title
+                    Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Title)
                     Width: =Parent.Width-64
                     X: =0
                     Y: =0
@@ -787,6 +787,24 @@ scrProjectManagement As screen:
                         LayoutMinHeight: |
                             =40
                         LayoutMinWidth: =96
+                        OnSelect: |
+                            =If(
+                                projectEditMode = "New",
+                                Patch(
+                                    Projects,
+                                    Defaults(Projects),
+                                    {
+                                        project_status: iptProjectStatus.Selected,
+                                        Docket: Value(iptProjectDocket.Value),
+                                        Season: {Value: Value(iptProjectDocket.Value)},Week: Value(iptProjectDocket_2.Value),Campaign:iptProjectCampaign.Selected,Title:iptProjectDocket_3.Value,corp_print:Value(iptProjectDocket_4.Value),corp_digital:Value(iptProjectDocket_5.Value),wmc_print:Value(iptProjectDocket_6.Value)
+                                    }
+                                ),
+                                Patch(
+                                    Projects,
+                                    ddProjectFilter_1.Selected,
+                                    {}
+                                )
+                            );
                         Text: ="Save"
                         Width: =96
                         X: =0
