@@ -217,7 +217,7 @@ scrProjectManagement As screen:
                 Y: =0
                 ZIndex: =8
 
-            "icnAddContent_2 As 'Fluent Icon (1.0.19)'":
+            "icnAddProject As 'Fluent Icon (1.0.19)'":
                 BorderColor: |-
                     ="#FFFFFF"
                 BorderRadius: =8
@@ -233,7 +233,7 @@ scrProjectManagement As screen:
                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: =Set(showEditProject,true);Set(editProjectMode,"New");
+                OnChange: =Set(showEditProject,true);Set(editProjectMode,"New");Set(varProjectEditStatus,"New");Reset(iptProjectStatus);Reset(iptProjectDocket);Reset(iptProjectDocket_1);Reset(iptProjectDocket_2);Reset(iptProjectDocket_3);Reset(iptProjectDocket_4);Reset(iptProjectDocket_5);Reset(iptProjectDocket_6);Reset(iptProjectDocket_7);Reset(iptProjectCampaign);
                 Text: =""
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Tooltip: ="Add Project"
@@ -460,6 +460,7 @@ scrProjectManagement As screen:
                     ZIndex: =1
 
                 iptProjectStatus As Dropdown.pcfdataset:
+                    BasePaletteColor: =
                     DefaultSelectedItems: =ddProjectFilter_1.Selected.project_status
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16
@@ -583,7 +584,7 @@ scrProjectManagement As screen:
                     Width: =Parent.Width-64
                     ZIndex: =9
 
-                DropdownCanvas1_1 As Dropdown.pcfdataset:
+                iptProjectCampaign As Dropdown.pcfdataset:
                     DefaultSelectedItems: =ddProjectFilter_1.Selected.Campaign
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16
@@ -805,6 +806,9 @@ scrProjectManagement As screen:
                         LayoutMinHeight: |
                             =40
                         LayoutMinWidth: =96
+                        OnSelect: |-
+                            =Set(varProjectEditStatus,"New");
+                            Reset(iptProjectStatus);Reset(iptProjectDocket);Reset(iptProjectDocket_1);Reset(iptProjectDocket_2);Reset(iptProjectDocket_3);Reset(iptProjectDocket_4);Reset(iptProjectDocket_5);Reset(iptProjectDocket_6);Reset(iptProjectDocket_7);Reset(iptProjectCampaign);
                         Text: ="Reset"
                         Width: =96
                         X: =0
@@ -971,17 +975,16 @@ scrProjectManagement As screen:
                             ZIndex: =2
 
                         "icnEditContent_6 As 'Fluent Icon (1.0.19)'":
-                            BorderColor: |-
-                                ="#003E7D"
-                            BorderRadius: =8
+                            BorderColor: =
+                            BorderRadius: =0
                             DisplayMode: =DisplayMode.Edit
                             FontColor: |-
                                 ="##003E7D"
                             FontSize: =0
-                            Height: =40
+                            Height: =32
                             IconColor: |-
                                 ="##003E7D"
-                            IconName: =If(ThisItem.ID=galProjectManagementPages.Selected.ID,"CheckMark","CheckBox")
+                            IconName: =If(ThisItem.ID=galProjectManagementPages.Selected.ID,"CheckBoxComposite","CheckBox")
                             IconSize: =24
                             IconType: ='PowerCAT.Icon.IconType'.IconButon
                             OnChange: |+
