@@ -1847,6 +1847,8 @@ scrProjectManagement As screen:
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowX: =LayoutOverflow.Scroll
+                    LayoutOverflowY: =LayoutOverflow.Scroll
                     Width: =Parent.Width*0.15
                     ZIndex: =2
 
@@ -1867,10 +1869,7 @@ scrProjectManagement As screen:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
-                        Items: |-
-                            =If(iptWeekFilter_1.Text="", 
-                            SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
-                            SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value And Week = Value(iptWeekFilter_1.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
+                        Items: =colProjectManagementProjects
                         Layout: =Layout.Vertical
                         LayoutMinWidth: =20
                         LoadingSpinner: =LoadingSpinner.Data
@@ -1880,7 +1879,11 @@ scrProjectManagement As screen:
 
                         Container33 As groupContainer.verticalAutoLayoutContainer:
                             DropShadow: =DropShadow.Light
-                            Height: =64
+                            Fill: =RGBA(214, 221, 224, 1)
+                            Height: |-
+                                =If(ThisItem.Expanded,
+                                Gallery7.AllItemsCount*32+32,32)
+                            LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMode: =LayoutMode.Auto
                             RadiusBottomLeft: =4
@@ -1893,24 +1896,31 @@ scrProjectManagement As screen:
                             ZIndex: =2
 
                             Container34 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 DropShadow: =DropShadow.Light
-                                LayoutMinHeight: =100
+                                Height: =32
+                                LayoutMinHeight: |
+                                    =32
                                 LayoutMinWidth: =250
                                 LayoutMode: =LayoutMode.Auto
+                                LayoutOverflowX: =LayoutOverflow.Scroll
+                                LayoutOverflowY: =LayoutOverflow.Scroll
                                 RadiusBottomLeft: =4
                                 RadiusBottomRight: =4
                                 RadiusTopLeft: =4
                                 RadiusTopRight: =4
-                                ZIndex: =2
+                                ZIndex: =1
 
                                 "Icon3 As 'Fluent Icon (1.0.19)'":
                                     DisplayMode: =DisplayMode.Edit
-                                    Height: =28
+                                    Height: =32
                                     IconColor: =""
-                                    IconName: ="ExploreContentSingle"
-                                    IconSize: =28
-                                    LayoutMinHeight: =200
+                                    IconName: =If(ThisItem.Expanded,"CollapseContent","ExploreContentSingle")
+                                    IconSize: =20
+                                    LayoutMinHeight: =32
                                     LayoutMinWidth: =200
+                                    OnChange: |-
+                                        =Switch(ThisItem.Expanded,true,Patch(colProjectManagementProjects,ThisItem,{Expanded:false}),Patch(colProjectManagementProjects,ThisItem,{Expanded:true}))
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Width: =28
                                     X: =0
@@ -1925,10 +1935,72 @@ scrProjectManagement As screen:
                                     Font: =Font.'Segoe UI'
                                     FontWeight: =FontWeight.Semibold
                                     Height: =32
-                                    Size: =12
+                                    LayoutMinHeight: =32
+                                    Size: =10
                                     Text: =ThisItem.Title
                                     Width: =Parent.Width
                                     ZIndex: =2
+
+                            Gallery7 As gallery.galleryVertical:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                DelayItemLoading: =true
+                                Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
+                                Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ThisItem.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
+                                Layout: =Layout.Vertical
+                                LayoutMinHeight: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
+                                LoadingSpinner: =LoadingSpinner.Data
+                                ShowScrollbar: =false
+                                TemplatePadding: =0
+                                TemplateSize: =32
+                                Visible: =ThisItem.Expanded
+                                Width: =32
+                                ZIndex: =2
+
+                                Container34_1 As groupContainer.horizontalAutoLayoutContainer:
+                                    DropShadow: =DropShadow.Light
+                                    Height: =32
+                                    LayoutMode: =LayoutMode.Auto
+                                    LayoutOverflowX: =LayoutOverflow.Scroll
+                                    LayoutOverflowY: =LayoutOverflow.Scroll
+                                    PaddingLeft: =10
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    Width: =268
+                                    Y: =60
+                                    ZIndex: =2
+
+                                    "Icon3_1 As 'Fluent Icon (1.0.19)'":
+                                        DisplayMode: =DisplayMode.Edit
+                                        Height: =32
+                                        IconColor: =""
+                                        IconName: ="ExploreContentSingle"
+                                        IconSize: =20
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =200
+                                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                        Width: =28
+                                        X: =0
+                                        Y: =0
+                                        ZIndex: =1
+
+                                    Label5_1 As label:
+                                        BorderColor: =RGBA(0, 89, 178, 1)
+                                        Color: =RGBA(0, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FillPortions: =1
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =32
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =50
+                                        Size: =10
+                                        Text: =ThisItem.Title
+                                        Width: =Parent.Width
+                                        Wrap: =false
+                                        ZIndex: =2
 
                 conProjectManagementOfferProjectContent As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
