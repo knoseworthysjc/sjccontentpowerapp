@@ -374,6 +374,10 @@ scrProjectManagement As screen:
                             {
                                 Title: "Exclusions",
                                 Icon: "ReportDocument"
+                            },
+                            {
+                                Title: "Pages/PDF-V2",
+                                Icon: "PDF"
                             }
                         )
                     LayoutMinHeight: |
@@ -1525,17 +1529,24 @@ scrProjectManagement As screen:
 
                 Container21 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
-                    DropShadow: =DropShadow.Light
+                    BorderStyle: =BorderStyle.None
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
                     ZIndex: =2
+
+                    Container24 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Light
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =1
 
                     "Gallery2 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1546,7 +1557,7 @@ scrProjectManagement As screen:
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =0
                         TemplateSize: =116
-                        ZIndex: =1
+                        ZIndex: =2
 
                         Image4 As image:
                             BorderColor: =RGBA(0, 89, 178, 1)
@@ -1666,14 +1677,6 @@ scrProjectManagement As screen:
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
                     ZIndex: =3
-
-                    Label6_1 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Size: =13
-                        Text: ="Files"
-                        ZIndex: =1
 
             conProjectManagementExclusions As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
