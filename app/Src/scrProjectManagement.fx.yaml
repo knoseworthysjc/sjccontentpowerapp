@@ -1810,6 +1810,7 @@ scrProjectManagement As screen:
 
             conProjectManagementExclusions As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -1821,31 +1822,244 @@ scrProjectManagement As screen:
                 Visible: =galProjectManagementTabs.Selected.Title="Exclusions"
                 ZIndex: =6
 
-                Container11 As groupContainer.verticalAutoLayoutContainer:
-                    DropShadow: =DropShadow.Light
-                    FillPortions: =0
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
-                    LayoutMode: =LayoutMode.Auto
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
-                    Width: =200
-                    ZIndex: =1
-
                 Container26 As groupContainer.verticalAutoLayoutContainer:
-                    DropShadow: =DropShadow.Light
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
-                    LayoutMinWidth: =250
+                    LayoutMinWidth: =50
                     LayoutMode: =LayoutMode.Auto
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
                     ZIndex: =2
+
+                    conExclusion As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =32
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =Gap
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =Gap
+                        PaddingRight: =Gap
+                        ZIndex: =1
+
+                        TextCanvas5 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="stage"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*.1
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        TextCanvas5_1 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="schedule"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =96
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        TextCanvas5_2 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="actual"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =96
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                        TextCanvas5_3 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="pages"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.1
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
+                        TextCanvas5_4 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="sbu"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.1
+                            X: =0
+                            Y: =0
+                            ZIndex: =5
+
+                        TextCanvas5_5 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="banner"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.1
+                            X: =0
+                            Y: =0
+                            ZIndex: =6
+
+                        TextCanvas5_6 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="disruption"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.15
+                            X: =0
+                            Y: =0
+                            ZIndex: =7
+
+                        TextCanvas5_7 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="rate"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.05
+                            X: =0
+                            Y: =0
+                            ZIndex: =8
+
+                        TextCanvas5_8 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="cost"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.05
+                            X: =0
+                            Y: =0
+                            ZIndex: =9
+
+                        TextCanvas5_9 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =16
+                            Text: ="details"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width*0.2
+                            X: =0
+                            Y: =0
+                            ZIndex: =10
+
+                    Gallery8 As gallery.galleryVertical:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Items: =Exclusions
+                        Layout: =Layout.Vertical
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =Gap
+                        TemplateSize: =64
+                        ZIndex: =1
+
+                        "iptExclusionsPages As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontSize: =12
+                            FontWeight: =FontWeight.Normal
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Value: =ThisItem.pages_affected
+                            Width: =TextCanvas5_3.Width
+                            X: =TextCanvas5_3.X
+                            Y: =Gap
+                            ZIndex: =1
+
+                        iptExclusionsStage As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.production_stage
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =12
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Items: =Choices(Exclusions.production_stage)
+                            Width: =TextCanvas5.Width
+                            X: =TextCanvas5.X
+                            Y: =Gap
+                            ZIndex: =2
+
+                        iptExclusionsStage_1 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.SBU
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =12
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Items: =Choices(Exclusions.SBU)
+                            Width: =TextCanvas5_4.Width
+                            X: =TextCanvas5_4.X
+                            Y: =Gap
+                            ZIndex: =3
+
+                        iptExclusionsStage_2 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.Banner
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =12
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Items: =Choices(Exclusions.Banner)
+                            Width: =TextCanvas5_5.Width
+                            X: =TextCanvas5_5.X
+                            Y: =Gap
+                            ZIndex: =4
 
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
