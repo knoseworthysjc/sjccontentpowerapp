@@ -1835,11 +1835,11 @@ scrProjectManagement As screen:
                     conExclusionControls As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         DropShadow: =DropShadow.Light
+                        Fill: =RGBA(240, 242, 242, 1)
                         FillPortions: =0
-                        Height: =32
+                        Height: =32*5
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutGap: =Gap
-                        LayoutJustifyContent: =LayoutJustifyContent.End
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
@@ -1850,6 +1850,23 @@ scrProjectManagement As screen:
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         ZIndex: =1
+
+                        TextCanvas6 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            AutoHeight: =false
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            Height: =Parent.Height-Gap*2
+                            LayoutMinHeight: =Parent.Height-Gap*2
+                            LayoutMinWidth: =96
+                            Size: =30
+                            Text: ="Weekly Charges By Banner"
+                            Weight: ='TextCanvas.Weight'.Bold
+                            Width: |
+                                =150
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
 
                         "Icon4_4 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1872,7 +1889,7 @@ scrProjectManagement As screen:
                             Width: =95
                             X: =0
                             Y: =0
-                            ZIndex: =1
+                            ZIndex: =2
 
                         "Icon4_2 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1895,7 +1912,7 @@ scrProjectManagement As screen:
                             Width: =75
                             X: =0
                             Y: =0
-                            ZIndex: =2
+                            ZIndex: =3
 
                         "Icon4 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1920,7 +1937,7 @@ scrProjectManagement As screen:
                             Width: =75
                             X: =0
                             Y: =0
-                            ZIndex: =3
+                            ZIndex: =4
 
                         "Icon4_3 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1943,7 +1960,7 @@ scrProjectManagement As screen:
                             Width: =85
                             X: =0
                             Y: =0
-                            ZIndex: =4
+                            ZIndex: =5
 
                     conExclusion As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -2294,12 +2311,84 @@ scrProjectManagement As screen:
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                            Items: =Choices(Exclusions.assigned_flyer)
+                            Items: =Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title)
                             Width: |
                                 =TextCanvas5_3.Width
                             X: =TextCanvas5_3.X
                             Y: =Gap
                             ZIndex: =11
+
+                            Title7 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Title"
+                                FieldName: ="Title"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =22
+
+                            assigned_project1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="assigned_project"
+                                FieldName: ="assigned_project"
+                                FieldType: ="E"
+                                FieldVariantName: ="textualColumn"
+                                Order: =2
+                                ZIndex: =23
+
+                            page_from2 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="page_from"
+                                FieldName: ="page_from"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =3
+                                ZIndex: =24
+
+                            page_to1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="page_to"
+                                FieldName: ="page_to"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =4
+                                ZIndex: =25
+
+                            assigned_flyer_page1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="assigned_flyer_page"
+                                FieldName: ="assigned_flyer_page"
+                                FieldType: ="E"
+                                FieldVariantName: ="textualColumn"
+                                Order: =5
+                                ZIndex: =26
+
+                            assigned_flyer_pdf1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="assigned_flyer_pdf"
+                                FieldName: ="assigned_flyer_pdf"
+                                FieldType: ="E"
+                                FieldVariantName: ="textualColumn"
+                                Order: =6
+                                ZIndex: =27
+
+                            assigned_page_layout1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="assigned_page_layout"
+                                FieldName: ="assigned_page_layout"
+                                FieldType: ="E"
+                                FieldVariantName: ="textualColumn"
+                                Order: =7
+                                ZIndex: =28
+
+                            workflow_stage1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="workflow_stage"
+                                FieldName: ="workflow_stage"
+                                FieldType: ="E"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =29
+
+                            page_comments1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="page_comments"
+                                FieldName: ="page_comments"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =9
+                                ZIndex: =30
 
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
