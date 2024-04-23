@@ -2061,6 +2061,32 @@ scrProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =4
 
+                        iptExclusionsStage_3 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.rate_card_lookup
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =12
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Items: =Choices(Exclusions.rate_card_lookup)
+                            Width: =TextCanvas5_6.Width
+                            X: =TextCanvas5_6.X
+                            Y: =Gap
+                            ZIndex: =5
+
+                        "iptExclusionsPages_1 As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            FontSize: =12
+                            FontWeight: =FontWeight.Normal
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Value: =Round(ThisItem.rate.Value,4)
+                            Width: =TextCanvas5_7.Width
+                            X: =TextCanvas5_7.X
+                            Y: =Gap
+                            ZIndex: =6
+
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
