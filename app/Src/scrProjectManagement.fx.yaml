@@ -2289,6 +2289,18 @@ scrProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =10
 
+                        iptExclusionsStage_4 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.SBU
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =13
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Items: =Choices(Exclusions.assigned_flyer)
+                            Width: |
+                                =TextCanvas5_3.Width
+                            X: =TextCanvas5_3.X
+                            Y: =Gap
+                            ZIndex: =11
+
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
