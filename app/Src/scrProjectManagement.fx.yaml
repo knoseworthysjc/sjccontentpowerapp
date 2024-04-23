@@ -1975,7 +1975,7 @@ scrProjectManagement As screen:
                                 DelayItemLoading: =true
                                 Fill: =RGBA(255, 255, 255, 1)
                                 Height: =Parent.Height
-                                Items: =AddColumns(GroupBy(AddColumns(Gallery8.AllItems,bannerValue,ThisRecord.Banner.Value),bannerValue,grp),total,Sum(grp,cost))
+                                Items: =Gallery8.AllItems,bannerValue,ThisRecord.Banner.Value
                                 Layout: =Layout.Vertical
                                 LayoutMinHeight: =Parent.Height
                                 LayoutMinWidth: =320
@@ -2004,7 +2004,7 @@ scrProjectManagement As screen:
                                     Font: =Font.'Segoe UI'
                                     FontColor: =
                                     Height: =32
-                                    Text: =ThisItem.total
+                                    Text: =Filter(Exclusions,Season.Value=ddSeasonFilter_1.Selected.Value And Banner.Value=ThisItem.bannerValue)
                                     Weight: ='TextCanvas.Weight'.Semibold
                                     Width: =TextCanvas5_11.Width
                                     X: =TextCanvas5_11.X
@@ -2057,9 +2057,12 @@ scrProjectManagement As screen:
                         FillPortions: =0
                         Height: =32
                         LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =Gap
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =Gap
+                        PaddingRight: =Gap
                         RadiusBottomLeft: =4
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
