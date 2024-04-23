@@ -1832,6 +1832,93 @@ scrProjectManagement As screen:
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =2
 
+                    conExclusionControls As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =32
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =Gap
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =Gap
+                        PaddingRight: =Gap
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =1
+
+                        "Icon4 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#0C3B5E"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#0C3B5E"
+                            FontSize: =18
+                            Height: =25
+                            IconColor: |-
+                                ="#0C3B5E"
+                            IconName: ="Add"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: ="Add"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Width: =75
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        "Icon4_2 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#0C3B5E"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#0C3B5E"
+                            FontSize: =18
+                            Height: =25
+                            IconColor: |-
+                                ="#0C3B5E"
+                            IconName: ="Save"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: ="Save"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Width: =75
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "Icon4_3 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#0C3B5E"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#0C3B5E"
+                            FontSize: =18
+                            Height: =25
+                            IconColor: |-
+                                ="#0C3B5E"
+                            IconName: ="Delete"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: ="Delete"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Width: =85
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
                     conExclusion As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         Fill: =RGBA(12, 59, 94, 1)
@@ -1844,7 +1931,7 @@ scrProjectManagement As screen:
                         LayoutMode: =LayoutMode.Auto
                         PaddingLeft: =Gap
                         PaddingRight: =Gap
-                        ZIndex: =1
+                        ZIndex: =2
 
                         TextCanvas5 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2015,7 +2102,7 @@ scrProjectManagement As screen:
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =Gap
                         TemplateSize: =96
-                        ZIndex: =1
+                        ZIndex: =3
 
                         "iptExclusionsPages As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
