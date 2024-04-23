@@ -2333,8 +2333,8 @@ mergeOffer As screen:
                                 First(
                                     DropColumns(
                                         Table(off),
-                                        "updated",
-                                        "selected"
+                                        updated,
+                                        selected
                                     )
                                 ),
                                 {offer_status: {Value: "Deleted"}}

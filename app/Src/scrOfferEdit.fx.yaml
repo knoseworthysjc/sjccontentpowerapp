@@ -227,9 +227,9 @@ scrOfferEdit As screen:
                                 Offers,
                                 assigned_project.Value = ddProjectFilter.Selected.Title
                             ),
-                            "updated",
+                            updated,
                             false,
-                            "selected",
+                            selected,
                             false
                         )
                     );
@@ -1167,8 +1167,8 @@ scrOfferEdit As screen:
                                 First(
                                     DropColumns(
                                         Table(ThisItem),
-                                        "updated",
-                                        "selected"
+                                        updated,
+                                        selected
                                     )
                                 ),
                                 {offer_status:ThisItem.offer_status,
@@ -1243,8 +1243,8 @@ scrOfferEdit As screen:
                                 First(
                                     DropColumns(
                                         Table(ThisItem),
-                                        "updated",
-                                        "selected"
+                                        updated,
+                                        selected
                                     )
                                 ),
                                 {
@@ -5133,7 +5133,7 @@ scrOfferEdit As screen:
                 minimumHeight: =30
                 OnSelect: |-
                     =ClearCollect(searchOffersRecords,Filter(Offers,StartsWith(offer_copy,searchOffers_2.Text) Or StartsWith(combined_item_number,searchOffers_2.Text)));
-                    Collect(searchOffersRecords,Search(Offers,searchOffers_2.Text,"offer_copy","featured_item_numbers"));
+                    Collect(searchOffersRecords,Search(Offers,searchOffers_2.Text,offer_copy,featured_item_numbers));
                     Set(showRelistPanel,true);
                 Width: =Self.Height
                 X: =464

@@ -153,7 +153,7 @@ scrProjectManagement As screen:
                                     "Title",
                                     SortOrder.Ascending
                                 ),
-                                "Expanded",
+                                Expanded,
                                 false
                             ),
                             AddColumns(
@@ -167,7 +167,7 @@ scrProjectManagement As screen:
                                     "Title",
                                     SortOrder.Ascending
                                 ),
-                                "Expanded",
+                                Expanded,
                                 false
                             )
                         )
@@ -258,9 +258,9 @@ scrProjectManagement As screen:
                                 Offers,
                                 assigned_project.Value = ddProjectFilter_1.Selected.Title
                             ),
-                            "updated",
+                            updated,
                             false,
-                            "selected",
+                            selected,
                             false
                         )
                     );
@@ -1075,7 +1075,7 @@ scrProjectManagement As screen:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderStyle: =BorderStyle.None
                         DelayItemLoading: =true
-                        Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
+                        Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),page_sort,Value(page_from)),"page_sort",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =Parent.Width
@@ -1682,6 +1682,8 @@ scrProjectManagement As screen:
                         DelayItemLoading: =true
                         Items: =Filter('Project Files',ddProjectFilter_1.Selected.Title=assigned_project.Value)
                         Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =0
                         TemplateSize: =116
@@ -1819,13 +1821,31 @@ scrProjectManagement As screen:
                 Visible: =galProjectManagementTabs.Selected.Title="Exclusions"
                 ZIndex: =6
 
-                Label6_2 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Size: =13
-                    Text: ="Exclusions"
+                Container11 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =200
                     ZIndex: =1
+
+                Container26 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =2
 
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
@@ -1844,8 +1864,11 @@ scrProjectManagement As screen:
                 conProjectMangementOffferProjects As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderStyle: =BorderStyle.None
+                    FillPortions: =0
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     LayoutOverflowX: =LayoutOverflow.Scroll
                     LayoutOverflowY: =LayoutOverflow.Scroll
@@ -1871,6 +1894,7 @@ scrProjectManagement As screen:
                         DelayItemLoading: =true
                         Items: =colProjectManagementProjects
                         Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
                         LayoutMinWidth: =20
                         LoadingSpinner: =LoadingSpinner.Data
                         ShowScrollbar: =false
@@ -1946,9 +1970,10 @@ scrProjectManagement As screen:
                                 BorderColor: =RGBA(0, 89, 178, 1)
                                 DelayItemLoading: =true
                                 Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
-                                Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ThisItem.Title),"page_sort",Value(page_from)),"page_sort",SortOrder.Ascending)
+                                Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ThisItem.Title),page_sort,Value(page_from)),"page_sort",SortOrder.Ascending)
                                 Layout: =Layout.Vertical
                                 LayoutMinHeight: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
+                                LayoutMinWidth: =320
                                 LoadingSpinner: =LoadingSpinner.Data
                                 ShowScrollbar: =false
                                 TemplatePadding: =0
