@@ -1833,6 +1833,7 @@ scrProjectManagement As screen:
                     ZIndex: =2
 
                     conExclusionControls As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         DropShadow: =DropShadow.Light
                         FillPortions: =0
                         Height: =32
@@ -1849,29 +1850,6 @@ scrProjectManagement As screen:
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         ZIndex: =1
-
-                        "Icon4 As 'Fluent Icon (1.0.19)'":
-                            BorderColor: |-
-                                ="#0C3B5E"
-                            BorderRadius: =5
-                            DisplayMode: =DisplayMode.Edit
-                            FontColor: |-
-                                ="#0C3B5E"
-                            FontSize: =18
-                            Height: =25
-                            IconColor: |-
-                                ="#0C3B5E"
-                            IconName: ="Add"
-                            IconSize: =20
-                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                            LayoutMinHeight: =200
-                            LayoutMinWidth: =200
-                            Text: ="Add"
-                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                            Width: =75
-                            X: =0
-                            Y: =0
-                            ZIndex: =1
 
                         "Icon4_2 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1890,6 +1868,29 @@ scrProjectManagement As screen:
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             Text: ="Save"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Width: =75
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        "Icon4 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#0C3B5E"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#0C3B5E"
+                            FontSize: =18
+                            Height: =25
+                            IconColor: |-
+                                ="#0C3B5E"
+                            IconName: ="Add"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: ="Add"
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Width: =75
                             X: =0
