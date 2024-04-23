@@ -2012,7 +2012,7 @@ scrProjectManagement As screen:
                         Layout: =Layout.Vertical
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =Gap
-                        TemplateSize: =64
+                        TemplateSize: =96
                         ZIndex: =1
 
                         "iptExclusionsPages As 'Text input'":
@@ -2101,6 +2101,22 @@ scrProjectManagement As screen:
                             X: =TextCanvas5_8.X
                             Y: =Gap
                             ZIndex: =7
+
+                        "iptExclusionsPages_3 As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.View
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            FontSize: =12
+                            FontWeight: =FontWeight.Normal
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Mode: ='TextInputCanvas.Mode'.Multiline
+                            Value: =ThisItem.'change details'
+                            Width: =TextCanvas5_9.Width
+                            X: =TextCanvas5_9.X
+                            Y: =Gap
+                            ZIndex: =8
 
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
