@@ -1851,6 +1851,29 @@ scrProjectManagement As screen:
                         RadiusTopRight: =4
                         ZIndex: =1
 
+                        "Icon4_4 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#0C3B5E"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#0C3B5E"
+                            FontSize: =18
+                            Height: =25
+                            IconColor: |-
+                                ="#0C3B5E"
+                            IconName: ="Refresh"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: ="Refresh"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Width: =95
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
                         "Icon4_2 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
                                 ="#0C3B5E"
@@ -1872,7 +1895,7 @@ scrProjectManagement As screen:
                             Width: =75
                             X: =0
                             Y: =0
-                            ZIndex: =1
+                            ZIndex: =2
 
                         "Icon4 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1890,12 +1913,14 @@ scrProjectManagement As screen:
                             IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
+                            OnChange: |-
+                                =Patch(Exclusions,Defaults(Exclusions),{assigned_project:{Id:ddProjectFilter_1.Selected.ID,Value:ddProjectFilter_1.Selected.Title},Season:{Value:ddProjectFilter_1.Selected.Season.Value},week:Value(ddProjectFilter_1.Selected.Week),Docket:Value(ddProjectFilter_1.Selected.Docket)})
                             Text: ="Add"
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Width: =75
                             X: =0
                             Y: =0
-                            ZIndex: =2
+                            ZIndex: =3
 
                         "Icon4_3 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1918,7 +1943,7 @@ scrProjectManagement As screen:
                             Width: =85
                             X: =0
                             Y: =0
-                            ZIndex: =3
+                            ZIndex: =4
 
                     conExclusion As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1934,6 +1959,30 @@ scrProjectManagement As screen:
                         PaddingRight: =Gap
                         ZIndex: =2
 
+                        "Icon4_5 As 'Fluent Icon (1.0.19)'":
+                            BorderColor: |-
+                                ="#FFF"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#FFF"
+                            FontSize: =18
+                            Height: =25
+                            IconColor: |-
+                                ="#FFF"
+                            IconName: ="CheckBox"
+                            IconSize: =20
+                            IconType: ='PowerCAT.Icon.IconType'.Icon
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: ="Save"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Tooltip: ="Select All"
+                            Width: =32
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
                         TextCanvas5 As Text:
                             Align: ='TextCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
@@ -1948,7 +1997,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*.08
                             X: =0
                             Y: =0
-                            ZIndex: =1
+                            ZIndex: =2
 
                         TextCanvas5_1 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -1964,7 +2013,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.06
                             X: =0
                             Y: =0
-                            ZIndex: =2
+                            ZIndex: =3
 
                         TextCanvas5_2 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -1980,7 +2029,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.06
                             X: =0
                             Y: =0
-                            ZIndex: =3
+                            ZIndex: =4
 
                         TextCanvas5_3 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -1996,7 +2045,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.1
                             X: =0
                             Y: =0
-                            ZIndex: =4
+                            ZIndex: =5
 
                         TextCanvas5_4 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2012,7 +2061,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.1
                             X: =0
                             Y: =0
-                            ZIndex: =5
+                            ZIndex: =6
 
                         TextCanvas5_5 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2028,7 +2077,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.1
                             X: =0
                             Y: =0
-                            ZIndex: =6
+                            ZIndex: =7
 
                         TextCanvas5_6 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2044,7 +2093,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.15
                             X: =0
                             Y: =0
-                            ZIndex: =7
+                            ZIndex: =8
 
                         TextCanvas5_7 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2060,7 +2109,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.05
                             X: =0
                             Y: =0
-                            ZIndex: =8
+                            ZIndex: =9
 
                         TextCanvas5_8 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2076,7 +2125,7 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.05
                             X: =0
                             Y: =0
-                            ZIndex: =9
+                            ZIndex: =10
 
                         TextCanvas5_9 As Text:
                             Align: ='TextCanvas.Align'.Center
@@ -2092,13 +2141,13 @@ scrProjectManagement As screen:
                             Width: =Parent.Width*0.2
                             X: =0
                             Y: =0
-                            ZIndex: =10
+                            ZIndex: =11
 
                     Gallery8 As gallery.galleryVertical:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
-                        Items: =Exclusions
+                        Items: =Filter(Exclusions,week=iptWeekFilter_1.Text And Season.Value = ddSeasonFilter_1.Selected.Value)
                         Layout: =Layout.Vertical
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =Gap
@@ -2152,11 +2201,11 @@ scrProjectManagement As screen:
                             ZIndex: =4
 
                         iptExclusionsStage_3 As Dropdown.pcfdataset:
-                            DefaultSelectedItems: =ThisItem.rate_card_lookup
+                            DefaultSelectedItems: =ThisItem.Disruption
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                            Items: =Choices(Exclusions.rate_card_lookup)
+                            Items: =Choices(Exclusions.Disruption)
                             Width: =TextCanvas5_6.Width
                             X: =TextCanvas5_6.X
                             Y: =Gap
@@ -2171,7 +2220,9 @@ scrProjectManagement As screen:
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
-                            Value: =Round(ThisItem.rate.Value,4)
+                            Value: |-
+                                =
+                                Round(ThisItem.rate.Value,4)
                             Width: =TextCanvas5_7.Width
                             X: =TextCanvas5_7.X
                             Y: =Gap
