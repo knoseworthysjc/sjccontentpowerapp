@@ -1855,7 +1855,7 @@ scrProjectManagement As screen:
                             Size: =16
                             Text: ="stage"
                             Weight: ='TextCanvas.Weight'.Semibold
-                            Width: =Parent.Width*.1
+                            Width: =Parent.Width*.08
                             X: =0
                             Y: =0
                             ZIndex: =1
@@ -1871,7 +1871,7 @@ scrProjectManagement As screen:
                             Size: =16
                             Text: ="schedule"
                             Weight: ='TextCanvas.Weight'.Semibold
-                            Width: =96
+                            Width: =Parent.Width*0.06
                             X: =0
                             Y: =0
                             ZIndex: =2
@@ -1887,7 +1887,7 @@ scrProjectManagement As screen:
                             Size: =16
                             Text: ="actual"
                             Weight: ='TextCanvas.Weight'.Semibold
-                            Width: =96
+                            Width: =Parent.Width*0.06
                             X: =0
                             Y: =0
                             ZIndex: =3
@@ -2019,8 +2019,8 @@ scrProjectManagement As screen:
                             Align: ='TextInputCanvas.Align'.Center
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
-                            FontSize: =12
-                            FontWeight: =FontWeight.Normal
+                            FontSize: =13
+                            FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.pages_affected
                             Width: =TextCanvas5_3.Width
@@ -2031,7 +2031,7 @@ scrProjectManagement As screen:
                         iptExclusionsStage As Dropdown.pcfdataset:
                             DefaultSelectedItems: =ThisItem.production_stage
                             DisplayMode: =DisplayMode.Edit
-                            FontSize: =12
+                            FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                             Items: =Choices(Exclusions.production_stage)
                             Width: =TextCanvas5.Width
@@ -2042,7 +2042,7 @@ scrProjectManagement As screen:
                         iptExclusionsStage_1 As Dropdown.pcfdataset:
                             DefaultSelectedItems: =ThisItem.SBU
                             DisplayMode: =DisplayMode.Edit
-                            FontSize: =12
+                            FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                             Items: =Choices(Exclusions.SBU)
                             Width: =TextCanvas5_4.Width
@@ -2053,7 +2053,7 @@ scrProjectManagement As screen:
                         iptExclusionsStage_2 As Dropdown.pcfdataset:
                             DefaultSelectedItems: =ThisItem.Banner
                             DisplayMode: =DisplayMode.Edit
-                            FontSize: =12
+                            FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                             Items: =Choices(Exclusions.Banner)
                             Width: =TextCanvas5_5.Width
@@ -2064,7 +2064,7 @@ scrProjectManagement As screen:
                         iptExclusionsStage_3 As Dropdown.pcfdataset:
                             DefaultSelectedItems: =ThisItem.rate_card_lookup
                             DisplayMode: =DisplayMode.Edit
-                            FontSize: =12
+                            FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                             Items: =Choices(Exclusions.rate_card_lookup)
                             Width: =TextCanvas5_6.Width
@@ -2078,8 +2078,8 @@ scrProjectManagement As screen:
                             DisplayMode: =DisplayMode.View
                             Font: =Font.'Segoe UI'
                             FontColor: =
-                            FontSize: =12
-                            FontWeight: =FontWeight.Normal
+                            FontSize: =13
+                            FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =Round(ThisItem.rate.Value,4)
                             Width: =TextCanvas5_7.Width
@@ -2093,8 +2093,8 @@ scrProjectManagement As screen:
                             DisplayMode: =DisplayMode.View
                             Font: =Font.'Segoe UI'
                             FontColor: =
-                            FontSize: =12
-                            FontWeight: =FontWeight.Normal
+                            FontSize: =13
+                            FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =Round(ThisItem.cost,4)
                             Width: =TextCanvas5_8.Width
@@ -2108,8 +2108,8 @@ scrProjectManagement As screen:
                             DisplayMode: =DisplayMode.View
                             Font: =Font.'Segoe UI'
                             FontColor: =
-                            FontSize: =12
-                            FontWeight: =FontWeight.Normal
+                            FontSize: =13
+                            FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
                             Mode: ='TextInputCanvas.Mode'.Multiline
                             Value: =ThisItem.'change details'
@@ -2117,6 +2117,36 @@ scrProjectManagement As screen:
                             X: =TextCanvas5_9.X
                             Y: =Gap
                             ZIndex: =8
+
+                        "DatePickerCanvas1 As 'Date picker'":
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontSize: =13
+                            FontWeight: =FontWeight.Semibold
+                            Format: ='DatePickerCanvas.Format'.Short
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Placeholder: ="Select a date..."
+                            SelectedDate: =ThisItem.schedule_date
+                            Width: =TextCanvas5_1.Width
+                            X: =TextCanvas5_1.X
+                            Y: =Gap
+                            ZIndex: =9
+
+                        "DatePickerCanvas1_1 As 'Date picker'":
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            FontSize: =13
+                            FontWeight: =FontWeight.Semibold
+                            Format: ='DatePickerCanvas.Format'.Short
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Placeholder: ="Select a date..."
+                            SelectedDate: =ThisItem.schedule_date
+                            Width: =TextCanvas5_2.Width
+                            X: =TextCanvas5_2.X
+                            Y: =Gap
+                            ZIndex: =10
 
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
