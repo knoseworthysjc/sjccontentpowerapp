@@ -2075,7 +2075,7 @@ scrProjectManagement As screen:
                         "iptExclusionsPages_1 As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
                             BasePaletteColor: =
-                            DisplayMode: =DisplayMode.Edit
+                            DisplayMode: =DisplayMode.View
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =12
@@ -2086,6 +2086,21 @@ scrProjectManagement As screen:
                             X: =TextCanvas5_7.X
                             Y: =Gap
                             ZIndex: =6
+
+                        "iptExclusionsPages_2 As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.View
+                            Font: =Font.'Segoe UI'
+                            FontColor: =
+                            FontSize: =12
+                            FontWeight: =FontWeight.Normal
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Value: =Round(ThisItem.cost,4)
+                            Width: =TextCanvas5_8.Width
+                            X: =TextCanvas5_8.X
+                            Y: =Gap
+                            ZIndex: =7
 
             conProjectManagementOffers As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
