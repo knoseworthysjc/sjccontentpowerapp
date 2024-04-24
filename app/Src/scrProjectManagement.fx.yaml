@@ -1854,14 +1854,33 @@ scrProjectManagement As screen:
                         ZIndex: =1
 
                         PowerBI1 As powerbi:
+                            AllowNewAPI: =true
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DashboardId: ="a079612f-c8d4-4a82-b5bf-64bae2d8743c"
                             Height: =Parent.Height
                             LayoutMinHeight: =Parent.Height
                             TileUrl: |-
-                                ="https://app.powerbi.com/embed?dashboardId=a079612f-c8d4-4a82-b5bf-64bae2d8743c&tileId=c55d698c-b879-4f9f-be04-5157b385b727&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUNBTkFEQS1DRU5UUkFMLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6e319&filter=Exclusions/Docket eq "&ddProjectFilter_1.Selected.Docket
+                                ="https://app.powerbi.com/embed?dashboardId=a079612f-c8d4-4a82-b5bf-64bae2d8743c&tileId=c55d698c-b879-4f9f-be04-5157b385b727&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUNBTkFEQS1DRU5UUkFMLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6e319&filter=Exclusions/Docket eq '"&Int(ddProjectFilter_1.Selected.Docket)&"'"
                             WorkspaceId: ="__my-workspace"
                             ZIndex: =1
+
+                        LinkCanvas1 As Link:
+                            Align: ='LinkCanvas.Align'.Center
+                            BasePaletteColor: =RGBA(5, 102, 178, 1)
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontSize: =16
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Text: ="View On PowerBI"
+                            URL: |-
+                                ="https://app.powerbi.com/groups/me/dashboards/a079612f-c8d4-4a82-b5bf-64bae2d8743c?ctid=da93ff71-8c1b-45f4-bd88-8e2c0cf3c6d0&pbi_source=linkShare"
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
 
                     Container32 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
