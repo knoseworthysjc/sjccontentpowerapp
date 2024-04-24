@@ -1840,6 +1840,7 @@ scrProjectManagement As screen:
                         Height: =32*5
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutGap: =Gap
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
@@ -1851,6 +1852,16 @@ scrProjectManagement As screen:
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         ZIndex: =1
+
+                        PowerBI1 As powerbi:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DashboardId: ="a079612f-c8d4-4a82-b5bf-64bae2d8743c"
+                            Height: =Parent.Height
+                            LayoutMinHeight: =Parent.Height
+                            TileUrl: |-
+                                ="https://app.powerbi.com/embed?dashboardId=a079612f-c8d4-4a82-b5bf-64bae2d8743c&tileId=c55d698c-b879-4f9f-be04-5157b385b727&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUNBTkFEQS1DRU5UUkFMLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6e319"
+                            WorkspaceId: ="__my-workspace"
+                            ZIndex: =1
 
                     Container32 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
