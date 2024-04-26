@@ -445,6 +445,62 @@ devProjectManagement As screen:
                                         Wrap: =false
                                         ZIndex: =2
 
+    conFunctionCtrl As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =463
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =346
+        X: =1573
+        Y: =390
+        ZIndex: =2
+
+        fnGetSeasons As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: =ClearCollect(colProjectManagementSeasons,ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord))
+            Text: ="fnGetSeasons"
+            Width: =96
+            X: =100
+            Y: =15
+            ZIndex: =1
+
+        fnGetProjects As Button:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            Text: ="fnGetProjects"
+            Width: =96
+            X: =100
+            Y: =62
+            ZIndex: =2
+
+        fnGetOffers As Button:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            Text: ="fnGetProjects"
+            Width: =96
+            X: =100
+            Y: =110
+            ZIndex: =3
+
+        fnGetPage As Button:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            Text: ="fnGetProjects"
+            Width: =96
+            X: =100
+            Y: =166
+            ZIndex: =4
+
     nav_container_9 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
         BorderThickness: =1
@@ -452,9 +508,9 @@ devProjectManagement As screen:
         Height: =CountRows(nav_gallery_9.AllItems)*(nav_gallery_9.TemplateHeight+nav_gallery_9.TemplatePadding*2)
         Visible: =showNav
         Width: =Parent.Width*0.2
-        X: =nav_icon_7.X+nav_icon_7.Width/2
+        X: =nav_icon_11.X-Self.Width+nav_icon_11.Width/2
         Y: =nav_icon_7.Height
-        ZIndex: =2
+        ZIndex: =3
 
         nav_gallery_9 As gallery.galleryVertical:
             BorderColor: =RGBA(0, 89, 178, 1)
@@ -515,60 +571,4 @@ devProjectManagement As screen:
                 X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
                 Y: =Parent.TemplatePadding
                 ZIndex: =3
-
-    conFunctionCtrl As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Light
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =706
-        RadiusBottomLeft: =4
-        RadiusBottomRight: =4
-        RadiusTopLeft: =4
-        RadiusTopRight: =4
-        Width: =346
-        X: =1573
-        Y: =150
-        ZIndex: =3
-
-        fnGetSeasons As Button:
-            DisplayMode: =DisplayMode.Edit
-            Height: =32
-            OnSelect: =ClearCollect(colProjectManagementSeasons,ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord))
-            Text: ="fnGetSeasons"
-            Width: =96
-            X: =100
-            Y: =15
-            ZIndex: =1
-
-        fnGetProjects As Button:
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            Text: ="fnGetProjects"
-            Width: =96
-            X: =100
-            Y: =62
-            ZIndex: =2
-
-        fnGetOffers As Button:
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            Text: ="fnGetProjects"
-            Width: =96
-            X: =100
-            Y: =110
-            ZIndex: =3
-
-        fnGetPage As Button:
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            Text: ="fnGetProjects"
-            Width: =96
-            X: =100
-            Y: =166
-            ZIndex: =4
 
