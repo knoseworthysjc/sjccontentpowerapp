@@ -1,18 +1,218 @@
 devProjectManagement As screen:
     Fill: =RGBA(232, 232, 232, 1)
 
-    Container11 As groupContainer.horizontalAutoLayoutContainer:
+    conRoot As groupContainer.horizontalAutoLayoutContainer:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutGap: =Gap
         LayoutMode: =LayoutMode.Auto
         LayoutWrap: =true
-        PaddingBottom: =Gap
-        PaddingLeft: =Gap
-        PaddingRight: =Gap
-        PaddingTop: =Gap
         Width: =Parent.Width
         Y: |
             =0
         ZIndex: =1
+
+        conNav As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            FillPortions: =0
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =Gap
+            LayoutMinHeight: =100
+            LayoutMinWidth: =Parent.Width*0.15
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =0   
+            Width: =Parent.Width*0.15
+            ZIndex: =1
+
+            Container35 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                Fill: =RGBA(13, 50, 61, 1)
+                FillPortions: =0
+                Height: =32
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =Gap
+                PaddingLeft: =Gap
+                PaddingRight: =Gap
+                PaddingTop: =Gap
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =1
+
+                nav_icon_11 As icon.Waffle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =0
+                    Height: =30
+                    Icon: =Icon.Waffle
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: |
+                        =Self.Height
+                    OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
+                    Width: =Self.Height
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+            Container36 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Fill: =RGBA(214, 221, 224, 1)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =Gap
+                PaddingLeft: =Gap
+                PaddingRight: =Gap
+                PaddingTop: =Gap
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+        conContent As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =Gap
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =Gap
+            PaddingLeft: =Gap
+            PaddingRight: =Gap
+            PaddingTop: =Gap
+            ZIndex: =2
+
+            Container37 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                Fill: =RGBA(13, 50, 61, 1)
+                FillPortions: =0
+                Height: =32
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =1
+
+            Container37_1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                Fill: =RGBA(214, 221, 224, 1)
+                FillPortions: =0
+                Height: =32
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+            Container37_2 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                Fill: =RGBA(214, 221, 224, 1)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =3
+
+    nav_container_9 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 51, 102, 1)
+        BorderThickness: =1
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =CountRows(nav_gallery_9.AllItems)*(nav_gallery_9.TemplateHeight+nav_gallery_9.TemplatePadding*2)
+        Visible: =showNav
+        Width: =Parent.Width*0.2
+        X: =nav_icon_7.X+nav_icon_7.Width/2
+        Y: =nav_icon_7.Height
+        ZIndex: =2
+
+        nav_gallery_9 As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height
+            Items: |-
+                =Table(
+                {Title:"Edit Offers",icon:Icon.Home,screen:scrOfferEdit},
+                {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
+                {Title:"Images",icon:Icon.Folder,screen:images_screen},
+                {Title:"Products",icon:Icon.Information,screen:products_screen},
+                {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
+                )
+            Layout: =Layout.Vertical
+            TemplateSize: =45
+            Width: =Parent.Width
+            ZIndex: =1
+
+            nav_label_9 As label:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 222, 240, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                PaddingLeft: =nav_label_icon_9.Width+nav_label_icon_9.X+5
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
+            nav_label_icon_9 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =ThisItem.icon
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+            nav_label_arrow_3 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =Icon.NextArrow
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
+                Y: =Parent.TemplatePadding
+                ZIndex: =3
 
