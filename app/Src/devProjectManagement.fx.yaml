@@ -1,0 +1,18 @@
+devProjectManagement As screen:
+    Fill: =RGBA(232, 232, 232, 1)
+
+    Container11 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutGap: =Gap
+        LayoutMode: =LayoutMode.Auto
+        LayoutWrap: =true
+        PaddingBottom: =Gap
+        PaddingLeft: =Gap
+        PaddingRight: =Gap
+        PaddingTop: =Gap
+        Width: =Parent.Width
+        Y: |
+            =0
+        ZIndex: =1
+
