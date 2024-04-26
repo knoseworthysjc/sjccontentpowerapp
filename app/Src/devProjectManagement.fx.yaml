@@ -468,7 +468,8 @@ devProjectManagement As screen:
                 {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
                 )
             Layout: =Layout.Vertical
-            TemplateSize: =45
+            TemplatePadding: =Gap/2
+            TemplateSize: =32
             Width: =Parent.Width
             ZIndex: =1
 
@@ -479,6 +480,7 @@ devProjectManagement As screen:
                 Fill: =RGBA(204, 222, 240, 1)
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                 OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
                 PaddingLeft: =nav_label_icon_9.Width+nav_label_icon_9.X+5
                 Size: =13
