@@ -565,7 +565,7 @@ devProjectManagement As screen:
                             Fill: =RGBA(255, 255, 255, 1)
                             Height: |
                                 =150
-                            Items: =colProjectManagementSelectedPages
+                            Items: =Filter(colProjectManagementSelectedPages,assigned_project.Value=ThisItem.Title)
                             Layout: =Layout.Vertical
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplateSize: |
@@ -625,7 +625,7 @@ devProjectManagement As screen:
                                     Height: =28
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
-                                    Size: =16
+                                    Size: =14
                                     Text: =ThisItem.Title
                                     Weight: ='TextCanvas.Weight'.Semibold
                                     Width: =96
