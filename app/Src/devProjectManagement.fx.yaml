@@ -386,7 +386,7 @@ devProjectManagement As screen:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
                         Fill: =RGBA(255, 255, 255, 1)
-                        Items: =AddColumns(ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season), Value) + 2),ThisRecord),Expanded,false)
+                        Items: =colProjectManagementProjects
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =Parent.Width-Gap*2
@@ -455,7 +455,7 @@ devProjectManagement As screen:
                                     Height: =32
                                     LayoutMinHeight: =32
                                     Size: =10
-                                    Text: =ThisItem.Value
+                                    Text: =ThisItem.Title
                                     Width: =Parent.Width
                                     ZIndex: =2
 
@@ -562,7 +562,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
-            Text: ="fnGetProjects"
+            Text: ="fnGetOffers"
             Width: =96
             X: =100
             Y: =110
@@ -573,7 +573,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
-            Text: ="fnGetProjects"
+            Text: ="fnGetPages"
             Width: =96
             X: =100
             Y: =166
