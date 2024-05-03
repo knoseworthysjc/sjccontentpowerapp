@@ -3230,7 +3230,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "fnGetPage": {
+    "fnGetPages": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "X",
@@ -3267,14 +3267,14 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "fnGetPage",
+      "Name": "fnGetPages",
       "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
           "Category": "Data",
-          "PropertyName": "Text",
+          "PropertyName": "FontColor",
           "RuleProviderType": "Unknown"
         },
         {
@@ -3284,27 +3284,12 @@
         },
         {
           "Category": "Data",
-          "PropertyName": "FontColor",
+          "PropertyName": "Text",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
-          "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "DisplayMode",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Width",
+          "PropertyName": "X",
           "RuleProviderType": "Unknown"
         },
         {
@@ -3314,13 +3299,28 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "X",
+          "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "DisplayMode",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",

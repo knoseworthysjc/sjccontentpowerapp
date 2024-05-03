@@ -466,7 +466,7 @@ devProjectManagement As screen:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderStyle: =BorderStyle.None
                         DelayItemLoading: =true
-                        Items: =colProjectManagementProjects
+                        Items: =SortByColumns(colProjectManagementProjects,"Title",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =50
@@ -518,27 +518,7 @@ devProjectManagement As screen:
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 LayoutMinHeight: =200
                                 LayoutMinWidth: =165
-                                OnChange: |
-                                    =If(
-                                        IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),
-                                        Notify("Project/Page Required For Offer Creation"),
-                                        Collect(
-                                            colSelectedOffers,
-                                            Patch(
-                                                Offers,
-                                                Defaults(Offers),
-                                                {
-                                                    assigned_project: {
-                                                        Id: ddProjectFilter.Selected.ID,
-                                                        Value: ddProjectFilter.Selected.Title
-                                                    },
-                                                    page_from: ddPageFilter.Selected.page_from,
-                                                    layout_position: 0,
-                                                    Adblock: 0
-                                                }
-                                            )
-                                        )
-                                    );
+                                OnChange: =Select(fnGetPages);
                                 Text: ="Expand"
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Add Pages"
@@ -635,7 +615,7 @@ devProjectManagement As screen:
             Y: =110
             ZIndex: =3
 
-        fnGetPage As Button:
+        fnGetPages As Button:
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             FontColor: =
