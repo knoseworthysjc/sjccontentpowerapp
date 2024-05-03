@@ -499,7 +499,6 @@ devProjectManagement As screen:
                         LayoutMinHeight: =287
                         LayoutMinWidth: =Parent.Width-Gap*2
                         LoadingSpinner: =LoadingSpinner.Data
-                        ShowScrollbar: =false
                         TemplateSize: =Container33_1.Height
                         Width: =Parent.Width-Gap*2
                         ZIndex: =7
@@ -507,9 +506,7 @@ devProjectManagement As screen:
                         Container33_1 As groupContainer.verticalAutoLayoutContainer:
                             DropShadow: =DropShadow.Light
                             Fill: =RGBA(214, 221, 224, 1)
-                            Height: |-
-                                =If(ThisItem.Expanded,
-                                Gallery7_1.AllItemsCount*32+32,32)
+                            Height: =If(ThisItem.Expanded,Parent.TemplateHeight-Parent.TemplateWidth-Gap*2,32)
                             LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMode: =LayoutMode.Auto
@@ -628,6 +625,88 @@ devProjectManagement As screen:
                                         Width: =Parent.Width
                                         Wrap: =false
                                         ZIndex: =2
+
+                    Gallery5 As gallery.variableTemplateHeightGallery:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Items: =colProjectManagementProjects
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =50
+                        LoadingSpinner: =LoadingSpinner.Data
+                        MaxTemplateSize: =Self.Height/4
+                        TemplateSize: =Container30.Height
+                        ZIndex: =8
+
+                        Container30 As groupContainer.verticalAutoLayoutContainer:
+                            BorderColor: =RGBA(13, 50, 61, 1)
+                            BorderThickness: =1
+                            DropShadow: =DropShadow.Semilight
+                            Fill: =RGBA(214, 221, 224, 1)
+                            Height: =If(ThisItem.Expanded,32+Gallery9.Height,32)
+                            LayoutAlignItems: =LayoutAlignItems.Stretch
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutGap: =Gap
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =Gap
+                            PaddingRight: =Gap
+                            Width: =Parent.TemplateWidth-Gap*2
+                            X: =Gap
+                            Y: =Gap
+                            ZIndex: =1
+
+                            Container31 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                DropShadow: =DropShadow.Light
+                                FillPortions: =0
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                ZIndex: =1
+
+                                ButtonCanvas3 As Button:
+                                    BasePaletteColor: =
+                                    DisplayMode: =DisplayMode.Edit
+                                    FillPortions: =1
+                                    FontColor: =
+                                    Height: =32
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: |-
+                                        =Switch(ThisItem.Expanded,true,Patch(colProjectManagementProjects,ThisItem,{Expanded:false}),Patch(colProjectManagementProjects,ThisItem,{Expanded:true}))
+                                    Text: =ThisItem.Title
+                                    Width: =96
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
+
+                            Gallery9 As gallery.variableTemplateHeightGallery:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =RGBA(0, 89, 178, 1)
+                                DelayItemLoading: =true
+                                Height: =350
+                                Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ThisItem.Title),page_sort,Value(page_from)),"page_sort",SortOrder.Ascending)
+                                Layout: =Layout.Vertical
+                                LoadingSpinner: =LoadingSpinner.Data
+                                ShowNavigation: =true
+                                ShowScrollbar: =false
+                                TemplatePadding: =50
+                                TemplateSize: =280
+                                Visible: =ThisItem.Expanded
+                                ZIndex: =1
+
+                            TextCanvas7 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =32
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Width: =96
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
 
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
