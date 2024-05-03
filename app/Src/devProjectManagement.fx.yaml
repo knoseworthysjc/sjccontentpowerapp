@@ -461,93 +461,6 @@ devProjectManagement As screen:
                             Y: =(Self.BorderThickness*8)/2
                             ZIndex: =4
 
-                    Gallery5 As gallery.galleryVertical:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        BorderStyle: =BorderStyle.None
-                        DelayItemLoading: =true
-                        Items: =SortByColumns(colProjectManagementProjects,"Title",SortOrder.Ascending)
-                        Layout: =Layout.Vertical
-                        LayoutMinHeight: =287
-                        LayoutMinWidth: =50
-                        LoadingSpinner: =LoadingSpinner.Data
-                        ShowScrollbar: =false
-                        TemplatePadding: =Gap
-                        TemplateSize: =Container30.Height+Gallery10.Height
-                        ZIndex: =3
-
-                        Gallery10 As gallery.galleryVertical:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            DelayItemLoading: =true
-                            Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
-                            Items: =colProjectManagementSelectedPages
-                            Layout: =Layout.Vertical
-                            LoadingSpinner: =LoadingSpinner.Data
-                            TemplateSize: =Self.AllItemsCount*32
-                            Visible: =ThisItem.Expanded
-                            Width: =272
-                            Y: =Container30.Y+Container30.Height+Gap
-                            ZIndex: =1
-
-                        Container30 As groupContainer.horizontalAutoLayoutContainer:
-                            BorderColor: =RGBA(13, 50, 61, 1)
-                            BorderThickness: =1
-                            DropShadow: =DropShadow.Light
-                            Fill: =RGBA(214, 221, 224, 1)
-                            Height: =32
-                            LayoutAlignItems: =LayoutAlignItems.Center
-                            LayoutMode: =LayoutMode.Auto
-                            PaddingTop: =4
-                            RadiusBottomLeft: =4
-                            RadiusBottomRight: =4
-                            RadiusTopLeft: =4
-                            RadiusTopRight: =4
-                            Width: =272
-                            ZIndex: =2
-
-                            "Icon1_19 As 'Fluent Icon (1.0.19)'":
-                                BorderColor: =""
-                                BorderRadius: =0
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: |-
-                                    ="#003E7D"
-                                FontSize: =0
-                                Height: =24
-                                IconColor: |-
-                                    ="#003E7D"
-                                IconName: =If(ThisItem.Expanded,"CollapseContentSingle","ExploreContentSingle")
-                                IconSize: =26
-                                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                LayoutMinHeight: =200
-                                LayoutMinWidth: =165
-                                OnChange: |-
-                                    =If(ThisItem.Expanded=false,
-                                    ForAll(Filter(colProjectManagementProjects,Expanded=true),Patch(colProjectManagementProjects,ThisRecord,{Expanded:false}));
-                                    Patch(colProjectManagementProjects,ThisItem,{Expanded:!ThisItem.Expanded});,Patch(colProjectManagementProjects,ThisItem,{Expanded:false}));
-                                    Select(fnGetPages);
-                                Text: ="Expand"
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Tooltip: ="Add Pages"
-                                Width: =32
-                                X: =0
-                                Y: =0
-                                ZIndex: =1
-
-                            TextCanvas7 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FillPortions: =1
-                                Font: =Font.'Segoe UI'
-                                Height: =28
-                                LayoutMinHeight: =32
-                                LayoutMinWidth: =96
-                                Size: =16
-                                Text: =ThisItem.Title
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =96
-                                X: =0
-                                Y: =0
-                                ZIndex: =2
-
                     Gallery11 As gallery.variableTemplateHeightGallery:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -556,20 +469,20 @@ devProjectManagement As screen:
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
-                        TemplateSize: =280
+                        TemplateSize: =Gallery10_1.Height
                         ZIndex: =4
 
                         Gallery10_1 As gallery.galleryVertical:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
                             Fill: =RGBA(255, 255, 255, 1)
-                            Height: |
-                                =150
+                            Height: =Self.TemplateHeight*Self.AllItemsCount
                             Items: =Filter(colProjectManagementSelectedPages,assigned_project.Value=ThisItem.Title)
                             Layout: =Layout.Vertical
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplateSize: |
                                 =32
+                            Visible: =ThisItem.Expanded
                             Width: =272
                             X: =Gap
                             Y: |
@@ -732,82 +645,6 @@ devProjectManagement As screen:
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
                     ZIndex: =2
-
-                    "Gallery12 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DelayItemLoading: =true
-                        Items: =Filter(FlyerPages,Gallery11.Selected.Title=assigned_project.Value)
-                        Layout: =Layout.Vertical
-                        LoadingSpinner: =LoadingSpinner.Data
-                        TemplatePadding: =0
-                        TemplateSize: =92
-                        ZIndex: =1
-
-                        Image6 As image:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Height: =60
-                            OnSelect: =Select(Parent)
-                            RadiusBottomLeft: =8
-                            RadiusBottomRight: =8
-                            RadiusTopLeft: =8
-                            RadiusTopRight: =8
-                            Width: =60
-                            X: =16
-                            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                            ZIndex: =1
-
-                        Title6 As label:
-                            Color: =RGBA(50, 49, 48, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                            Height: =Self.Size * 1.8
-                            OnSelect: =Select(Parent)
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =ThisItem.Title
-                            VerticalAlign: =VerticalAlign.Top
-                            Width: =Parent.TemplateWidth - Image6.Width - 137
-                            X: =91
-                            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                            ZIndex: =2
-
-                        NextArrow5 As icon.ChevronRight:
-                            AccessibleLabel: =Self.Tooltip
-                            Color: =RGBA(166, 166, 166, 1)
-                            Height: =50
-                            Icon: =Icon.ChevronRight
-                            OnSelect: =Select(Parent)
-                            PaddingBottom: =16
-                            PaddingLeft: =16
-                            PaddingRight: =16
-                            PaddingTop: =16
-                            Tooltip: ="View item details"
-                            Width: =50
-                            X: =Parent.TemplateWidth - Self.Width - 12
-                            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                            ZIndex: =3
-
-                        Separator5 As rectangle:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Fill: =RGBA(255, 255, 255, 1)
-                            Height: =8
-                            OnSelect: =Select(Parent)
-                            Width: =Parent.TemplateWidth
-                            Y: =Parent.TemplateHeight - Self.Height
-                            ZIndex: =4
-
-                        Rectangle7 As rectangle:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Fill: =RGBA(0, 89, 178, 1)
-                            Height: =Parent.TemplateHeight - Separator5.Height
-                            OnSelect: =Select(Parent)
-                            Visible: =ThisItem.IsSelected
-                            Width: =4
-                            ZIndex: =5
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
