@@ -168,11 +168,13 @@ devProjectManagement As screen:
                         IconSize: =40
                         IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
-                        LayoutMinWidth: =200
+                        LayoutMinWidth: =32
                         OnChange: =If(varPMLeftPanelVisible,Set(varPMLeftPanelVisible,false),Set(varPMLeftPanelVisible,true))
+                        TabIndex: =0
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Expand Collapse Side Pane"
-                        Width: =32
+                        Width: |
+                            =32
                         X: =0
                         Y: =0
                         ZIndex: =2
@@ -198,146 +200,166 @@ devProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =2
 
-                    lblSeason_4 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(13, 50, 61, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
-                        LayoutMinWidth: =Parent.Width-Gap*2
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Year"
-                        Width: =Parent.Width-Gap*2
-                        X: =Parent.Width/12
-                        Y: =1
+                    Container11 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =32
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =1
 
-                    ddPageFilterSeason As dropdown:
-                        AllowEmptySelection: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        BorderThickness: =1
-                        ChevronBackground: =RGBA(0, 51, 102, 1)
-                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                        Default: =Year(Now())
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        Items: =colProjectManagementSeasons
-                        LayoutMinHeight: =30
-                        LayoutMinWidth: =Parent.Width-Gap*2
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =5
-                        PaddingRight: =5
-                        PaddingTop: =0
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 89, 178, 1)
-                        Reset: =true
-                        SelectionFill: =RGBA(0, 51, 102, 1)
-                        Width: =Parent.Width-Gap*2
-                        ZIndex: =2
+                        lblSeason_4 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(13, 50, 61, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            LayoutMinHeight: =30
+                            LayoutMinWidth: =32
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingTop: =0
+                            Size: =11
+                            TabIndex: =0
+                            Text: ="Year"
+                            Width: =50
+                            X: =Parent.Width/12
+                            Y: =1
+                            ZIndex: =1
 
-                    lblWeek_5 As label:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Color: =RGBA(13, 50, 61, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: =30
-                        LayoutMinHeight: =30
-                        LayoutMinWidth: =Parent.Width-Gap*2
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingTop: =0
-                        Size: =11
-                        Text: ="Week"
-                        Width: =Parent.Width-Gap*2
-                        X: =ddPageFilterSeason.X+ddPageFilterSeason.Width
-                        Y: =1
-                        ZIndex: =3
+                        ddPageFilterSeason As dropdown:
+                            AllowEmptySelection: =true
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderThickness: =1
+                            ChevronBackground: =RGBA(0, 51, 102, 1)
+                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                            ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                            Default: =Year(Now())
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            Items: =colProjectManagementSeasons
+                            LayoutMinHeight: =30
+                            LayoutMinWidth: =32
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =5
+                            PaddingRight: =5
+                            PaddingTop: =0
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =RGBA(0, 89, 178, 1)
+                            Reset: =true
+                            SelectionFill: =RGBA(0, 51, 102, 1)
+                            Width: |
+                                =32
+                            ZIndex: =2
 
-                    iptPageFIlterWeeks As text:
-                        Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        Clear: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Default: |
-                            =WeekNum(Now())+3
-                        DelayOutput: =true
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        FocusedBorderThickness: =4
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Format: =TextFormat.Number
-                        Height: =30
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        LayoutMinHeight: =30
-                        LayoutMinWidth: =Parent.Width-Gap*2
-                        OnChange: |-
-                            =Clear(colProjectManagementSelectedPages);
-                            Clear(colProjectManagementSelectedOffers);
-                            ClearCollect(
-                                colProjectManagementProjects,
-                                If(
-                                    iptPageFIlterWeeks.Text = "",
-                                    AddColumns(
-                                        SortByColumns(
-                                            Filter(
-                                                Projects,
-                                                Season.Value = ddPageFilterSeason.Selected.Value
+                        lblWeek_5 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(13, 50, 61, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            LayoutMinHeight: =30
+                            LayoutMinWidth: =40
+                            minimumHeight: =30
+                            PaddingBottom: =0
+                            PaddingTop: =0
+                            Size: =11
+                            TabIndex: =0
+                            Text: ="Week"
+                            Width: =50
+                            X: =ddPageFilterSeason.X+ddPageFilterSeason.Width
+                            Y: =1
+                            ZIndex: =3
+
+                        iptPageFIlterWeeks As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Clear: =true
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: |
+                                =WeekNum(Now())+3
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Format: =TextFormat.Number
+                            Height: =32
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LayoutMinHeight: =30
+                            LayoutMinWidth: =32
+                            OnChange: |-
+                                =Clear(colProjectManagementSelectedPages);
+                                Clear(colProjectManagementSelectedOffers);
+                                ClearCollect(
+                                    colProjectManagementProjects,
+                                    If(
+                                        iptPageFIlterWeeks.Text = "",
+                                        AddColumns(
+                                            SortByColumns(
+                                                Filter(
+                                                    Projects,
+                                                    Season.Value = ddPageFilterSeason.Selected.Value
+                                                ),
+                                                "Week",
+                                                SortOrder.Descending,
+                                                "Title",
+                                                SortOrder.Ascending
                                             ),
-                                            "Week",
-                                            SortOrder.Descending,
-                                            "Title",
-                                            SortOrder.Ascending
+                                            Expanded,
+                                            false
                                         ),
-                                        Expanded,
-                                        false
-                                    ),
-                                    AddColumns(
-                                        SortByColumns(
-                                            Filter(
-                                                Projects,
-                                                Season.Value = ddPageFilterSeason.Selected.Value And Week = Value(iptPageFIlterWeeks.Text)
+                                        AddColumns(
+                                            SortByColumns(
+                                                Filter(
+                                                    Projects,
+                                                    Season.Value = ddPageFilterSeason.Selected.Value And Week = Value(iptPageFIlterWeeks.Text)
+                                                ),
+                                                "Week",
+                                                SortOrder.Descending,
+                                                "Title",
+                                                SortOrder.Ascending
                                             ),
-                                            "Week",
-                                            SortOrder.Descending,
-                                            "Title",
-                                            SortOrder.Ascending
-                                        ),
-                                        Expanded,
-                                        false
+                                            Expanded,
+                                            false
+                                        )
                                     )
                                 )
-                            )
-                        PaddingBottom: =0
-                        PaddingLeft: =5
-                        PaddingTop: =0
-                        Reset: =true
-                        Size: =11
-                        Width: =Parent.Width-Gap*2
-                        X: =lblWeek_5.X+lblWeek_5.Width
-                        Y: =(Self.BorderThickness*8)/2
-                        ZIndex: =4
+                            PaddingBottom: =0
+                            PaddingLeft: =5
+                            PaddingTop: =0
+                            Reset: =true
+                            Size: =11
+                            Width: |
+                                =32
+                            X: =lblWeek_5.X+lblWeek_5.Width
+                            Y: =(Self.BorderThickness*8)/2
+                            ZIndex: =4
 
                     lblProject_4 As label:
                         Align: =Align.Center
@@ -356,7 +378,7 @@ devProjectManagement As screen:
                         Text: ="Projects"
                         Width: =Parent.Width-Gap*2
                         X: =iptPageFIlterWeeks.Width+iptPageFIlterWeeks.X
-                        ZIndex: =5
+                        ZIndex: =6
 
                     Gallery6_1 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
@@ -372,7 +394,7 @@ devProjectManagement As screen:
                         ShowScrollbar: =false
                         TemplateSize: =Container33_1.Height
                         Width: =Parent.Width-Gap*2
-                        ZIndex: =6
+                        ZIndex: =7
 
                         Container33_1 As groupContainer.verticalAutoLayoutContainer:
                             DropShadow: =DropShadow.Light
