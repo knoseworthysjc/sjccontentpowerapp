@@ -479,13 +479,14 @@ devProjectManagement As screen:
                         Gallery10 As gallery.galleryVertical:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
-                            Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,32)
-                            Items: =CustomGallerySample
+                            Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
+                            Items: =colProjectManagementSelectedPages
                             Layout: =Layout.Vertical
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplateSize: =Self.AllItemsCount*32
                             Visible: =ThisItem.Expanded
                             Width: =272
+                            Y: =Container30.Y+Container30.Height+Gap
                             ZIndex: =1
 
                         Container30 As groupContainer.horizontalAutoLayoutContainer:
@@ -514,6 +515,154 @@ devProjectManagement As screen:
                                 Height: =24
                                 IconColor: |-
                                     ="#003E7D"
+                                IconName: =If(ThisItem.Expanded,"CollapseContentSingle","ExploreContentSingle")
+                                IconSize: =26
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =165
+                                OnChange: |-
+                                    =If(ThisItem.Expanded=false,
+                                    ForAll(Filter(colProjectManagementProjects,Expanded=true),Patch(colProjectManagementProjects,ThisRecord,{Expanded:false}));
+                                    Patch(colProjectManagementProjects,ThisItem,{Expanded:!ThisItem.Expanded});,Patch(colProjectManagementProjects,ThisItem,{Expanded:false}));
+                                    Select(fnGetPages);
+                                Text: ="Expand"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Tooltip: ="Add Pages"
+                                Width: =32
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                            TextCanvas7 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                FillPortions: =1
+                                Font: =Font.'Segoe UI'
+                                Height: =28
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =16
+                                Text: =ThisItem.Title
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =96
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                    Gallery11 As gallery.variableTemplateHeightGallery:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Items: =SortByColumns(colProjectManagementProjects,"Title",SortOrder.Ascending)
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateSize: =280
+                        ZIndex: =4
+
+                        Gallery10_1 As gallery.galleryVertical:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DelayItemLoading: =true
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: |
+                                =150
+                            Items: =colProjectManagementSelectedPages
+                            Layout: =Layout.Vertical
+                            LoadingSpinner: =LoadingSpinner.Data
+                            TemplateSize: |
+                                =32
+                            Width: =272
+                            X: =Gap
+                            Y: |
+                                =32
+                            ZIndex: =1
+
+                            Container30_2 As groupContainer.horizontalAutoLayoutContainer:
+                                BorderColor: =RGBA(13, 50, 61, 1)
+                                BorderThickness: =1
+                                DropShadow: =DropShadow.Light
+                                Fill: =RGBA(214, 221, 224, 1)
+                                Height: =1
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =Gap
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingTop: =4
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =262
+                                ZIndex: =2
+
+                                "Icon1_21 As 'Fluent Icon (1.0.19)'":
+                                    BorderColor: =""
+                                    BorderRadius: =0
+                                    DisplayMode: =DisplayMode.Edit
+                                    FontColor: |-
+                                        ="#003E7D"
+                                    FontSize: =0
+                                    Height: =24
+                                    IconColor: |-
+                                        ="#003E7D"
+                                    IconName: ="DocumentSet"
+                                    IconSize: =26
+                                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =165
+                                    OnChange: =
+                                    Text: ="Expand"
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                    Tooltip: ="Add Pages"
+                                    Width: =32
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
+
+                                TextCanvas7_2 As Text:
+                                    DisplayMode: =DisplayMode.Edit
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: =
+                                    Height: =28
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Size: =16
+                                    Text: =ThisItem.Title
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =96
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                        Container30_1 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderColor: =RGBA(13, 50, 61, 1)
+                            BorderThickness: =1
+                            DropShadow: =DropShadow.Light
+                            Fill: =RGBA(214, 221, 224, 1)
+                            Height: =32
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutGap: =Gap
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingTop: =4
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =272
+                            X: =Gap
+                            Y: |
+                                =Gap
+                            ZIndex: =2
+
+                            "Icon1_20 As 'Fluent Icon (1.0.19)'":
+                                BorderColor: =""
+                                BorderRadius: =0
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: |-
+                                    ="#003E7D"
+                                FontSize: =0
+                                Height: =24
+                                IconColor: |-
+                                    ="#003E7D"
                                 IconName: ="ExploreContentSingle"
                                 IconSize: =26
                                 IconType: ='PowerCAT.Icon.IconType'.IconButon
@@ -532,10 +681,11 @@ devProjectManagement As screen:
                                 Y: =0
                                 ZIndex: =1
 
-                            TextCanvas7 As Text:
+                            TextCanvas7_1 As Text:
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
+                                FontColor: =
                                 Height: =28
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
