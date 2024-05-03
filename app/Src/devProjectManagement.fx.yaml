@@ -473,17 +473,18 @@ devProjectManagement As screen:
                         LoadingSpinner: =LoadingSpinner.Data
                         ShowScrollbar: =false
                         TemplatePadding: =Gap
-                        TemplateSize: =32+Gap
+                        TemplateSize: =Container30.Height+Gallery10.Height
                         ZIndex: =3
 
                         Gallery10 As gallery.galleryVertical:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
-                            Height: =36
+                            Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,32)
                             Items: =CustomGallerySample
                             Layout: =Layout.Vertical
                             LoadingSpinner: =LoadingSpinner.Data
-                            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                            TemplateSize: =Self.AllItemsCount*32
+                            Visible: =ThisItem.Expanded
                             Width: =272
                             ZIndex: =1
 
