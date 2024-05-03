@@ -359,6 +359,7 @@ devProjectManagement As screen:
                         ZIndex: =5
 
                     Gallery6_1 As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -437,6 +438,7 @@ devProjectManagement As screen:
                                     ZIndex: =2
 
                             Gallery7_1 As gallery.galleryVertical:
+                                '#CopilotOverlayLabel': ="Filtered"
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderColor: =RGBA(0, 89, 178, 1)
                                 DelayItemLoading: =true
@@ -511,7 +513,9 @@ devProjectManagement As screen:
         ZIndex: =2
 
         fnGetSeasons As Button:
+            BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
+            FontColor: =
             Height: =32
             OnSelect: =ClearCollect(colProjectManagementSeasons,ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord))
             Text: ="fnGetSeasons"
@@ -565,6 +569,7 @@ devProjectManagement As screen:
         ZIndex: =3
 
         nav_gallery_9 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(9, 33, 98, 1)
             BorderThickness: =1
             Height: =Parent.Height

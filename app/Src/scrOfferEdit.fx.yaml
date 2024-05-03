@@ -941,6 +941,7 @@ scrOfferEdit As screen:
                 ZIndex: =13
 
             galStatus As gallery.galleryHorizontal:
+                '#CopilotOverlayLabel': ="Filtered"
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
@@ -977,6 +978,7 @@ scrOfferEdit As screen:
             ZIndex: =3
 
             galSelectedOffers As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 89, 178, 1)
                 DelayItemLoading: =true
@@ -3522,6 +3524,7 @@ scrOfferEdit As screen:
                     ZIndex: =12
 
             galSelectedOfferOptions As gallery.galleryHorizontal:
+                '#CopilotOverlayLabel': ="Filtered"
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 62, 125, 1)
                 BorderThickness: =1
@@ -3684,6 +3687,7 @@ scrOfferEdit As screen:
                             ZIndex: =4
 
                             Gallery3 As gallery.galleryVertical:
+                                '#CopilotOverlayLabel': ="Filtered"
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderColor: =RGBA(107, 144, 179, 1)
                                 BorderThickness: =1
@@ -3803,6 +3807,7 @@ scrOfferEdit As screen:
                                     ZIndex: =4
 
                             Gallery3_2 As gallery.galleryVertical:
+                                '#CopilotOverlayLabel': ="Filtered"
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderColor: =RGBA(107, 144, 179, 1)
                                 BorderThickness: =1
@@ -4079,6 +4084,7 @@ scrOfferEdit As screen:
                                 ZIndex: =4
 
                         Gallery4 As gallery.galleryVertical:
+                            '#CopilotOverlayLabel': ="Filtered"
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =RGBA(107, 144, 179, 1)
                             BorderThickness: =1
@@ -4357,6 +4363,7 @@ scrOfferEdit As screen:
                         ZIndex: =1
 
                 "galAssignedProducts As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                    '#CopilotOverlayLabel': ="Filtered"
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
                     Items: =colSelectedOfferProducts
@@ -4468,6 +4475,7 @@ scrOfferEdit As screen:
                 ZIndex: =7
 
                 galRelistResults_2 As gallery.galleryVertical:
+                    '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(107, 144, 179, 1)
                     BorderThickness: =1
@@ -4600,6 +4608,7 @@ scrOfferEdit As screen:
                             ZIndex: =4
 
                     previewOffer_assets_3 As gallery.galleryHorizontal:
+                        '#CopilotOverlayLabel': ="Filtered"
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Height: =previewOfferContainer_1.Y-Self.Y
                         Items: =ThisItem.assigned_images
@@ -4864,6 +4873,7 @@ scrOfferEdit As screen:
                 ZIndex: =9
 
                 Gallery3_1 As gallery.galleryVertical:
+                    '#CopilotOverlayLabel': ="Filtered"
                     BorderColor: =RGBA(107, 144, 179, 1)
                     BorderThickness: =1
                     DelayItemLoading: =true
@@ -4930,6 +4940,7 @@ scrOfferEdit As screen:
                 ZIndex: =10
 
                 "galSelectedOfferHistory As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+                    '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
@@ -5141,6 +5152,7 @@ scrOfferEdit As screen:
                 ZIndex: =2
 
         galRelistResults_1 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(107, 144, 179, 1)
             BorderThickness: =1
             Fill: =RGBA(107, 144, 179, 0.05)
@@ -5272,6 +5284,7 @@ scrOfferEdit As screen:
                     ZIndex: =4
 
             previewOffer_assets_2 As gallery.galleryHorizontal:
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(0, 89, 178, 1)
                 Height: =previewOfferContainer.Y-Self.Y
                 Items: =ThisItem.assigned_images
@@ -5522,6 +5535,7 @@ scrOfferEdit As screen:
         ZIndex: =3
 
         nav_gallery_7 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(0, 89, 178, 1)
             Height: =Parent.Height
             Items: |-

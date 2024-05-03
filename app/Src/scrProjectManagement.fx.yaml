@@ -476,6 +476,7 @@ scrProjectManagement As screen:
                 ZIndex: =2
 
                 galProjectManagementTabs As gallery.galleryHorizontal:
+                    '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
@@ -1071,6 +1072,7 @@ scrProjectManagement As screen:
                             ZIndex: =3
 
                     galProjectManagementPages As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderStyle: =BorderStyle.None
@@ -1164,6 +1166,7 @@ scrProjectManagement As screen:
                     ZIndex: =2
 
                     galProjectManagementPDFs As gallery.galleryHorizontal:
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -1244,6 +1247,7 @@ scrProjectManagement As screen:
                                 ZIndex: =2
 
                     galProjectManagementOffers As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtered"
                         BorderColor: =RGBA(107, 144, 179, 1)
                         BorderThickness: =1
                         Fill: =RGBA(107, 144, 179, 0.05)
@@ -1558,6 +1562,7 @@ scrProjectManagement As screen:
                                         ZIndex: =4
 
                         previewOffer_assets_4 As gallery.galleryHorizontal:
+                            '#CopilotOverlayLabel': ="Filtered"
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y)*0.6
                             Items: =ThisItem.assigned_images
@@ -1677,6 +1682,7 @@ scrProjectManagement As screen:
                         ZIndex: =1
 
                     "Gallery2 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -2192,6 +2198,7 @@ scrProjectManagement As screen:
                             ZIndex: =11
 
                     Gallery8 As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -2469,6 +2476,7 @@ scrProjectManagement As screen:
                         ZIndex: =1
 
                     Gallery6 As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -2546,6 +2554,7 @@ scrProjectManagement As screen:
                                     ZIndex: =2
 
                             Gallery7 As gallery.galleryVertical:
+                                '#CopilotOverlayLabel': ="Filtered"
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderColor: =RGBA(0, 89, 178, 1)
                                 DelayItemLoading: =true
@@ -2632,6 +2641,7 @@ scrProjectManagement As screen:
         ZIndex: =2
 
         nav_gallery_8 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(0, 89, 178, 1)
             Height: =Parent.Height
             Items: |-
