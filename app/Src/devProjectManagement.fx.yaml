@@ -388,7 +388,7 @@ devProjectManagement As screen:
                             Height: =32
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
-                            Items: =colProjectManagementSeasons
+                            Items: =ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord)
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
                             minimumHeight: =30
@@ -448,42 +448,8 @@ devProjectManagement As screen:
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
                             OnChange: |-
-                                =Clear(colProjectManagementSelectedPages);
-                                Clear(colProjectManagementSelectedOffers);
-                                ClearCollect(
-                                    colProjectManagementProjects,
-                                    If(
-                                        iptScreenFilterWeek.Text = "",
-                                        AddColumns(
-                                            SortByColumns(
-                                                Filter(
-                                                    Projects,
-                                                    Season.Value = ddScreenFilterYear.Selected.Value
-                                                ),
-                                                "Week",
-                                                SortOrder.Descending,
-                                                "Title",
-                                                SortOrder.Ascending
-                                            ),
-                                            Expanded,
-                                            false
-                                        ),
-                                        AddColumns(
-                                            SortByColumns(
-                                                Filter(
-                                                    Projects,
-                                                    Season.Value = ddScreenFilterYear.Selected.Value And Week = Value(iptScreenFilterWeek.Text)
-                                                ),
-                                                "Week",
-                                                SortOrder.Descending,
-                                                "Title",
-                                                SortOrder.Ascending
-                                            ),
-                                            Expanded,
-                                            false
-                                        )
-                                    )
-                                )
+                                =Select(fnGetProjects);
+                                Select(Self);
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingTop: =0
@@ -495,129 +461,106 @@ devProjectManagement As screen:
                             Y: =(Self.BorderThickness*8)/2
                             ZIndex: =4
 
-                    Gallery5 As gallery.variableTemplateHeightGallery:
+                    Gallery5 As gallery.galleryVertical:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderStyle: =BorderStyle.None
                         DelayItemLoading: =true
                         Items: =colProjectManagementProjects
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =50
                         LoadingSpinner: =LoadingSpinner.Data
-                        MaxTemplateSize: =Self.Height/4
-                        TemplateSize: =Container30.Height
+                        ShowScrollbar: =false
+                        TemplatePadding: =Gap
+                        TemplateSize: =32+Gap
                         ZIndex: =3
 
-                        Container30 As groupContainer.verticalAutoLayoutContainer:
-                            BorderColor: =RGBA(13, 50, 61, 1)
-                            BorderThickness: =1
-                            DropShadow: =DropShadow.Semilight
-                            Fill: =RGBA(214, 221, 224, 1)
-                            Height: =If(ThisItem.Expanded,32+Gallery7_2.Height,32)
-                            LayoutAlignItems: =LayoutAlignItems.Stretch
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutGap: =Gap
-                            LayoutMode: =LayoutMode.Auto
-                            PaddingLeft: =Gap
-                            PaddingRight: =Gap
-                            Width: =Parent.TemplateWidth-Gap*2
-                            X: =Gap
-                            Y: =Gap
+                        Gallery10 As gallery.galleryVertical:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DelayItemLoading: =true
+                            Height: =36
+                            Items: =CustomGallerySample
+                            Layout: =Layout.Vertical
+                            LoadingSpinner: =LoadingSpinner.Data
+                            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                            Width: =272
                             ZIndex: =1
 
-                            Container31 As groupContainer.horizontalAutoLayoutContainer:
-                                AlignInContainer: =AlignInContainer.SetByContainer
-                                DropShadow: =DropShadow.Light
-                                FillPortions: =0
-                                LayoutMode: =LayoutMode.Auto
-                                RadiusBottomLeft: =4
-                                RadiusBottomRight: =4
-                                RadiusTopLeft: =4
-                                RadiusTopRight: =4
+                        Container30 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderColor: =RGBA(13, 50, 61, 1)
+                            BorderThickness: =1
+                            DropShadow: =DropShadow.Light
+                            Fill: =RGBA(214, 221, 224, 1)
+                            Height: =32
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingTop: =4
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =272
+                            ZIndex: =2
+
+                            "Icon1_19 As 'Fluent Icon (1.0.19)'":
+                                BorderColor: =""
+                                BorderRadius: =0
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: |-
+                                    ="#003E7D"
+                                FontSize: =0
+                                Height: =24
+                                IconColor: |-
+                                    ="#003E7D"
+                                IconName: ="ExploreContentSingle"
+                                IconSize: =26
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =165
+                                OnChange: |
+                                    =If(
+                                        IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),
+                                        Notify("Project/Page Required For Offer Creation"),
+                                        Collect(
+                                            colSelectedOffers,
+                                            Patch(
+                                                Offers,
+                                                Defaults(Offers),
+                                                {
+                                                    assigned_project: {
+                                                        Id: ddProjectFilter.Selected.ID,
+                                                        Value: ddProjectFilter.Selected.Title
+                                                    },
+                                                    page_from: ddPageFilter.Selected.page_from,
+                                                    layout_position: 0,
+                                                    Adblock: 0
+                                                }
+                                            )
+                                        )
+                                    );
+                                Text: ="Expand"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Tooltip: ="Add Pages"
+                                Width: =32
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                            TextCanvas7 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                FillPortions: =1
+                                Font: =Font.'Segoe UI'
+                                Height: =28
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =16
+                                Text: =ThisItem.Title
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =96
+                                X: =0
+                                Y: =0
                                 ZIndex: =2
-
-                                ButtonCanvas3 As Button:
-                                    BasePaletteColor: =
-                                    DisplayMode: =DisplayMode.Edit
-                                    FillPortions: =1
-                                    FontColor: =
-                                    Height: =32
-                                    LayoutMinHeight: =32
-                                    LayoutMinWidth: =96
-                                    OnSelect: |-
-                                        =Switch(ThisItem.Expanded,true,Patch(colProjectManagementProjects,ThisItem,{Expanded:false}),Patch(colProjectManagementProjects,ThisItem,{Expanded:true}))
-                                    Text: =ThisItem.Title&"("&Gallery7_2.Visible&")"
-                                    Width: =96
-                                    X: =0
-                                    Y: =0
-                                    ZIndex: =1
-
-                            Gallery7_2 As gallery.galleryVertical:
-                                '#CopilotOverlayLabel': ="Filtered"
-                                AlignInContainer: =AlignInContainer.SetByContainer
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                DelayItemLoading: =true
-                                FillPortions: =0
-                                Height: =100 
-                                Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ThisItem.Title),page_sort,Value(page_from)),"page_sort",SortOrder.Ascending)
-                                Layout: =Layout.Vertical
-                                LayoutMinHeight: |
-                                    =100
-                                LayoutMinWidth: =Parent.Width
-                                LoadingSpinner: =LoadingSpinner.Data
-                                ShowScrollbar: =false
-                                TemplatePadding: =0
-                                TemplateSize: =32
-                                Width: =Parent.Width
-                                ZIndex: =3
-
-                                Container34_4 As groupContainer.horizontalAutoLayoutContainer:
-                                    DropShadow: =DropShadow.Light
-                                    Height: |
-                                        =32
-                                    LayoutAlignItems: =LayoutAlignItems.Stretch
-                                    LayoutMode: =LayoutMode.Auto
-                                    LayoutOverflowY: =LayoutOverflow.Scroll
-                                    RadiusBottomLeft: =4
-                                    RadiusBottomRight: =4
-                                    RadiusTopLeft: =4
-                                    RadiusTopRight: =4
-                                    Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                                    X: |
-                                        =Gap
-                                    Y: =Gap
-                                    ZIndex: =2
-
-                                    "Icon3_4 As 'Fluent Icon (1.0.19)'":
-                                        DisplayMode: =DisplayMode.Edit
-                                        Height: =32
-                                        IconColor: =""
-                                        IconName: ="ExploreContentSingle"
-                                        IconSize: =20
-                                        LayoutMinHeight: =32
-                                        LayoutMinWidth: =200
-                                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                        Width: =28
-                                        X: =0
-                                        Y: =0
-                                        ZIndex: =1
-
-                                    Label5_4 As label:
-                                        Align: =Align.Center
-                                        BorderColor: =RGBA(0, 89, 178, 1)
-                                        Color: =RGBA(0, 0, 0, 1)
-                                        DisabledColor: =RGBA(166, 166, 166, 1)
-                                        FillPortions: =1
-                                        Font: =Font.'Segoe UI'
-                                        FontWeight: =FontWeight.Semibold
-                                        Height: =32
-                                        LayoutMinHeight: =32
-                                        LayoutMinWidth: =50
-                                        Size: =10
-                                        Text: =ThisItem.Title
-                                        Width: =Parent.Width
-                                        Wrap: =false
-                                        ZIndex: =2
 
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -632,23 +575,48 @@ devProjectManagement As screen:
         Y: =390
         ZIndex: =2
 
-        fnGetSeasons As Button:
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            OnSelect: =ClearCollect(colProjectManagementSeasons,ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord))
-            Text: ="fnGetSeasons"
-            Width: =96
-            X: =100
-            Y: =15
-            ZIndex: =1
-
         fnGetProjects As Button:
             BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
+            OnSelect: |-
+                =Clear(colProjectManagementSelectedPages);
+                Clear(colProjectManagementSelectedOffers);
+                ClearCollect(
+                    colProjectManagementProjects,
+                    If(
+                        iptScreenFilterWeek.Text = "",
+                        AddColumns(
+                            SortByColumns(
+                                Filter(
+                                    Projects,
+                                    Season.Value = ddScreenFilterYear.Selected.Value
+                                ),
+                                "Week",
+                                SortOrder.Descending,
+                                "Title",
+                                SortOrder.Ascending
+                            ),
+                            Expanded,
+                            false
+                        ),
+                        AddColumns(
+                            SortByColumns(
+                                Filter(
+                                    Projects,
+                                    Season.Value = ddScreenFilterYear.Selected.Value And Week = Value(iptScreenFilterWeek.Text)
+                                ),
+                                "Week",
+                                SortOrder.Descending,
+                                "Title",
+                                SortOrder.Ascending
+                            ),
+                            Expanded,
+                            false
+                        )
+                    )
+                )
             Text: ="fnGetProjects"
             Width: =96
             X: =100
@@ -660,6 +628,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
+            OnSelect: =Clear(colProjectManagementSelectedOffers);
             Text: ="fnGetOffers"
             Width: =96
             X: =100
@@ -671,6 +640,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
+            OnSelect: =Clear(colProjectManagementSelectedPages);
             Text: ="fnGetPages"
             Width: =96
             X: =100
