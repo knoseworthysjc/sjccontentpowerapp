@@ -110,6 +110,14 @@
           "InvariantPropertyName": "CheckboxSize",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "OnCheck",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -367,6 +375,11 @@
           "Category": "Design",
           "PropertyName": "CheckboxSize",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnCheck",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultCheckboxStyle",
