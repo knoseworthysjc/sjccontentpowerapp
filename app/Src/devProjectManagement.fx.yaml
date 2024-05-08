@@ -16,7 +16,7 @@ devProjectManagement As screen:
         conHeaderPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Light
-            Fill: =RGBA(13, 50, 61, 1)
+            Fill: =ColorValue(theme.themePrimary)
             FillPortions: =0
             Height: =32
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -86,7 +86,7 @@ devProjectManagement As screen:
         conHeaderPMCtrl As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Light
-            Fill: =RGBA(214, 221, 224, 1)
+            Fill: =ColorValue(theme.themePrimary)
             FillPortions: =0
             Height: =32
             LayoutMinWidth: =250
@@ -209,6 +209,7 @@ devProjectManagement As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
+            Fill: =ColorValue(theme.themePrimary)
             Height: =Parent.Height
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutGap: =Gap
@@ -280,38 +281,6 @@ devProjectManagement As screen:
                             =32
                         X: =iptScreenFilterWeek.Width+iptScreenFilterWeek.X
                         ZIndex: =1
-
-                    "Icon6 As 'Fluent Icon (1.0.19)'":
-                        AlignInContainer: =AlignInContainer.Stretch
-                        BorderColor: =""
-                        BorderRadius: =0
-                        DisplayMode: =DisplayMode.Edit
-                        FontColor: =""
-                        Height: =Parent.Height-Gap*2
-                        HoverBorderColor: =""
-                        HoverFillColor: |-
-                            ="#0D323D"
-                        HoverFontColor: |-
-                            ="#FFFFFF"
-                        HoverIconColor: |-
-                            ="#FFFFFF"
-                        IconColor: |-
-                            ="#FFFFFF"
-                        IconName: ="OpenPane"
-                        IconSize: =64
-                        IconType: ='PowerCAT.Icon.IconType'.IconButon
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: |
-                            =30
-                        OnChange: =If(varPMLeftPanelVisible,Set(varPMLeftPanelVisible,false),Set(varPMLeftPanelVisible,true))
-                        TabIndex: =0
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Tooltip: ="Expand Collapse Side Pane"
-                        Width: |
-                            =32
-                        X: =0
-                        Y: =0
-                        ZIndex: =2
 
                 Container36 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
