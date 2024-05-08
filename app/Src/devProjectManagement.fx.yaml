@@ -516,7 +516,6 @@ devProjectManagement As screen:
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
-                LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -562,14 +561,15 @@ devProjectManagement As screen:
                     LayoutMinHeight: =287
                     LoadingSpinner: =LoadingSpinner.Data
                     ShowScrollbar: =false
-                    TemplatePadding: =Gap/2
+                    TemplatePadding: |
+                        =1
                     TemplateSize: =Self.Width/12
                     ZIndex: =1
 
                     Rectangle8_1 As rectangle:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderStyle: =BorderStyle.None
-                        Fill: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,RGBA(0, 0, 0, 1),RGBA(214, 221, 224, 1))
+                        Fill: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,ColorValue(theme.themeDarker),ColorValue(theme.neutralLight))
                         Height: =Parent.TemplateHeight
                         OnSelect: =Select(Parent)
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
@@ -582,13 +582,11 @@ devProjectManagement As screen:
                     "Icon2_1 As 'Fluent Icon (1.0.19)'":
                         BorderRadius: =15
                         DisplayMode: =DisplayMode.Edit
-                        FillColor: |-
-                            =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,"#003E7D","#D6DDE0")
-                        FontColor: |-
-                            =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,"#D6DDE0","#003E7D")
+                        FillColor: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,theme.themeDarker,theme.neutralLight)
+                        FontColor: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,theme.neutralLight,theme.black)
                         FontSize: =16
                         Height: =Parent.TemplateHeight
-                        IconColor: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,theme.neutral,theme.black)
+                        IconColor: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,theme.neutralLight,theme.black)
                         IconName: =ThisItem.Icon
                         IconSize: =22
                         IconType: ='PowerCAT.Icon.IconType'.ActionButton
