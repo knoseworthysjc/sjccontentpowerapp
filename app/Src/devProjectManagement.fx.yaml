@@ -433,69 +433,48 @@ devProjectManagement As screen:
 
                     galProjects As gallery.variableTemplateHeightGallery:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
                         DelayItemLoading: =true
                         Items: =SortByColumns(Filter(Projects,Season.Value=iptSeasonFilter.Selected.Value And Week=iptWeekFilter_PM.Text),"Title",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
-                        LayoutMinWidth: =320
+                        LayoutMinWidth: |
+                            =50
                         LoadingSpinner: =LoadingSpinner.Data
-                        TemplateSize: =galProjectsPages.Height
+                        TemplatePadding: =Gap
+                        TemplateSize: =32
+                        Width: |
+                            =50
                         ZIndex: =4
 
                         conGalProjectsHead As groupContainer.horizontalAutoLayoutContainer:
-                            BorderColor: =RGBA(13, 50, 61, 1)
-                            BorderThickness: =1
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
                             DropShadow: =DropShadow.Light
-                            Fill: =RGBA(214, 221, 224, 1)
+                            Fill: =ColorValue(theme.themeDarker)
                             Height: =32
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutGap: =Gap
                             LayoutMode: =LayoutMode.Auto
-                            PaddingTop: =4
-                            RadiusBottomLeft: =4
-                            RadiusBottomRight: =4
-                            RadiusTopLeft: =4
-                            RadiusTopRight: =4
-                            Width: =272
+                            PaddingLeft: =4
+                            PaddingRight: =4
+                            RadiusBottomLeft: =10
+                            RadiusBottomRight: =10
+                            RadiusTopLeft: =10
+                            RadiusTopRight: =10
+                            Width: =Parent.TemplateWidth-Gap*2
                             X: =Gap
                             Y: |
                                 =Gap
                             ZIndex: =2
 
-                            "Icon1_20 As 'Fluent Icon (1.0.19)'":
-                                BorderColor: =""
-                                BorderRadius: =0
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: |-
-                                    ="#003E7D"
-                                FontSize: =0
-                                Height: =24
-                                IconColor: |-
-                                    ="#003E7D"
-                                IconName: =If(ThisItem.Expanded,"CollapseContentSingle","ExploreContentSingle")
-                                IconSize: =26
-                                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                LayoutMinHeight: =200
-                                LayoutMinWidth: =165
-                                OnChange: |
-                                    =If(ThisItem.Expanded=false,
-                                    ForAll(Filter(colProjectManagementProjects,Expanded=true),Patch(colProjectManagementProjects,ThisRecord,{Expanded:false}));
-                                    Patch(colProjectManagementProjects,ThisItem,{Expanded:!ThisItem.Expanded});,Patch(colProjectManagementProjects,ThisItem,{Expanded:false}));
-                                    Select(fnGetPages);
-                                Text: ="Expand"
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Tooltip: ="Add Pages"
-                                Width: =32
-                                X: =0
-                                Y: =0
-                                ZIndex: =1
-
                             TextCanvas7_1 As Text:
+                                Align: ='TextCanvas.Align'.Center
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
-                                FontColor: =
+                                FontColor: =ColorValue(theme.white)
                                 Height: =28
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
