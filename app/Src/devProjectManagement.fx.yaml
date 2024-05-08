@@ -1,5 +1,5 @@
 devProjectManagement As screen:
-    Fill: =RGBA(232, 232, 232, 1)
+    Fill: =ColorValue(theme.white)
 
     conRootNew As groupContainer.verticalAutoLayoutContainer:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -10,13 +10,15 @@ devProjectManagement As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =Gap
         LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =2
+        PaddingRight: =2
         Width: =Parent.Width
         ZIndex: =1
 
         conHeaderPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Light
-            Fill: =ColorValue(theme.themePrimary)
+            Fill: =ColorValue(theme.black)
             FillPortions: =0
             Height: =32
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -85,30 +87,30 @@ devProjectManagement As screen:
 
         conHeaderPMCtrl As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            DropShadow: =DropShadow.Light
-            Fill: =ColorValue(theme.themePrimary)
+            BorderColor: =ColorValue(theme.black)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Fill: =ColorValue(theme.neutralLighterAlt)
             FillPortions: =0
             Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =Gap
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
+            PaddingLeft: =Gap
+            PaddingRight: =Gap
             ZIndex: =2
 
             "Icon1_13 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =""
-                BorderRadius: =0
+                BorderColor: =theme.neutralPrimary
+                BorderRadius: =4
                 DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =24
-                IconColor: |-
-                    ="#003E7D"
+                FontColor: =""
+                FontSize: =12
+                Height: =28
+                IconColor: =""
                 IconName: ="CircleAddition"
-                IconSize: =24
+                IconSize: =22
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
@@ -133,27 +135,25 @@ devProjectManagement As screen:
                             )
                         )
                     );
-                Text: ="Add Offer"
+                Text: ="Add Project"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Theme: =JSON(theme)
                 Tooltip: ="Add Pages"
-                Width: |
-                    =95
+                Width: =105
                 X: =0
                 Y: =0
                 ZIndex: =1
 
             "Icon1_17 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =""
-                BorderRadius: =0
+                BorderColor: =theme.neutralPrimary
+                BorderRadius: =4
                 DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =24
-                IconColor: |-
-                    ="#003E7D"
+                FontColor: =""
+                FontSize: =12
+                Height: =28
+                IconColor: =""
                 IconName: ="Search"
-                IconSize: =24
+                IconSize: =22
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
@@ -164,25 +164,23 @@ devProjectManagement As screen:
                         )
                 Text: ="Search"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Theme: =JSON(theme)
                 Tooltip: ="Add Pages"
-                Width: |
-                    =95
+                Width: =105
                 X: =0
                 Y: =0
                 ZIndex: =2
 
             "Icon1_18 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =""
-                BorderRadius: =0
+                BorderColor: =theme.neutralPrimary
+                BorderRadius: =4
                 DisplayMode: =DisplayMode.Edit
-                FontColor: |-
-                    ="#003E7D"
-                FontSize: =0
-                Height: =24
-                IconColor: |-
-                    ="#003E7D"
+                FontColor: =""
+                FontSize: =12
+                Height: =28
+                IconColor: =""
                 IconName: ="SharepointLogo"
-                IconSize: =24
+                IconSize: =22
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
@@ -198,9 +196,9 @@ devProjectManagement As screen:
                     },LaunchTarget.New)
                 Text: ="SharePoint"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Theme: =JSON(theme)
                 Tooltip: ="Add Pages"
-                Width: |
-                    =95
+                Width: =105
                 X: =0
                 Y: =0
                 ZIndex: =3
@@ -209,23 +207,23 @@ devProjectManagement As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
-            Fill: =ColorValue(theme.themePrimary)
             Height: =Parent.Height
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutGap: =Gap
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            PaddingBottom: =Gap
-            PaddingLeft: =Gap
-            PaddingRight: =Gap
-            PaddingTop: =Gap
+            PaddingBottom: =1
+            PaddingLeft: =1
+            PaddingRight: =1
+            PaddingTop: =1
             ZIndex: =3
 
-            conNav As groupContainer.verticalAutoLayoutContainer:
+            conContentNav As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
-                BorderColor: =RGBA(0, 0, 0, 0)
-                BorderStyle: =BorderStyle.None
+                BorderColor: =ColorValue(theme.black)
+                BorderThickness: =1
+                Fill: =ColorValue(theme.neutralLighterAlt)
                 FillPortions: =0
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -235,13 +233,18 @@ devProjectManagement As screen:
                 LayoutMinWidth: =Parent.Width*0.15
                 LayoutMode: =LayoutMode.Auto
                 PaddingBottom: =0   
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Width: =Parent.Width*0.15
                 ZIndex: =1
 
                 Container35 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
                     DropShadow: =DropShadow.Light
-                    Fill: =RGBA(13, 50, 61, 1)
+                    Fill: =ColorValue(theme.themeDarker)
                     FillPortions: =0
                     Height: =32
                     LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -279,16 +282,17 @@ devProjectManagement As screen:
                         Text: ="Projects"
                         Width: |
                             =32
-                        X: =iptScreenFilterWeek.Width+iptScreenFilterWeek.X
+                        X: =iptWeekFilter_PM.Width+iptWeekFilter_PM.X
                         ZIndex: =1
 
                 Container36 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
-                    DropShadow: =DropShadow.Light
-                    Fill: =RGBA(214, 221, 224, 1)
+                    BorderStyle: =BorderStyle.None
+                    Fill: =ColorValue(theme.neutralLighter)
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =Gap
+                    LayoutGap: |
+                        =0
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -297,24 +301,21 @@ devProjectManagement As screen:
                     PaddingLeft: =Gap
                     PaddingRight: =Gap
                     PaddingTop: =Gap
-                    RadiusBottomLeft: =4
-                    RadiusBottomRight: =4
-                    RadiusTopLeft: =4
-                    RadiusTopRight: =4
                     ZIndex: =2
 
                     Container11 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        DropShadow: =DropShadow.Light
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
                         FillPortions: =0
                         Height: =32
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =Gap
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
+                        PaddingLeft: =4
+                        PaddingRight: =4
                         ZIndex: =2
 
                         lblSeason_4 As label:
@@ -324,7 +325,7 @@ devProjectManagement As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =28
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
                             minimumHeight: =30
@@ -338,7 +339,7 @@ devProjectManagement As screen:
                             Y: =1
                             ZIndex: =1
 
-                        ddScreenFilterYear As dropdown:
+                        iptSeasonFilter As dropdown:
                             AllowEmptySelection: =true
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =1
@@ -354,7 +355,7 @@ devProjectManagement As screen:
                             FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =28
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
                             Items: =ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord)
@@ -380,7 +381,7 @@ devProjectManagement As screen:
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =28
                             LayoutMinHeight: =30
                             LayoutMinWidth: =40
                             minimumHeight: =30
@@ -390,11 +391,11 @@ devProjectManagement As screen:
                             TabIndex: =0
                             Text: ="Week"
                             Width: =50
-                            X: =ddScreenFilterYear.X+ddScreenFilterYear.Width
+                            X: =iptSeasonFilter.X+iptSeasonFilter.Width
                             Y: =1
                             ZIndex: =3
 
-                        iptScreenFilterWeek As text:
+                        iptWeekFilter_PM As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Clear: =true
@@ -410,7 +411,7 @@ devProjectManagement As screen:
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Format: =TextFormat.Number
-                            Height: =32
+                            Height: =28
                             HoverBorderColor: =RGBA(0, 89, 178, 1)
                             HoverColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(153, 205, 255, 1)
@@ -430,10 +431,11 @@ devProjectManagement As screen:
                             Y: =(Self.BorderThickness*8)/2
                             ZIndex: =4
 
-                    Gallery11 As gallery.variableTemplateHeightGallery:
+                    galProjects As gallery.variableTemplateHeightGallery:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
-                        Items: =SortByColumns(colProjectManagementProjects,"Title",SortOrder.Ascending)
+                        Items: =SortByColumns(Filter(Projects,Season.Value=iptSeasonFilter.Selected.Value And Week=iptWeekFilter_PM.Text),"Title",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
@@ -579,9 +581,14 @@ devProjectManagement As screen:
                                 Y: =0
                                 ZIndex: =2
 
-            Container31 As groupContainer.verticalAutoLayoutContainer:
+            conContentContent As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =ColorValue(theme.black)
+                BorderThickness: =1
                 DropShadow: =DropShadow.Light
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
@@ -592,11 +599,16 @@ devProjectManagement As screen:
                 ZIndex: =2
 
                 Container37 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
+                    Fill: =ColorValue(theme.neutralLighterAlt)
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =Gap
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =Gap
+                    PaddingRight: =Gap
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
@@ -604,11 +616,16 @@ devProjectManagement As screen:
                     ZIndex: =1
 
                 Container37_1 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
+                    Fill: =ColorValue(theme.neutralLighterAlt)
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =Gap
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =Gap
+                    PaddingRight: =Gap
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
@@ -616,11 +633,16 @@ devProjectManagement As screen:
                     ZIndex: =2
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
+                    Fill: =ColorValue(theme.neutralLighterAlt)
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =Gap
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =Gap
+                    PaddingRight: =Gap
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
@@ -651,12 +673,12 @@ devProjectManagement As screen:
                 ClearCollect(
                     colProjectManagementProjects,
                     If(
-                        iptScreenFilterWeek.Text = "",
+                        iptWeekFilter_PM.Text = "",
                         AddColumns(
                             SortByColumns(
                                 Filter(
                                     Projects,
-                                    Season.Value = ddScreenFilterYear.Selected.Value
+                                    Season.Value = iptSeasonFilter.Selected.Value
                                 ),
                                 "Week",
                                 SortOrder.Descending,
@@ -670,7 +692,7 @@ devProjectManagement As screen:
                             SortByColumns(
                                 Filter(
                                     Projects,
-                                    Season.Value = ddScreenFilterYear.Selected.Value And Week = Value(iptScreenFilterWeek.Text)
+                                    Season.Value = iptSeasonFilter.Selected.Value And Week = Value(iptWeekFilter_PM.Text)
                                 ),
                                 "Week",
                                 SortOrder.Descending,
@@ -705,7 +727,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
-            OnSelect: =ClearCollect(colProjectManagementSelectedPages,Filter(FlyerPages,assigned_project.Value=Gallery11.Selected.Title))
+            OnSelect: =ClearCollect(colProjectManagementSelectedPages,Filter(FlyerPages,assigned_project.Value=galProjects.Selected.Title))
             Text: ="fnGetPages"
             Width: =96
             X: =100
