@@ -2,15 +2,30 @@ App As appinfo:
     BackEnabled: =false
     Formulas: |-
         =U=2;Gap=4;
-        ProjectGridWidth=200;
-        GutterHeight=100;
-        
-        MinCellWidth=100;
-        CellHeight=70;
-        PeopleGridWidth=200;
-        TaskGridWidth=200;
-        
-        defaultYear=Year(Now());
+        theme={
+          themePrimary:"#0071CE",
+          themeLighterAlt:"#f3f9fd",
+          themeLighter:"#d0e5f7",
+          themeLight:"#a8d0f0",
+          themeTertiary:"#5aa5e2",
+          themeSecondary:"#1980d4",
+          themeDarkAlt:"#0066ba",
+          themeDark:"#00569d",
+          themeDarker:"#004074",
+          neutralLighterAlt:"#faf9f8",
+          neutralLighter:"#f3f2f1",
+          neutralLight:"#edebe9",
+          neutralQuaternaryAlt:"#e1dfdd",
+          neutralQuaternary:"#d0d0d0",
+          neutralTertiaryAlt:"#c8c6c4",
+          neutralTertiary:"#a19f9d",
+          neutralSecondary:"#605e5c",
+          neutralPrimaryAlt:"#3b3a39",
+          neutralPrimary:"#323130",
+          neutralDark:"#201f1e",
+          black:"#000000",
+          white:"#ffffff",yellow:"#ffc20"
+        };
     OnStart: |
         =Set(collapseNewOffer,true);
         ClearCollect(navItems,Table(
