@@ -771,7 +771,11 @@ devProjectManagement As screen:
                         ZIndex: =2
 
                         "iptProjects_2 As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontSize: =14
                             Height: =32
                             Value: =ThisItem.Docket
                             Width: =lblProjects_2.Width
@@ -780,18 +784,21 @@ devProjectManagement As screen:
                             ZIndex: =1
 
                         iptProjects_1 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.project_status
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
-                            Items: =["Item 1", "Item 2", "Item 3"]
+                            Items: =Choices(Projects.project_status)
                             Width: =lblProjects_1.Width
                             X: =lblProjects_1.X
                             Y: =Gap
                             ZIndex: =2
 
                         iptProjects_3 As Dropdown.pcfdataset:
+                            BasePaletteColor: =
+                            DefaultSelectedItems: =ThisItem.Season
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
-                            Items: =["Item 1", "Item 2", "Item 3"]
+                            Items: =Choices(Projects.season)
                             Width: =lblProjects_3.Width
                             X: =lblProjects_3.X
                             Y: =Gap
@@ -802,20 +809,54 @@ devProjectManagement As screen:
                             DisplayMode: =DisplayMode.Edit
                             FontColor: =
                             Height: =32
-                            Value: =ThisItem.Docket
+                            Value: =ThisItem.Week
                             Width: =lblProjects_4.Width
                             X: =lblProjects_4.X
                             Y: =Gap
                             ZIndex: =4
 
                         iptProjects_5 As Dropdown.pcfdataset:
+                            DefaultSelectedItems: =ThisItem.Campaign
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
-                            Items: =["Item 1", "Item 2", "Item 3"]
+                            Items: =Choices(Projects.Campaign)
                             Width: =lblProjects_5.Width
                             X: =lblProjects_5.X
                             Y: =Gap
                             ZIndex: =5
+
+                        "iptProjects_6 As 'Text input'":
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            Value: =ThisItem.Title
+                            Width: =lblProjects_6.Width
+                            X: =lblProjects_6.X
+                            Y: =Gap
+                            ZIndex: =6
+
+                        "iptProjects_7 As 'Text input'":
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            Value: =ThisItem.'Total Pages'
+                            Width: =lblProjects_7.Width
+                            X: =lblProjects_7.X
+                            Y: =Gap
+                            ZIndex: =7
+
+                        "iptProjects_8 As 'Text input'":
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            Value: =ThisItem.'Project Details'
+                            Width: =lblProjects_8.Width
+                            X: =lblProjects_8.X
+                            Y: =Gap
+                            ZIndex: =8
 
                 Container37_1 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
