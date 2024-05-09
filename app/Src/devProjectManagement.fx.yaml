@@ -647,12 +647,12 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =32
                             Size: =13
                             Text: ="Status"
+                            Width: =120
                             ZIndex: =1
 
                         lblProjects_2 As label:
@@ -661,12 +661,12 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =32
                             Size: =13
                             Text: ="Docket"
+                            Width: =100
                             ZIndex: =2
 
                         lblProjects_3 As label:
@@ -675,7 +675,6 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =32
@@ -683,6 +682,7 @@ devProjectManagement As screen:
                             Text: |-
                                 ="Season
                                 "
+                            Width: =100
                             ZIndex: =3
 
                         lblProjects_4 As label:
@@ -691,7 +691,6 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =32
@@ -699,6 +698,7 @@ devProjectManagement As screen:
                             Text: |-
                                 ="Week
                                 "
+                            Width: =100
                             ZIndex: =4
 
                         lblProjects_5 As label:
@@ -707,7 +707,6 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =32
@@ -739,7 +738,6 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =32
@@ -747,6 +745,7 @@ devProjectManagement As screen:
                             Text: |-
                                 ="Total Pages
                                 "
+                            Width: =100
                             ZIndex: =7
 
                         lblProjects_8 As label:
