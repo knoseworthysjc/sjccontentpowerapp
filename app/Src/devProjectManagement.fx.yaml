@@ -626,7 +626,7 @@ devProjectManagement As screen:
 
                     Container30 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        DropShadow: =DropShadow.Light
+                        BorderStyle: =BorderStyle.None
                         FillPortions: =0
                         Height: =32
                         LayoutAlignItems: =LayoutAlignItems.Center
@@ -635,10 +635,6 @@ devProjectManagement As screen:
                         LayoutMode: =LayoutMode.Auto
                         PaddingLeft: =Gap
                         PaddingRight: =Gap
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
                         ZIndex: =1
 
                         lblProjects_1 As label:
@@ -649,7 +645,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: ="Status"
                             Width: =120
@@ -663,7 +663,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: ="Docket"
                             Width: =100
@@ -677,7 +681,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: |-
                                 ="Season
@@ -693,7 +701,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: |-
                                 ="Week
@@ -709,7 +721,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: |-
                                 ="Campaign
@@ -725,7 +741,11 @@ devProjectManagement As screen:
                             FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: |-
                                 ="Title
@@ -740,7 +760,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: |-
                                 ="Total Pages
@@ -756,7 +780,11 @@ devProjectManagement As screen:
                             Fill: =ColorValue(theme.neutralQuaternary)
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
-                            Height: =32
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
                             Size: =13
                             Text: |-
                                 ="Details
