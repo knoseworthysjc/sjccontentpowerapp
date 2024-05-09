@@ -938,7 +938,7 @@ devProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =3
 
-                    Container30_1 As groupContainer.horizontalAutoLayoutContainer:
+                    conProjectPages As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderStyle: =BorderStyle.None
                         FillPortions: =0
@@ -1139,14 +1139,14 @@ devProjectManagement As screen:
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =400
+        Height: =281
         RadiusBottomLeft: =4
         RadiusBottomRight: =4
         RadiusTopLeft: =4
         RadiusTopRight: =4
         Width: =268
         X: =1650
-        Y: =680
+        Y: =785
         ZIndex: =2
 
         fnGetProjects As Button:
@@ -1193,8 +1193,8 @@ devProjectManagement As screen:
                 )
             Text: ="fnGetProject"
             Width: =96
-            X: =100
-            Y: =62
+            X: =95
+            Y: =100
             ZIndex: =2
 
         fnGetOffers As Button:
@@ -1205,8 +1205,8 @@ devProjectManagement As screen:
             OnSelect: =Clear(colProjectManagementSelectedOffers);
             Text: ="fnGetOffers"
             Width: =96
-            X: =100
-            Y: =110
+            X: =95
+            Y: =162
             ZIndex: =3
 
         fnGetPages As Button:
@@ -1217,8 +1217,8 @@ devProjectManagement As screen:
             OnSelect: =ForAll(galProjects.AllItems As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
             Text: ="fnGetPages"
             Width: =96
-            X: =100
-            Y: =166
+            X: =95
+            Y: =206
             ZIndex: =4
 
     nav_container_9 As groupContainer.manualLayoutContainer:
