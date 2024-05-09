@@ -601,7 +601,7 @@ devProjectManagement As screen:
                         Y: =0
                         ZIndex: =2
 
-                Container37 As groupContainer.verticalAutoLayoutContainer:
+                conProjectDetails As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =ColorValue(theme.black)
                     DropShadow: =DropShadow.Light
@@ -615,8 +615,8 @@ devProjectManagement As screen:
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     PaddingBottom: =Gap
-                    PaddingLeft: =Gap
-                    PaddingRight: =Gap
+                    PaddingLeft: |
+                        =0
                     PaddingTop: =Gap
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
@@ -766,17 +766,19 @@ devProjectManagement As screen:
                             ZIndex: =8
 
                     Gallery5 As gallery.galleryVertical:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
                         FillPortions: =0
-                        Height: =Self.AllItemsCount*40+Gap*Self.AllItemsCount+Gap*2
+                        Height: =Parent.Height-Container30.Height-Gap*2
                         Items: =colSelectedProjects
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =150
                         LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplateFill: =ColorValue(theme.themeDark)
-                        TemplateSize: =32+Gap*2
+                        TemplatePadding: =Gap
+                        TemplateSize: =64+Gap*2
                         ZIndex: =2
 
                         "iptProjects_2 As 'Text input'":
@@ -784,8 +786,9 @@ devProjectManagement As screen:
                             BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
-                            FontSize: =14
-                            Height: =32
+                            FontSize: =18
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.Docket
                             Width: =lblProjects_2.Width
                             X: =lblProjects_2.X
@@ -793,9 +796,11 @@ devProjectManagement As screen:
                             ZIndex: =1
 
                         iptProjects_1 As Dropdown.pcfdataset:
+                            BasePaletteColor: =
                             DefaultSelectedItems: =ThisItem.project_status
                             DisplayMode: =DisplayMode.Edit
-                            Height: =32
+                            FontSize: =18
+                            Height: =Parent.TemplateHeight-Gap*2
                             Items: =Choices(Projects.project_status)
                             Width: =lblProjects_1.Width
                             X: =lblProjects_1.X
@@ -806,7 +811,8 @@ devProjectManagement As screen:
                             BasePaletteColor: =
                             DefaultSelectedItems: =ThisItem.Season
                             DisplayMode: =DisplayMode.Edit
-                            Height: =32
+                            FontSize: =18
+                            Height: =Parent.TemplateHeight-Gap*2
                             Items: =Choices(Projects.season)
                             Width: =lblProjects_3.Width
                             X: =lblProjects_3.X
@@ -814,10 +820,14 @@ devProjectManagement As screen:
                             ZIndex: =3
 
                         "iptProjects_4 As 'Text input'":
-                            BasePaletteColor: =
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
                             FontColor: =
-                            Height: =32
+                            FontSize: =18
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.Week
                             Width: =lblProjects_4.Width
                             X: =lblProjects_4.X
@@ -827,7 +837,8 @@ devProjectManagement As screen:
                         iptProjects_5 As Dropdown.pcfdataset:
                             DefaultSelectedItems: =ThisItem.Campaign
                             DisplayMode: =DisplayMode.Edit
-                            Height: =32
+                            FontSize: =18
+                            Height: =Parent.TemplateHeight-Gap*2
                             Items: =Choices(Projects.Campaign)
                             Width: =lblProjects_5.Width
                             X: =lblProjects_5.X
@@ -835,10 +846,14 @@ devProjectManagement As screen:
                             ZIndex: =5
 
                         "iptProjects_6 As 'Text input'":
-                            BasePaletteColor: =
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
                             FontColor: =
-                            Height: =32
+                            FontSize: =18
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.Title
                             Width: =lblProjects_6.Width
                             X: =lblProjects_6.X
@@ -846,10 +861,14 @@ devProjectManagement As screen:
                             ZIndex: =6
 
                         "iptProjects_7 As 'Text input'":
-                            BasePaletteColor: =
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
                             FontColor: =
-                            Height: =32
+                            FontSize: =18
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.'Total Pages'
                             Width: =lblProjects_7.Width
                             X: =lblProjects_7.X
@@ -857,10 +876,14 @@ devProjectManagement As screen:
                             ZIndex: =7
 
                         "iptProjects_8 As 'Text input'":
-                            BasePaletteColor: =
+                            Align: ='TextInputCanvas.Align'.Center
+                            BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
                             FontColor: =
-                            Height: =32
+                            FontSize: =18
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.'Project Details'
                             Width: =lblProjects_8.Width
                             X: =lblProjects_8.X
