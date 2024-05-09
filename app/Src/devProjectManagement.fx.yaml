@@ -993,7 +993,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
-            OnSelect: =ClearCollect(colProjectManagementSelectedPages,Filter(FlyerPages,assigned_project.Value=galProjects.Selected.Title))
+            OnSelect: =ForAll(galProjects.AllItems As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
             Text: ="fnGetPages"
             Width: =96
             X: =100
