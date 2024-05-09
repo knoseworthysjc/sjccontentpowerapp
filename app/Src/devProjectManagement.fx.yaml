@@ -774,11 +774,13 @@ devProjectManagement As screen:
                         Items: =colSelectedProjects
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =150
-                        LayoutMinWidth: =320
+                        LayoutMinWidth: =100
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplateFill: =ColorValue(theme.themeDark)
                         TemplatePadding: =Gap
                         TemplateSize: =64+Gap*2
+                        Width: |
+                            =40
                         ZIndex: =2
 
                         "iptProjects_2 As 'Text input'":
@@ -791,7 +793,7 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.Docket
                             Width: =lblProjects_2.Width
-                            X: =lblProjects_2.X
+                            X: =lblProjects_2.X-Gap/2
                             Y: =Gap
                             ZIndex: =1
 
@@ -803,7 +805,7 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Items: =Choices(Projects.project_status)
                             Width: =lblProjects_1.Width
-                            X: =lblProjects_1.X
+                            X: =lblProjects_1.X-Gap/2
                             Y: =Gap
                             ZIndex: =2
 
@@ -815,7 +817,7 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Items: =Choices(Projects.season)
                             Width: =lblProjects_3.Width
-                            X: =lblProjects_3.X
+                            X: =lblProjects_3.X-Gap/2
                             Y: =Gap
                             ZIndex: =3
 
@@ -830,18 +832,19 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.Week
                             Width: =lblProjects_4.Width
-                            X: =lblProjects_4.X
+                            X: =lblProjects_4.X-Gap/2
                             Y: =Gap
                             ZIndex: =4
 
                         iptProjects_5 As Dropdown.pcfdataset:
+                            BasePaletteColor: =
                             DefaultSelectedItems: =ThisItem.Campaign
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =18
                             Height: =Parent.TemplateHeight-Gap*2
                             Items: =Choices(Projects.Campaign)
                             Width: =lblProjects_5.Width
-                            X: =lblProjects_5.X
+                            X: =lblProjects_5.X-Gap/2
                             Y: =Gap
                             ZIndex: =5
 
@@ -856,7 +859,7 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.Title
                             Width: =lblProjects_6.Width
-                            X: =lblProjects_6.X
+                            X: =lblProjects_6.X-Gap/2
                             Y: =Gap
                             ZIndex: =6
 
@@ -871,7 +874,7 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.'Total Pages'
                             Width: =lblProjects_7.Width
-                            X: =lblProjects_7.X
+                            X: =lblProjects_7.X-Gap/2
                             Y: =Gap
                             ZIndex: =7
 
@@ -886,7 +889,7 @@ devProjectManagement As screen:
                             Height: =Parent.TemplateHeight-Gap*2
                             Value: =ThisItem.'Project Details'
                             Width: =lblProjects_8.Width
-                            X: =lblProjects_8.X
+                            X: =lblProjects_8.X-Gap/2
                             Y: =Gap
                             ZIndex: =8
 
