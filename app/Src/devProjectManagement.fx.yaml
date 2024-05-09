@@ -516,9 +516,14 @@ devProjectManagement As screen:
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =1
+                PaddingLeft: =1
+                PaddingRight: =1
+                PaddingTop: =1
                 RadiusBottomLeft: =4
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
@@ -598,19 +603,21 @@ devProjectManagement As screen:
 
                 Container37 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =ColorValue(theme.black)
                     DropShadow: =DropShadow.Light
-                    Fill: =ColorValue(theme.neutralLighterAlt)
+                    Fill: =ColorValue(theme.neutralLight)
                     FillPortions: =0
                     Height: |
                         =260
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =Gap
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Gap
                     PaddingLeft: =Gap
                     PaddingRight: =Gap
+                    PaddingTop: =Gap
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
@@ -761,6 +768,8 @@ devProjectManagement As screen:
                     Gallery5 As gallery.galleryVertical:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
+                        FillPortions: =0
+                        Height: =Self.AllItemsCount*40+Gap*Self.AllItemsCount+Gap*2
                         Items: =colSelectedProjects
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =150
