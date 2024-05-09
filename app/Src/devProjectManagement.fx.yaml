@@ -483,6 +483,7 @@ devProjectManagement As screen:
                                 LayoutMinWidth: |
                                     =28
                                 OnCheck: =Select(fnGetOffers);Select(fnGetPages);Collect(colSelectedProjects,ThisItem);
+                                OnUncheck: =ClearCollect(colSelectedProjects,Filter(colSelectedProjects,ID<>ThisItem.ID));
                                 Size: |
                                     =0
                                 Text: =""
@@ -965,7 +966,9 @@ devProjectManagement As screen:
                             PaddingRight: =0
                             PaddingTop: =0
                             Size: =13
-                            Text: ="Status"
+                            Text: |-
+                                ="Status
+                                "
                             Width: =120
                             ZIndex: =1
 
@@ -983,7 +986,9 @@ devProjectManagement As screen:
                             PaddingRight: =0
                             PaddingTop: =0
                             Size: =13
-                            Text: ="Docket"
+                            Text: |-
+                                ="Project
+                                "
                             Width: =100
                             ZIndex: =2
 
@@ -1002,7 +1007,7 @@ devProjectManagement As screen:
                             PaddingTop: =0
                             Size: =13
                             Text: |-
-                                ="Season
+                                ="Page Fr
                                 "
                             Width: =100
                             ZIndex: =3
@@ -1022,7 +1027,7 @@ devProjectManagement As screen:
                             PaddingTop: =0
                             Size: =13
                             Text: |-
-                                ="Week
+                                ="Page To
                                 "
                             Width: =100
                             ZIndex: =4
@@ -1041,9 +1046,7 @@ devProjectManagement As screen:
                             PaddingRight: =0
                             PaddingTop: =0
                             Size: =13
-                            Text: |-
-                                ="Campaign
-                                "
+                            Text: ="Layout"
                             ZIndex: =5
 
                         lblProjects_14 As label:
