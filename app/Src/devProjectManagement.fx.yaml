@@ -482,7 +482,7 @@ devProjectManagement As screen:
                                     =28
                                 LayoutMinWidth: |
                                     =28
-                                OnCheck: =Select(fnGetOffers);Select(fnGetPages);
+                                OnCheck: =Select(fnGetOffers);Select(fnGetPages);Collect(colSelectedProjects,ThisItem);
                                 Size: |
                                     =0
                                 Text: =""
@@ -605,6 +605,7 @@ devProjectManagement As screen:
                         =260
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =Gap
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -616,475 +617,205 @@ devProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =2
 
-                    Form1 As form.PowerApps_CoreControls_Form:
+                    Container30 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DataSource: =Projects
+                        DropShadow: =DropShadow.Light
                         FillPortions: =0
-                        Height: =Parent.Height
-                        Item: =galProjects.Selected
-                        LayoutMinHeight: =50
-                        LayoutMinWidth: =400
-                        NumberOfColumns: =4
-                        UseFluentV9Cards: =true
+                        Height: =32
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =Gap
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =Gap
+                        PaddingRight: =Gap
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =1
 
-                        "'Project Details_DataCard2' As typedDataCard.fluentV9TextualMultiLineEditCard":
+                        lblProjects_1 As label:
+                            Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="projectdetails"
-                            Default: =ThisItem.'Project Details'
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,'Project Details')
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =166
-                            Required: =false
-                            Update: =DataCardValue14.Value
-                            Width: =403
-                            X: =2
-                            Y: =1
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: ="Status"
                             ZIndex: =1
 
-                            DataCardKey14 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
-
-                            "DataCardValue14 As 'Text input'":
-                                AccessibleLabel: =Parent.DisplayName
-                                BasePaletteColor: =
-                                DisplayMode: =Parent.DisplayMode
-                                FontColor: =
-                                Height: =144
-                                Mode: ='TextInputCanvas.Mode'.Multiline
-                                Required: =Parent.Required
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Value: =Parent.Default
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey14.Y + DataCardKey14.Height + 4
-                                ZIndex: =2
-
-                            ErrorMessage14 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue14.Y + DataCardValue14.Height
-                                ZIndex: =3
-
-                            StarVisible14 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey14.Y
-                                ZIndex: =4
-
-                        project_status_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                        lblProjects_2 As label:
+                            Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="project_status"
-                            Default: =ThisItem.project_status
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,project_status)
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =70
-                            Required: =false
-                            Update: =DataCardValue8.Selected
-                            Width: =403
-                            X: =0
-                            Y: =0
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: ="Docket"
                             ZIndex: =2
 
-                            DataCardKey8 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue8 As Combobox.pcfdataset:
-                                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                                DefaultSelectedItems: =[Parent.Default]
-                                DisplayMode: =Parent.DisplayMode
-                                Height: =32
-                                Items: =Choices([@Projects].project_status)
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey8.Y + DataCardKey8.Height + 4
-                                ZIndex: =2
-
-                            ErrorMessage8 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue8.Y + DataCardValue8.Height
-                                ZIndex: =3
-
-                            StarVisible8 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =20
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey8.Y
-                                ZIndex: =4
-
-                        Docket_DataCard1 As typedDataCard.fluentV9NumberEditCard:
+                        lblProjects_3 As label:
+                            Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="docket"
-                            Default: =ThisItem.Docket
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,Docket)
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =70
-                            Required: =false
-                            Update: =Value(DataCardValue1.Value)
-                            Width: =403
-                            X: =1
-                            Y: =0
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: |-
+                                ="Season
+                                "
+                            ZIndex: =3
+
+                        lblProjects_4 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: |-
+                                ="Week
+                                "
+                            ZIndex: =4
+
+                        lblProjects_5 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: |-
+                                ="Campaign
+                                "
+                            ZIndex: =5
+
+                        lblProjects_6 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: |-
+                                ="Title
+                                "
+                            ZIndex: =6
+
+                        lblProjects_7 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: |-
+                                ="Total Pages
+                                "
+                            ZIndex: =7
+
+                        lblProjects_8 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            Size: =13
+                            Text: |-
+                                ="Details
+                                "
+                            Width: =400
+                            ZIndex: =8
+
+                    Gallery5 As gallery.galleryVertical:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Items: =colSelectedProjects
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =150
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateFill: =ColorValue(theme.themeDark)
+                        TemplateSize: =32+Gap*2
+                        ZIndex: =2
+
+                        "iptProjects_2 As 'Text input'":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Value: =ThisItem.Docket
+                            Width: =lblProjects_2.Width
+                            X: =lblProjects_2.X
+                            Y: =Gap
+                            ZIndex: =1
+
+                        iptProjects_1 As Dropdown.pcfdataset:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =["Item 1", "Item 2", "Item 3"]
+                            Width: =lblProjects_1.Width
+                            X: =lblProjects_1.X
+                            Y: =Gap
                             ZIndex: =2
 
-                            DataCardKey1 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
+                        iptProjects_3 As Dropdown.pcfdataset:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =["Item 1", "Item 2", "Item 3"]
+                            Width: =lblProjects_3.Width
+                            X: =lblProjects_3.X
+                            Y: =Gap
+                            ZIndex: =3
 
-                            "DataCardValue1 As 'Text input'":
-                                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                                BasePaletteColor: =
-                                DisplayMode: =Parent.DisplayMode
-                                FontColor: =
-                                Height: =32
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Value: =Parent.Default
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey1.Y + DataCardKey1.Height + 4
-                                ZIndex: =2
+                        "iptProjects_4 As 'Text input'":
+                            BasePaletteColor: =
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =32
+                            Value: =ThisItem.Docket
+                            Width: =lblProjects_4.Width
+                            X: =lblProjects_4.X
+                            Y: =Gap
+                            ZIndex: =4
 
-                            ErrorMessage1 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue1.Y + DataCardValue1.Height
-                                ZIndex: =3
-
-                            StarVisible1 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey1.Y
-                                ZIndex: =4
-
-                        Season_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="season"
-                            Default: =ThisItem.Season
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,Season)
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =70
-                            Required: =false
-                            Update: =DataCardValue2.Selected
-                            Width: =403
-                            X: =2
-                            Y: =0
-                            ZIndex: =2
-
-                            DataCardKey2 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue2 As Combobox.pcfdataset:
-                                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                                DefaultSelectedItems: =[Parent.Default]
-                                DisplayMode: =Parent.DisplayMode
-                                Height: =32
-                                Items: =Choices([@Projects].Season)
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey2.Y + DataCardKey2.Height + 4
-                                ZIndex: =2
-
-                            ErrorMessage2 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue2.Y + DataCardValue2.Height
-                                ZIndex: =3
-
-                            StarVisible2 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =20
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey2.Y
-                                ZIndex: =4
-
-                        Week_DataCard1 As typedDataCard.fluentV9NumberEditCard:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="Week"
-                            Default: =ThisItem.Week
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,Week)
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =70
-                            Required: =false
-                            Update: =Value(DataCardValue3.Value)
-                            Width: =403
-                            X: =3
-                            Y: =0
-                            ZIndex: =2
-
-                            DataCardKey3 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
-
-                            "DataCardValue3 As 'Text input'":
-                                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                                BasePaletteColor: =
-                                DisplayMode: =Parent.DisplayMode
-                                FontColor: =
-                                Height: =32
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Value: =Parent.Default
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey3.Y + DataCardKey3.Height + 4
-                                ZIndex: =2
-
-                            ErrorMessage3 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue3.Y + DataCardValue3.Height
-                                ZIndex: =3
-
-                            StarVisible3 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey3.Y
-                                ZIndex: =4
-
-                        Campaign_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="Campaign"
-                            Default: =ThisItem.Campaign
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,Campaign)
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =70
-                            Required: =false
-                            Update: =DataCardValue4.Selected
-                            Width: =403
-                            X: =0
-                            Y: =1
-                            ZIndex: =2
-
-                            DataCardKey4 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue4 As Combobox.pcfdataset:
-                                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                                DefaultSelectedItems: =[Parent.Default]
-                                DisplayMode: =Parent.DisplayMode
-                                Height: =32
-                                Items: =Choices([@Projects].Campaign)
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey4.Y + DataCardKey4.Height + 4
-                                ZIndex: =2
-
-                            ErrorMessage4 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue4.Y + DataCardValue4.Height
-                                ZIndex: =3
-
-                            StarVisible4 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =20
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey4.Y
-                                ZIndex: =4
-
-                        Title_DataCard1 As typedDataCard.fluentV9TextualEditCard:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="Title"
-                            Default: =ThisItem.Title
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@Projects],DataSourceInfo.DisplayName,Title)
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =70
-                            MaxLength: =DataSourceInfo([@Projects], DataSourceInfo.MaxLength, Title)
-                            Required: =true
-                            Update: =DataCardValue5.Value
-                            Width: =403
-                            X: =1
-                            Y: =1
-                            ZIndex: =2
-
-                            DataCardKey5 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =22
-                                Text: =Parent.DisplayName
-                                Weight: ='TextCanvas.Weight'.Semibold
-                                Width: =Parent.Width - 48
-                                Wrap: =false
-                                X: =24
-                                Y: =10
-                                ZIndex: =1
-
-                            "DataCardValue5 As 'Text input'":
-                                AccessibleLabel: =Parent.DisplayName
-                                BasePaletteColor: =
-                                DisplayMode: =Parent.DisplayMode
-                                FontColor: =
-                                Height: =32
-                                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                                Required: =Parent.Required
-                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                                Value: =Parent.Default
-                                Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey5.Y + DataCardKey5.Height + 4
-                                ZIndex: =2
-
-                            ErrorMessage5 As Text:
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: =Parent.Error
-                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =Parent.Width - 48
-                                Wrap: =true
-                                X: =24
-                                Y: =DataCardValue5.Y + DataCardValue5.Height
-                                ZIndex: =3
-
-                            StarVisible5 As Text:
-                                Align: ='TextCanvas.Align'.Center
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =30
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                X: =0
-                                Y: =DataCardKey5.Y
-                                ZIndex: =4
+                        iptProjects_5 As Dropdown.pcfdataset:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Items: =["Item 1", "Item 2", "Item 3"]
+                            Width: =lblProjects_5.Width
+                            X: =lblProjects_5.X
+                            Y: =Gap
+                            ZIndex: =5
 
                 Container37_1 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -1189,7 +920,7 @@ devProjectManagement As screen:
                         )
                     )
                 )
-            Text: ="fnGetProjects"
+            Text: ="fnGetProject"
             Width: =96
             X: =100
             Y: =62
