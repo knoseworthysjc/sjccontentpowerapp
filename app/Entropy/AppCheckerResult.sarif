@@ -9799,19 +9799,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.Container37_1.galProjectSelectedPage.AccessibleLabel"
+                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.Container37_1.galProjectSelectedPage.AccessibleLabel",
+                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "devProjectManagement",
-                "type": "devProjectManagement.conRootNew.conContent.conContentContent.Container37_1.galProjectSelectedPage"
+                "type": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages"
               }
             }
           ],
@@ -9829,19 +9829,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.Container37_1.galProjectSelectedPage.TabIndex"
+                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.Container37_1.galProjectSelectedPage.TabIndex",
+                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "devProjectManagement",
-                "type": "devProjectManagement.conRootNew.conContent.conContentContent.Container37_1.galProjectSelectedPage"
+                "type": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages"
               }
             }
           ],
@@ -10273,6 +10273,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.ipt_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.ipt_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "devProjectManagement",
+                "type": "devProjectManagement.conRootNew.conContent.conContentContent.conProjectPages.galProjectPages.ipt_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
         },
         {
           "locations": [

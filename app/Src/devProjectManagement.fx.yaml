@@ -482,7 +482,7 @@ devProjectManagement As screen:
                                     =28
                                 LayoutMinWidth: |
                                     =28
-                                OnCheck: =Select(fnGetOffers);Select(fnGetPages);Collect(colSelectedProjects,ThisItem);
+                                OnCheck: =Select(fnGetOffers);Collect(colSelectedProjects,ThisItem);Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=ThisItem.Title));
                                 OnUncheck: =ClearCollect(colSelectedProjects,Filter(colSelectedProjects,ID<>ThisItem.ID));
                                 Size: |
                                     =0
@@ -923,7 +923,7 @@ devProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =8
 
-                Container37_1 As groupContainer.verticalAutoLayoutContainer:
+                conProjectPages As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     DropShadow: =DropShadow.Light
                     Fill: =ColorValue(theme.neutralLighterAlt)
@@ -941,7 +941,7 @@ devProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =3
 
-                    conProjectPages As groupContainer.horizontalAutoLayoutContainer:
+                    conProjectPagesLbls As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderStyle: =BorderStyle.None
                         FillPortions: =0
@@ -954,7 +954,7 @@ devProjectManagement As screen:
                         PaddingRight: =Gap
                         ZIndex: =1
 
-                        lblProjects_9 As label:
+                        lbl_1 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Color: =ColorValue(theme.themeDark)
@@ -974,6 +974,24 @@ devProjectManagement As screen:
                             Width: =120
                             ZIndex: =1
 
+                        lbl_2 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =13
+                            Text: ="Title-"&Self.X&"-"&Self.Width
+                            ZIndex: =2
+
                         lblProjects_10 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
@@ -992,7 +1010,7 @@ devProjectManagement As screen:
                                 ="Project
                                 "
                             Width: =100
-                            ZIndex: =2
+                            ZIndex: =3
 
                         lblProjects_11 As label:
                             Align: =Align.Center
@@ -1012,7 +1030,7 @@ devProjectManagement As screen:
                                 ="Page Fr
                                 "
                             Width: =100
-                            ZIndex: =3
+                            ZIndex: =4
 
                         lblProjects_12 As label:
                             Align: =Align.Center
@@ -1032,7 +1050,7 @@ devProjectManagement As screen:
                                 ="Page To
                                 "
                             Width: =100
-                            ZIndex: =4
+                            ZIndex: =5
 
                         lblProjects_13 As label:
                             Align: =Align.Center
@@ -1049,26 +1067,6 @@ devProjectManagement As screen:
                             PaddingTop: =0
                             Size: =13
                             Text: ="Layout"
-                            ZIndex: =5
-
-                        lblProjects_14 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =ColorValue(theme.themeDark)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =13
-                            Text: |-
-                                ="Title
-                                "
                             ZIndex: =6
 
                         lblProjects_15 As label:
@@ -1111,17 +1109,41 @@ devProjectManagement As screen:
                             Width: =400
                             ZIndex: =8
 
-                    galProjectSelectedPage As gallery.galleryVertical:
+                    galProjectPages As gallery.galleryVertical:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
-                        Items: =CustomGallerySample
+                        Items: =SortByColumns(AddColumns(colSelectedProjectsPages,project_title, assigned_project.Value,page_int,Value(page_from)),"project_title",SortOrder.Ascending,"page_int",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
-                        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                        TemplatePadding: =Gap
+                        TemplateSize: =32+Gap*2
                         ZIndex: =2
+
+                        ipt_1 As text:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.Title&"-"&Self.X&"-"&Self.Width
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LineHeight: =1
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Width: =lbl_2.Width
+                            X: =lbl_2.X
+                            Y: =Gap
+                            ZIndex: =1
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -1144,14 +1166,14 @@ devProjectManagement As screen:
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =281
+        Height: =292
         RadiusBottomLeft: =4
         RadiusBottomRight: =4
         RadiusTopLeft: =4
         RadiusTopRight: =4
-        Width: =268
-        X: =1650
-        Y: =785
+        Width: =248
+        X: =1670
+        Y: =775
         ZIndex: =2
 
         fnGetProjects As Button:
@@ -1219,7 +1241,7 @@ devProjectManagement As screen:
             DisplayMode: =DisplayMode.Edit
             FontColor: =
             Height: =32
-            OnSelect: =ForAll(galProjects.AllItems As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
+            OnSelect: =ForAll(colSelectedProjects As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
             Text: ="fnGetPages"
             Width: =96
             X: =95
