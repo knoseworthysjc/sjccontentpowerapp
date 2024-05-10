@@ -968,10 +968,9 @@ devProjectManagement As screen:
                             PaddingRight: =0
                             PaddingTop: =0
                             Size: =13
-                            Text: |-
-                                ="Status
-                                "
-                            Width: =120
+                            Text: ="Stage"
+                            Width: |
+                                =150
                             ZIndex: =1
 
                         lbl_2 As label:
@@ -1122,7 +1121,7 @@ devProjectManagement As screen:
                         TemplateSize: =32+Gap*2
                         ZIndex: =2
 
-                        ipt_1 As text:
+                        ipt_2 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =0
@@ -1146,7 +1145,7 @@ devProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =1
 
-                        ipt_2 As text:
+                        ipt_3 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =0
@@ -1170,7 +1169,7 @@ devProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =2
 
-                        ipt_3 As text:
+                        ipt_4 As text:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =0
@@ -1193,6 +1192,35 @@ devProjectManagement As screen:
                             X: =lbl_4.X
                             Y: =Gap
                             ZIndex: =3
+
+                        ipt_1 As dropdown:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =0
+                            ChevronBackground: =RGBA(0, 51, 102, 1)
+                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                            ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                            Default: =ThisItem.workflow_stage.Value
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            Items: =Choices(FlyerPages.workflow_stage)
+                            OnSelect: =Select(Parent)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =RGBA(0, 89, 178, 1)
+                            SelectionFill: =RGBA(0, 51, 102, 1)
+                            Size: =13
+                            Width: =lbl_1.Width
+                            X: =lbl_1.X
+                            Y: =Gap
+                            ZIndex: =4
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
