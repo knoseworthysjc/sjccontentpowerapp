@@ -474,8 +474,29 @@ devProjectManagement As screen:
                                     =28
                                 LayoutMinWidth: |
                                     =28
-                                OnCheck: =Select(fnGetOffers);Collect(colSelectedProjects,ThisItem);Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=ThisItem.Title));
-                                OnUncheck: =ClearCollect(colSelectedProjects,Filter(colSelectedProjects,ID<>ThisItem.ID));
+                                OnCheck: =Collect(colSelectedProjects,ThisItem);Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=ThisItem.Title));
+                                OnUncheck: |
+                                    =ClearCollect(
+                                        colSelectedProjects,
+                                        Filter(
+                                            colSelectedProjects,
+                                            ID <> ThisItem.ID
+                                        )
+                                    );
+                                    ClearCollect(
+                                        colSelectedProjectsPages,
+                                        Filter(
+                                            colSelectedProjectsPages,
+                                            assigned_project.Value <> ThisItem.Title
+                                        )
+                                    );
+                                    ClearCollect(
+                                        colFlyerPagesPdfs,
+                                        Filter(
+                                            colFlyerPagesPdfs,
+                                            assigned_project.Value <> ThisItem.Title
+                                        )
+                                    );
                                 Size: |
                                     =0
                                 Text: =""
@@ -1210,8 +1231,8 @@ devProjectManagement As screen:
                             Font: =Font.'Segoe UI'
                             Height: =Parent.TemplateHeight-Gap*2
                             HoverColor: =RGBA(0, 89, 178, 1)
-                            OnCheck: =Collect(colFlyerPagesPdfs ,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from))
-                            OnUncheck: =Collect(colFlyerPagesPdfs,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from<>ThisItem.page_from))
+                            OnCheck: =Collect(colFlyerPagesPdfs,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from))
+                            OnUncheck: =ClearCollect(colFlyerPagesPdfs,Filter(colFlyerPagesPdfs,assigned_project.Value<>ThisItem.assigned_project.Value And page_from<>ThisItem.page_from))
                             Size: =13
                             Text: =""
                             Width: =lbl_select.Width
@@ -1266,10 +1287,27 @@ devProjectManagement As screen:
                             Y: =Gap
                             ZIndex: =1
 
+                        Label4 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.black)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralLighter&"F0")
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.'File name with extension'
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =Gap
+                            Y: =Parent.TemplateHeight-Self.Height-Gap
+                            ZIndex: =2
+
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =46
+        Height: =30
         RadiusBottomLeft: =4
         RadiusBottomRight: =4
         RadiusTopLeft: =4
