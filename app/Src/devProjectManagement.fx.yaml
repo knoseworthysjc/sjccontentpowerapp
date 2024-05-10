@@ -542,7 +542,7 @@ devProjectManagement As screen:
                     Items: |
                         =Table(
                             {
-                                Title: "Details & Pages",
+                                Title: "Pages",
                                 Icon: "PDF"
                             },
                             {
@@ -623,6 +623,7 @@ devProjectManagement As screen:
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
+                    Visible: =false
                     ZIndex: =2
 
                     Container30 As groupContainer.horizontalAutoLayoutContainer:
@@ -816,6 +817,7 @@ devProjectManagement As screen:
                             BasePaletteColor: =RGBA(189, 178, 176, 1)
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
+                            FontColor: =
                             FontSize: =18
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
@@ -843,7 +845,7 @@ devProjectManagement As screen:
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =18
                             Height: =Parent.TemplateHeight-Gap*2
-                            Items: =Choices(Projects.season)
+                            Items: =Choices(Projects.Season)
                             Width: =lblProjects_3.Width
                             X: =lblProjects_3.X-Gap/2
                             Y: =Gap
