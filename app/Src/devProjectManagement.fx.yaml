@@ -992,27 +992,7 @@ devProjectManagement As screen:
                             Text: ="Title-"&Self.X&"-"&Self.Width
                             ZIndex: =2
 
-                        lblProjects_10 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =ColorValue(theme.themeDark)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =ColorValue(theme.neutralQuaternary)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =13
-                            Text: |-
-                                ="Project
-                                "
-                            Width: =100
-                            ZIndex: =3
-
-                        lblProjects_11 As label:
+                        lbl_3 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Color: =ColorValue(theme.themeDark)
@@ -1030,9 +1010,9 @@ devProjectManagement As screen:
                                 ="Page Fr
                                 "
                             Width: =100
-                            ZIndex: =4
+                            ZIndex: =3
 
-                        lblProjects_12 As label:
+                        lbl_4 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Color: =ColorValue(theme.themeDark)
@@ -1048,6 +1028,26 @@ devProjectManagement As screen:
                             Size: =13
                             Text: |-
                                 ="Page To
+                                "
+                            Width: =100
+                            ZIndex: =4
+
+                        lblProjects_10 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =ColorValue(theme.themeDark)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =ColorValue(theme.neutralQuaternary)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =30
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =13
+                            Text: |-
+                                ="Project
                                 "
                             Width: =100
                             ZIndex: =5
@@ -1123,6 +1123,7 @@ devProjectManagement As screen:
                         ZIndex: =2
 
                         ipt_1 As text:
+                            Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =0
                             Color: =RGBA(0, 0, 0, 1)
@@ -1144,6 +1145,54 @@ devProjectManagement As screen:
                             X: =lbl_2.X
                             Y: =Gap
                             ZIndex: =1
+
+                        ipt_2 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.page_from
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LineHeight: =1
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Width: =lbl_3.Width
+                            X: =lbl_3.X
+                            Y: =Gap
+                            ZIndex: =2
+
+                        ipt_3 As text:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            Default: =ThisItem.page_to
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            LineHeight: =1
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Width: =lbl_4.Width
+                            X: =lbl_4.X
+                            Y: =Gap
+                            ZIndex: =3
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
