@@ -1269,14 +1269,13 @@ devProjectManagement As screen:
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =292
+        Height: =46
         RadiusBottomLeft: =4
         RadiusBottomRight: =4
         RadiusTopLeft: =4
         RadiusTopRight: =4
-        Width: =248
-        X: =1645
-        Y: =115
+        Width: =360
+        X: =1205
         ZIndex: =2
 
         fnGetProjects As Button:
@@ -1323,8 +1322,8 @@ devProjectManagement As screen:
                 )
             Text: ="fnGetProject"
             Width: =96
-            X: =95
-            Y: =100
+            X: =0
+            Y: =0
             ZIndex: =2
 
         fnGetOffers As Button:
@@ -1335,8 +1334,8 @@ devProjectManagement As screen:
             OnSelect: =Clear(colProjectManagementSelectedOffers);
             Text: ="fnGetOffers"
             Width: =96
-            X: =95
-            Y: =162
+            X: =116
+            Y: =0
             ZIndex: =3
 
         fnGetPages As Button:
@@ -1347,8 +1346,8 @@ devProjectManagement As screen:
             OnSelect: =ForAll(colSelectedProjects As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
             Text: ="fnGetPages"
             Width: =96
-            X: =95
-            Y: =206
+            X: =245
+            Y: =0
             ZIndex: =4
 
     nav_container_9 As groupContainer.manualLayoutContainer:
