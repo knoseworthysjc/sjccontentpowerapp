@@ -988,7 +988,7 @@ devProjectManagement As screen:
                             PaddingRight: =0
                             PaddingTop: =0
                             Size: =13
-                            Text: ="Title-"&Self.X&"-"&Self.Width
+                            Text: ="Title"
                             ZIndex: =2
 
                         lbl_3 As label:
@@ -1126,7 +1126,7 @@ devProjectManagement As screen:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             BorderThickness: =0
                             Color: =RGBA(0, 0, 0, 1)
-                            Default: =ThisItem.Title&"-"&Self.X&"-"&Self.Width
+                            Default: =ThisItem.Title
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
