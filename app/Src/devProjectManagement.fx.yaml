@@ -2,21 +2,19 @@ devProjectManagement As screen:
     Fill: =ColorValue(theme.white)
 
     conRootNew As groupContainer.verticalAutoLayoutContainer:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        DropShadow: =DropShadow.Light
+        BorderColor: =ColorValue(theme.neutralDark)
+        BorderThickness: =1
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =Gap
         LayoutMode: =LayoutMode.Auto
-        PaddingLeft: =2
-        PaddingRight: =2
         Width: =Parent.Width
         ZIndex: =1
 
         conHeaderPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            BorderStyle: =BorderStyle.None
             DropShadow: =DropShadow.Light
             Fill: =ColorValue(theme.black)
             FillPortions: =0
@@ -85,11 +83,10 @@ devProjectManagement As screen:
                 Y: =1
                 ZIndex: =3
 
-        conHeaderPMCtrl As groupContainer.horizontalAutoLayoutContainer:
+        conHeaderCtrl As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =ColorValue(theme.black)
             BorderStyle: =BorderStyle.None
-            BorderThickness: =1
             Fill: =ColorValue(theme.neutralLighterAlt)
             FillPortions: =0
             Height: =32
@@ -205,7 +202,7 @@ devProjectManagement As screen:
 
         conContent As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderColor: =ColorValue(theme.black)
             BorderStyle: =BorderStyle.None
             Height: =Parent.Height
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -213,16 +210,12 @@ devProjectManagement As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            PaddingBottom: =1
-            PaddingLeft: =1
-            PaddingRight: =1
-            PaddingTop: =1
             ZIndex: =3
 
             conContentNav As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =ColorValue(theme.black)
-                BorderThickness: =1
+                BorderStyle: =BorderStyle.None
                 Fill: =ColorValue(theme.neutralLighterAlt)
                 FillPortions: =0
                 Height: =Parent.Height
@@ -513,7 +506,7 @@ devProjectManagement As screen:
             conContentContent As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =ColorValue(theme.black)
-                BorderThickness: =1
+                BorderStyle: =BorderStyle.None
                 DropShadow: =DropShadow.Light
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
@@ -550,17 +543,12 @@ devProjectManagement As screen:
                                 Icon: "ProjectLogoInverse"
                             },
                             {
-                                Title: "Files",
-                                Icon: "FolderHorizontal"
-                            },
-                            {
                                 Title: "Exclusions",
                                 Icon: "ReportDocument"
-                            },
-                            {
-                                Title: "Offers",
-                                Icon: "PageData"
-                            }
+                            },{
+                                Title: "Files",
+                                Icon: "FolderHorizontal"
+                            }   
                         )
                     LayoutMinHeight: =287
                     LoadingSpinner: =LoadingSpinner.Data
@@ -933,6 +921,7 @@ devProjectManagement As screen:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Gap
                     PaddingLeft: =Gap
                     PaddingRight: =Gap
                     RadiusBottomLeft: =4
@@ -954,6 +943,19 @@ devProjectManagement As screen:
                         PaddingRight: =Gap
                         ZIndex: =1
 
+                        lbl_select As checkbox:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                            CheckboxSize: =32
+                            Color: =RGBA(0, 0, 0, 1)
+                            Font: =Font.'Segoe UI'
+                            Height: =32
+                            HoverColor: =RGBA(0, 89, 178, 1)
+                            Size: =13
+                            Text: =""
+                            Width: =32
+                            ZIndex: =1
+
                         lbl_1 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
@@ -971,7 +973,7 @@ devProjectManagement As screen:
                             Text: ="Stage"
                             Width: |
                                 =150
-                            ZIndex: =1
+                            ZIndex: =2
 
                         lbl_2 As label:
                             Align: =Align.Center
@@ -989,7 +991,7 @@ devProjectManagement As screen:
                             Size: =13
                             Text: ="Title"
                             Width: =Parent.Width*0.25
-                            ZIndex: =2
+                            ZIndex: =3
 
                         lbl_3 As label:
                             Align: =Align.Center
@@ -1012,7 +1014,7 @@ devProjectManagement As screen:
                                 "
                             Width: |
                                 =90
-                            ZIndex: =3
+                            ZIndex: =4
 
                         lbl_4 As label:
                             Align: =Align.Center
@@ -1035,7 +1037,7 @@ devProjectManagement As screen:
                                 "
                             Width: |
                                 =90
-                            ZIndex: =4
+                            ZIndex: =5
 
                         lbl_5 As label:
                             Align: =Align.Center
@@ -1058,13 +1060,15 @@ devProjectManagement As screen:
 
                     galProjectPages As gallery.galleryVertical:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =ColorValue(theme.black)
+                        BorderThickness: =1
                         DelayItemLoading: =true
                         Items: =SortByColumns(AddColumns(colSelectedProjectsPages,project_title, assigned_project.Value,page_int,Value(page_from)),"project_title",SortOrder.Ascending,"page_int",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
                         LoadingSpinner: =LoadingSpinner.Data
+                        TemplateFill: =ColorValue(theme.neutralLight)
                         TemplatePadding: =Gap
                         TemplateSize: =32+Gap*2
                         ZIndex: =2
@@ -1198,6 +1202,21 @@ devProjectManagement As screen:
                             X: =lbl_5.X
                             Y: =Gap
                             ZIndex: =5
+
+                        ipt_select As checkbox:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                            CheckboxSize: =32
+                            Color: =RGBA(0, 0, 0, 1)
+                            Font: =Font.'Segoe UI'
+                            Height: =Parent.TemplateHeight-Gap*2
+                            HoverColor: =RGBA(0, 89, 178, 1)
+                            Size: =13
+                            Text: =""
+                            Width: =lbl_select.Width
+                            X: =lbl_select.X
+                            Y: =Gap
+                            ZIndex: =6
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
