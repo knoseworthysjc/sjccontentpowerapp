@@ -1280,7 +1280,7 @@ devProjectManagement As screen:
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Fill: =RGBA(139, 154, 159, 1)
                             Height: =Parent.Height-Gap*2
-                            Image: =ThisItem.Thumbnail.Large
+                            Image: =ThisItem.'{Thumbnail}'.Large
                             OnSelect: =Select(Parent)
                             Width: =Parent.TemplateWidth-Gap*2
                             X: =Gap
@@ -1298,7 +1298,7 @@ devProjectManagement As screen:
                             FontWeight: =FontWeight.Semibold
                             OnSelect: =Select(Parent)
                             Size: =13
-                            Text: =ThisItem.'File name with extension'
+                            Text: =ThisItem.'{FilenameWithExtension}'
                             Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                             X: =Gap
                             Y: =Parent.TemplateHeight-Self.Height-Gap
