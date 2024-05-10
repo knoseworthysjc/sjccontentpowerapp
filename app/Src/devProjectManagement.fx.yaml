@@ -979,7 +979,6 @@ devProjectManagement As screen:
                             Color: =ColorValue(theme.themeDark)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Fill: =ColorValue(theme.neutralQuaternary)
-                            FillPortions: =1
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =30
@@ -989,6 +988,7 @@ devProjectManagement As screen:
                             PaddingTop: =0
                             Size: =13
                             Text: ="Title"
+                            Width: =Parent.Width*0.25
                             ZIndex: =2
 
                         lbl_3 As label:
@@ -1000,6 +1000,8 @@ devProjectManagement As screen:
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =30
+                            LayoutMinWidth: |
+                                =90
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1008,7 +1010,8 @@ devProjectManagement As screen:
                             Text: |-
                                 ="Page Fr
                                 "
-                            Width: =100
+                            Width: |
+                                =90
                             ZIndex: =3
 
                         lbl_4 As label:
@@ -1020,6 +1023,8 @@ devProjectManagement As screen:
                             Font: =Font.'Segoe UI'
                             FontWeight: =FontWeight.Semibold
                             Height: =30
+                            LayoutMinWidth: |
+                                =90
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -1028,30 +1033,11 @@ devProjectManagement As screen:
                             Text: |-
                                 ="Page To
                                 "
-                            Width: =100
+                            Width: |
+                                =90
                             ZIndex: =4
 
-                        lblProjects_10 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =ColorValue(theme.themeDark)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =ColorValue(theme.neutralQuaternary)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =13
-                            Text: |-
-                                ="Project
-                                "
-                            Width: =100
-                            ZIndex: =5
-
-                        lblProjects_13 As label:
+                        lbl_5 As label:
                             Align: =Align.Center
                             BorderColor: =RGBA(0, 89, 178, 1)
                             Color: =ColorValue(theme.themeDark)
@@ -1066,47 +1052,9 @@ devProjectManagement As screen:
                             PaddingTop: =0
                             Size: =13
                             Text: ="Layout"
+                            Width: |
+                                =250
                             ZIndex: =6
-
-                        lblProjects_15 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =ColorValue(theme.themeDark)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =ColorValue(theme.neutralQuaternary)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =13
-                            Text: |-
-                                ="Total Pages
-                                "
-                            Width: =100
-                            ZIndex: =7
-
-                        lblProjects_16 As label:
-                            Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =ColorValue(theme.themeDark)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Fill: =ColorValue(theme.neutralQuaternary)
-                            Font: =Font.'Segoe UI'
-                            FontWeight: =FontWeight.Semibold
-                            Height: =30
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =13
-                            Text: |-
-                                ="Details
-                                "
-                            Width: =400
-                            ZIndex: =8
 
                     galProjectPages As gallery.galleryVertical:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1221,6 +1169,35 @@ devProjectManagement As screen:
                             X: =lbl_1.X
                             Y: =Gap
                             ZIndex: =4
+
+                        ipt_5 As dropdown:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =0
+                            ChevronBackground: =RGBA(0, 51, 102, 1)
+                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                            ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                            Default: =ThisItem.assigned_page_layout.Value
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.TemplateHeight-Gap*2
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(153, 205, 255, 1)
+                            Items: =Choices(FlyerPages.assigned_page_layout)
+                            OnSelect: =Select(Parent)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =RGBA(0, 89, 178, 1)
+                            SelectionFill: =RGBA(0, 51, 102, 1)
+                            Size: =13
+                            Width: =lbl_5.Width
+                            X: =lbl_5.X
+                            Y: =Gap
+                            ZIndex: =5
 
                 Container37_2 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
