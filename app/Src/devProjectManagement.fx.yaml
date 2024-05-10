@@ -355,6 +355,7 @@ devProjectManagement As screen:
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
                             minimumHeight: =30
+                            OnChange: =Clear(colSelectedProjectsPages);
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingRight: =5
@@ -410,9 +411,7 @@ devProjectManagement As screen:
                             HoverFill: =RGBA(153, 205, 255, 1)
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
-                            OnChange: |-
-                                =Select(fnGetProjects);
-                                Select(Self);
+                            OnChange: =Clear(colSelectedProjectsPages);
                             PaddingBottom: =0
                             PaddingLeft: =5
                             PaddingTop: =0
@@ -1211,6 +1210,8 @@ devProjectManagement As screen:
                             Font: =Font.'Segoe UI'
                             Height: =Parent.TemplateHeight-Gap*2
                             HoverColor: =RGBA(0, 89, 178, 1)
+                            OnCheck: =Collect(colFlyerPagesPdfs ,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from))
+                            OnUncheck: =Collect(colFlyerPagesPdfs,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from<>ThisItem.page_from))
                             Size: =13
                             Text: =""
                             Width: =lbl_select.Width
@@ -1236,6 +1237,35 @@ devProjectManagement As screen:
                     RadiusTopRight: =4
                     ZIndex: =4
 
+                    Gallery9 As gallery.galleryVertical:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Items: =colFlyerPagesPdfs
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =Parent.Height-Gap*2
+                        LayoutMinWidth: =Parent.Width-Gap*2
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =Gap
+                        TemplateSize: =Parent.Height
+                        WrapCount: |
+                            =5
+                        Y: =Gap
+                        ZIndex: =1
+
+                        Image3 As image:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(139, 154, 159, 1)
+                            Height: =Parent.Height-Gap*2
+                            Image: =ThisItem.Thumbnail.Large
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth-Gap*2
+                            X: =Gap
+                            Y: =Gap
+                            ZIndex: =1
+
     conFunctionCtrl As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(255, 255, 255, 1)
@@ -1245,8 +1275,8 @@ devProjectManagement As screen:
         RadiusTopLeft: =4
         RadiusTopRight: =4
         Width: =248
-        X: =1670
-        Y: =775
+        X: =1645
+        Y: =115
         ZIndex: =2
 
         fnGetProjects As Button:
