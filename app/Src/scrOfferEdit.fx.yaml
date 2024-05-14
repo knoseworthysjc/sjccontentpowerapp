@@ -1166,7 +1166,7 @@ scrOfferEdit As screen:
                         Icon: =Icon.Save
                         LayoutMinHeight: =25
                         LayoutMinWidth: =40
-                        OnSelect: |-
+                        OnSelect: |
                             =Patch(
                                 Offers,
                                 First(
@@ -1176,7 +1176,8 @@ scrOfferEdit As screen:
                                         selected
                                     )
                                 ),
-                                {offer_status:ThisItem.offer_status,
+                                {
+                                    offer_status: ThisItem.offer_status,
                                     page_from: ThisItem.page_from,
                                     layout_position: ThisItem.layout_position,
                                     Adblock: ThisItem.Adblock,
@@ -1210,10 +1211,17 @@ scrOfferEdit As screen:
                                     image_source: ThisItem.image_source,
                                     offer_comments: ThisItem.offer_comments,
                                     assigned_images: ThisItem.assigned_images,
-                                    assigned_logos: ThisItem.assigned_logos,record_type:ThisItem.record_type,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout
+                                    assigned_logos: ThisItem.assigned_logos,
+                                    record_type: ThisItem.record_type,
+                                    assigned_images_fre: ThisItem.assigned_images_fre,
+                                    offer_layout: ThisItem.offer_layout,adblock_theme:ThisItem.adblock_theme
                                 }
                             );
-                            Patch(colSelectedOffers,ThisItem,{updated:false});
+                            Patch(
+                                colSelectedOffers,
+                                ThisItem,
+                                {updated: false}
+                            );
                         Visible: =ThisItem.updated
                         Width: |
                             =40
@@ -1457,6 +1465,9 @@ scrOfferEdit As screen:
                         Mode: =TextMode.MultiLine
                         OnChange: |-
                             =Patch(colSelectedOffers,ThisItem,{updated:true,featured_item_numbers:Self.Text})
+                        OnSelect: |-
+                            =Clear(colSelectedOfferProducts);
+                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1511,6 +1522,9 @@ scrOfferEdit As screen:
                         Mode: =TextMode.MultiLine
                         OnChange: |-
                             =Patch(colSelectedOffers,ThisItem,{updated:true,combined_item_number:Self.Text})
+                        OnSelect: |-
+                            =Clear(colSelectedOfferProducts);
+                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3477,7 +3491,6 @@ scrOfferEdit As screen:
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        DisplayMode: =DisplayMode.View
                         EnableSpellCheck: =true
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
@@ -3490,6 +3503,8 @@ scrOfferEdit As screen:
                             =100
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
+                        OnChange: |-
+                            =Patch(colSelectedOffers,ThisItem,{updated:true,adblock_theme:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
