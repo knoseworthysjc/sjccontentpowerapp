@@ -5295,11 +5295,14 @@ scrOfferEdit As screen:
                                 AlignInContainer: =AlignInContainer.SetByContainer
                                 BorderStyle: =BorderStyle.None
                                 Height: =Parent.Height
+                                LayoutAlignItems: =LayoutAlignItems.Stretch
                                 LayoutDirection: =LayoutDirection.Vertical
                                 LayoutMinHeight: =Parent.Height
                                 LayoutMinWidth: =Parent.Width-40
                                 LayoutMode: =LayoutMode.Auto
-                                Width: =Parent.Width-40
+                                Width: |+
+                                    =Parent.Width-40
+                                    
                                 ZIndex: =3
 
                                 previewOffer_rollBack_6 As label:
