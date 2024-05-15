@@ -5088,13 +5088,13 @@ scrOfferEdit As screen:
                         '#CopilotOverlayLabel': ="Filtered"
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Height: =previewOfferContainer_3.Y-Self.Y
-                        Items: =Gallery3.AllItems
+                        Items: =Filter(colSelectedPageProductImages,offerId=galSelectedOffers.Selected.ID And lang="eng")
                         ShowScrollbar: =false
                         TemplatePadding: =0
                         TemplateSize: =(Self.Width-previewOffer_boarder_5.BorderThickness*4)/CountRows(ThisItem.assigned_images)
-                        Width: =previewOffer_boarder_5.Width-previewOffer_boarder_5.BorderThickness*4
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-previewOffer_boarder_5.BorderThickness*2
                         WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
-                        X: =1
+                        X: =Parent.TemplatePadding+previewOffer_boarder_5.BorderThickness
                         Y: =previewOffer_boarder_5.BorderThickness+U
                         ZIndex: =3
 
@@ -5102,10 +5102,11 @@ scrOfferEdit As screen:
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
-                            Height: =Parent.Height
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                             Image: =ThisItem.thumbnails
                             OnSelect: =Select(Parent)
-                            Width: =Parent.TemplateWidth
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =Parent.TemplatePadding
                             Y: =Parent.TemplatePadding
                             ZIndex: =2
 
@@ -5113,13 +5114,13 @@ scrOfferEdit As screen:
                         BorderColor: =RGBA(255, 0, 0, 1)
                         BorderThickness: =5
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                         OnSelect: =Select(Parent)
                         Width: |-
                             =Parent.TemplateWidth-
                             Parent.TemplatePadding
-                        X: =1
-                        Y: =1
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplatePadding
                         ZIndex: =4
 
                     previewOfferContainerLockup_3 As groupContainer.verticalAutoLayoutContainer:
