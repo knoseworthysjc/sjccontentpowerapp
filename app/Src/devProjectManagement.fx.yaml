@@ -632,7 +632,17 @@ devProjectManagement As screen:
                             IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             LayoutMinHeight: =200
                             LayoutMinWidth: =50
-                            OnChange: =ClearCollect(colProjectMangementPlanning,Planner_1.ListMyPlans().value)
+                            OnChange: |-
+                                =Reset(ipt1);
+                                Reset(ipt2);
+                                Reset(ipt3);
+                                Reset(ipt2_1);
+                                Reset(ipt2_2);
+                                Reset(ipt2_3);
+                                Set(
+                                    varShowLeftPanel,
+                                    "nav"
+                                )
                             Text: ="Cancel"
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Theme: =JSON(theme)
@@ -1683,6 +1693,7 @@ devProjectManagement As screen:
                     PaddingBottom: =Gap
                     PaddingLeft: =Gap
                     PaddingRight: =Gap
+                    PaddingTop: =Gap
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
