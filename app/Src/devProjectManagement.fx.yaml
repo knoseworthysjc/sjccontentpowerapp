@@ -576,14 +576,67 @@ devProjectManagement As screen:
                         DropShadow: =DropShadow.Light
                         FillPortions: =0
                         Height: =40
+                        LayoutGap: =Gap
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =Gap
+                        PaddingLeft: =Gap
+                        PaddingRight: =Gap
+                        PaddingTop: =Gap
                         RadiusBottomLeft: =4
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         ZIndex: =13
+
+                        "Icon2_3 As 'Fluent Icon (1.0.19)'":
+                            AlignInContainer: =AlignInContainer.Center
+                            BorderRadius: =15
+                            DisplayMode: =DisplayMode.Edit
+                            FillColor: =theme.themeDarker
+                            FillPortions: =1
+                            FontColor: =theme.neutralLight
+                            FontSize: =20
+                            Height: =Parent.Height
+                            IconColor: =theme.neutralLight
+                            IconName: =Icon.Save
+                            IconSize: =28
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =50
+                            OnChange: =ClearCollect(colProjectMangementPlanning,Planner_1.ListMyPlans().value)
+                            Text: ="Save"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Theme: =JSON(theme)
+                            Width: =50
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        "Icon2_4 As 'Fluent Icon (1.0.19)'":
+                            AlignInContainer: =AlignInContainer.Center
+                            BorderRadius: =15
+                            DisplayMode: =DisplayMode.Edit
+                            FillColor: =theme.themeDarker
+                            FillPortions: =1
+                            FontColor: =theme.neutralLight
+                            FontSize: =20
+                            Height: =Parent.Height
+                            IconColor: =theme.neutralLight
+                            IconName: =ThisItem.Icon
+                            IconSize: =28
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =50
+                            OnChange: =ClearCollect(colProjectMangementPlanning,Planner_1.ListMyPlans().value)
+                            Text: ="Cancel"
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Theme: =JSON(theme)
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
 
             conContentNav As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
