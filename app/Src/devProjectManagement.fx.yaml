@@ -1,5 +1,6 @@
 devProjectManagement As screen:
     Fill: =ColorValue(theme.white)
+    OnVisible: =Set(varShowLeftPanel,"nav");
 
     conRootNew As groupContainer.verticalAutoLayoutContainer:
         BorderColor: =ColorValue(theme.neutralDark)
@@ -111,27 +112,7 @@ devProjectManagement As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =165
-                OnChange: |
-                    =If(
-                        IsBlankOrError(ddPageFilter.Selected) Or IsBlankOrError(ddProjectFilter.Selected),
-                        Notify("Project/Page Required For Offer Creation"),
-                        Collect(
-                            colSelectedOffers,
-                            Patch(
-                                Offers,
-                                Defaults(Offers),
-                                {
-                                    assigned_project: {
-                                        Id: ddProjectFilter.Selected.ID,
-                                        Value: ddProjectFilter.Selected.Title
-                                    },
-                                    page_from: ddPageFilter.Selected.page_from,
-                                    layout_position: 0,
-                                    Adblock: 0
-                                }
-                            )
-                        )
-                    );
+                OnChange: =Set(varShowLeftPanel,"newProject")
                 Text: ="Add Project"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Theme: =JSON(theme)
@@ -140,33 +121,6 @@ devProjectManagement As screen:
                 X: =0
                 Y: =0
                 ZIndex: =1
-
-            "Icon1_17 As 'Fluent Icon (1.0.19)'":
-                BorderColor: =theme.neutralPrimary
-                BorderRadius: =4
-                DisplayMode: =DisplayMode.Edit
-                FontColor: =""
-                FontSize: =12
-                Height: =28
-                IconColor: =""
-                IconName: ="Search"
-                IconSize: =22
-                IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                LayoutMinHeight: =200
-                LayoutMinWidth: =165
-                OnChange: |-
-                    = Set(
-                            showRelistPanel,
-                            true
-                        )
-                Text: ="Search"
-                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                Theme: =JSON(theme)
-                Tooltip: ="Add Pages"
-                Width: =105
-                X: =0
-                Y: =0
-                ZIndex: =2
 
             "Icon1_18 As 'Fluent Icon (1.0.19)'":
                 BorderColor: =theme.neutralPrimary
@@ -212,6 +166,363 @@ devProjectManagement As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
+            conContentNewProject As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =ColorValue(theme.black)
+                BorderStyle: =BorderStyle.None
+                Fill: =ColorValue(theme.neutralLighterAlt)
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =Gap
+                LayoutMinHeight: =100
+                LayoutMinWidth: =Parent.Width*0.15
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =0   
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =varShowLeftPanel="newProject"
+                Width: =Parent.Width*0.15
+                ZIndex: =1
+
+                Container35_1 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.Light
+                    Fill: =ColorValue(theme.themeDarker)
+                    FillPortions: =0
+                    Height: =32
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =Gap
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Gap
+                    PaddingLeft: =Gap
+                    PaddingRight: =Gap
+                    PaddingTop: =Gap
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    lblProject_5 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height-Gap*2
+                        LayoutMinHeight: |
+                            =Parent.Height-Gap*2
+                        LayoutMinWidth: |
+                            =32
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =11
+                        Text: ="New Project"
+                        Width: |
+                            =32
+                        X: =ipt2.Width+ipt2.X
+                        ZIndex: =1
+
+                Container36_1 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    Fill: =ColorValue(theme.neutralLighter)
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: |
+                        =0
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowY: =LayoutOverflow.Scroll
+                    PaddingBottom: =Gap
+                    PaddingLeft: =Gap
+                    PaddingRight: =Gap
+                    PaddingTop: =Gap
+                    ZIndex: =2
+
+                    lbl2_2 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(13, 50, 61, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =40
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =0
+                        Text: ="Docket"
+                        Width: =50
+                        X: =ipt1.X+ipt1.Width
+                        Y: =1
+                        ZIndex: =1
+
+                    ipt2_2 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Format: =TextFormat.Number
+                        Height: |
+                            =32
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingTop: =0
+                        Reset: =true
+                        Size: =11
+                        Width: |
+                            =32
+                        X: =lbl2_2.X+lbl2_2.Width
+                        Y: =(Self.BorderThickness*8)/2
+                        ZIndex: =2
+
+                    lbl1 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(13, 50, 61, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =0
+                        Text: ="Season"
+                        Width: =50
+                        X: =Parent.Width/12
+                        Y: =1
+                        ZIndex: =3
+
+                    ipt1 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Default: =Year(Now())
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =0
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        Width: |
+                            =32
+                        ZIndex: =4
+
+                    lbl2 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(13, 50, 61, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =40
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =0
+                        Text: ="Week"
+                        Width: =50
+                        X: =ipt1.X+ipt1.Width
+                        Y: =1
+                        ZIndex: =5
+
+                    ipt2 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: |
+                            =WeekNum(Now())+3
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Format: =TextFormat.Number
+                        Height: |
+                            =32
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingTop: =0
+                        Reset: =true
+                        Size: =11
+                        Width: |
+                            =32
+                        X: =lbl2.X+lbl2.Width
+                        Y: =(Self.BorderThickness*8)/2
+                        ZIndex: =6
+
+                    lbl3 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(13, 50, 61, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =0
+                        Text: ="Campaign"
+                        Width: =50
+                        X: =Parent.Width/12
+                        Y: =1
+                        ZIndex: =7
+
+                    ipt3 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderThickness: =1
+                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Default: ="Circular"
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        Items: =Choices(Projects.Campaign)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =0
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 89, 178, 1)
+                        Reset: =true
+                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        Width: |
+                            =32
+                        ZIndex: =8
+
+                    lbl2_1 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(13, 50, 61, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =40
+                        minimumHeight: =30
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =11
+                        TabIndex: =0
+                        Text: ="Title"
+                        Width: =50
+                        X: =ipt1.X+ipt1.Width
+                        Y: =1
+                        ZIndex: =9
+
+                    ipt2_1 As text:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Clear: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =Text(ipt2_2.Text)&"_WK"&ipt2.Text&If(ipt3.Selected.Value="Circular","Flyer",ipt3.Selected.Value)
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Format: =TextFormat.Number
+                        Height: |
+                            =32
+                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(153, 205, 255, 1)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        PaddingBottom: =0
+                        PaddingLeft: =5
+                        PaddingTop: =0
+                        Reset: =true
+                        Size: =11
+                        Width: |
+                            =32
+                        X: =lbl2_1.X+lbl2_1.Width
+                        Y: =(Self.BorderThickness*8)/2
+                        ZIndex: =10
+
             conContentNav As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =ColorValue(theme.black)
@@ -230,8 +541,9 @@ devProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Visible: =varShowLeftPanel="nav"
                 Width: =Parent.Width*0.15
-                ZIndex: =1
+                ZIndex: =2
 
                 Container35 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -542,7 +854,7 @@ devProjectManagement As screen:
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
-                ZIndex: =2
+                ZIndex: =3
 
                 galProjectTabSelection As gallery.galleryHorizontal:
                     AlignInContainer: =AlignInContainer.SetByContainer
