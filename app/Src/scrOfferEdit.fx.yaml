@@ -4519,6 +4519,26 @@ scrOfferEdit As screen:
                         Y: =Gap
                         ZIndex: =2
 
+                    Label11_1 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderStyle: =BorderStyle.None
+                        Color: =ColorValue(theme.neutralLighterAlt)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =ColorValue(theme.themeDark)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: |
+                            =96
+                        OnSelect: =Select(Parent)
+                        Size: =13
+                        Text: =Coalesce(ThisItem.description,ThisItem.'English Description')
+                        Width: =Parent.TemplateWidth-Gap*2
+                        X: =Gap
+                        Y: =Parent.TemplateHeight-Gap-Self.Height
+                        ZIndex: =3
+
             conOfferUsage As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(107, 144, 179, 1)
