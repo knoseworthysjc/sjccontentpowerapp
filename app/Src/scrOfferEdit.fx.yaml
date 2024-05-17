@@ -4467,28 +4467,6 @@ scrOfferEdit As screen:
                     WrapCount: =6
                     ZIndex: =1
 
-                    Gallery10 As gallery.galleryHorizontal:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        DelayItemLoading: =true
-                        Height: =320
-                        Items: =Filter(colSelectedPageProductImages,StartsWith(title,ThisItem.item_number))
-                        LoadingSpinner: =LoadingSpinner.Data
-                        TemplatePadding: =Gap
-                        TemplateSize: =Self.Width/2-Gap
-                        Width: =314.1666666666667
-                        ZIndex: =1
-
-                        Image6 As image:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Height: =Parent.TemplateHeight-Gap*2
-                            OnSelect: =Select(Parent)
-                            Width: =Parent.TemplateWidth-Gap*2
-                            X: =Gap
-                            Y: =Gap
-                            ZIndex: =1
-
                     Rectangle5 As rectangle:
                         BorderColor: =RGBA(53, 61, 63, 1)
                         BorderThickness: =1
@@ -4499,6 +4477,30 @@ scrOfferEdit As screen:
                         X: =Gap
                         Y: =Gap
                         ZIndex: =1
+
+                    Gallery10 As gallery.galleryHorizontal:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        DelayItemLoading: =true
+                        Height: =Parent.TemplateHeight-Self.Y-Label11_1.Height
+                        Items: =Filter(colSelectedPageProductImages,StartsWith(title,ThisItem.item_number))
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =Gap
+                        TemplateSize: =Self.Width/2-Gap
+                        Width: =314.1666666666667
+                        Y: =32+Gap
+                        ZIndex: =1
+
+                        Image6 As image:
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.TemplateHeight-Gap*2
+                            Image: =ThisItem.thumbnails
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth-Gap*2
+                            X: =Gap
+                            Y: =Gap
+                            ZIndex: =1
 
                     Label11 As label:
                         Align: =Align.Center
