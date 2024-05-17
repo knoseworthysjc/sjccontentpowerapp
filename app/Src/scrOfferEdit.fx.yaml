@@ -4507,7 +4507,7 @@ scrOfferEdit As screen:
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         Height: =32
-                        OnSelect: =Select(Parent)
+                        OnSelect: =Select(Parent);Launch(ThisItem.product_url,{},LaunchTarget.New);
                         Size: =13
                         Text: =ThisItem.item_number
                         Width: =Parent.TemplateWidth-Gap*2
@@ -4527,7 +4527,7 @@ scrOfferEdit As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: |
                             =96
-                        OnSelect: =Select(Parent)
+                        OnSelect: =Launch(ThisItem.product_url,{},LaunchTarget.New);
                         Size: =13
                         Text: =Coalesce(ThisItem.description,ThisItem.'English Description')
                         Width: =Parent.TemplateWidth-Gap*2
