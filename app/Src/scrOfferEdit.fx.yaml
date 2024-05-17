@@ -5547,7 +5547,7 @@ scrOfferEdit As screen:
                         IconName: ="Download"
                         IconSize: =24
                         IconType: ='PowerCAT.Icon.IconType'.IconButon
-                        OnChange: =
+                        OnChange: =Download(ThisItem.'Link to item')
                         Text: =""
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Add Pages to Selected Project"
