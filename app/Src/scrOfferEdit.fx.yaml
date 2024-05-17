@@ -4485,7 +4485,7 @@ scrOfferEdit As screen:
                         Items: =Filter(colSelectedPageProductImages,StartsWith(title,ThisItem.item_number))
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =Gap
-                        TemplateSize: =Self.Width/2-Gap
+                        TemplateSize: =Self.Width
                         Width: =314.1666666666667
                         Y: =32+Gap
                         ZIndex: =1
