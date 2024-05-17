@@ -5486,6 +5486,50 @@ scrOfferEdit As screen:
                         Width: =4
                         ZIndex: =6
 
+            conOfferMMS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(107, 144, 179, 1)
+                BorderThickness: =1
+                FillPortions: =0
+                Height: =400
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: |
+                    =galSelectedOfferOptions.Selected.Tab="MMS"
+                ZIndex: =11
+
+                Gallery11 As gallery.galleryVertical:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    DelayItemLoading: =true
+                    Items: =Filter('Project Files',assigned_project.Value=ddProjectFilter.Selected.Title)
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: |
+                        =40
+                    Width: =Parent.Width*0.2
+                    ZIndex: =1
+
+                    Label12 As label:
+                        BorderColor: =RGBA(0, 89, 178, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                        OnSelect: =Select(Parent)
+                        Size: =13
+                        Text: =ThisItem.'File name with extension'
+                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                        X: =Parent.TemplatePadding
+                        Y: =Parent.TemplatePadding
+                        ZIndex: =1
+
     conRelistPanel_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height-Self.Y
@@ -6351,4 +6395,13 @@ scrOfferEdit As screen:
                 X: =0
                 Y: =0
                 ZIndex: =5
+
+    PdfViewer1 As pdfViewer:
+        Height: =396
+        Visible: |
+            =galSelectedOfferOptions.Selected.Tab="MMS"
+        Width: =1470
+        X: =450
+        Y: =681
+        ZIndex: =6
 
