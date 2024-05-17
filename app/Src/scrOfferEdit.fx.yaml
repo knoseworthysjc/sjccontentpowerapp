@@ -3627,7 +3627,7 @@ scrOfferEdit As screen:
                         },
                         {
                             Tab: "MMS",
-                            Icon: ""
+                            Icon: "ExcelDocument"
                         }
                     )
                 LayoutMinHeight: =287
@@ -4471,17 +4471,6 @@ scrOfferEdit As screen:
                     WrapCount: =6
                     ZIndex: =1
 
-                    Rectangle5 As rectangle:
-                        BorderColor: =RGBA(53, 61, 63, 1)
-                        BorderThickness: =1
-                        Fill: =RGBA(0,0,0,0)
-                        Height: =Parent.TemplateHeight-Gap*2
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth-Gap*2
-                        X: =Gap
-                        Y: =Gap
-                        ZIndex: =1
-
                     Gallery10 As gallery.galleryHorizontal:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
@@ -4489,7 +4478,7 @@ scrOfferEdit As screen:
                         Items: =Filter(colSelectedPageProductImages,StartsWith(title,ThisItem.item_number))
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =Gap
-                        TemplateSize: =Self.Width
+                        TemplateSize: =Self.Width-Gap*2
                         Width: =314.1666666666667
                         Y: =32+Gap
                         ZIndex: =1
@@ -4544,6 +4533,17 @@ scrOfferEdit As screen:
                         X: =Gap
                         Y: =Parent.TemplateHeight-Gap-Self.Height
                         ZIndex: =3
+
+                    Rectangle5 As rectangle:
+                        BorderColor: =RGBA(53, 61, 63, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(0,0,0,0)
+                        Height: =Parent.TemplateHeight-Gap*2
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth-Gap*2
+                        X: =Gap
+                        Y: =Gap
+                        ZIndex: =4
 
             conOfferUsage As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
