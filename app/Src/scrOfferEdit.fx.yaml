@@ -5504,7 +5504,7 @@ scrOfferEdit As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
-                    Items: =Filter('Project Files',assigned_project.Value=ddProjectFilter.Selected.Title)
+                    Items: =SortByColumns(Filter('Project Files',assigned_project.Value=ddProjectFilter.Selected.Title),"{FilenameWithExtension}",SortOrder.Ascending)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =20
                     LayoutMinWidth: =320
@@ -6397,6 +6397,7 @@ scrOfferEdit As screen:
                 ZIndex: =5
 
     PdfViewer1 As pdfViewer:
+        Document: =Substitute(Gallery11.Selected.Thumbnail.Large,"/thumbnail","/pdf")
         Height: =396
         Visible: |
             =galSelectedOfferOptions.Selected.Tab="MMS"
