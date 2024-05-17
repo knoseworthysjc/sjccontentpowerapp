@@ -4460,10 +4460,14 @@ scrOfferEdit As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
+                    Height: |-
+                        =200
+                            
                     Items: =colSelectedOfferProducts
                     Layout: =Layout.Vertical
+                    LayoutMinHeight: =50
                     LoadingSpinner: =LoadingSpinner.Data
-                    TemplateSize: =Self.Width/Self.AllItemsCount
+                    TemplateSize: =Self.Height-Gap*4
                     WrapCount: =6
                     ZIndex: =1
 
