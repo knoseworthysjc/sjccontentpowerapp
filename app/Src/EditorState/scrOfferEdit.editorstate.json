@@ -4483,7 +4483,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferAssets",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4713,7 +4713,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferHistory",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5098,7 +5098,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferMMS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5549,7 +5549,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferPageAssets",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6026,7 +6026,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferPreview",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6254,7 +6254,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferProducts",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17625,6 +17625,12 @@
           "PropertyName": "AlignInContainer"
         },
         {
+          "ControlPropertyState": "LayoutMinWidth",
+          "Property": {
+            "Category": "Design",
+            "PropertyName": "LayoutMinWidth",
+            "RuleProviderType": "Unknown"
+          },
           "PropertyName": "LayoutMinWidth"
         },
         {
@@ -18398,7 +18404,7 @@
       "MetaDataIDKey": "",
       "Name": "Gallery3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18981,7 +18987,7 @@
       "MetaDataIDKey": "",
       "Name": "Gallery3_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19846,7 +19852,7 @@
       "MetaDataIDKey": "",
       "Name": "galleryTemplate5_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -21329,7 +21335,7 @@
       "MetaDataIDKey": "",
       "Name": "galSelectedOfferOptions",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30460,7 +30466,14 @@
         "FocusedBorderColor",
         "BorderStyle",
         "DisplayMode",
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Select(Parent)",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ZIndex",
         "RadiusTopLeft",
         "RadiusTopRight",
@@ -30635,7 +30648,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultImageStyle",
@@ -72337,7 +72350,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_assets_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -72898,7 +72911,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_boarder_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -74083,7 +74096,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_MultiSaveEach_6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -77987,7 +78000,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerItemNumber_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -79299,7 +79312,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerWasPricing_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80470,7 +80483,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -81091,7 +81104,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_rectangle_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84111,7 +84124,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainer_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84575,7 +84588,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainerLockup_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84990,7 +85003,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Select(Parent)",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ZIndex",
         {
           "AFDDataSourceName": "",
@@ -85094,7 +85114,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultRectangleStyle",

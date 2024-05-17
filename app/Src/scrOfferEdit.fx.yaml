@@ -4466,6 +4466,7 @@ scrOfferEdit As screen:
                     Items: =colSelectedOfferProducts
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =50
+                    LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplateSize: =Self.Height-Gap*4
                     WrapCount: =6
@@ -4489,7 +4490,7 @@ scrOfferEdit As screen:
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Height: =Parent.TemplateHeight-Gap*2
                             Image: =ThisItem.thumbnails
-                            OnSelect: =Select(Parent)
+                            OnSelect: =Select(Parent);
                             Width: =Parent.TemplateWidth-Gap*2
                             X: =Gap
                             Y: =Gap
@@ -4539,7 +4540,7 @@ scrOfferEdit As screen:
                         BorderThickness: =1
                         Fill: =RGBA(0,0,0,0)
                         Height: =Parent.TemplateHeight-Gap*2
-                        OnSelect: =Select(Parent)
+                        OnSelect: =Select(Parent);Launch(ThisItem.product_url,{},LaunchTarget.New);
                         Width: =Parent.TemplateWidth-Gap*2
                         X: =Gap
                         Y: =Gap
