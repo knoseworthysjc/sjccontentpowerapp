@@ -5504,7 +5504,8 @@ scrOfferEdit As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 89, 178, 1)
                     DelayItemLoading: =true
-                    Items: =SortByColumns(Filter('Project Files',assigned_project.Value=ddProjectFilter.Selected.Title),"{FilenameWithExtension}",SortOrder.Ascending)
+                    Items: |
+                        =SortByColumns(Filter('Project Files',assigned_project.Value=ddProjectFilter.Selected.Title),"Title",SortOrder.Ascending)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =20
                     LayoutMinWidth: =320
