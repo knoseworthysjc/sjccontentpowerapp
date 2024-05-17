@@ -607,7 +607,7 @@ devProjectManagement As screen:
                             LayoutMinHeight: =200
                             LayoutMinWidth: =50
                             OnChange: |-
-                                =Patch(Projects,Defaults(Projects),{docket:Value(ipt2_2.Text),Season:{Value:ipt1.Selected.Value},Week:Value(ipt2.Text),Campaign:{Value:ipt3.Selected.Value},Title:ipt2_1.Text,'Project Details':ipt2_3.Text});
+                                =Patch(Projects,Defaults(Projects),{Docket:Value(ipt2_2.Text),Season:{Value:ipt1.Selected.Value},Week:Value(ipt2.Text),Campaign:{Value:ipt3.Selected.Value},Title:ipt2_1.Text,'Project Details':ipt2_3.Text});
                             Text: ="Save"
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Theme: =JSON(theme)
