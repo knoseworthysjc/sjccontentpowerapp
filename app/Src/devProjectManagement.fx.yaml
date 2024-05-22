@@ -985,7 +985,7 @@ devProjectManagement As screen:
                 galProjectTabSelection As gallery.galleryHorizontal:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =ColorValue(theme.themeDarker)
-                    BorderThickness: =1
+                    BorderStyle: =BorderStyle.None
                     DelayItemLoading: =true
                     Fill: =ColorValue(theme.white)
                     FillPortions: =0
