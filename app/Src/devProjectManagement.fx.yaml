@@ -1013,7 +1013,7 @@ devProjectManagement As screen:
                     ShowScrollbar: =false
                     TemplatePadding: |
                         =1
-                    TemplateSize: =Self.Width/12
+                    TemplateSize: =Self.Width/10
                     ZIndex: =1
 
                     Rectangle8_1 As rectangle:
@@ -1051,22 +1051,25 @@ devProjectManagement As screen:
                 conContentProjectPages As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderStyle: =BorderStyle.None
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =Gap
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    Visible: =galProjectTabSelection.Selected.Title="Details/Pages"
                     ZIndex: =5
 
-                    conProjectDetails As groupContainer.verticalAutoLayoutContainer:
+                    conContentProjectDetails As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =ColorValue(theme.black)
                         DropShadow: =DropShadow.Light
                         Fill: =ColorValue(theme.neutralLight)
                         FillPortions: =0
-                        Height: |
-                            =260
+                        Height: =(galProjects.AllItemsCount*40)
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =Gap
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
@@ -1254,7 +1257,7 @@ devProjectManagement As screen:
                             DelayItemLoading: =true
                             FillPortions: =0
                             Height: =Parent.Height-Container30.Height-Gap*2
-                            Items: =colSelectedProjects
+                            Items: =Filter(galProjects.AllItems,Checkbox3.Value=true)
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =150
                             LayoutMinWidth: =100
@@ -1277,7 +1280,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Value: =ThisItem.Docket
                                 Width: =lblProjects_2.Width
-                                X: =0
+                                X: =lblProjects_2.X
                                 Y: =Gap
                                 ZIndex: =1
 
@@ -1289,7 +1292,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Items: =Choices(Projects.project_status)
                                 Width: =lblProjects_1.Width
-                                X: =0
+                                X: =lblProjects_1.X
                                 Y: =Gap
                                 ZIndex: =2
 
@@ -1301,7 +1304,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Items: =Choices(Projects.Season)
                                 Width: =lblProjects_3.Width
-                                X: =0
+                                X: =lblProjects_3.X
                                 Y: =Gap
                                 ZIndex: =3
 
@@ -1316,7 +1319,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Value: =ThisItem.Week
                                 Width: =lblProjects_4.Width
-                                X: =0
+                                X: =lblProjects_4.X
                                 Y: =Gap
                                 ZIndex: =4
 
@@ -1328,7 +1331,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Items: =Choices(Projects.Campaign)
                                 Width: =lblProjects_5.Width
-                                X: =0
+                                X: =lblProjects_5.X
                                 Y: =Gap
                                 ZIndex: =5
 
@@ -1343,7 +1346,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Value: =ThisItem.Title
                                 Width: =lblProjects_6.Width
-                                X: =0
+                                X: =lblProjects_6.X
                                 Y: =Gap
                                 ZIndex: =6
 
@@ -1358,7 +1361,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Value: =ThisItem.'Total Pages'
                                 Width: =lblProjects_7.Width
-                                X: =0
+                                X: =lblProjects_7.X
                                 Y: =Gap
                                 ZIndex: =7
 
@@ -1373,15 +1376,14 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 Value: =ThisItem.'Project Details'
                                 Width: =lblProjects_8.Width-Gap
-                                X: =0
+                                X: =lblProjects_8.X
                                 Y: =Gap
                                 ZIndex: =8
 
-                    conProjectPages As groupContainer.verticalAutoLayoutContainer:
+                    conContentProjectPages_1 As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         DropShadow: =DropShadow.Light
                         Fill: =ColorValue(theme.neutralLighterAlt)
-                        FillPortions: =0
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =Gap
@@ -1687,11 +1689,10 @@ devProjectManagement As screen:
                                 Y: =Gap
                                 ZIndex: =6
 
-                    Container37_2 As groupContainer.verticalAutoLayoutContainer:
+                    conContentProjectPreviews As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         DropShadow: =DropShadow.Light
                         Fill: =ColorValue(theme.neutralLighterAlt)
-                        FillPortions: =0
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =Gap
