@@ -1467,7 +1467,7 @@ scrOfferEdit As screen:
                             =Patch(colSelectedOffers,ThisItem,{updated:true,featured_item_numbers:Self.Text})
                         OnSelect: |-
                             =Clear(colSelectedOfferProducts);
-                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
+                            ForAll(Split(Substitute(galSelectedOffers.Selected.featured_item_numbers,"/",","),",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -4445,7 +4445,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =165
                         OnChange: |-
                             =Clear(colSelectedOfferProducts);
-                            ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
+                            ForAll(Split(Substitute(galSelectedOffers.Selected.featured_item_numbers,"/",","),",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
                         Text: ="Refresh"
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Add Pages"
