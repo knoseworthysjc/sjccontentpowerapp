@@ -1066,17 +1066,18 @@ devProjectManagement As screen:
                         DropShadow: =DropShadow.Light
                         Fill: =ColorValue(theme.neutralLight)
                         FillPortions: =0
-                        Height: =(galProjects.AllItemsCount*40)
+                        Height: =(galProjects.AllItemsCount*40)+50
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
-                        LayoutGap: =Gap
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        PaddingBottom: =Gap
+                        PaddingBottom: |
+                            =0
                         PaddingLeft: |
                             =0
-                        PaddingTop: =Gap
+                        PaddingTop: |
+                            =0
                         RadiusBottomLeft: =4
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
@@ -1278,7 +1279,6 @@ devProjectManagement As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
-                            FillPortions: =0
                             Height: =Parent.Height-Container30.Height-Gap*2
                             Items: =Filter(galProjects.AllItems,Checkbox3.Value=true)
                             Layout: =Layout.Vertical
