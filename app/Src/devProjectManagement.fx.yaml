@@ -1551,6 +1551,29 @@ devProjectManagement As screen:
                                     =250
                                 ZIndex: =6
 
+                            "Icon1_20 As 'Fluent Icon (1.0.19)'":
+                                BorderColor: =theme.neutralPrimary
+                                BorderRadius: =4
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: =""
+                                FontSize: =14
+                                Height: =Parent.Height
+                                IconColor: =""
+                                IconName: ="CircleAddition"
+                                IconSize: =Self.Height-Gap*2
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =165
+                                OnChange: =false
+                                Text: ="Add Page"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                Theme: =JSON(theme)
+                                Tooltip: ="Add Pages"
+                                Width: =105
+                                X: =0
+                                Y: =0
+                                ZIndex: =8
+
                         galProjectPages As gallery.galleryVertical:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =ColorValue(theme.black)
