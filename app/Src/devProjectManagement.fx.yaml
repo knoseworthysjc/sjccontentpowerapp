@@ -1456,7 +1456,7 @@ devProjectManagement As screen:
                                 Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
                                 OnSelect: =Select(Parent)
-                                Size: =13
+                                Size: =12
                                 Text: =ThisItem.'File name with extension'
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-10
                                 X: =Gap
@@ -1500,11 +1500,27 @@ devProjectManagement As screen:
                                     BorderColor: =RGBA(0, 89, 178, 1)
                                     Color: =RGBA(0, 0, 0, 1)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FillPortions: =1
                                     Font: =Font.'Segoe UI'
                                     FontWeight: =FontWeight.Semibold
-                                    Size: =13
+                                    Size: =12
                                     Text: =Concat(SortByColumns(ThisItem.Markets,"Value",SortOrder.Ascending),Value,",")
                                     ZIndex: =2
+
+                                "Icon5_1 As 'Fluent Icon (1.0.19)'":
+                                    DisplayMode: =DisplayMode.Edit
+                                    Height: =32
+                                    IconName: ="Download"
+                                    IconSize: =24
+                                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
+                                    OnChange: =Launch(ThisItem.'Link to item',{},LaunchTarget.New)
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                    Width: =32
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =3
 
                 conContentProjectPlanning As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
