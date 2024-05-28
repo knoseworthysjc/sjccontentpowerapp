@@ -495,7 +495,7 @@ devProjectManagement As screen:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =Text(ipt2_2.Text)&"_WK"&ipt2.Text&If(ipt3.Selected.Value="Circular","Flyer",ipt3.Selected.Value)&"_"&ipt1.Selected.Value
+                        Default: =Text(ipt2_2.Text)&"_WK"&ipt2.Text&If(ipt3.Selected.Value="CIRCULAR","FLYER",Upper(ipt3.Selected.Value))&"_"&ipt1.Selected.Value
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1419,13 +1419,13 @@ devProjectManagement As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =RGBA(0, 89, 178, 1)
                             DelayItemLoading: =true
-                            Items: =colFlyerPagesPdfs
+                            Items: =SortByColumns(colFlyerPagesPdfs,"{FilenameWithExtension}")
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =Parent.Height-Gap*2
                             LayoutMinWidth: =Parent.Width-Gap*2
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplatePadding: =Gap
-                            TemplateSize: =Parent.Height
+                            TemplateSize: =Parent.Height-Gap*2
                             WrapCount: |
                                 =5
                             Y: =Gap
@@ -1436,11 +1436,12 @@ devProjectManagement As screen:
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Fill: =RGBA(139, 154, 159, 1)
-                                Height: =Parent.Height-Gap*2
+                                Height: =Parent.TemplateHeight-Gap*2-Self.Y
                                 Image: =ThisItem.Thumbnail.Large
                                 OnSelect: =Select(Parent)
                                 Width: =Parent.TemplateWidth-Gap*2
                                 X: =Gap
+                                Y: =32+Gap
                                 ZIndex: =1
 
                             Label4 As label:
@@ -1459,6 +1460,36 @@ devProjectManagement As screen:
                                 X: =Gap
                                 Y: =Parent.TemplateHeight-Self.Height-Gap
                                 ZIndex: =2
+
+                            Container30 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Light
+                                Height: =32
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =Gap
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.TemplateWidth-Gap*2
+                                X: =Gap
+                                Y: =Gap
+                                ZIndex: =3
+
+                                "Icon5 As 'Fluent Icon (1.0.19)'":
+                                    DisplayMode: =DisplayMode.Edit
+                                    Height: =32
+                                    IconName: ="Download"
+                                    IconSize: =24
+                                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
+                                    OnChange: =Launch(ThisItem.'Link to item',{},LaunchTarget.New)
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                    Width: =32
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
 
                 conContentProjectPlanning As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
