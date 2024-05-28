@@ -1421,25 +1421,26 @@ devProjectManagement As screen:
                             DelayItemLoading: =true
                             Items: =SortByColumns(colFlyerPagesPdfs,"{FilenameWithExtension}")
                             Layout: =Layout.Vertical
-                            LayoutMinHeight: =Parent.Height-Gap*2
+                            LayoutMinHeight: =33
                             LayoutMinWidth: =Parent.Width-Gap*2
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplatePadding: =Gap
-                            TemplateSize: =Parent.Height-Gap*2
+                            TemplateSize: =Self.Height-Gap*2
                             WrapCount: |
                                 =5
                             Y: =Gap
                             ZIndex: =1
 
                             Image3 As image:
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =ColorValue(theme.themePrimary)
+                                BorderThickness: =1
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Fill: =RGBA(139, 154, 159, 1)
                                 Height: =Parent.TemplateHeight-Gap*2-Self.Y
                                 Image: =ThisItem.Thumbnail.Large
                                 OnSelect: =Select(Parent)
-                                Width: =Parent.TemplateWidth-Gap*2
+                                Width: =Parent.TemplateWidth-Gap*2-10
                                 X: =Gap
                                 Y: =32+Gap
                                 ZIndex: =1
@@ -1447,7 +1448,8 @@ devProjectManagement As screen:
                             Label4 As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =ColorValue(theme.themePrimary)
+                                BorderThickness: =1
                                 Color: =ColorValue(theme.black)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =ColorValue(theme.neutralLighter&"F0")
@@ -1456,12 +1458,14 @@ devProjectManagement As screen:
                                 OnSelect: =Select(Parent)
                                 Size: =13
                                 Text: =ThisItem.'File name with extension'
-                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-10
                                 X: =Gap
                                 Y: =Parent.TemplateHeight-Self.Height-Gap
                                 ZIndex: =2
 
                             Container30 As groupContainer.horizontalAutoLayoutContainer:
+                                BorderColor: =ColorValue(theme.themePrimary)
+                                BorderThickness: =1
                                 DropShadow: =DropShadow.Light
                                 Height: =32
                                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -1471,7 +1475,7 @@ devProjectManagement As screen:
                                 RadiusBottomRight: =4
                                 RadiusTopLeft: =4
                                 RadiusTopRight: =4
-                                Width: =Parent.TemplateWidth-Gap*2
+                                Width: =Parent.TemplateWidth-Gap*2-10
                                 X: =Gap
                                 Y: =Gap
                                 ZIndex: =3
@@ -1490,6 +1494,17 @@ devProjectManagement As screen:
                                     X: =0
                                     Y: =0
                                     ZIndex: =1
+
+                                Label13 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 89, 178, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Size: =13
+                                    Text: =Concat(SortByColumns(ThisItem.Markets,"Value",SortOrder.Ascending),Value,",")
+                                    ZIndex: =2
 
                 conContentProjectPlanning As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
