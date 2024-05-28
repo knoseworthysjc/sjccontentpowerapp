@@ -1510,13 +1510,14 @@ devProjectManagement As screen:
                                 "Icon5_1 As 'Fluent Icon (1.0.19)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
-                                    IconName: ="Download"
+                                    IconName: ="Upload"
                                     IconSize: =24
                                     IconType: ='PowerCAT.Icon.IconType'.IconButon
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Launch(ThisItem.'Link to item',{},LaunchTarget.New)
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                    Tooltip: ="Send To Proofing"
                                     Width: =32
                                     X: =0
                                     Y: =0
