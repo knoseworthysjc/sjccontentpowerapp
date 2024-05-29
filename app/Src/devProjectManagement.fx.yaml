@@ -937,6 +937,14 @@ devProjectManagement As screen:
                                             false
                                         )
                                     );
+                                    Collect(
+                                        colSelectedProjectFiles,
+                                            Filter(
+                                                'Project Files',
+                                                assigned_project.Value = ThisItem.Title
+                                            
+                                        )
+                                    );
                                 OnUncheck: |
                                     =ClearCollect(
                                         colSelectedProjects,
@@ -2377,7 +2385,7 @@ devProjectManagement As screen:
                     Visible: =galProjectTabSelection.Selected.Title="Files"
                     ZIndex: =8
 
-                    conContentProjectPages_5 As groupContainer.verticalAutoLayoutContainer:
+                    conContentProjectFilesHandoffs As groupContainer.verticalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         DropShadow: =DropShadow.Light
                         Fill: =ColorValue(theme.neutralLighterAlt)
@@ -2436,7 +2444,7 @@ devProjectManagement As screen:
                                 PaddingRight: =0
                                 PaddingTop: =0
                                 Size: =13
-                                Text: ="Stage"
+                                Text: ="Status"
                                 Width: |
                                     =150
                                 ZIndex: =2
@@ -2459,100 +2467,12 @@ devProjectManagement As screen:
                                 Width: =Parent.Width*0.25
                                 ZIndex: =3
 
-                            lbl_18 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =ColorValue(theme.themeDark)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =ColorValue(theme.neutralQuaternary)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =30
-                                LayoutMinWidth: |
-                                    =90
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =13
-                                Text: |-
-                                    ="Page Fr
-                                    "
-                                Width: |
-                                    =90
-                                ZIndex: =4
-
-                            lbl_19 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =ColorValue(theme.themeDark)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =ColorValue(theme.neutralQuaternary)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =30
-                                LayoutMinWidth: |
-                                    =90
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =13
-                                Text: |-
-                                    ="Page To
-                                    "
-                                Width: |
-                                    =90
-                                ZIndex: =5
-
-                            lbl_20 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =ColorValue(theme.themeDark)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =ColorValue(theme.neutralQuaternary)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =30
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =13
-                                Text: ="Layout"
-                                Width: |
-                                    =250
-                                ZIndex: =6
-
-                            "Icon1_23 As 'Fluent Icon (1.0.19)'":
-                                BorderColor: =theme.neutralPrimary
-                                BorderRadius: =4
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =""
-                                FontSize: =14
-                                Height: =Parent.Height
-                                IconColor: =""
-                                IconName: ="CircleAddition"
-                                IconSize: =Self.Height-Gap*2
-                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                                LayoutMinHeight: =200
-                                LayoutMinWidth: =165
-                                OnChange: =false
-                                Text: ="Add Page"
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Theme: =JSON(theme)
-                                Tooltip: ="Add Pages"
-                                Width: =105
-                                X: =0
-                                Y: =0
-                                ZIndex: =8
-
                         galProjectPages_3 As gallery.galleryVertical:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             BorderColor: =ColorValue(theme.black)
                             BorderStyle: =BorderStyle.None
                             DelayItemLoading: =true
-                            Items: =SortByColumns(AddColumns(colSelectedProjectsPages,project_title, assigned_project.Value,page_int,Value(page_from)),"project_title",SortOrder.Ascending,"page_int",SortOrder.Ascending)
+                            Items: =colSelectedProjectFiles
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
@@ -2586,54 +2506,6 @@ devProjectManagement As screen:
                                 Y: =Gap
                                 ZIndex: =1
 
-                            ipt_18 As text:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                BorderThickness: =0
-                                Color: =RGBA(0, 0, 0, 1)
-                                Default: =ThisItem.page_from
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =Parent.TemplateHeight-Gap*2
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
-                                HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
-                                LineHeight: =1
-                                OnSelect: =Select(Parent)
-                                Size: =13
-                                Width: =lbl_18.Width
-                                X: =lbl_18.X
-                                Y: =Gap
-                                ZIndex: =2
-
-                            ipt_19 As text:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                BorderThickness: =0
-                                Color: =RGBA(0, 0, 0, 1)
-                                Default: =ThisItem.page_to
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =Parent.TemplateHeight-Gap*2
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
-                                HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
-                                LineHeight: =1
-                                OnSelect: =Select(Parent)
-                                Size: =13
-                                Width: =lbl_19.Width
-                                X: =lbl_19.X
-                                Y: =Gap
-                                ZIndex: =3
-
                             ipt_16 As dropdown:
                                 BorderColor: =RGBA(0, 89, 178, 1)
                                 BorderStyle: =BorderStyle.None
@@ -2643,7 +2515,7 @@ devProjectManagement As screen:
                                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                                 ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                                Default: =ThisItem.workflow_stage.Value
+                                Default: =ThisItem.status.Value
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2652,7 +2524,7 @@ devProjectManagement As screen:
                                 Height: =Parent.TemplateHeight-Gap*2
                                 HoverColor: =RGBA(0, 0, 0, 1)
                                 HoverFill: =RGBA(153, 205, 255, 1)
-                                Items: =Choices(FlyerPages.workflow_stage)
+                                Items: =Choices('Project Files'.status)
                                 OnSelect: =Select(Parent)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 89, 178, 1)
@@ -2663,35 +2535,6 @@ devProjectManagement As screen:
                                 Y: =Gap
                                 ZIndex: =4
 
-                            ipt_20 As dropdown:
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =0
-                                ChevronBackground: =RGBA(0, 51, 102, 1)
-                                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                                ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                                Default: =ThisItem.assigned_page_layout.Value
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =Parent.TemplateHeight-Gap*2
-                                HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
-                                Items: =Choices(FlyerPages.assigned_page_layout)
-                                OnSelect: =Select(Parent)
-                                PressedColor: =RGBA(255, 255, 255, 1)
-                                PressedFill: =RGBA(0, 89, 178, 1)
-                                SelectionFill: =RGBA(0, 51, 102, 1)
-                                Size: =13
-                                Width: =lbl_20.Width
-                                X: =lbl_20.X
-                                Y: =Gap
-                                ZIndex: =5
-
                             ipt_select_3 As checkbox:
                                 BorderColor: =RGBA(0, 89, 178, 1)
                                 CheckboxBorderColor: =RGBA(0, 89, 178, 1)
@@ -2700,8 +2543,6 @@ devProjectManagement As screen:
                                 Font: =Font.'Segoe UI'
                                 Height: =Parent.TemplateHeight-Gap*2
                                 HoverColor: =RGBA(0, 89, 178, 1)
-                                OnCheck: =Collect(colFlyerPagesPdfs,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from))
-                                OnUncheck: =ClearCollect(colFlyerPagesPdfs,Filter(colFlyerPagesPdfs,assigned_project.Value<>ThisItem.assigned_project.Value And page_from<>ThisItem.page_from))
                                 Size: =13
                                 Text: =""
                                 Width: =lbl_select_3.Width
