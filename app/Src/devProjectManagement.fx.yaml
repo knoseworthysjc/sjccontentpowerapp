@@ -912,7 +912,31 @@ devProjectManagement As screen:
                                     =28
                                 LayoutMinWidth: |
                                     =28
-                                OnCheck: =Collect(colSelectedProjects,ThisItem);Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=ThisItem.Title));
+                                OnCheck: |-
+                                    =Collect(
+                                        colSelectedProjects,
+                                        ThisItem
+                                    );
+                                    Collect(
+                                        colSelectedProjectsPages,
+                                        Filter(
+                                            FlyerPages,
+                                            assigned_project.Value = ThisItem.Title
+                                        )
+                                    );
+                                    Collect(
+                                        colSelectedProjectOffers,
+                                        AddColumns(
+                                            Filter(
+                                                Offers,
+                                                assigned_project.Value = ThisItem.Title
+                                            ),
+                                            updated,
+                                            false,
+                                            selected,
+                                            false
+                                        )
+                                    );
                                 OnUncheck: |
                                     =ClearCollect(
                                         colSelectedProjects,
