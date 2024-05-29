@@ -2472,7 +2472,7 @@ devProjectManagement As screen:
                             BorderColor: =ColorValue(theme.black)
                             BorderStyle: =BorderStyle.None
                             DelayItemLoading: =true
-                            Items: =colSelectedProjectFiles
+                            Items: =SortByColumns(colSelectedProjectFiles,"Title",SortOrder.Ascending)
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
