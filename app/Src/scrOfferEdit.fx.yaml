@@ -5081,7 +5081,7 @@ scrOfferEdit As screen:
                         '#CopilotOverlayLabel': ="Filtered"
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Height: =previewOfferContainer_3.Y-Self.Y
-                        Items: =Filter(colSelectedPageProductImages,offerId=ThisItem.ID And lang="eng")
+                        Items: =Filter(colSelectedPageProductImages,offerId=galSelectedOffers.Selected.ID And lang="eng")
                         ShowScrollbar: =false
                         TemplatePadding: =0
                         TemplateSize: =(Self.Width-previewOffer_boarder_5.BorderThickness*4)/CountRows(ThisItem.assigned_images)
