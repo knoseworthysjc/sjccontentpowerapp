@@ -6,6 +6,10 @@ scrPageManagement As screen:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Width: =Parent.Width
         ZIndex: =1
 
@@ -19,6 +23,10 @@ scrPageManagement As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =1
 
             nav_icon_10 As icon.Waffle:
@@ -386,6 +394,10 @@ scrPageManagement As screen:
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =5
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =2
 
             lblWeek_4 As label:
@@ -412,6 +424,10 @@ scrPageManagement As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =3
 
             Container17 As groupContainer.verticalAutoLayoutContainer:
@@ -425,6 +441,10 @@ scrPageManagement As screen:
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Width: =Parent.Width*0.2+U
                 ZIndex: =1
 
@@ -478,6 +498,10 @@ scrPageManagement As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 ZIndex: =2
 
             Container19 As groupContainer.verticalAutoLayoutContainer:
@@ -488,6 +512,10 @@ scrPageManagement As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =Parent.Width*0.2+U
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Width: =Parent.Width*0.2+U
                 ZIndex: =3
 

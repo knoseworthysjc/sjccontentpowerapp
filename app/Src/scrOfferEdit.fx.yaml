@@ -6,6 +6,10 @@ scrOfferEdit As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Width: =Parent.Width
         ZIndex: =1
 
@@ -19,6 +23,10 @@ scrOfferEdit As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =1
 
             nav_icon_7 As icon.Waffle:
@@ -407,6 +415,10 @@ scrOfferEdit As screen:
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =5
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =2
 
             "Icon1_6 As 'Fluent Icon (1.0.19)'":
@@ -440,7 +452,7 @@ scrOfferEdit As screen:
                                     },
                                     page_from: ddPageFilter.Selected.page_from,
                                     layout_position: 0,
-                                    Adblock: 0,Season:{Value:ddSeasonFilter.Selected.Value}
+                                    Adblock: 0,Season:{Value:ddSeasonFilter.Selected.Value},Week:ddProjectFilter.Selected.Week
                                 }
                             )
                         )
@@ -965,7 +977,7 @@ scrOfferEdit As screen:
                     OnSelect: =Select(Parent)
                     Size: =11
                     Text: |-
-                        =ThisItem.Value&": "&CountRows(Filter(colSelectedOffers,offer_status.Value=ThisItem.Value))
+                        =ThisItem.Value&": "&CountRows(Filter(colSelectedOffers,offer_status.Value=ThisItem.Value))&"("&CountRows(Filter(galSelectedOffers.AllItems,offer_status.Value=ThisItem.Value))&")"
                     Width: =Parent.TemplateWidth-U*2
                     X: =U
                     Y: =U
@@ -978,6 +990,10 @@ scrOfferEdit As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =3
 
             galSelectedOffers As gallery.galleryVertical:
@@ -1063,6 +1079,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U*2
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =(Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20)
                     X: =Checkbox2.X+Checkbox2.Width+U*2
                     Y: =Parent.TemplatePadding
@@ -1269,6 +1289,17 @@ scrOfferEdit As screen:
                             =40
                         ZIndex: =6
 
+                    TextCanvas1 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =ThisItem.ID
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =7
+
                 conSelectedOfferMarketsItems As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.TemplateHeight-U*2
                     LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -1276,6 +1307,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: |
                         =450
                     X: =conSelectedOfferPage.X+conSelectedOfferPage.Width+U*2
@@ -1342,6 +1377,10 @@ scrOfferEdit As screen:
                             =32
                         LayoutMinWidth: =Parent.Width
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =Parent.Width
                         ZIndex: =2
 
@@ -1658,6 +1697,10 @@ scrOfferEdit As screen:
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =165
                     X: =U
                     Y: =conSelectedOfferPage.Y+conSelectedOfferPage.Height+U
@@ -1969,6 +2012,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =165
                     X: =U
                     Y: =U
@@ -2138,6 +2185,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =750
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =U
@@ -2153,6 +2204,10 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =1
 
                         Container8 As groupContainer.horizontalAutoLayoutContainer:
@@ -2163,6 +2218,10 @@ scrOfferEdit As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             ZIndex: =1
 
                             lblSelectedOfferCopy As label:
@@ -2320,6 +2379,10 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =2
 
                         Container8_1 As groupContainer.horizontalAutoLayoutContainer:
@@ -2330,6 +2393,10 @@ scrOfferEdit As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             ZIndex: =1
 
                             lblSelectedOfferCopy_1 As label:
@@ -2482,6 +2549,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =467
                     X: =conSelectedOfferUnits.X+conSelectedOfferUnits.Width+U*2
                     Y: =conSelectedOfferPrice.Y+conSelectedOfferPrice.Height+U*2
@@ -2669,6 +2740,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =467
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
@@ -2971,6 +3046,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =280
                     X: =conSelectedOfferPrice.X+conSelectedOfferPrice.Width+U*2
                     Y: =conSelectedOfferCopy.Y+conSelectedOfferCopy.Height+U*2
@@ -3155,6 +3234,10 @@ scrOfferEdit As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =280
                     X: =conSelectedOfferMarketsItems.X+conSelectedOfferMarketsItems.Width+U*2
                     Y: =158
@@ -3394,6 +3477,10 @@ scrOfferEdit As screen:
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
                     X: =conSelectedOfferCopy.X+conSelectedOfferCopy.Width+U*2
                     Y: =40
@@ -3686,6 +3773,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: =galSelectedOfferOptions.Selected.Tab="Assigned Assets"
                 ZIndex: =5
 
@@ -3694,6 +3785,10 @@ scrOfferEdit As screen:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     ZIndex: =2
 
                     Container5 As groupContainer.verticalAutoLayoutContainer:
@@ -3701,6 +3796,10 @@ scrOfferEdit As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =2
 
                         Container9 As groupContainer.horizontalAutoLayoutContainer:
@@ -3711,6 +3810,10 @@ scrOfferEdit As screen:
                             LayoutMinHeight: =100
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             ZIndex: =1
 
                             Label10 As label:
@@ -3729,6 +3832,8 @@ scrOfferEdit As screen:
 
                             TextCanvas1_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
+                                BorderColor: =""
+                                BorderStyle: =""
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
@@ -4027,6 +4132,10 @@ scrOfferEdit As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =3
 
                         Container7 As groupContainer.horizontalAutoLayoutContainer:
@@ -4039,6 +4148,10 @@ scrOfferEdit As screen:
                             LayoutMode: =LayoutMode.Auto
                             PaddingLeft: =U
                             PaddingRight: =U
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             ZIndex: =1
 
                             ddAssetSearchLang As dropdown:
@@ -4411,6 +4524,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: =galSelectedOfferOptions.Selected.Tab="Assigned Products"
                 ZIndex: =6
 
@@ -4557,6 +4674,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: =galSelectedOfferOptions.Selected.Tab="Usage"
                 ZIndex: =7
 
@@ -4596,6 +4717,10 @@ scrOfferEdit As screen:
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =previewOffer_assets_3.Width*0.6
                         X: =previewOffer_boarder_3.BorderThickness+previewOffer_boarder_3.X
                         Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_3.BorderThickness*2
@@ -4735,6 +4860,10 @@ scrOfferEdit As screen:
                         Height: =32
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
                         X: =Parent.TemplatePadding
                         Y: =26
@@ -4835,6 +4964,10 @@ scrOfferEdit As screen:
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
                         X: =previewOfferContainer_1.X+previewOfferContainer_1.Width
                         Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_3.BorderThickness*2
@@ -4941,6 +5074,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: =galSelectedOfferOptions.Selected.Tab="Preview"
                 ZIndex: =8
 
@@ -4980,6 +5117,10 @@ scrOfferEdit As screen:
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =previewOffer_assets_5.Width*0.6
                         X: =1
                         Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_5.BorderThickness*2
@@ -5122,6 +5263,10 @@ scrOfferEdit As screen:
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =Parent.TemplateWidth-Self.X-previewOffer_boarder_5.BorderThickness
                         X: =previewOfferContainer_3.X+previewOfferContainer_3.Width
                         Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_5.BorderThickness*2
@@ -5312,6 +5457,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: =galSelectedOfferOptions.Selected.Tab="All Assets"
                 ZIndex: =9
 
@@ -5378,6 +5527,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: |
                     =galSelectedOfferOptions.Selected.Tab="History"
                 ZIndex: =10
@@ -5497,6 +5650,10 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Visible: |
                     =galSelectedOfferOptions.Selected.Tab="MMS"
                 ZIndex: =11
@@ -5563,6 +5720,10 @@ scrOfferEdit As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Visible: =showRelistPanel
         Width: =Parent.Width-Self.X
         X: =Parent.Width*0.6
@@ -5577,6 +5738,10 @@ scrOfferEdit As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =1
 
             relistPanelHeader_2 As label:
@@ -5618,6 +5783,10 @@ scrOfferEdit As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =3
 
             searchOffers_2 As text:
@@ -5699,6 +5868,10 @@ scrOfferEdit As screen:
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Width: =previewOffer_assets_2.Width*0.6
                 X: =previewOffer_boarder_2.BorderThickness+previewOffer_boarder_2.X
                 Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_2.BorderThickness*2
@@ -5839,6 +6012,10 @@ scrOfferEdit As screen:
                 Height: =32
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
                 X: =Parent.TemplatePadding
                 ZIndex: =5
@@ -5941,6 +6118,10 @@ scrOfferEdit As screen:
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
                 X: =previewOfferContainer.X+previewOfferContainer.Width
                 Y: =Parent.TemplateHeight-Self.Height-Parent.TemplatePadding-previewOffer_boarder_2.BorderThickness*2
@@ -6131,6 +6312,10 @@ scrOfferEdit As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Visible: =showNewPages
         X: =addPageIcon.X
         Y: =69
@@ -6146,6 +6331,10 @@ scrOfferEdit As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =1
 
             lblOfferPg_5 As label:
@@ -6270,6 +6459,10 @@ scrOfferEdit As screen:
             LayoutMinHeight: =40
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =2
 
             iptNewPageFrom_1 As text:

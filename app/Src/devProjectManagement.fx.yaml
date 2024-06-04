@@ -978,6 +978,8 @@ devProjectManagement As screen:
 
                             TextCanvas7_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
+                                BorderColor: =""
+                                BorderStyle: =""
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
@@ -2628,10 +2630,20 @@ devProjectManagement As screen:
         ZIndex: =2
 
         fnGetProjects As Button:
+            Align: =""
             BasePaletteColor: =
+            BorderColor: =""
+            BorderStyle: =""
+            DisabledBorderColor: =""
             DisplayMode: =DisplayMode.Edit
+            FocusedBorderColor: =""
             FontColor: =
             Height: =32
+            HoverBorderColor: =""
+            Icon: =""
+            IconRotation: =0
+            IconStyle: ="Outline"
+            Layout: ="Icon before"
             OnSelect: |-
                 =Clear(colProjectManagementSelectedPages);
                 Clear(colProjectManagementSelectedOffers);
@@ -2669,31 +2681,57 @@ devProjectManagement As screen:
                         )
                     )
                 )
+            PressedBorderColor: =""
             Text: ="fnGetProject"
+            VerticalAlign: =""
             Width: =96
             X: =0
             Y: =0
             ZIndex: =2
 
         fnGetOffers As Button:
+            Align: =""
             BasePaletteColor: =
+            BorderColor: =""
+            BorderStyle: =""
+            DisabledBorderColor: =""
             DisplayMode: =DisplayMode.Edit
+            FocusedBorderColor: =""
             FontColor: =
             Height: =32
+            HoverBorderColor: =""
+            Icon: =""
+            IconRotation: =0
+            IconStyle: ="Outline"
+            Layout: ="Icon before"
             OnSelect: =Clear(colProjectManagementSelectedOffers);
+            PressedBorderColor: =""
             Text: ="fnGetOffers"
+            VerticalAlign: =""
             Width: =96
             X: =116
             Y: =0
             ZIndex: =3
 
         fnGetPages As Button:
+            Align: =""
             BasePaletteColor: =
+            BorderColor: =""
+            BorderStyle: =""
+            DisabledBorderColor: =""
             DisplayMode: =DisplayMode.Edit
+            FocusedBorderColor: =""
             FontColor: =
             Height: =32
+            HoverBorderColor: =""
+            Icon: =""
+            IconRotation: =0
+            IconStyle: ="Outline"
+            Layout: ="Icon before"
             OnSelect: =ForAll(colSelectedProjects As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
+            PressedBorderColor: =""
             Text: ="fnGetPages"
+            VerticalAlign: =""
             Width: =96
             X: =245
             Y: =0

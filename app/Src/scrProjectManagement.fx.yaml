@@ -8,6 +8,10 @@ scrProjectManagement As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =Gap
         LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Width: =Parent.Width
         ZIndex: =1
 
@@ -21,6 +25,10 @@ scrProjectManagement As screen:
             LayoutGap: =Gap
             LayoutMinWidth: =50
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =1
 
             nav_icon_8 As icon.Waffle:
@@ -401,6 +409,10 @@ scrProjectManagement As screen:
             LayoutGap: =Gap
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =2
 
             conControlProjectDetails As groupContainer.horizontalAutoLayoutContainer:
@@ -423,6 +435,8 @@ scrProjectManagement As screen:
 
                 TextCanvas2 As Text:
                     Align: ='TextCanvas.Align'.Center
+                    BorderColor: =""
+                    BorderStyle: =""
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
                     Font: =Font.'Segoe UI'
@@ -557,6 +571,10 @@ scrProjectManagement As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =3
 
             conProjectManagementNewUpdateProject As groupContainer.verticalAutoLayoutContainer:
@@ -591,14 +609,21 @@ scrProjectManagement As screen:
                     ZIndex: =1
 
                 iptProjectStatus As Dropdown.pcfdataset:
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
                     DefaultSelectedItems: =If(editProjectMode="New",{},ddProjectFilter_1.Selected.project_status)
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     FontSize: =16
                     Height: =32
+                    HoverBorderColor: =""
                     Items: =Choices(Projects.project_status)
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Width: =Parent.Width-64
                     X: =0
                     Y: =0
@@ -621,15 +646,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Docket)
                     Width: =Parent.Width-64
                     X: =0
@@ -653,15 +685,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_1 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Season.Value)
                     Width: =Parent.Width-64
                     X: =0
@@ -685,15 +724,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_2 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Week)
                     Width: =Parent.Width-64
                     X: =0
@@ -716,13 +762,20 @@ scrProjectManagement As screen:
                     ZIndex: =9
 
                 iptProjectCampaign As Dropdown.pcfdataset:
+                    Appearance: ="FilledDarker"
+                    BorderColor: =""
+                    BorderStyle: =""
                     DefaultSelectedItems: =If(editProjectMode="New",{},ddProjectFilter_1.Selected.Campaign)
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     FontSize: =16
                     Height: =32
+                    HoverBorderColor: =""
                     Items: =Choices(Projects.Campaign)
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Width: =Parent.Width-64
                     X: =0
                     Y: =0
@@ -745,15 +798,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_3 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =If(editProjectMode="New","",ddProjectFilter_1.Selected.Title)
                     Width: =Parent.Width-64
                     X: =0
@@ -777,15 +837,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_4 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =ddProjectFilter_1.Selected.corp_print
                     Width: =Parent.Width-64
                     X: =0
@@ -809,15 +876,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_5 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =ddProjectFilter_1.Selected.corp_digital
                     Width: =Parent.Width-64
                     X: =0
@@ -841,15 +915,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_6 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =ddProjectFilter_1.Selected.wmc_print
                     Width: =Parent.Width-64
                     X: =0
@@ -873,15 +954,22 @@ scrProjectManagement As screen:
 
                 "iptProjectDocket_7 As 'Text input'":
                     Align: ='TextInputCanvas.Align'.Justify
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =
+                    BorderColor: =""
+                    BorderStyle: =""
+                    DisabledBorderColor: =""
                     DisplayMode: =DisplayMode.Edit
+                    FocusedBorderColor: =""
                     Font: =Font.'Segoe UI'
                     FontColor: =
                     FontSize: =16
                     FontWeight: =FontWeight.Normal
                     Height: =32
+                    HoverBorderColor: =""
                     LayoutMinHeight: =32
                     LayoutMinWidth: =Parent.Width-64
+                    PressedBorderColor: =""
                     Value: =ddProjectFilter_1.Selected.wmc_digital
                     Width: =Parent.Width-64
                     X: =0
@@ -906,15 +994,25 @@ scrProjectManagement As screen:
                     ZIndex: =21
 
                     ButtonCanvas1 As Button:
+                        Align: =""
                         BasePaletteColor: =RGBA(5, 102, 178, 1)
+                        BorderColor: =""
+                        BorderStyle: =""
+                        DisabledBorderColor: =""
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
+                        FocusedBorderColor: =""
                         Font: =Font.'Segoe UI'
                         FontColor: =RGBA(255, 255, 255, 1)
                         FontSize: =16
                         FontWeight: =FontWeight.Semibold
                         Height: |
                             =40
+                        HoverBorderColor: =""
+                        Icon: =""
+                        IconRotation: =0
+                        IconStyle: ="Outline"
+                        Layout: ="Icon before"
                         LayoutMinHeight: |
                             =40
                         LayoutMinWidth: =96
@@ -936,29 +1034,43 @@ scrProjectManagement As screen:
                                     {}
                                 )
                             );
+                        PressedBorderColor: =""
                         Text: ="Save"
+                        VerticalAlign: =""
                         Width: =96
                         X: =0
                         Y: =0
                         ZIndex: =1
 
                     ButtonCanvas2 As Button:
+                        Align: =""
                         BasePaletteColor: =RGBA(5, 102, 178, 1)
+                        BorderColor: =""
+                        BorderStyle: =""
+                        DisabledBorderColor: =""
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
+                        FocusedBorderColor: =""
                         Font: =Font.'Segoe UI'
                         FontColor: =RGBA(255, 255, 255, 1)
                         FontSize: =16
                         FontWeight: =FontWeight.Semibold
                         Height: |
                             =40
+                        HoverBorderColor: =""
+                        Icon: =""
+                        IconRotation: =0
+                        IconStyle: ="Outline"
+                        Layout: ="Icon before"
                         LayoutMinHeight: |
                             =40
                         LayoutMinWidth: =96
                         OnSelect: |-
                             =Set(varProjectEditStatus,"New");
                             Reset(iptProjectStatus);Reset(iptProjectDocket);Reset(iptProjectDocket_1);Reset(iptProjectDocket_2);Reset(iptProjectDocket_3);Reset(iptProjectDocket_4);Reset(iptProjectDocket_5);Reset(iptProjectDocket_6);Reset(iptProjectDocket_7);Reset(iptProjectCampaign);
+                        PressedBorderColor: =""
                         Text: ="Reset"
+                        VerticalAlign: =""
                         Width: =96
                         X: =0
                         Y: =0
@@ -1031,6 +1143,8 @@ scrProjectManagement As screen:
 
                         TextCanvas3_1 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             FillPortions: =1
                             Font: =Font.'Segoe UI'
@@ -1112,6 +1226,8 @@ scrProjectManagement As screen:
 
                         TextCanvas3 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =
@@ -1204,6 +1320,8 @@ scrProjectManagement As screen:
                             TextCanvas4 As Text:
                                 Align: ='TextCanvas.Align'.Center
                                 AutoHeight: =true
+                                BorderColor: =""
+                                BorderStyle: =""
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
@@ -1281,6 +1399,10 @@ scrProjectManagement As screen:
                             LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             Width: =previewOffer_assets_4.Width*0.6
                             X: =1
                             Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height
@@ -1385,6 +1507,10 @@ scrProjectManagement As screen:
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMode: =LayoutMode.Auto
                             LayoutOverflowY: =LayoutOverflow.Scroll
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
                             X: =previewOfferContainer_2.X+previewOfferContainer_2.Width
                             Y: =previewOffer_assets_4.Y+previewOffer_assets_4.Height
@@ -1590,6 +1716,10 @@ scrProjectManagement As screen:
                             Height: =32
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
                             X: =1
                             ZIndex: =5
@@ -1871,7 +2001,10 @@ scrProjectManagement As screen:
 
                         LinkCanvas1 As Link:
                             Align: ='LinkCanvas.Align'.Center
+                            Appearance: ="Default"
                             BasePaletteColor: =RGBA(5, 102, 178, 1)
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontSize: =16
@@ -2039,6 +2172,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2055,6 +2190,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_1 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2071,6 +2208,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_2 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2087,6 +2226,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_3 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2103,6 +2244,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_4 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2119,6 +2262,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_5 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2135,6 +2280,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_6 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2151,6 +2298,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_7 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2167,6 +2316,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_8 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2183,6 +2334,8 @@ scrProjectManagement As screen:
 
                         TextCanvas5_9 As Text:
                             Align: ='TextCanvas.Align'.Center
+                            BorderColor: =""
+                            BorderStyle: =""
                             DisplayMode: =DisplayMode.Edit
                             Font: =Font.'Segoe UI'
                             FontColor: =RGBA(255, 255, 255, 1)
@@ -2213,13 +2366,20 @@ scrProjectManagement As screen:
 
                         "iptExclusionsPages As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
+                            Appearance: ="FilledDarker"
                             BasePaletteColor: =
+                            BorderColor: =""
+                            BorderStyle: =""
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =""
+                            PressedBorderColor: =""
                             Value: =ThisItem.pages_affected
                             Width: =TextCanvas5_3.Width
                             X: =TextCanvas5_3.X
@@ -2227,44 +2387,72 @@ scrProjectManagement As screen:
                             ZIndex: =1
 
                         iptExclusionsStage As Dropdown.pcfdataset:
+                            Appearance: ="FilledDarker"
+                            BorderColor: =""
+                            BorderStyle: =""
                             DefaultSelectedItems: =ThisItem.production_stage
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            HoverBorderColor: =""
                             Items: =Choices(Exclusions.production_stage)
+                            PressedBorderColor: =""
                             Width: =TextCanvas5.Width
                             X: =TextCanvas5.X
                             Y: =Gap
                             ZIndex: =2
 
                         iptExclusionsStage_1 As Dropdown.pcfdataset:
+                            Appearance: ="FilledDarker"
+                            BorderColor: =""
+                            BorderStyle: =""
                             DefaultSelectedItems: =ThisItem.SBU
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            HoverBorderColor: =""
                             Items: =Choices(Exclusions.SBU)
+                            PressedBorderColor: =""
                             Width: =TextCanvas5_4.Width
                             X: =TextCanvas5_4.X
                             Y: =Gap
                             ZIndex: =3
 
                         iptExclusionsStage_2 As Dropdown.pcfdataset:
+                            Appearance: ="FilledDarker"
+                            BorderColor: =""
+                            BorderStyle: =""
                             DefaultSelectedItems: =ThisItem.Banner
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            HoverBorderColor: =""
                             Items: =Choices(Exclusions.Banner)
+                            PressedBorderColor: =""
                             Width: =TextCanvas5_5.Width
                             X: =TextCanvas5_5.X
                             Y: =Gap
                             ZIndex: =4
 
                         iptExclusionsStage_3 As Dropdown.pcfdataset:
+                            Appearance: ="FilledDarker"
+                            BorderColor: =""
+                            BorderStyle: =""
                             DefaultSelectedItems: =ThisItem.Disruption
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            HoverBorderColor: =""
                             Items: =Choices(Exclusions.Disruption)
+                            PressedBorderColor: =""
                             Width: =TextCanvas5_6.Width
                             X: =TextCanvas5_6.X
                             Y: =Gap
@@ -2272,13 +2460,20 @@ scrProjectManagement As screen:
 
                         "iptExclusionsPages_1 As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
+                            Appearance: ="FilledDarker"
                             BasePaletteColor: =
+                            BorderColor: =""
+                            BorderStyle: =""
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.View
+                            FocusedBorderColor: =""
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =""
+                            PressedBorderColor: =""
                             Value: |-
                                 =
                                 Round(ThisItem.rate.Value,4)
@@ -2289,13 +2484,20 @@ scrProjectManagement As screen:
 
                         "iptExclusionsPages_2 As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
+                            Appearance: ="FilledDarker"
                             BasePaletteColor: =
+                            BorderColor: =""
+                            BorderStyle: =""
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.View
+                            FocusedBorderColor: =""
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =""
+                            PressedBorderColor: =""
                             Value: =Round(ThisItem.cost,4)
                             Width: =TextCanvas5_8.Width
                             X: =TextCanvas5_8.X
@@ -2304,14 +2506,21 @@ scrProjectManagement As screen:
 
                         "iptExclusionsPages_3 As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
+                            Appearance: ="FilledDarker"
                             BasePaletteColor: =
+                            BorderColor: =""
+                            BorderStyle: =""
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.View
+                            FocusedBorderColor: =""
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =""
                             Mode: ='TextInputCanvas.Mode'.Multiline
+                            PressedBorderColor: =""
                             Value: =ThisItem.'change details'
                             Width: =TextCanvas5_9.Width
                             X: =TextCanvas5_9.X
@@ -2319,15 +2528,22 @@ scrProjectManagement As screen:
                             ZIndex: =8
 
                         "DatePickerCanvas1 As 'Date picker'":
+                            Appearance: ="FilledDarker"
                             BasePaletteColor: =
+                            BorderColor: =""
+                            BorderStyle: =""
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Format: ='DatePickerCanvas.Format'.Short
                             Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =""
                             Placeholder: ="Select a date..."
+                            PressedBorderColor: =""
                             SelectedDate: =ThisItem.schedule_date
                             Width: =TextCanvas5_1.Width
                             X: =TextCanvas5_1.X
@@ -2335,15 +2551,22 @@ scrProjectManagement As screen:
                             ZIndex: =9
 
                         "DatePickerCanvas1_1 As 'Date picker'":
+                            Appearance: ="FilledDarker"
                             BasePaletteColor: =
+                            BorderColor: =""
+                            BorderStyle: =""
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             Font: =Font.'Segoe UI'
                             FontColor: =
                             FontSize: =13
                             FontWeight: =FontWeight.Semibold
                             Format: ='DatePickerCanvas.Format'.Short
                             Height: =Parent.TemplateHeight-Gap*2
+                            HoverBorderColor: =""
                             Placeholder: ="Select a date..."
+                            PressedBorderColor: =""
                             SelectedDate: =ThisItem.schedule_date
                             Width: =TextCanvas5_2.Width
                             X: =TextCanvas5_2.X
@@ -2351,11 +2574,18 @@ scrProjectManagement As screen:
                             ZIndex: =10
 
                         iptExclusionsStage_4 As Dropdown.pcfdataset:
+                            Appearance: ="FilledDarker"
+                            BorderColor: =""
+                            BorderStyle: =""
                             DefaultSelectedItems: =ThisItem.SBU
+                            DisabledBorderColor: =""
                             DisplayMode: =DisplayMode.Edit
+                            FocusedBorderColor: =""
                             FontSize: =13
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            HoverBorderColor: =""
                             Items: =Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title)
+                            PressedBorderColor: =""
                             Width: |
                                 =TextCanvas5_3.Width
                             X: =TextCanvas5_3.X

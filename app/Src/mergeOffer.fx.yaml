@@ -7,6 +7,10 @@ mergeOffer As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =U
         LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Width: =1920
         Y: |
             =0
@@ -23,6 +27,10 @@ mergeOffer As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             Y: =20
             ZIndex: =1
 
@@ -50,6 +58,10 @@ mergeOffer As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =2
 
         conMergeOffer As groupContainer.verticalAutoLayoutContainer:
@@ -62,6 +74,10 @@ mergeOffer As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =3
 
             lblSeason_6 As label:
@@ -108,6 +124,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =450
                     X: =conSelectedOfferUnits_3.X+conSelectedOfferUnits_3.Width+U*2
                     Y: =conSelectedOfferPrice_3.Y+conSelectedOfferPrice_3.Height+5
@@ -295,6 +315,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =280
                     X: =conSelectedOfferPrice_3.X
                     Y: =conSelectedOfferPrice_3.Y+conSelectedOfferPrice_3.Height+5
@@ -535,6 +559,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =467
                     X: =conSelectedOfferCopy_3.X
                     Y: =conSelectedOfferCopy_3.Y+conSelectedOfferCopy_3.Height+U*2
@@ -837,6 +865,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =280
                     X: =conSelectedOfferPrice_3.X+conSelectedOfferPrice_3.Width+U*2
                     Y: =conSelectedOfferCopy_3.Y+conSelectedOfferCopy_3.Height+U*2
@@ -1020,6 +1052,10 @@ mergeOffer As screen:
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =Parent.TemplateWidth-Self.X-Parent.TemplatePadding-20
                     X: =conSelectedOfferCopy_3.X+conSelectedOfferCopy_3.Width+U*2
                     Y: =40
@@ -1171,6 +1207,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =750
                     X: =conSelectedOfferMarketsItems_3.X+conSelectedOfferMarketsItems_3.Width+U*2
                     Y: =U
@@ -1186,6 +1226,10 @@ mergeOffer As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =1
 
                         Container8_6 As groupContainer.horizontalAutoLayoutContainer:
@@ -1196,6 +1240,10 @@ mergeOffer As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             ZIndex: =1
 
                             lblSelectedOfferCopy_6 As label:
@@ -1353,6 +1401,10 @@ mergeOffer As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         ZIndex: =2
 
                         Container8_7 As groupContainer.horizontalAutoLayoutContainer:
@@ -1363,6 +1415,10 @@ mergeOffer As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             ZIndex: =1
 
                             lblSelectedOfferCopy_7 As label:
@@ -1517,6 +1573,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =475
                     X: =conSelectedOfferPage_3.X+conSelectedOfferPage_3.Width+U*2
                     Y: =U
@@ -1582,6 +1642,10 @@ mergeOffer As screen:
                             =32
                         LayoutMinWidth: =Parent.Width
                         LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
                         Width: =Parent.Width
                         ZIndex: =2
 
@@ -1865,6 +1929,10 @@ mergeOffer As screen:
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =165
                     X: =U
                     Y: =conSelectedOfferPage_3.Height+conSelectedOfferPage_3.Y+U*2
@@ -2107,6 +2175,10 @@ mergeOffer As screen:
                     LayoutGap: =U
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
                     Width: =165
                     X: =U
                     Y: =U
@@ -2378,6 +2450,10 @@ mergeOffer As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =5
 
             Container2 As groupContainer.horizontalAutoLayoutContainer:
@@ -2389,6 +2465,10 @@ mergeOffer As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
                 ZIndex: =1
 
                 "iconCombineOffers_2 As 'Fluent Icon (1.0.19)'":
