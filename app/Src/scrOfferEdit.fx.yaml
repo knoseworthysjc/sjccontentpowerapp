@@ -227,9 +227,9 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =200
-                OnChange: |-
+                OnChange: |
                     =ClearCollect(
-                        colSelectedOffers,
+                        colSelectedOffersV2,
                         AddColumns(
                             Filter(
                                 Offers,
@@ -240,6 +240,74 @@ scrOfferEdit As screen:
                             selected,
                             false
                         )
+                    );
+                    
+                    Clear(colSelectedPageProductImages);
+                    ForAll(
+                        colSelectedOffersV2 As offer,
+                        ForAll(
+                            offer.assigned_images As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang: "eng",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.assigned_images_fre As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang: "fre",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.assigned_logos As imglist,
+                            Collect(
+                                colSelectedPageProductImages,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "logo",
+                                    lang:"eng",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
                     );
                 Text: ="Load Offers"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
@@ -612,7 +680,7 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =200
                 LayoutMinWidth: =160
                 OnChange: |+
-                    =ClearCollect(
+                    =/* ClearCollect(
                         colMergeOffers,
                         Filter(
                             colSelectedOffers,
@@ -753,7 +821,7 @@ scrOfferEdit As screen:
                                 )
                             }
                         );
-                        Navigate(mergeOffer)
+                        Navigate(mergeOffer)*/
                     
                 Text: ="Combine Selected Offers"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
@@ -801,7 +869,7 @@ scrOfferEdit As screen:
                     =If(
                         CountRows(
                             Filter(
-                            colSelectedOffers,
+                            colSelectedOffersV2,
                             selected = true
                         )
                         )>0,true,false)
@@ -864,21 +932,21 @@ scrOfferEdit As screen:
                     =If(cbShowDeleted.Value,
                         If(
                         IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
-                        SortByColumns(colSelectedOffers,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
+                        SortByColumns(colSelectedOffersV2,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
                         If(
                             !IsBlankOrError(ddPageFilter.Selected) And !IsBlankOrError(ddSBUFilter.Selected),
                             SortByColumns(Filter(
-                                colSelectedOffers,
+                                colSelectedOffersV2,
                                 page_from = ddPageFilter.Selected.page_from And SBU.Value = ddSBUFilter.Selected.Value
                             ),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
                             If(
                                 !IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
                                 SortByColumns(Filter(
-                                    colSelectedOffers,
+                                    colSelectedOffersV2,
                                     page_from = ddPageFilter.Selected.page_from
                                 ),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
                                 SortByColumns(Filter(
-                                    colSelectedOffers,
+                                    colSelectedOffersV2,
                                     SBU.Value = ddSBUFilter.Selected.Value
                                 ),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
                             )
@@ -886,21 +954,21 @@ scrOfferEdit As screen:
                     ),
                        If(
                         IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
-                        SortByColumns(colSelectedOffers,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
+                        SortByColumns(colSelectedOffersV2,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
                         If(
                             !IsBlankOrError(ddPageFilter.Selected) And !IsBlankOrError(ddSBUFilter.Selected),
                             SortByColumns(Filter(
-                                colSelectedOffers,
+                                colSelectedOffersV2,
                                 page_from = ddPageFilter.Selected.page_from And SBU.Value = ddSBUFilter.Selected.Value And offer_status.Value<>"Deleted"
                             ),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
                             If(
                                 !IsBlankOrError(ddPageFilter.Selected) And IsBlankOrError(ddSBUFilter.Selected),
                                 SortByColumns(Filter(
-                                    colSelectedOffers,
+                                    colSelectedOffersV2,
                                     page_from = ddPageFilter.Selected.page_from And offer_status.Value<>"Deleted"
                                 ),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending),
                                 SortByColumns(Filter(
-                                    colSelectedOffers,
+                                    colSelectedOffersV2,
                                     SBU.Value = ddSBUFilter.Selected.Value And offer_status.Value<>"Deleted"
                                 ),"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
                             )
@@ -910,7 +978,7 @@ scrOfferEdit As screen:
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
-                OnSelect: =ClearCollect(selectedOfferHistory,Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers))
+                OnSelect: =//ClearCollect(selectedOfferHistory,Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers));
                 TemplateFill: =If(ThisItem.updated,RGBA(216, 116, 116, 20%),RGBA(255, 255, 255, 1))
                 TemplatePadding: =U
                 TemplateSize: =Self.Height/1.9
@@ -955,9 +1023,9 @@ scrOfferEdit As screen:
                         Height: =30
                         HoverColor: =RGBA(0, 89, 178, 1)
                         OnCheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{selected:true})
+                            =Patch(colSelectedOffersV2,ThisItem,{selected:true})
                         OnUncheck: |-
-                            =Patch(colSelectedOffers,ThisItem,{selected:false})
+                            =Patch(colSelectedOffersV2,ThisItem,{selected:false})
                         PaddingBottom: =5
                         Size: =13
                         Text: ="Select"
@@ -1096,7 +1164,7 @@ scrOfferEdit As screen:
                                 }
                             );
                             Patch(
-                                colSelectedOffers,
+                                colSelectedOffersV2,
                                 ThisItem,
                                 {updated: false}
                             );
@@ -1142,7 +1210,7 @@ scrOfferEdit As screen:
                                  offer_status:{Value:"Deleted"}
                                 }
                             );
-                            Patch(colSelectedOffers,ThisItem,{updated:false,offer_status:{Value:"Deleted"}});
+                            Patch(colSelectedOffersV2,ThisItem,{updated:false,offer_status:{Value:"Deleted"}});
                         Width: |
                             =40
                         ZIndex: =6
@@ -1288,7 +1356,7 @@ scrOfferEdit As screen:
                             Icon: =Icon.Save
                             LayoutMinWidth: =32
                             OnSelect: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,Markets:SortByColumns(iptSelectedOfferUpdate.SelectedItems,"Value",SortOrder.Ascending)})
+                                =Patch(colSelectedOffersV2,ThisItem,{updated:true,Markets:SortByColumns(iptSelectedOfferUpdate.SelectedItems,"Value",SortOrder.Ascending)})
                             Width: |
                                 =32
                             ZIndex: =3
@@ -1310,7 +1378,7 @@ scrOfferEdit As screen:
                             LayoutMinWidth: =165
                             OnChange: |
                                 =Set(selectedSplitOffers,ThisItem);
-                                Navigate(mergeOffer);
+                                //Navigate(mergeOffer);
                             Text: =""
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Tooltip: ="Split This Offer By Zone"
@@ -1361,7 +1429,7 @@ scrOfferEdit As screen:
                         LayoutMinHeight: =28
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,featured_item_numbers:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,featured_item_numbers:Self.Text})
                         OnSelect: |-
                             =Clear(colSelectedOfferProducts);
                             ForAll(Split(Substitute(galSelectedOffers.Selected.featured_item_numbers,"/",","),",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
@@ -1418,7 +1486,7 @@ scrOfferEdit As screen:
                         LayoutMinHeight: =28
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,combined_item_number:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,combined_item_number:Self.Text})
                         OnSelect: |-
                             =Clear(colSelectedOfferProducts);
                             ForAll(Split(galSelectedOffers.Selected.featured_item_numbers,",") As Item, Collect(colSelectedOfferProducts,First(Filter(Products,item_number=Item.Value))))
@@ -1476,7 +1544,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin':Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,'Country of Origin':Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1535,7 +1603,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,'Country of Origin(Fre)':Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,'Country of Origin(Fre)':Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1612,7 +1680,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_status:Self.Selected})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_status:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1674,7 +1742,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_type:Self.Selected})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_type:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1736,7 +1804,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,SBU:Self.Selected})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,SBU:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1791,7 +1859,7 @@ scrOfferEdit As screen:
                         LayoutMinHeight: =28
                         LayoutMinWidth: =Parent.Width
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,department_name:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,department_name:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -1849,7 +1917,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_layout:Self.Selected})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_layout:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -1997,7 +2065,7 @@ scrOfferEdit As screen:
                         HoverFill: =RGBA(153, 205, 255, 1)
                         LayoutMinHeight: =28
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,layout_position:Value(Self.Text)})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,layout_position:Value(Self.Text)})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2027,7 +2095,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: |
                             =60
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,Adblock:Value(Self.Text)})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,Adblock:Value(Self.Text)})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2118,7 +2186,7 @@ scrOfferEdit As screen:
                                 HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 LayoutMinWidth: =20
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Upper(iptSelectedOfferCopy.Text)})
+                                    =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy:Upper(iptSelectedOfferCopy.Text)})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -2147,7 +2215,7 @@ scrOfferEdit As screen:
                                 HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 LayoutMinWidth: =20
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Lower(iptSelectedOfferCopy.Text)})
+                                    =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy:Lower(iptSelectedOfferCopy.Text)})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -2176,7 +2244,7 @@ scrOfferEdit As screen:
                                 HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 LayoutMinWidth: =20
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Proper(iptSelectedOfferCopy.Text)})
+                                    =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy:Proper(iptSelectedOfferCopy.Text)})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -2213,7 +2281,7 @@ scrOfferEdit As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Self.Text})
+                                =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -2293,7 +2361,7 @@ scrOfferEdit As screen:
                                 HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 LayoutMinWidth: =20
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Upper(iptExistingOfferPage_9.Text)})
+                                    =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy_french:Upper(iptExistingOfferPage_9.Text)})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -2322,7 +2390,7 @@ scrOfferEdit As screen:
                                 HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 LayoutMinWidth: =20
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Lower(iptExistingOfferPage_9.Text)})
+                                    =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy_french:Lower(iptExistingOfferPage_9.Text)})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -2351,7 +2419,7 @@ scrOfferEdit As screen:
                                 HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
                                 LayoutMinWidth: =20
                                 OnSelect: |-
-                                    =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Proper(iptExistingOfferPage_9.Text)})
+                                    =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy_french:Proper(iptExistingOfferPage_9.Text)})
                                 PaddingBottom: =0
                                 PaddingLeft: =0
                                 PaddingRight: =0
@@ -2388,7 +2456,7 @@ scrOfferEdit As screen:
                             LayoutMinWidth: =Parent.Width
                             Mode: =TextMode.MultiLine
                             OnChange: |-
-                                =Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Self.Text})
+                                =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_copy_french:Self.Text})
                             PaddingBottom: =0
                             PaddingLeft: =0
                             PaddingRight: =0
@@ -2485,7 +2553,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =(Parent.Width-U*3)/3
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,multi_save:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,multi_save:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2520,7 +2588,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =(Parent.Width-U*3)/3
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,multi_save_fre:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,multi_save_fre:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2578,7 +2646,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,callout:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,callout:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2742,7 +2810,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,total_event_price:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,total_event_price:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2777,7 +2845,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,event_price:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,event_price:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2812,7 +2880,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,regular_price:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,regular_price:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2846,7 +2914,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,savings:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,savings:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -2882,7 +2950,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =75  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,eco_fee:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,eco_fee:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3001,7 +3069,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,event_price_lb:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,event_price_lb:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3036,7 +3104,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,regular_price_lb:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,regular_price_lb:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3070,7 +3138,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,'Savings(LB)':Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,'Savings(LB)':Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3166,7 +3234,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,unit:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,unit:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3201,7 +3269,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =60  
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,unit_fre:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,unit_fre:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3280,7 +3348,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =(Parent.Width-U*2)/2
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,installment_amount:Value(Self.Text)})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,installment_amount:Value(Self.Text)})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3315,7 +3383,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =(Parent.Width-U*2)/2
                         LineHeight: =1
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,installment_frequency:Value(Self.Text)})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,installment_frequency:Value(Self.Text)})
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -3391,7 +3459,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         minimumHeight: =30
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,image_source:Self.Selected})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,image_source:Self.Selected})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -3449,7 +3517,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,adblock_theme:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,adblock_theme:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -3508,7 +3576,7 @@ scrOfferEdit As screen:
                         LayoutMinWidth: =Parent.Width
                         Mode: =TextMode.MultiLine
                         OnChange: |-
-                            =Patch(colSelectedOffers,ThisItem,{updated:true,offer_comments:Self.Text})
+                            =Patch(colSelectedOffersV2,ThisItem,{updated:true,offer_comments:Self.Text})
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -3532,10 +3600,10 @@ scrOfferEdit As screen:
                     Height: =32
                     HoverColor: =RGBA(0, 89, 178, 1)
                     OnCheck: |-
-                        =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"line list"}})
+                        =Patch(colSelectedOffersV2,ThisItem,{updated:true,record_type:{Value:"line list"}})
                     OnSelect: =Select(Parent)
                     OnUncheck: |-
-                        =Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:"featured"}})
+                        =Patch(colSelectedOffersV2,ThisItem,{updated:true,record_type:{Value:"featured"}})
                     PaddingBottom: =4
                     Text: ="Line List"
                     Width: =125
@@ -3808,7 +3876,7 @@ scrOfferEdit As screen:
                                             "image",
                                             
                                                 Patch(
-                                                    colSelectedOffers,
+                                                    colSelectedOffersV2,
                                                     galSelectedOffers.Selected,
                                                     {
                                                         updated: true,
@@ -3821,7 +3889,7 @@ scrOfferEdit As screen:
                                             ,
                                             "logo",
                                             Patch(
-                                                    colSelectedOffers,
+                                                    colSelectedOffersV2,
                                                     galSelectedOffers.Selected,
                                                     {
                                                         updated: true,
@@ -3833,7 +3901,7 @@ scrOfferEdit As screen:
                                                 )
                                         
                                         );
-                                        //ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
+                                        
                                         Remove(
                                             colSelectedPageProductImages,
                                             ThisItem
@@ -3929,7 +3997,7 @@ scrOfferEdit As screen:
                                             "image",
                                             
                                                 Patch(
-                                                    colSelectedOffers,
+                                                    colSelectedOffersV2,
                                                     galSelectedOffers.Selected,
                                                     {
                                                         updated: true,
@@ -3942,7 +4010,7 @@ scrOfferEdit As screen:
                                             ,
                                             "logo",
                                             Patch(
-                                                    colSelectedOffers,
+                                                    colSelectedOffersV2,
                                                     galSelectedOffers.Selected,
                                                     {
                                                         updated: true,
@@ -3954,7 +4022,6 @@ scrOfferEdit As screen:
                                                 )
                                         
                                         );
-                                        //ClearCollect(colSelectedPageProductImages,Filter(colSelectedPageProductImages,offerId<>galSelectedOffers.Selected.ID And ThisItem.id<>id And type=ThisItem.type))
                                         Remove(
                                             colSelectedPageProductImages,
                                             ThisItem
@@ -4271,7 +4338,7 @@ scrOfferEdit As screen:
                                                 }
                                             );
                                             Patch(
-                                                colSelectedOffers,
+                                                colSelectedOffersV2,
                                                 galSelectedOffers.Selected,
                                                 {
                                                     assigned_images_fre: assignAssets,
@@ -4291,7 +4358,7 @@ scrOfferEdit As screen:
                                                 }
                                             );
                                             Patch(
-                                                colSelectedOffers,
+                                                colSelectedOffersV2,
                                                 galSelectedOffers.Selected,
                                                 {
                                                     assigned_images: assignAssets,
@@ -4355,7 +4422,7 @@ scrOfferEdit As screen:
                                             }
                                         );
                                         Patch(
-                                            colSelectedOffers,
+                                            colSelectedOffersV2,
                                             galSelectedOffers.Selected,
                                             {
                                                 assigned_logos: assignLogos,

@@ -1132,7 +1132,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Upper(iptSelectedOfferCopy.Text)})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Tooltip"
       ],
       "DynamicProperties": [
@@ -1390,7 +1397,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -1530,7 +1537,14 @@
           "NameMapSourceSchema": "?"
         },
         "Tooltip",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Lower(iptSelectedOfferCopy.Text)})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -1787,7 +1801,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -1927,7 +1941,14 @@
           "NameMapSourceSchema": "?"
         },
         "Tooltip",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy:Proper(iptSelectedOfferCopy.Text)})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -2184,7 +2205,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -2323,7 +2344,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Upper(iptExistingOfferPage_9.Text)})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Tooltip"
       ],
       "DynamicProperties": [
@@ -2581,7 +2609,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -2721,7 +2749,14 @@
           "NameMapSourceSchema": "?"
         },
         "Tooltip",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Lower(iptExistingOfferPage_9.Text)})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -2978,7 +3013,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -3118,7 +3153,14 @@
           "NameMapSourceSchema": "?"
         },
         "Tooltip",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_copy_french:Proper(iptExistingOfferPage_9.Text)})",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -3375,7 +3417,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -3768,8 +3810,22 @@
         "PaddingLeft",
         "Tooltip",
         "CheckboxSize",
-        "OnCheck",
-        "OnUncheck",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{selected:true})",
+          "InvariantPropertyName": "OnCheck",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{selected:false})",
+          "InvariantPropertyName": "OnUncheck",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Default"
       ],
       "DynamicProperties": [
@@ -4027,12 +4083,12 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnCheck",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
           "PropertyName": "OnUncheck",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultCheckboxStyle",
@@ -4151,8 +4207,22 @@
           "NameMapSourceSchema": "?"
         },
         "Default",
-        "OnCheck",
-        "OnUncheck"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:\"line list\"}})",
+          "InvariantPropertyName": "OnCheck",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,record_type:{Value:\"featured\"}})",
+          "InvariantPropertyName": "OnUncheck",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -4371,12 +4441,12 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnCheck",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
           "PropertyName": "OnUncheck",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultCheckboxStyle",
@@ -4487,7 +4557,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferAssets",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4741,7 +4811,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferHistory",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5174,7 +5244,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferMMS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5673,7 +5743,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferPageAssets",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6198,7 +6268,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferPreview",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6450,7 +6520,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferProducts",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6907,7 +6977,7 @@
       "MetaDataIDKey": "",
       "Name": "conOfferUsage",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7331,7 +7401,7 @@
       "MetaDataIDKey": "",
       "Name": "conRelistHeading",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15185,7 +15255,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultDropdownStyle",
@@ -15393,7 +15463,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_type:Self.Selected})",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -15676,7 +15753,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultDropdownStyle",
@@ -17664,7 +17741,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,image_source:Self.Selected})",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -17947,7 +18031,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultDropdownStyle",
@@ -18155,7 +18239,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,offer_layout:Self.Selected})",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -18438,7 +18529,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultDropdownStyle",
@@ -18792,7 +18883,7 @@
       "MetaDataIDKey": "",
       "Name": "Gallery10",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19316,7 +19407,7 @@
       "MetaDataIDKey": "",
       "Name": "Gallery3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19899,7 +19990,7 @@
       "MetaDataIDKey": "",
       "Name": "Gallery3_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20603,7 +20694,7 @@
       "MetaDataIDKey": "",
       "Name": "galleryTemplate3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20694,7 +20785,7 @@
       "MetaDataIDKey": "",
       "Name": "galleryTemplate5_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20764,7 +20855,7 @@
       "MetaDataIDKey": "",
       "Name": "galleryTemplate5_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20780,7 +20871,14 @@
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "TemplateFill",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ClearCollect(selectedOfferHistory,Filter(Offers,featured_item_numbers=galSelectedOffers.Selected.featured_item_numbers))",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -20804,7 +20902,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -22247,7 +22345,7 @@
       "MetaDataIDKey": "",
       "Name": "galSelectedOfferOptions",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23628,7 +23726,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Set(selectedSplitOffers,ThisItem);\nNavigate(mergeOffer);\n",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -23770,7 +23875,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -27313,7 +27418,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultIconStyle",
@@ -27484,7 +27589,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -27641,7 +27746,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -28140,7 +28245,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -28809,7 +28914,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ClearCollect(\n    colMergeOffers,\n    Filter(\n        colSelectedOffers,\n        selected = true\n    )\n);\n\n    Clear(colMergeMarkets);\n    Clear(colMergeAssetsEng);\n    Clear(colMergeAssetsFre);\n    Clear(colMergeAssetsLogo);\n    ForAll(\n        colMergeOffers As off,\n        ForAll(\n            off.Markets As MKT,\n            Collect(\n                colMergeMarkets,\n                MKT\n            )\n        );\n        ForAll(\n            off.assigned_images As img,\n            Collect(\n                colMergeAssetsEng,\n                img\n            )\n        );\n        ForAll(\n            off.assigned_images_fre As img,\n            Collect(\n                colMergeAssetsFre,\n                img\n            )\n        );\n        ForAll(\n            off.assigned_logos As img,\n            Collect(\n                colMergeAssetsLogo,\n                img\n            )\n        );\n    );\n    ClearCollect(\n        colMergeOfferRecord,\n        First(colMergeOffers)\n    );\n    Patch(\n        colMergeOfferRecord,\n        First(colMergeOfferRecord),\n        {\n            Markets: SortByColumns(colMergeMarkets,\"Value\",SortOrder.Ascending),\n            assigned_images: colMergeAssetsEng,\n            assigned_images_fre: colMergeAssetsFre,\n            assigned_logos: colMergeAssetsLogo,\n            offer_copy: Concat(\n                Distinct(\n                    colMergeOffers,\n                    offer_copy\n                ),\n                Value,\n                \" & \"\n            ),\n            offer_copy_french: Concat(\n                Distinct(\n                    colMergeOffers,\n                    offer_copy_french\n                ),\n                Value,\n                \" & \"\n            ),\n            'Country of Origin': Concat(\n                Distinct(\n                    colMergeOffers,\n                    'Country of Origin'\n                ),\n                Value,\n                \" & \"\n            ),\n            'Country of Origin(Fre)': Concat(\n                Distinct(\n                    colMergeOffers,\n                    'Country of Origin(Fre)'\n                ),\n                Value,\n                \" & \"\n            ),\n            offer_comments: Concat(\n                Distinct(\n                    colMergeOffers,\n                    offer_comments\n                ),\n                Value,\n                \" \n             \"\n            ),\n            featured_item_numbers: Concat(\n                SortByColumns(\n                    Distinct(\n                        Split(\n                            Concat(\n                                Distinct(\n                                    colMergeOffers,\n                                    featured_item_numbers\n                                ),\n                                Value,\n                                \",\"\n                            ),\n                            \",\"\n                        ),\n                        Value\n                    ),\n                    \"Value\",\n                    SortOrder.Ascending\n                ),\n                Value,\n                \",\"\n            ),combined_item_number: Concat(\n                SortByColumns(\n                    Distinct(\n                        Split(\n                            Concat(\n                                Distinct(\n                                    colMergeOffers,\n                                    combined_item_number\n                                ),\n                                Value,\n                                \"/\"\n                            ),\n                            \"/\"\n                        ),\n                        Value\n                    ),\n                    \"Value\",\n                    SortOrder.Ascending\n                ),\n                Value,\n                \"/\"\n            )\n        }\n    );\n    Navigate(mergeOffer)\n\n",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Visible"
       ],
       "DynamicProperties": [
@@ -28957,7 +29069,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -29075,7 +29187,14 @@
           "NameMapSourceSchema": "?"
         },
         "OnChange",
-        "Visible"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(\n    CountRows(\n        Filter(\n        colSelectedOffers,\n        selected = true\n    )\n    )>0,true,false)",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -29217,7 +29336,7 @@
         {
           "Category": "Design",
           "PropertyName": "Visible",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -32310,7 +32429,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -32820,7 +32939,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -33330,7 +33449,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -33840,7 +33959,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -34350,7 +34469,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -34860,7 +34979,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -35874,7 +35993,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -36412,7 +36531,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -36930,7 +37049,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -37475,7 +37594,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -38006,7 +38125,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -38524,7 +38643,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -39042,7 +39161,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -39533,7 +39652,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -40031,7 +40150,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -40550,7 +40669,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -41069,7 +41188,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -41574,7 +41693,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -42105,7 +42224,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -42615,7 +42734,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -43125,7 +43244,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -43635,7 +43754,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -44145,7 +44264,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -44655,7 +44774,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultTextStyle",
@@ -45160,7 +45279,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -47701,7 +47820,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Patch(colSelectedOffers,ThisItem,{updated:true,SBU:Self.Selected})",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -47984,7 +48110,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultDropdownStyle",
@@ -48517,7 +48643,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -50286,7 +50412,7 @@
       "MetaDataIDKey": "",
       "Name": "Label11",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -50645,7 +50771,7 @@
       "MetaDataIDKey": "",
       "Name": "Label11_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -72117,7 +72243,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultIconStyle",
@@ -72362,7 +72488,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultIconStyle",
@@ -72824,7 +72950,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_assets_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -73300,7 +73426,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_assets_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -73527,7 +73653,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_boarder_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -73861,7 +73987,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_boarder_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -78098,7 +78224,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerItemNumber_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -78950,7 +79076,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerItemNumber_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -79384,7 +79510,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerWasPricing_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80262,7 +80388,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_offerWasPricing_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -81720,7 +81846,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_rectangle_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -82054,7 +82180,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOffer_price_rectangle_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84792,7 +84918,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainer",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85126,7 +85252,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainer_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85293,7 +85419,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainerLockup",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85662,7 +85788,7 @@
       "MetaDataIDKey": "",
       "Name": "previewOfferContainerLockup_4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -86127,7 +86253,7 @@
       "MetaDataIDKey": "",
       "Name": "Rectangle5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
