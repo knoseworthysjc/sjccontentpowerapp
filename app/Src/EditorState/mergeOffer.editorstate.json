@@ -2837,7 +2837,7 @@
       "MetaDataIDKey": "",
       "Name": "cbMergeOfferLineList",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4170,7 +4170,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferCategory_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4337,7 +4337,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferComments_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4706,7 +4706,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferMarketsItems_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4894,7 +4894,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferMultiSave_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5075,7 +5075,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferPage_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5256,7 +5256,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferPrice_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5437,7 +5437,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferPriceLB_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5618,7 +5618,7 @@
       "MetaDataIDKey": "",
       "Name": "conSelectedOfferUnits_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 12,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9853,7 +9853,7 @@
       "MetaDataIDKey": "",
       "Name": "Icon14_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24244,7 +24244,7 @@
       "MetaDataIDKey": "",
       "Name": "iptSelectedOfferUpdate_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25573,7 +25573,7 @@
       "MetaDataIDKey": "",
       "Name": "lblOfferBlock_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -38969,7 +38969,14 @@
         "BorderThickness",
         "FocusedBorderThickness",
         "Visible",
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ClearCollect(newMergeRecord,\nPatch(\n    Offers,\n    Defaults(Offers),\n    {\n        Season:ThisItem.Season,\n        Week:ThisItem.Week,\n        assigned_project:ThisItem.assigned_project,\n        record_type:ThisItem.record_type,\n        page_from: ThisItem.page_from,\n        layout_position: ThisItem.layout_position,\n        Adblock: ThisItem.Adblock,\n        offer_type: ThisItem.offer_type,\n        SBU: ThisItem.SBU,\n        department_name: ThisItem.department_name,\n        Markets: ThisItem.Markets,\n        featured_item_numbers: ThisItem.featured_item_numbers,\n        combined_item_number: ThisItem.combined_item_number,\n        'Country of Origin': ThisItem.'Country of Origin',\n        'Country of Origin(Fre)': ThisItem.'Country of Origin(Fre)',\n        Grade: ThisItem.Grade,\n        'Grade(Fre)': ThisItem.'Grade(Fre)',\n        offer_copy: ThisItem.offer_copy,\n        offer_copy_french: ThisItem.offer_copy_french,\n        total_event_price: ThisItem.total_event_price,\n        event_price: ThisItem.event_price,\n        regular_price: ThisItem.regular_price,\n        savings: ThisItem.savings,\n        eco_fee: ThisItem.eco_fee,\n        event_price_lb: ThisItem.event_price_lb,\n        regular_price_lb: ThisItem.regular_price_lb,\n        'Savings(LB)': ThisItem.'Savings(LB)',\n        unit: ThisItem.unit,\n        unit_fre: ThisItem.unit_fre,\n        installment_amount: ThisItem.installment_amount,\n        installment_frequency: ThisItem.installment_frequency,\n        multi_save: ThisItem.multi_save,\n        multi_save_fre: ThisItem.multi_save_fre,\n        callout: ThisItem.callout,\n        image_source: ThisItem.image_source,\n        offer_comments: ThisItem.offer_comments,\n        assigned_images: ThisItem.assigned_images,\n        assigned_logos: ThisItem.assigned_logos,assigned_images_fre:ThisItem.assigned_images_fre,offer_layout:ThisItem.offer_layout,category_name:ThisItem.category_name,item_name:ThisItem.item_name,adblock_theme:ThisItem.adblock_theme,offer_status:ThisItem.offer_status\n    }\n));\nForAll(\n        colMergeOffers As off,\n    Remove(\n        colSelectedOffers,\n        off\n    );\n    Patch(\n        Offers,\n        First(\n            DropColumns(\n                Table(off),\n                updated,\n                selected\n            )\n        ),\n        {offer_status: {Value: \"Deleted\"}}\n    )\n);\nCollect(colSelectedOffers,newMergeRecord);\nNavigate(scrOfferEdit);\n",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -38982,7 +38989,7 @@
       "MetaDataIDKey": "",
       "Name": "offerSaveIcon_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -39108,7 +39115,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultIconStyle",

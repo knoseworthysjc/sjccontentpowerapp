@@ -213,7 +213,7 @@ scrOfferEdit As screen:
                 Y: =(Self.BorderThickness*8)/2
                 ZIndex: =7
 
-            "Icon1 As 'Fluent Icon (1.0.19)'":
+            "incLoadOfferData As 'Fluent Icon (1.0.19)'":
                 BorderColor: ="White"
                 BorderRadius: =5
                 DisplayMode: =DisplayMode.Edit
@@ -227,7 +227,7 @@ scrOfferEdit As screen:
                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                 LayoutMinHeight: =200
                 LayoutMinWidth: =200
-                OnChange: |
+                OnChange: |-
                     =ClearCollect(
                         colSelectedOffers,
                         AddColumns(
@@ -241,148 +241,6 @@ scrOfferEdit As screen:
                             false
                         )
                     );
-                    
-                    Clear(colSelectedPageProductImages);
-                    ForAll(
-                        colSelectedOffers As offer,
-                        ForAll(
-                            offer.assigned_images As imglist,
-                            Collect(
-                                colSelectedPageProductImages,
-                                {
-                                    offerId: offer.ID,
-                                    id:imglist.Id,
-                                    title: Last(
-                                        Split(
-                                            imglist.Value,
-                                            "/"
-                                        )
-                                    ).Value,
-                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
-                                    selected: false,
-                                    type: "image",
-                                    lang: "eng",
-                                    value: imglist.Value
-                                }
-                            )
-                        );
-                        ForAll(
-                            offer.assigned_images_fre As imglist,
-                            Collect(
-                                colSelectedPageProductImages,
-                                {
-                                    offerId: offer.ID,
-                                    id:imglist.Id,
-                                    title: Last(
-                                        Split(
-                                            imglist.Value,
-                                            "/"
-                                        )
-                                    ).Value,
-                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
-                                    selected: false,
-                                    type: "image",
-                                    lang: "fre",
-                                    value: imglist.Value
-                                }
-                            )
-                        );
-                        ForAll(
-                            offer.assigned_logos As imglist,
-                            Collect(
-                                colSelectedPageProductImages,
-                                {
-                                    offerId: offer.ID,
-                                    id:imglist.Id,
-                                    title: Last(
-                                        Split(
-                                            imglist.Value,
-                                            "/"
-                                        )
-                                    ).Value,
-                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
-                                    selected: false,
-                                    type: "logo",
-                                    lang:"eng",
-                                    value: imglist.Value
-                                }
-                            )
-                        );
-                    );
-                    /*ClearCollect(
-                        conSelectedOfferPreviews,
-                        AddColumns(
-                            colSelectedOffers,
-                            "Zone",
-                            "selectedOfferPreview",
-                            "FirstImage",
-                            First(
-                                Filter(
-                                    colSelectedPageProductImages,
-                                    offerId = ID And type = "image"
-                                )
-                            ).thumbnails,
-                            "SecondImage",
-                            If(
-                                CountRows(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "image"
-                                    )
-                                ) > 1,
-                                Index(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "image"
-                                    ),
-                                    2
-                                ).thumbnails,
-                                Blank()
-                            ),
-                            "ThirdImage",
-                            If(
-                                CountRows(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "image"
-                                    )
-                                ) > 2,
-                                Index(
-                                    Filter(
-                                        colSelectedPageProductImages,
-                                        offerId = ID And type = "image"
-                                    ),
-                                    3
-                                ).thumbnails,
-                                Blank()
-                            )
-                        )
-                    );
-                    Clear(colSelectedPageProducts);
-                    ForAll(
-                        colSelectedOffers As Off,
-                        ForAll(
-                            Split(
-                                Off.featured_item_numbers,
-                                ","
-                            ) As itemNum,
-                            Collect(
-                                colSelectedPageProducts,
-                                AddColumns(
-                                    Filter(
-                                        Products,
-                                        Title = itemNum.Value
-                                    ),
-                                    "offer_id",
-                                    Off.ID,
-                                    "selected",
-                                    false
-                                )
-                            )
-                        )
-                    );*/
-                    UpdateContext({ctxSortCol: "layout_position"});
-                    UpdateContext({ctxSortAsc: true});
                 Text: ="Load Offers"
                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                 Width: =150

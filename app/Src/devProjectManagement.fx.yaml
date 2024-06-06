@@ -868,7 +868,7 @@ devProjectManagement As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.None
                         DelayItemLoading: =true
-                        Items: =SortByColumns(Filter(Projects,Season.Value=iptSeasonFilter.Selected.Value And Week=iptWeekFilter_PM.Text),"Title",SortOrder.Ascending)
+                        Items: =SortByColumns(Filter(Projects,Season.Value=iptSeasonFilter.Selected.Value And Week=Value(iptWeekFilter_PM.Text)),"Title",SortOrder.Ascending)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: |
@@ -2616,126 +2616,6 @@ devProjectManagement As screen:
                                 X: =Gap
                                 Y: =Parent.TemplateHeight-Self.Height-Gap
                                 ZIndex: =2
-
-    conFunctionCtrl As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Light
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =30
-        RadiusBottomLeft: =4
-        RadiusBottomRight: =4
-        RadiusTopLeft: =4
-        RadiusTopRight: =4
-        Width: =360
-        X: =1205
-        ZIndex: =2
-
-        fnGetProjects As Button:
-            Align: =""
-            BasePaletteColor: =
-            BorderColor: =""
-            BorderStyle: =""
-            DisabledBorderColor: =""
-            DisplayMode: =DisplayMode.Edit
-            FocusedBorderColor: =""
-            FontColor: =
-            Height: =32
-            HoverBorderColor: =""
-            Icon: =""
-            IconRotation: =0
-            IconStyle: ="Outline"
-            Layout: ="Icon before"
-            OnSelect: |-
-                =Clear(colProjectManagementSelectedPages);
-                Clear(colProjectManagementSelectedOffers);
-                ClearCollect(
-                    colProjectManagementProjects,
-                    If(
-                        iptWeekFilter_PM.Text = "",
-                        AddColumns(
-                            SortByColumns(
-                                Filter(
-                                    Projects,
-                                    Season.Value = iptSeasonFilter.Selected.Value
-                                ),
-                                "Week",
-                                SortOrder.Descending,
-                                "Title",
-                                SortOrder.Ascending
-                            ),
-                            Expanded,
-                            false
-                        ),
-                        AddColumns(
-                            SortByColumns(
-                                Filter(
-                                    Projects,
-                                    Season.Value = iptSeasonFilter.Selected.Value And Week = Value(iptWeekFilter_PM.Text)
-                                ),
-                                "Week",
-                                SortOrder.Descending,
-                                "Title",
-                                SortOrder.Ascending
-                            ),
-                            Expanded,
-                            false
-                        )
-                    )
-                )
-            PressedBorderColor: =""
-            Text: ="fnGetProject"
-            VerticalAlign: =""
-            Width: =96
-            X: =0
-            Y: =0
-            ZIndex: =2
-
-        fnGetOffers As Button:
-            Align: =""
-            BasePaletteColor: =
-            BorderColor: =""
-            BorderStyle: =""
-            DisabledBorderColor: =""
-            DisplayMode: =DisplayMode.Edit
-            FocusedBorderColor: =""
-            FontColor: =
-            Height: =32
-            HoverBorderColor: =""
-            Icon: =""
-            IconRotation: =0
-            IconStyle: ="Outline"
-            Layout: ="Icon before"
-            OnSelect: =Clear(colProjectManagementSelectedOffers);
-            PressedBorderColor: =""
-            Text: ="fnGetOffers"
-            VerticalAlign: =""
-            Width: =96
-            X: =116
-            Y: =0
-            ZIndex: =3
-
-        fnGetPages As Button:
-            Align: =""
-            BasePaletteColor: =
-            BorderColor: =""
-            BorderStyle: =""
-            DisabledBorderColor: =""
-            DisplayMode: =DisplayMode.Edit
-            FocusedBorderColor: =""
-            FontColor: =
-            Height: =32
-            HoverBorderColor: =""
-            Icon: =""
-            IconRotation: =0
-            IconStyle: ="Outline"
-            Layout: ="Icon before"
-            OnSelect: =ForAll(colSelectedProjects As P, Collect(colSelectedProjectsPages,Filter(FlyerPages,assigned_project.Value=P.Title)))
-            PressedBorderColor: =""
-            Text: ="fnGetPages"
-            VerticalAlign: =""
-            Width: =96
-            X: =245
-            Y: =0
-            ZIndex: =4
 
     nav_container_9 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)

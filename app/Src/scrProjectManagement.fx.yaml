@@ -260,7 +260,7 @@ scrProjectManagement As screen:
                 LayoutMinWidth: =200
                 OnChange: |
                     =ClearCollect(
-                        colSelectedOffers,
+                        colSelectedOffersPM,
                         AddColumns(
                             Filter(
                                 Offers,
@@ -275,7 +275,7 @@ scrProjectManagement As screen:
                     
                     Clear(colSelectedPageProductImages);
                     ForAll(
-                        colSelectedOffers As offer,
+                        colSelectedOffersPM As offer,
                         ForAll(
                             offer.assigned_images As imglist,
                             Collect(
@@ -2355,7 +2355,7 @@ scrProjectManagement As screen:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(0, 89, 178, 1)
                         DelayItemLoading: =true
-                        Items: =Filter(Exclusions,week=iptWeekFilter_1.Text And Season.Value = ddSeasonFilter_1.Selected.Value)
+                        Items: =Filter(Exclusions,week=Value(iptWeekFilter_1.Text) And Season.Value = ddSeasonFilter_1.Selected.Value)
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
