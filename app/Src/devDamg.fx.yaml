@@ -918,16 +918,347 @@ devDamg As screen:
                 Width: =Parent.Width*0.2
                 ZIndex: =3
 
-                "TextInputCanvas1 As 'Text input'":
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =320
-                    Mode: ='TextInputCanvas.Mode'.SingleLine
-                    Width: =320
-                    X: =0
-                    Y: =0
-                    ZIndex: =1
+                Container6_1 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =2
+
+                    Container7_1 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =32
+                        LayoutGap: =U
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =U
+                        PaddingRight: =U
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =1
+
+                        ddAssetSearchType_1 As dropdown:
+                            AlignInContainer: =AlignInContainer.Center
+                            BorderColor: =RGBA(0, 62, 125, 1)
+                            BorderThickness: =1
+                            ChevronBackground: =RGBA(255, 255, 255, 1)
+                            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                            ChevronFill: =RGBA(0, 62, 125, 1)
+                            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                            Color: =RGBA(0, 62, 125, 1)
+                            Default: ="Images"
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =30
+                            HoverBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                            HoverColor: =RGBA(51, 51, 51, 1)
+                            HoverFill: =RGBA(212, 212, 212, 1)
+                            Items: |-
+                                =Table({searchImageType:"Images",assetType:"image",xinetPaths:Table({pathId:"1556374"},{pathId:"1556964"})},{searchImageType:"Logos",xinetPaths:Table({pathId:"1553479"}),assetType:"logo"},{searchImageType:"Icons",xinetPaths:Table({pathId:"1553479"}),assetType:"icon"})
+                            OnChange: =Clear(colOfferAssetSearchResults)
+                            PaddingBottom: =5
+                            PaddingLeft: =12
+                            PaddingRight: =5
+                            PaddingTop: =5
+                            PressedBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =RGBA(164, 38, 44, 1)
+                            SelectionFill: =RGBA(0, 62, 125, 1)
+                            Width: =Parent.Width*0.2
+                            ZIndex: =1
+
+                        "iptOfferAssetSearch_1 As 'Text input'":
+                            Align: ='TextInputCanvas.Align'.Center
+                            Appearance: ='TextInputCanvas.Appearance'.FilledDarker
+                            BorderRadius: =8
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            Font: =Font.'Segoe UI'
+                            FontSize: =16
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =32
+                            Mode: ='TextInputCanvas.Mode'.SingleLine
+                            Width: =320
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "Icon4_6 As 'Fluent Icon (1.0.19)'":
+                            AlignInContainer: =AlignInContainer.Center
+                            BorderColor: |-
+                                ="#003E7D"
+                            BorderRadius: =5
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: |-
+                                ="#003E7D"
+                            FontSize: =12
+                            Height: =28
+                            HoverFontColor: |-
+                                ="#003E7D"
+                            HoverIconColor: |-
+                                ="#003E7D"
+                            IconColor: |-
+                                ="#003E7D"
+                            IconName: ="Search"
+                            IconSize: =18
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =125
+                            OnChange: |-
+                                =Clear(colOfferAssetSearchResults);
+                                ForAll(ddAssetSearchType_1.Selected.xinetPaths As searchLocals,
+                                    ForAll(Split(iptOfferAssetSearch_1.Value,","),
+                                    Collect(
+                                        colOfferAssetSearchResults,
+                                        Xinet.Search(searchLocals.pathId,ThisRecord.Value,{fileid_searchsub_0:1,filename_flag_0:1}).FILES_INFO
+                                    )));
+                            Text: ="Find "&ddAssetSearchType_1.Selected.searchImageType
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Width: =Parent.Width*0.2
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
+                    Gallery4_1 As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtered"
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(107, 144, 179, 1)
+                        BorderThickness: =1
+                        DelayItemLoading: =true
+                        Items: =colOfferAssetSearchResults
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        ShowNavigation: =true
+                        ShowScrollbar: =false
+                        TemplatePadding: =Gap
+                        TemplateSize: =Self.Width/3
+                        Transition: =Transition.Push
+                        WrapCount: =3
+                        ZIndex: =2
+
+                        Image5_4 As image:
+                            BorderColor: =RGBA(0, 62, 125, 1)
+                            BorderThickness: =1
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                            Image: |-
+                                =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
+                            OnSelect: |-
+                                =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =Parent.TemplatePadding
+                            Y: =Parent.TemplatePadding
+                            ZIndex: =1
+
+                        Label7_4 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            BorderColor: =RGBA(0, 89, 178, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(107, 144, 179, 0.75)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =10
+                            Text: =ThisItem.FILE_NAME
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                            X: =Parent.TemplatePadding
+                            Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
+                            ZIndex: =2
+
+                        "Icon16_5 As 'Fluent Icon (1.0.19)'":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: |
+                                =30
+                            IconName: ="AddLink"
+                            IconSize: =28
+                            IconType: ='PowerCAT.Icon.IconType'.IconButon
+                            OnChange: |
+                                =Switch(
+                                    ddAssetSearchType_1.Selected.assetType,
+                                    "image",
+                                    ClearCollect(
+                                        assignAsset,
+                                        Filter(
+                                            xinet_images,
+                                            Title = ThisItem.FILE_NAME
+                                        )
+                                    );
+                                    If(
+                                        CountRows(assignAsset) = 0,
+                                        Collect(
+                                            assignAsset,
+                                            Patch(
+                                                xinet_images,
+                                                Defaults(xinet_images),
+                                                {
+                                                    Title: ThisItem.FILE_NAME,
+                                                    fullpath: ThisItem.FILE_PATH,
+                                                    macpath: ThisItem.FILE_PATH,
+                                                    pcpath: ThisItem.FILE_PATH,
+                                                    file_id: ThisItem.FILE_ID,
+                                                    xinet_asset_type: {Value: ddAssetSearchType_1.Selected.assetType}
+                                                    
+                                                }
+                                            )
+                                        )
+                                    );
+                                    Collect(
+                                        colSelectedPageProductImages,
+                                        {
+                                            offerId: galSelectedOffers.Selected.ID,
+                                            id: First(assignAsset).ID,
+                                            title: Last(
+                                                Split(
+                                                    First(assignAsset).fullpath,
+                                                    "/"
+                                                )
+                                            ).Value,
+                                            thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAsset).fullpath,
+                                            selected: false,
+                                            type: "image",
+                                            lang: Lower(ddAssetSearchLang_1.Selected.Value),
+                                            value: First(assignAsset).fullpath
+                                        }
+                                    );
+                                    If(
+                                        ddAssetSearchLang_1.SelectedText.Value="Fre",
+                                        ClearCollect(
+                                            assignAssets,
+                                            galSelectedOffers.Selected.assigned_images_fre
+                                        );
+                                        Collect(
+                                            assignAssets,
+                                            {
+                                                Id: First(assignAsset).ID,
+                                                Value: First(assignAsset).fullpath
+                                            }
+                                        );
+                                        Patch(
+                                            colSelectedOffersV2,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                assigned_images_fre: assignAssets,
+                                                updated: true
+                                            }
+                                        );
+                                        ,
+                                        ClearCollect(
+                                            assignAssets,
+                                            galSelectedOffers.Selected.assigned_images
+                                        );
+                                        Collect(
+                                            assignAssets,
+                                            {
+                                                Id: First(assignAsset).ID,
+                                                Value: First(assignAsset).fullpath
+                                            }
+                                        );
+                                        Patch(
+                                            colSelectedOffersV2,
+                                            galSelectedOffers.Selected,
+                                            {
+                                                assigned_images: assignAssets,
+                                                updated: true
+                                            }
+                                        );
+                                    ),
+                                    "logo",
+                                    ClearCollect(
+                                        assignAssetlogo,
+                                        Filter(
+                                            xinet_logos,
+                                            Title = ThisItem.FILE_NAME
+                                        )
+                                    );
+                                    If(
+                                        CountRows(assignAssetlogo) = 0,
+                                        Collect(
+                                            assignAssetlogo,
+                                            Patch(
+                                                xinet_logos,
+                                                Defaults(xinet_logos),
+                                                {
+                                                    Title: ThisItem.FILE_NAME,
+                                                    fullpath: ThisItem.FILE_PATH,
+                                                    macpath: ThisItem.FILE_PATH,
+                                                    pcpath: ThisItem.FILE_PATH,
+                                                    file_id: ThisItem.FILE_ID,
+                                                    xinet_asset_type: {Value: ddAssetSearchType_1.Selected.assetType}
+                                                }
+                                            )
+                                        )
+                                    );
+                                    Collect(
+                                        colSelectedPageProductImages,
+                                        {
+                                            offerId: galSelectedOffers.Selected.ID,
+                                            id: First(assignAssetlogo).ID,
+                                            title: Last(
+                                                Split(
+                                                    First(assignAssetlogo).fullpath,
+                                                    "/"
+                                                )
+                                            ).Value,
+                                            thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & First(assignAssetlogo).fullpath,
+                                            selected: false,
+                                            type: "image",
+                                            lang: "eng",
+                                            value: First(assignAssetlogo).fullpath
+                                        }
+                                    );
+                                    ClearCollect(
+                                        assignLogos,
+                                        galSelectedOffers.Selected.assigned_logos
+                                    );
+                                    Collect(
+                                        assignLogos,
+                                        {
+                                            Id: First(assignAssetlogo).ID,
+                                            Value: First(assignAssetlogo).fullpath
+                                        }
+                                    );
+                                    Patch(
+                                        colSelectedOffersV2,
+                                        galSelectedOffers.Selected,
+                                        {
+                                            assigned_logos: assignLogos,
+                                            updated: true
+                                        }
+                                    );
+                                    
+                                );
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Tooltip: ="Assign Asset"
+                            Width: =30
+                            X: =123
+                            Y: =0
+                            ZIndex: =3
 
     nav_container_10 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
