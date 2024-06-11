@@ -405,7 +405,8 @@ devDamg As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                Width: =conGridImages.Width
+                Width: |
+                    =200
                 ZIndex: =2
 
                 lblPage_5 As label:
@@ -492,13 +493,12 @@ devDamg As screen:
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderStyle: =BorderStyle.None
                 Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =0
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width*0.2
+                Width: =Parent.Width*0.18
                 ZIndex: =1
 
                 galProjectManagementOffers_1 As gallery.galleryVertical:
@@ -529,13 +529,13 @@ devDamg As screen:
                         Fill: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 255, 0, 1),RGBA(255,0,0,1))
                         Height: =previewOfferContainerLockup_3.Height
                         OnSelect: =Select(Parent)
-                        Width: =previewOfferContainerLockup_3.Width
+                        Width: =previewOffer_assets_6.Width*0.4
                         X: =previewOfferContainerLockup_3.X
                         Y: =previewOfferContainerLockup_3.Y
                         ZIndex: =1
 
                     previewOfferContainer_4 As groupContainer.verticalAutoLayoutContainer:
-                        Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y-previewOffer_boarder_6.BorderThickness*2
+                        Height: =previewOffer_offerCopy_6.Height+previewOffer_offerCOO_6.Height+previewOffer_offerItemNumber_6.Height+previewOffer_offerWasPricing_6.Height
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMode: =LayoutMode.Auto
@@ -651,7 +651,7 @@ devDamg As screen:
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.X-20
+                        Width: =previewOffer_assets_6.Width*0.4
                         X: =previewOfferContainer_4.X+previewOfferContainer_4.Width
                         Y: =previewOffer_assets_6.Y+previewOffer_assets_6.Height
                         ZIndex: =3
@@ -726,6 +726,7 @@ devDamg As screen:
 
                                 previewOffer_rollBack_5 As label:
                                     Align: =Align.Center
+                                    AutoHeight: =true
                                     BorderColor: =RGBA(255, 0, 0, 1)
                                     BorderThickness: =2
                                     Color: =RGBA(255, 255, 0, 1)
@@ -749,6 +750,7 @@ devDamg As screen:
 
                                 previewOffer_saveNow_5 As label:
                                     Align: =Align.Center
+                                    AutoHeight: =true
                                     BorderColor: =RGBA(255, 0, 0, 1)
                                     BorderThickness: =2
                                     Color: =RGBA(255, 0, 0, 1)
@@ -759,6 +761,8 @@ devDamg As screen:
                                     Height: =32
                                     LayoutMinWidth: =Parent.Width
                                     LineHeight: =1
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
                                     Text: ="SAVE NOW!"
                                     Visible: =ThisItem.offer_type.Value="Save Now"
                                     Width: =Parent.Width
@@ -767,10 +771,11 @@ devDamg As screen:
 
                                 previewOffer_price_5 As label:
                                     Align: =Align.Center
+                                    AutoHeight: =true
                                     BorderColor: =RGBA(0, 89, 178, 1)
+                                    BorderStyle: =BorderStyle.None
                                     Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
                                     DisabledColor: =RGBA(166, 166, 166, 1)
-                                    FillPortions: =1
                                     Font: =Font.'Segoe UI'
                                     FontWeight: =FontWeight.Bold
                                     Height: |-
@@ -834,9 +839,9 @@ devDamg As screen:
                         Items: =ThisItem.assigned_images
                         TemplatePadding: =0
                         TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
-                        Width: =previewOffer_boarder_6.Width-previewOffer_boarder_6.BorderThickness*2
+                        Width: =previewOffer_boarder_6.Width-previewOffer_boarder_6.BorderThickness-Self.X
                         WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
-                        X: =1
+                        X: =previewOffer_boarder_6.BorderThickness+Gap
                         Y: =conRelistHeading_3.Y+conRelistHeading_3.Height+Gap
                         ZIndex: =4
 
@@ -862,8 +867,8 @@ devDamg As screen:
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-previewOffer_boarder_6.BorderThickness*2
-                        X: =Gap
+                        Width: =previewOffer_boarder_6.Width-previewOffer_boarder_6.BorderThickness-Self.X
+                        X: =previewOffer_boarder_6.BorderThickness+Gap
                         Y: =Gap
                         ZIndex: =5
 
@@ -903,354 +908,11 @@ devDamg As screen:
                         Height: =Parent.TemplateHeight
                         OnSelect: =Select(Parent)
                         Width: |-
-                            =Parent.TemplateWidth-
-                            Parent.TemplatePadding*2
+                            =(Parent.TemplateWidth-
+                            Parent.TemplatePadding*2)*0.25
                         X: =1
                         Y: =1
                         ZIndex: =6
-
-            conGridImages As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderColor: =RGBA(255, 255, 255, 1)
-                BorderStyle: =BorderStyle.None
-                Fill: =RGBA(255, 255, 255, 1)
-                LayoutGap: =Gap
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                ZIndex: =2
-
-                galProjectManagementOffers_2 As gallery.galleryVertical:
-                    '#CopilotOverlayLabel': ="Filtered"
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    Fill: =RGBA(107, 144, 179, 0.05)
-                    Height: =Parent.Height-Self.Y
-                    Items: =SortByColumns(Filter(colSelectedOffersDamg,page_from=ddPageFilter.Selected.page_from),"adblock",SortOrder.Ascending)
-                    Layout: =Layout.Vertical
-                    LayoutMinHeight: =Parent.Height
-                    LayoutMinWidth: =320
-                    NavigationStep: =3
-                    ShowNavigation: =true
-                    ShowScrollbar: =false
-                    TemplateFill: =RGBA(255, 255, 255, 1)
-                    TemplatePadding: =Gap
-                    TemplateSize: =Self.Height/4
-                    Width: =Parent.Width
-                    X: =5
-                    Y: =relistPanelHeader_2.Height+100
-                    ZIndex: =1
-
-                    conRelistAssets As groupContainer.horizontalAutoLayoutContainer:
-                        DropShadow: =DropShadow.Light
-                        Height: =Parent.TemplateHeight-Gap-Self.Y
-                        LayoutAlignItems: =LayoutAlignItems.Stretch
-                        LayoutMode: =LayoutMode.Auto
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
-                        Width: =Parent.TemplateWidth-Gap*2
-                        X: =Gap
-                        Y: =conRelistHeading_4.Y+conRelistHeading_4.Height+Gap
-                        ZIndex: =1
-
-                        Gallery3_3 As gallery.galleryVertical:
-                            '#CopilotOverlayLabel': ="Filtered"
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            BorderColor: =RGBA(107, 144, 179, 1)
-                            BorderThickness: =1
-                            DelayItemLoading: =true
-                            Items: =Filter(colSelectedOffersDamgAssets,offerId=ThisItem.ID And lang="eng")
-                            Layout: =Layout.Vertical
-                            LayoutMinHeight: =287
-                            LayoutMinWidth: =320
-                            LoadingSpinner: =LoadingSpinner.Data
-                            OnSelect: =
-                            TemplatePadding: =U
-                            TemplateSize: =If(Gallery3_4.AllItemsCount=0,Self.Width/6,Self.Width/3)
-                            Transition: =Transition.Push
-                            WrapCount: =If(Gallery3_4.AllItemsCount=0,6,3)
-                            ZIndex: =1
-
-                            Image5_5 As image:
-                                BorderColor: =RGBA(0, 62, 125, 1)
-                                BorderThickness: =1
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                                Image: |-
-                                    =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
-                                OnSelect: =Select(Parent);Launch(ThisItem.thumbnails)
-                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                                X: =Parent.TemplatePadding
-                                Y: =Parent.TemplatePadding
-                                ZIndex: =1
-
-                            Label7_5 As label:
-                                Align: =Align.Center
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =RGBA(255, 255, 255, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =RGBA(107, 144, 179, 0.75)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                OnSelect: =Select(Parent)
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =10
-                                Text: =ThisItem.title
-                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                                X: =Parent.TemplatePadding
-                                Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
-                                ZIndex: =2
-
-                            "Icon16_7 As 'Fluent Icon (1.0.19)'":
-                                DisplayMode: =DisplayMode.View
-                                Height: |
-                                    =30
-                                IconName: ="RemoveLink"
-                                IconSize: =28
-                                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: |
-                                    =Switch(
-                                        ThisItem.type,
-                                        "image",
-                                        
-                                            Patch(
-                                                colSelectedOffersV2,
-                                                galSelectedOffers.Selected,
-                                                {
-                                                    updated: true,
-                                                    assigned_images: Filter(
-                                                        galSelectedOffers.Selected.assigned_images,
-                                                        Id <> ThisItem.id
-                                                    )
-                                                }
-                                            )
-                                        ,
-                                        "logo",
-                                        Patch(
-                                                colSelectedOffersV2,
-                                                galSelectedOffers.Selected,
-                                                {
-                                                    updated: true,
-                                                    assigned_logos: Filter(
-                                                        galSelectedOffers.Selected.assigned_logos,
-                                                        Id <> ThisItem.id
-                                                    )
-                                                }
-                                            )
-                                    
-                                    );
-                                    
-                                    Remove(
-                                        colSelectedPageProductImages,
-                                        ThisItem
-                                    );
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Tooltip: ="Unlink Images"
-                                Width: |
-                                    =30
-                                X: =Image5_5.X+Image5_5.Width-Self.Width-Image5_5.BorderThickness
-                                Y: =Image5_5.Y+Image5_5.BorderThickness+U
-                                ZIndex: =3
-
-                            "Icon16_6 As 'Fluent Icon (1.0.19)'":
-                                DisplayMode: =DisplayMode.View
-                                Height: |
-                                    =30
-                                IconName: ="ZoomIn"
-                                IconSize: =28
-                                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: =Launch(ThisItem.thumbnails,{},LaunchTarget.New)
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Tooltip: ="Preview Image"
-                                Width: |
-                                    =30
-                                X: =Image5_5.X+Image5_5.BorderThickness+U
-                                Y: =Image5_5.Y+Image5_5.BorderThickness+U
-                                ZIndex: =4
-
-                        Gallery3_4 As gallery.galleryVertical:
-                            '#CopilotOverlayLabel': ="Filtered"
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            BorderColor: =RGBA(107, 144, 179, 1)
-                            BorderThickness: =1
-                            DelayItemLoading: =true
-                            Items: =Filter(colSelectedOffersDamgAssets,offerId=ThisItem.ID And lang="fre")
-                            Layout: =Layout.Vertical
-                            LayoutMinHeight: =287
-                            LayoutMinWidth: =320
-                            LoadingSpinner: =LoadingSpinner.Data
-                            OnSelect: =
-                            TemplatePadding: =U
-                            TemplateSize: =If(Gallery3_4.AllItemsCount=0,Self.Width/6,Self.Width/3)
-                            Transition: =Transition.Push
-                            WrapCount: =If(Gallery3_4.AllItemsCount=0,6,3)
-                            ZIndex: =2
-
-                            Image5_6 As image:
-                                BorderColor: =RGBA(0, 62, 125, 1)
-                                BorderThickness: =1
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                                Image: |-
-                                    =Xinet.GetImageByPath("getimage",Substitute(Last(Split(ThisItem.thumbnails,"=")).Value,"%20"," "),{filetype:"Large"})
-                                OnSelect: =Select(Parent);Launch(ThisItem.thumbnails)
-                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                                X: =Parent.TemplatePadding
-                                Y: =Parent.TemplatePadding
-                                ZIndex: =1
-
-                            Label7_6 As label:
-                                Align: =Align.Center
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                Color: =RGBA(255, 255, 255, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Fill: =RGBA(107, 144, 179, 0.75)
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                OnSelect: =Select(Parent)
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =10
-                                Text: =ThisItem.title
-                                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                                X: =Parent.TemplatePadding
-                                Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
-                                ZIndex: =2
-
-                            "Icon16_9 As 'Fluent Icon (1.0.19)'":
-                                DisplayMode: =DisplayMode.View
-                                Height: |
-                                    =30
-                                IconName: ="RemoveLink"
-                                IconSize: =28
-                                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: |
-                                    =Switch(
-                                        ThisItem.type,
-                                        "image",
-                                        
-                                            Patch(
-                                                colSelectedOffersV2,
-                                                galSelectedOffers.Selected,
-                                                {
-                                                    updated: true,
-                                                    assigned_images_fre: Filter(
-                                                        galSelectedOffers.Selected.assigned_images_fre,
-                                                        Id <> ThisItem.id
-                                                    )
-                                                }
-                                            )
-                                        ,
-                                        "logo",
-                                        Patch(
-                                                colSelectedOffersV2,
-                                                galSelectedOffers.Selected,
-                                                {
-                                                    updated: true,
-                                                    assigned_logos: Filter(
-                                                        galSelectedOffers.Selected.assigned_logos,
-                                                        Id <> ThisItem.id
-                                                    )
-                                                }
-                                            )
-                                    
-                                    );
-                                    Remove(
-                                        colSelectedPageProductImages,
-                                        ThisItem
-                                    );
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Tooltip: ="Unlink Images"
-                                Width: |
-                                    =30
-                                X: =Image5_6.X+Image5_6.Width-Self.Width-Image5_6.BorderThickness
-                                Y: =Image5_6.Y+Image5_6.BorderThickness+U
-                                ZIndex: =3
-
-                            "Icon16_8 As 'Fluent Icon (1.0.19)'":
-                                DisplayMode: =DisplayMode.View
-                                Height: |
-                                    =30
-                                IconName: ="ZoomIn"
-                                IconSize: =28
-                                IconType: ='PowerCAT.Icon.IconType'.IconButon
-                                OnChange: =Launch(ThisItem.thumbnails,{},LaunchTarget.New)
-                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                                Tooltip: ="Preview Image"
-                                Width: |
-                                    =30
-                                X: =Image5_6.X+Image5_6.BorderThickness+U
-                                Y: =Image5_6.Y+Image5_6.BorderThickness+U
-                                ZIndex: =4
-
-                    conRelistHeading_4 As groupContainer.horizontalAutoLayoutContainer:
-                        Fill: =RGBA(214, 221, 224, 1)
-                        Height: =32
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =Gap
-                        LayoutMode: =LayoutMode.Auto
-                        LayoutWrap: =true
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
-                        Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-previewOffer_boarder_7.BorderThickness*2
-                        X: =1
-                        Y: =Gap
-                        ZIndex: =2
-
-                        CheckboxCanvas1_1 As Checkbox:
-                            DisplayMode: =DisplayMode.Edit
-                            Height: =32
-                            Label: =
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =160
-                            OnCheck: =false
-                            OnUncheck: =false
-                            Width: =32
-                            X: =0
-                            Y: =0
-                            ZIndex: =1
-
-                        lblPreviewOffer_Source_4 As label:
-                            Align: =Align.Center
-                            AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Color: =RGBA(0, 36, 71, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            FillPortions: =1
-                            FontWeight: =FontWeight.Semibold
-                            Height: =Parent.Height
-                            LineHeight: =1
-                            Size: =10
-                            Text: |-
-                                =" Pg:"&ThisItem.page_from&" AdBlock:"&ThisItem.Adblock&" Market:"&Concat(ThisItem.Markets,Value,",")
-                            Width: =100
-                            ZIndex: =2
-
-                    previewOffer_boarder_7 As rectangle:
-                        BorderColor: =RGBA(255, 0, 0, 1)
-                        BorderThickness: =2
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Parent.TemplateHeight
-                        OnSelect: =Select(Parent)
-                        Width: |-
-                            =Parent.TemplateWidth-
-                            Parent.TemplatePadding*2
-                        X: =1
-                        ZIndex: =3
 
             conGridSearch As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
