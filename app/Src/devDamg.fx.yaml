@@ -325,6 +325,39 @@ devDamg As screen:
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
+            Container40 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =1
+
+            Container40_1 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+            Container40_2 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =3
+
         conGrids As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
             LayoutAlignItems: =LayoutAlignItems.Stretch
