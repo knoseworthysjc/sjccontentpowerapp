@@ -398,13 +398,30 @@ devDamg As screen:
                 BorderStyle: =BorderStyle.None
                 Fill: =RGBA(214, 221, 224, 0.4)
                 FillPortions: =0
-                Height: =Parent.Height-Gap*2
+                Height: =Parent.Height-Gap
+                LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =Gap
+                LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =conGridImages.Width
                 ZIndex: =2
+
+                lblPage_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 62, 125, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height-Gap*2
+                    LayoutMinHeight: =30
+                    minimumHeight: =30
+                    Size: =12
+                    Text: ="Assigned Images"
+                    X: =ddProjectFilter.X+ddProjectFilter.Width
+                    ZIndex: =1
 
             conGridImagesSerachHeading As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -412,7 +429,7 @@ devDamg As screen:
                 BorderStyle: =BorderStyle.None
                 Fill: =RGBA(214, 221, 224, 0.4)
                 FillPortions: =0
-                Height: =Parent.Height-Gap*2
+                Height: =Parent.Height-Gap
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =Gap
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -890,13 +907,27 @@ devDamg As screen:
                 BorderStyle: =BorderStyle.None
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
+                LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =Gap
+                PaddingRight: =Gap
                 Width: =Parent.Width*0.2
                 ZIndex: =3
+
+                "TextInputCanvas1 As 'Text input'":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Mode: ='TextInputCanvas.Mode'.SingleLine
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
 
     nav_container_10 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
