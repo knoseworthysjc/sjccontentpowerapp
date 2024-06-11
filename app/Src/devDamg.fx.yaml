@@ -938,12 +938,13 @@ devDamg As screen:
                     Container7_1 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
-                        Height: =32
+                        Height: =64
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutGap: =U
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        LayoutWrap: =true
                         PaddingLeft: =U
                         PaddingRight: =U
                         RadiusBottomLeft: =4
@@ -951,6 +952,39 @@ devDamg As screen:
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         ZIndex: =1
+
+                        ddAssetSearchLang_1 As dropdown:
+                            BorderColor: =RGBA(0, 62, 125, 1)
+                            BorderThickness: =1
+                            ChevronBackground: =RGBA(255, 255, 255, 1)
+                            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                            ChevronFill: =RGBA(0, 62, 125, 1)
+                            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                            Color: =RGBA(0, 62, 125, 1)
+                            Default: ="Eng"
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =30
+                            HoverBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                            HoverColor: =RGBA(51, 51, 51, 1)
+                            HoverFill: =RGBA(212, 212, 212, 1)
+                            Items: =["Eng","Fre"]
+                            OnChange: =Clear(colOfferAssetSearchResults)
+                            PaddingBottom: =5
+                            PaddingLeft: =12
+                            PaddingRight: =5
+                            PaddingTop: =5
+                            PressedBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =RGBA(164, 38, 44, 1)
+                            SelectionFill: =RGBA(0, 62, 125, 1)
+                            Width: =Parent.Width/2-Gap
+                            ZIndex: =1
 
                         ddAssetSearchType_1 As dropdown:
                             BorderColor: =RGBA(0, 62, 125, 1)
@@ -983,8 +1017,8 @@ devDamg As screen:
                             PressedColor: =RGBA(255, 255, 255, 1)
                             PressedFill: =RGBA(164, 38, 44, 1)
                             SelectionFill: =RGBA(0, 62, 125, 1)
-                            Width: =Parent.Width*0.25
-                            ZIndex: =1
+                            Width: =Parent.Width/2-Gap
+                            ZIndex: =2
 
                         "iptOfferAssetSearch_1 As 'Text input'":
                             Align: ='TextInputCanvas.Align'.Center
@@ -1002,7 +1036,7 @@ devDamg As screen:
                             Width: =320
                             X: =0
                             Y: =0
-                            ZIndex: =2
+                            ZIndex: =3
 
                         "Icon4_6 As 'Fluent Icon (1.0.19)'":
                             BorderColor: |-
@@ -1262,73 +1296,4 @@ devDamg As screen:
                             X: =123
                             Y: =0
                             ZIndex: =3
-
-    nav_container_10 As groupContainer.manualLayoutContainer:
-        BorderColor: =RGBA(0, 51, 102, 1)
-        BorderThickness: =1
-        Fill: =RGBA(250, 250, 250, 1)
-        Height: =CountRows(nav_gallery_10.AllItems)*(nav_gallery_10.TemplateHeight+nav_gallery_10.TemplatePadding*2)
-        Visible: =showNav
-        Width: =Parent.Width*0.2
-        X: =nav_icon_7.X+nav_icon_7.Width/2
-        ZIndex: =2
-
-        nav_gallery_10 As gallery.galleryVertical:
-            '#CopilotOverlayLabel': ="Filtered"
-            BorderColor: =RGBA(0, 89, 178, 1)
-            Height: =Parent.Height
-            Items: |-
-                =Table(
-                {Title:"Edit Offers",icon:Icon.Home,screen:scrOfferEdit},
-                {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
-                {Title:"Images",icon:Icon.Folder,screen:images_screen},
-                {Title:"Products",icon:Icon.Information,screen:products_screen},
-                {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
-                )
-            Layout: =Layout.Vertical
-            TemplateSize: =45
-            Width: =Parent.Width
-            ZIndex: =9
-
-            nav_label_10 As label:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =RGBA(204, 222, 240, 1)
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
-                PaddingLeft: =nav_label_icon_10.Width+nav_label_icon_10.X+5
-                Size: =13
-                Text: =ThisItem.Title
-                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
-                ZIndex: =1
-
-            nav_label_icon_10 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 51, 102, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                Icon: =ThisItem.icon
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
-                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                X: =Parent.TemplatePadding
-                Y: =Parent.TemplatePadding
-                ZIndex: =2
-
-            nav_label_arrow_4 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
-                Color: =RGBA(0, 51, 102, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                Icon: =Icon.NextArrow
-                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
-                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
-                Y: =Parent.TemplatePadding
-                ZIndex: =3
 
