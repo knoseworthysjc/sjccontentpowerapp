@@ -1,0 +1,385 @@
+devDamg As screen:
+    Fill: =RGBA(232, 232, 232, 1)
+
+    conRootDamg As groupContainer.verticalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =Gap
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        conOfferNav_1 As groupContainer.horizontalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(0, 62, 125, 1)
+            FillPortions: =0
+            Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =U
+            LayoutMinHeight: =100
+            LayoutMinWidth: =50
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =1
+
+            nav_icon_9 As icon.Waffle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =0
+                Height: =30
+                Icon: =Icon.Waffle
+                LayoutMinHeight: =30
+                LayoutMinWidth: |
+                    =Self.Height
+                OnSelect: =If(showNav,Set(showNav,false),Set(showNav,true))
+                Width: =Self.Height
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+            lblSeason_5 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Year:"
+                Width: |
+                    =70
+                X: =Parent.Width/12
+                Y: =1
+                ZIndex: =2
+
+            ddSeasonFilter_2 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =Year(Now())
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: =Choices(Offers.Season)
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                PaddingBottom: =0
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =0
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                Width: =105
+                ZIndex: =3
+
+            lblWeek_6 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Week:"
+                Width: |
+                    =70
+                X: =ddSeasonFilter_2.X+ddSeasonFilter_2.Width
+                Y: =1
+                ZIndex: =4
+
+            iptWeekFilter_3 As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Clear: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =WeekNum(Now())+3
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                LayoutMinHeight: =30
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Reset: =true
+                Size: =11
+                Width: =70
+                X: =lblWeek_6.X+lblWeek_6.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =5
+
+            lblProject_6 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(250, 250, 250, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                LayoutMinHeight: =30
+                LayoutMinWidth: =125
+                minimumHeight: =30
+                Size: =11
+                Text: |-
+                    ="Project:"
+                Width: |
+                    =70
+                X: =iptWeekFilter_3.Width+iptWeekFilter_3.X
+                ZIndex: =6
+
+            ddProjectFilter_3 As dropdown:
+                AllowEmptySelection: =true
+                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderThickness: =1
+                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(153, 205, 255, 1)
+                Items: |-
+                    =If(iptWeekFilter_3.Text="", 
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_2.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
+                    SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_2.Selected.Value And Week = Value(iptWeekFilter_3.Text)),"Week",SortOrder.Descending,"Title",SortOrder.Ascending))
+                LayoutMinHeight: =30
+                minimumHeight: =30
+                OnChange: |-
+                    =//ClearCollect(selectedOffers,Filter(Offers,assigned_project.Value = ddProjectFilter.Selected.Title));
+                    
+                    
+                    //ClearCollect(colProjectPages,Filter(FlyerPages,assigned_project.Value = Self.Selected.Title));
+                    
+                    /*
+                    Clear(colSelectedPages);
+                    ForAll(colProjectPages,If(ThisRecord.page_from=ThisRecord.page_to,
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))}),
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_from,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
+                    Collect(colSelectedPages,{page_from:ThisRecord.page_to,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
+                    ));
+                    */
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 89, 178, 1)
+                Reset: =true
+                SelectionFill: =RGBA(0, 51, 102, 1)
+                X: =lblProject_6.X+lblProject_6.Width
+                Y: =(Self.BorderThickness*8)/2
+                ZIndex: =7
+
+            "incLoadOfferData_1 As 'Fluent Icon (1.0.19)'":
+                BorderColor: ="White"
+                BorderRadius: =5
+                DisplayMode: =DisplayMode.Edit
+                FontColor: ="White"
+                FontSize: =20
+                Height: |
+                    =28
+                IconColor: ="White"
+                IconName: ="refresh"
+                IconSize: =20
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnChange: |
+                    =ClearCollect(
+                        colSelectedOffersDamg,
+                        AddColumns(
+                            Filter(
+                                Offers,
+                                assigned_project.Value = ddProjectFilter_3.Selected.Title
+                            ),
+                            updated,
+                            false,
+                            selected,
+                            false
+                        )
+                    );
+                    
+                    Clear(colSelectedOffersDamgAssets);
+                    ForAll(
+                        colSelectedOffersV2 As offer,
+                        ForAll(
+                            offer.assigned_images As imglist,
+                            Collect(
+                                colSelectedOffersDamgAssets,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang: "eng",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.assigned_images_fre As imglist,
+                            Collect(
+                                colSelectedOffersDamgAssets,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "image",
+                                    lang: "fre",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                        ForAll(
+                            offer.assigned_logos As imglist,
+                            Collect(
+                                colSelectedOffersDamgAssets,
+                                {
+                                    offerId: offer.ID,
+                                    id:imglist.Id,
+                                    title: Last(
+                                        Split(
+                                            imglist.Value,
+                                            "/"
+                                        )
+                                    ).Value,
+                                    thumbnails: "https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & imglist.Value,
+                                    selected: false,
+                                    type: "logo",
+                                    lang:"eng",
+                                    value: imglist.Value
+                                }
+                            )
+                        );
+                    );
+                Text: ="Load Offers"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Width: =150
+                X: =0
+                Y: =0
+                ZIndex: =8
+
+    nav_container_10 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 51, 102, 1)
+        BorderThickness: =1
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =CountRows(nav_gallery_10.AllItems)*(nav_gallery_10.TemplateHeight+nav_gallery_10.TemplatePadding*2)
+        Visible: =showNav
+        Width: =Parent.Width*0.2
+        X: =nav_icon_7.X+nav_icon_7.Width/2
+        ZIndex: =2
+
+        nav_gallery_10 As gallery.galleryVertical:
+            '#CopilotOverlayLabel': ="Filtered"
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Height: =Parent.Height
+            Items: |-
+                =Table(
+                {Title:"Edit Offers",icon:Icon.Home,screen:scrOfferEdit},
+                {Title:"Projects/Pages",icon:Icon.Folder,screen:scrProjectManagement},
+                {Title:"Images",icon:Icon.Folder,screen:images_screen},
+                {Title:"Products",icon:Icon.Information,screen:products_screen},
+                {Title:"ProofHQ",icon:Icon.DocumentPDF,screen:images_screen}
+                )
+            Layout: =Layout.Vertical
+            TemplateSize: =45
+            Width: =Parent.Width
+            ZIndex: =9
+
+            nav_label_10 As label:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(204, 222, 240, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                PaddingLeft: =nav_label_icon_10.Width+nav_label_icon_10.X+5
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =1
+
+            nav_label_icon_10 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =ThisItem.icon
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplatePadding
+                Y: =Parent.TemplatePadding
+                ZIndex: =2
+
+            nav_label_arrow_4 As icon.Add:
+                BorderColor: =RGBA(0, 89, 178, 1)
+                Color: =RGBA(0, 51, 102, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                Icon: =Icon.NextArrow
+                OnSelect: =Select(Parent);Navigate(ThisItem.screen);Set(showNav,false);
+                Width: =Parent.TemplateHeight-Parent.TemplatePadding*2
+                X: =Parent.TemplateWidth-Parent.TemplatePadding*2-Self.Width
+                Y: =Parent.TemplatePadding
+                ZIndex: =3
+
