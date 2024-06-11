@@ -330,7 +330,6 @@ devDamg As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
-                Fill: =RGBA(214, 221, 224, 0.4)
                 FillPortions: =0
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -339,18 +338,24 @@ devDamg As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
                 Width: =First(galProjectManagementOffers_1.AllItems).conRelistOfferDetails.Width
                 ZIndex: =1
 
                 lblPage_3 As label:
-                    Align: =Align.Center
+                    Align: =Align.Right
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
                     Height: =Parent.Height-Gap*2
                     LayoutMinHeight: =30
+                    LayoutMinWidth: =25
                     minimumHeight: =30
                     Size: =13
                     Text: |-
@@ -373,6 +378,7 @@ devDamg As screen:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
+                    FillPortions: =1
                     Font: =Font.'Segoe UI'
                     FontWeight: =FontWeight.Semibold
                     Height: =Parent.Height-Gap*2
@@ -380,6 +386,7 @@ devDamg As screen:
                     HoverFill: =RGBA(153, 205, 255, 1)
                     Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_3.Selected.Title),"page_from")
                     LayoutMinHeight: =30
+                    LayoutMinWidth: =25
                     minimumHeight: =30
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =RGBA(0, 89, 178, 1)
