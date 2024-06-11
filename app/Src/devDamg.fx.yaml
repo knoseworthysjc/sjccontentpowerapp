@@ -319,44 +319,124 @@ devDamg As screen:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
             LayoutGap: =Gap
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
-            Container40 As groupContainer.horizontalAutoLayoutContainer:
-                DropShadow: =DropShadow.Light
+            conGridOfferHeading As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(214, 221, 224, 0.4)
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =Gap
+                LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
+                Width: =conGridOffers.Width
                 ZIndex: =1
 
-            Container40_1 As groupContainer.horizontalAutoLayoutContainer:
-                DropShadow: =DropShadow.Light
+                lblPage_3 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 62, 125, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height-Gap*2
+                    LayoutMinHeight: =30
+                    minimumHeight: =30
+                    Size: =13
+                    Text: |-
+                        ="Page:"
+                    Width: =60
+                    X: =ddProjectFilter.X+ddProjectFilter.Width
+                    ZIndex: =1
+
+                ddPageFilter_1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronFill: =RGBA(107, 144, 179, 1)
+                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    Default: =1
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height-Gap*2
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(153, 205, 255, 1)
+                    Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_3.Selected.Title),"page_from")
+                    LayoutMinHeight: =30
+                    minimumHeight: =30
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 89, 178, 1)
+                    Reset: =true
+                    SelectionFill: =RGBA(0, 51, 102, 1)
+                    Tooltip: ="Filter Offers By Page"
+                    Width: |
+                        =100
+                    X: =lblPage_3.X+lblPage_3.Width
+                    Y: =2
+                    ZIndex: =2
+
+            conGridImagesHeading As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(214, 221, 224, 0.4)
+                FillPortions: =0
+                Height: =Parent.Height-Gap*2
+                LayoutGap: =Gap
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
+                Width: =conGridImages.Width
                 ZIndex: =2
 
-            Container40_2 As groupContainer.horizontalAutoLayoutContainer:
-                DropShadow: =DropShadow.Light
+            conGridImagesSerachHeading As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(214, 221, 224, 0.4)
+                FillPortions: =0
+                Height: =Parent.Height-Gap*2
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =Gap
+                LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
+                Width: =conGridSearch.Width
                 ZIndex: =3
+
+                lblPage_4 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 62, 125, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height-Gap*2
+                    LayoutMinHeight: =30
+                    minimumHeight: =30
+                    Size: =13
+                    Text: ="Search"
+                    Width: =75
+                    X: =ddProjectFilter.X+ddProjectFilter.Width
+                    ZIndex: =2
 
         conGrids As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -371,7 +451,7 @@ devDamg As screen:
             RadiusTopRight: =4
             ZIndex: =3
 
-            Container39 As groupContainer.verticalAutoLayoutContainer:
+            conGridOffers As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderStyle: =BorderStyle.None
@@ -392,7 +472,7 @@ devDamg As screen:
                     BorderStyle: =BorderStyle.None
                     Fill: =RGBA(107, 144, 179, 0.05)
                     Height: =Parent.Height-Self.Y
-                    Items: =SortByColumns(colSelectedOffersDamg,"page_from",SortOrder.Ascending,"adblock",SortOrder.Ascending)
+                    Items: =SortByColumns(Filter(colSelectedOffersDamg,page_from=ddPageFilter.Selected.page_from),"adblock",SortOrder.Ascending)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =320
@@ -793,7 +873,7 @@ devDamg As screen:
                         Y: =1
                         ZIndex: =6
 
-            Container38 As groupContainer.horizontalAutoLayoutContainer:
+            conGridImages As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderStyle: =BorderStyle.None
@@ -804,7 +884,7 @@ devDamg As screen:
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =2
 
-            Container39_1 As groupContainer.verticalAutoLayoutContainer:
+            conGridSearch As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(255, 255, 255, 1)
                 BorderStyle: =BorderStyle.None
