@@ -438,7 +438,7 @@ devDamg As screen:
                     Height: =Parent.Height-Gap*2
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =RGBA(153, 205, 255, 1)
-                    Items: =SortByColumns(Distinct(galProjectManagementOffers_1.AllItems,adblock),"Value",SortOrder.Ascending)
+                    Items: =SortByColumns(Distinct(galProjectManagementOffers_1.AllItems,Adblock),"Value",SortOrder.Ascending)
                     LayoutMinHeight: =30
                     LayoutMinWidth: =25
                     minimumHeight: =30
@@ -1090,9 +1090,8 @@ devDamg As screen:
                     LoadingSpinner: =LoadingSpinner.Data
                     ShowNavigation: =true
                     ShowScrollbar: =false
-                    TemplatePadding: =Gap
+                    TemplatePadding: =Gap/2
                     TemplateSize: =Self.Width/2
-                    Transition: =Transition.Push
                     WrapCount: =2
                     ZIndex: =4
 
@@ -1108,7 +1107,7 @@ devDamg As screen:
                             =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
                         Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                         X: =Parent.TemplatePadding
-                        Y: =Parent.TemplatePadding
+                        Y: =Gap
                         ZIndex: =1
 
                     Label7_4 As label:
@@ -1134,10 +1133,9 @@ devDamg As screen:
 
                     "Icon16_5 As 'Fluent Icon (1.0.19)'":
                         DisplayMode: =DisplayMode.Edit
-                        Height: |
-                            =30
+                        Height: =26
                         IconName: ="AddLink"
-                        IconSize: =28
+                        IconSize: =22
                         IconType: ='PowerCAT.Icon.IconType'.IconButon
                         OnChange: |
                             =Switch(
@@ -1297,8 +1295,23 @@ devDamg As screen:
                             );
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: ="Assign Asset"
-                        Width: =30
-                        X: =Parent.TemplateWidth-Gap*2-Self.Width
-                        Y: =0
+                        Width: =26
+                        X: =Parent.TemplateWidth-Gap-Self.Width
+                        Y: =Gap+Gap/2
                         ZIndex: =3
+
+                    "Icon16_10 As 'Fluent Icon (1.0.19)'":
+                        DisplayMode: =DisplayMode.View
+                        Height: =26
+                        IconName: ="ZoomIn"
+                        IconSize: =22
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
+                        OnChange: |-
+                            =Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path="&ThisItem.FILE_PATH,{},LaunchTarget.New)
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Tooltip: ="Preview Image"
+                        Width: =26
+                        X: =Gap
+                        Y: =Gap*2
+                        ZIndex: =4
 
