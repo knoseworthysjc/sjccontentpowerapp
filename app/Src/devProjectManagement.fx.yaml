@@ -277,7 +277,7 @@ devProjectManagement As screen:
                         BorderColor: =RGBA(0, 89, 178, 1)
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
-                        Default: =""
+                        Default: ="0000000"
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -469,9 +469,10 @@ devProjectManagement As screen:
                             =32
                         ZIndex: =8
 
-                    ComboboxCanvas1 As Combobox.pcfdataset:
+                    ipt3_combo As Combobox.pcfdataset:
                         AlignInContainer: =AlignInContainer.Stretch
-                        Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
+                        Appearance: ='ComboboxCanvas.Appearance'.Outline
+                        BasePaletteColor: =RGBA(5, 102, 178, 1)
                         BorderRadius: =Gap
                         DefaultSelectedItems: =
                         DisplayMode: =DisplayMode.Edit
