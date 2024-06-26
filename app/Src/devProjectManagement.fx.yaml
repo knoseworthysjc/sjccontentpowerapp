@@ -630,8 +630,20 @@ devProjectManagement As screen:
                             IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             LayoutMinHeight: =200
                             LayoutMinWidth: =50
-                            OnChange: |-
-                                =Patch(Projects,Defaults(Projects),{Docket:Value(ipt2_2.Text),Season:{Value:ipt1.Selected.Value},Week:Value(ipt2.Text),Campaign:{Value:ipt3.Selected.Value},Title:ipt2_1.Text,'Project Details':ipt2_3.Text});
+                            OnChange: |
+                                =ForAll(ipt3_combo.SelectedItems As PM,
+                                Patch(
+                                    Projects,
+                                    Defaults(Projects),
+                                    {
+                                        Docket: Value(ipt2_2.Text),
+                                        Season: {Value: ipt1.Selected.Value},
+                                        Week: Value(ipt2.Text),
+                                        Campaign: {Value: PM.Value},
+                                        Title: Text(ipt2_2.Text)&"_WK"&ipt2.Text&If(PM.Value="CIRCULAR","FLYER",Upper(PM.Value))&"_"&ipt1.Selected.Value,
+                                        'Project Details': ipt2_3.Text
+                                    }
+                                );)
                             Text: ="Save"
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Theme: =JSON(theme)
