@@ -434,7 +434,7 @@ devProjectManagement As screen:
                         Y: =1
                         ZIndex: =7
 
-                    ipt3_combo As Combobox.pcfdataset:
+                    ipt3 As Combobox.pcfdataset:
                         AlignInContainer: =AlignInContainer.Stretch
                         Appearance: ='ComboboxCanvas.Appearance'.Outline
                         BasePaletteColor: =RGBA(5, 102, 178, 1)
@@ -494,7 +494,7 @@ devProjectManagement As screen:
                             LayoutMinHeight: =200
                             LayoutMinWidth: =50
                             OnChange: |
-                                =ForAll(ipt3_combo.SelectedItems As PM,
+                                =ForAll(ipt3.SelectedItems As PM,
                                 Patch(
                                     Projects,
                                     Defaults(Projects),
@@ -534,9 +534,8 @@ devProjectManagement As screen:
                                 =Reset(ipt1);
                                 Reset(ipt2);
                                 Reset(ipt3);
-                                Reset(ipt2_1);
                                 Reset(ipt2_2);
-                                Reset(ipt2_3);
+                                
                                 Set(
                                     varShowLeftPanel,
                                     "nav"
@@ -939,7 +938,10 @@ devProjectManagement As screen:
                             },{
                                 Title: "Samples/Merch",
                                 Icon: "ProjectCollection"
-                            }   
+                            },{
+                                Title: "Reporting",
+                                Icon: "Report"
+                            }      
                         )
                     LayoutMinHeight: =287
                     LoadingSpinner: =LoadingSpinner.Data
