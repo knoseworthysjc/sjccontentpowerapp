@@ -435,7 +435,6 @@ devProjectManagement As screen:
                         ZIndex: =7
 
                     ipt3 As dropdown:
-                        AllowEmptySelection: =true
                         BorderColor: =RGBA(0, 89, 178, 1)
                         BorderThickness: =1
                         ChevronBackground: =RGBA(0, 51, 102, 1)
@@ -465,9 +464,33 @@ devProjectManagement As screen:
                         PressedFill: =RGBA(0, 89, 178, 1)
                         Reset: =true
                         SelectionFill: =RGBA(0, 51, 102, 1)
+                        Visible: =false
                         Width: |
                             =32
                         ZIndex: =8
+
+                    ComboboxCanvas1 As Combobox.pcfdataset:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
+                        BorderRadius: =Gap
+                        DefaultSelectedItems: =
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontSize: =14
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        Items: =Choices(Projects.Campaign)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =Parent.Width-Gap*2
+                        PaddingBottom: =Gap
+                        PaddingLeft: =Gap
+                        PaddingRight: =Gap
+                        PaddingTop: =Gap
+                        SelectMultiple: =true
+                        Width: =320
+                        X: =0
+                        Y: =0
+                        ZIndex: =9
 
                     lbl2_1 As label:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -488,7 +511,7 @@ devProjectManagement As screen:
                         Width: =50
                         X: =ipt1.X+ipt1.Width
                         Y: =1
-                        ZIndex: =9
+                        ZIndex: =10
 
                     ipt2_1 As text:
                         Align: =Align.Center
@@ -519,7 +542,7 @@ devProjectManagement As screen:
                             =32
                         X: =lbl2_1.X+lbl2_1.Width
                         Y: =(Self.BorderThickness*8)/2
-                        ZIndex: =10
+                        ZIndex: =11
 
                     lbl2_3 As label:
                         BorderColor: =RGBA(0, 89, 178, 1)
@@ -540,7 +563,7 @@ devProjectManagement As screen:
                         Width: =50
                         X: =ipt1.X+ipt1.Width
                         Y: =1
-                        ZIndex: =11
+                        ZIndex: =12
 
                     ipt2_3 As text:
                         Align: =Align.Center
@@ -569,7 +592,7 @@ devProjectManagement As screen:
                             =32
                         X: =lbl2_3.X+lbl2_3.Width
                         Y: =(Self.BorderThickness*8)/2
-                        ZIndex: =12
+                        ZIndex: =13
 
                     Container31 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -589,7 +612,7 @@ devProjectManagement As screen:
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
-                        ZIndex: =13
+                        ZIndex: =14
 
                         "Icon2_3 As 'Fluent Icon (1.0.19)'":
                             BorderRadius: =10
