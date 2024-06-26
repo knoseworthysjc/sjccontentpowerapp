@@ -434,41 +434,6 @@ devProjectManagement As screen:
                         Y: =1
                         ZIndex: =7
 
-                    ipt3 As dropdown:
-                        BorderColor: =RGBA(0, 89, 178, 1)
-                        BorderThickness: =1
-                        ChevronBackground: =RGBA(0, 51, 102, 1)
-                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                        Default: ="Circular"
-                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisabledFill: =RGBA(244, 244, 244, 1)
-                        Font: =Font.'Segoe UI'
-                        FontWeight: =FontWeight.Semibold
-                        Height: |
-                            =32
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
-                        Items: =Choices(Projects.Campaign)
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =32
-                        minimumHeight: =30
-                        PaddingBottom: =0
-                        PaddingLeft: =5
-                        PaddingRight: =5
-                        PaddingTop: =0
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 89, 178, 1)
-                        Reset: =true
-                        SelectionFill: =RGBA(0, 51, 102, 1)
-                        Visible: =false
-                        Width: |
-                            =32
-                        ZIndex: =8
-
                     ipt3_combo As Combobox.pcfdataset:
                         AlignInContainer: =AlignInContainer.Stretch
                         Appearance: ='ComboboxCanvas.Appearance'.Outline
@@ -538,8 +503,7 @@ devProjectManagement As screen:
                                         Season: {Value: ipt1.Selected.Value},
                                         Week: Value(ipt2.Text),
                                         Campaign: {Value: PM.Value},
-                                        Title: Text(ipt2_2.Text)&"_WK"&ipt2.Text&If(PM.Value="CIRCULAR","FLYER",Upper(PM.Value))&"_"&ipt1.Selected.Value,
-                                        'Project Details': ipt2_3.Text
+                                        Title: Text(ipt2_2.Text)&"_WK"&ipt2.Text&If(PM.Value="CIRCULAR","FLYER",Upper(PM.Value))&"_"&ipt1.Selected.Value        
                                     }
                                 );)
                             Text: ="Save"
