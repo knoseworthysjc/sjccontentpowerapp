@@ -1215,6 +1215,7 @@ scrOfferEdit As screen:
                         ZIndex: =6
 
                     TextCanvas1 As Text:
+                        BorderStyle: =""
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         LayoutMinHeight: =32
@@ -3757,6 +3758,7 @@ scrOfferEdit As screen:
 
                             TextCanvas1_1 As Text:
                                 Align: ='TextCanvas.Align'.Center
+                                BorderStyle: =""
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'

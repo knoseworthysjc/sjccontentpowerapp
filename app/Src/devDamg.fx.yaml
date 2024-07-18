@@ -1028,6 +1028,7 @@ devDamg As screen:
                         Align: ='TextInputCanvas.Align'.Center
                         Appearance: ='TextInputCanvas.Appearance'.Outline
                         BorderRadius: =8
+                        BorderStyle: =""
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         Font: =Font.'Segoe UI'
@@ -1037,6 +1038,7 @@ devDamg As screen:
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32
                         Mode: ='TextInputCanvas.Mode'.SingleLine
+                        TriggerOutput: ="FocusOut"
                         Width: =320
                         X: =0
                         Y: =0

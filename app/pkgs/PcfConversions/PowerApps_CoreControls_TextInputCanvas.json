@@ -184,7 +184,39 @@
       ],
       "From": "0.0.36",
       "To": "0.0.37"
+    },
+    {
+      "Action": [
+        {
+          "Name": "BorderStyle",
+          "Type": "add"
+        },
+        {
+          "Name": "BorderThickness",
+          "Type": "add"
+        },
+        {
+          "Name": "BorderColor",
+          "Type": "add"
+        }
+      ],
+      "From": "0.0.37",
+      "To": "0.0.38"
+    },
+    {
+      "Action": [
+        {
+          "Name": "TriggerOutput",
+          "Type": "add"
+        },
+        {
+          "Name": "DelayOutput",
+          "Type": "remove"
+        }
+      ],
+      "From": "0.0.38",
+      "To": "0.0.39"
     }
   ],
-  "Version": "0.0.37"
+  "Version": "0.0.39"
 }
