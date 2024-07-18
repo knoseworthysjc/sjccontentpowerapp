@@ -1637,7 +1637,7 @@ scrProjectManagement As screen:
                             Items: =ThisItem.assigned_images
                             TemplatePadding: =0
                             TemplateSize: =Self.Width/CountRows(ThisItem.assigned_images)
-                            Width: =previewOffer_boarder_4.Width-previewOffer_boarder_4.BorderThickness*2
+                            Width: =conRelistHeading_2.Width+Gap*2
                             WrapCount: =If(CountRows(Self.AllItems)>3,2,1)
                             X: =1
                             Y: =conRelistHeading_2.Y+conRelistHeading_2.Height+Gap
@@ -1663,8 +1663,9 @@ scrProjectManagement As screen:
                             RadiusBottomRight: =4
                             RadiusTopLeft: =4
                             RadiusTopRight: =4
-                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-15
-                            X: =1
+                            Width: =Parent.TemplateWidth-Parent.TemplatePadding*2-Gap*2
+                            X: =Gap
+                            Y: =Gap
                             ZIndex: =5
 
                             lblPreviewOffer_Source_2 As label:
@@ -1674,10 +1675,15 @@ scrProjectManagement As screen:
                                 Color: =RGBA(0, 36, 71, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 FillPortions: =1
+                                Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
                                 Height: =Parent.Height
                                 LineHeight: =1
-                                Size: =10
+                                PaddingBottom: =Gap
+                                PaddingLeft: =Gap
+                                PaddingRight: =Gap
+                                PaddingTop: =Gap
+                                Size: =9
                                 Text: |-
                                     =ThisItem.assigned_project.Value&" Pg:"&ThisItem.page_from&" AdBlock:"&ThisItem.Adblock
                                 Width: =100
@@ -1685,13 +1691,13 @@ scrProjectManagement As screen:
 
                         previewOffer_boarder_4 As rectangle:
                             BorderColor: =RGBA(255, 0, 0, 1)
-                            BorderThickness: =5
+                            BorderThickness: =Gap
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
                             OnSelect: =Select(Parent)
                             Width: |-
                                 =Parent.TemplateWidth-
-                                Parent.TemplatePadding*2-15
+                                Parent.TemplatePadding*2
                             X: =1
                             Y: =1
                             ZIndex: =6
