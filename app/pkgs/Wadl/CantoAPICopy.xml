@@ -1,0 +1,1618 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://msmanaged-na.azure-apim.net/apim/canto-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="CantoAPICopy" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Canto API Copy">The Canto API allows you to connect to your Canto Account via RESTful Web Service. You have the possibility to access, create and modify the content of your Canto Account.
+
+# General Notes
+
+Canto's API uses the OAuth 2.0 protocol for authorization. Every API request must contain an access_token parameter with the OAuth 2.0 access token.
+
+This document covers the methods and techniques required to access, create and modify content (assets, folders and albums) in Canto through our RESTful API. The API assumes you have a user account for Canto. The document references the http call as
+
+&lt;a href="{{SITE_BASEURL}}"&gt;{{SITE_BASEURL}}&lt;/a&gt;
+
+where your domain is the domain name (Canto account name) you currently use.
+
+## API Compatibilty
+
+Future API versions may add new endpoints or parameters. In order to keep older versions working, behaviors and return values of APIs with given parameters will not change from the currently documented behavior and return values. That being said, there are two important exceptions:
+
+- Currently undocumented request parameters (whether they are actually ignored or not) may be given a specific meaning
+    
+- objects returned in responses may contain additional keys in the future
+    
+
+Thus, if you want to be future-proof, you should avoid passing undocumented parameters (as they may cause a different behavior in the future), and should avoid strict checks on the keys of objects found in responses. The current version is v1. So each path will start with /api/v1. Once we update the API to a newer version, we will maintain /api/v1 as it is, and we will use “/api/v2” as the new version.
+
+## SSL only
+
+We require that all requests are done over SSL.
+
+## Date format
+
+All dates in the API are strings in the following format: `yyyyMMddHHmmssSSS`
+
+**Example:** `20150415063836418`
+
+The sequence refers to the year, month, day, hour, minute, second and millisecond format.
+
+**Note:** If the date format is not available, the response will be of the same format that’s in the original file.
+
+## Access Token
+
+By default, you need to use an access token or the server will reject your request (401 status code).
+
+_Example:_ To retrieve the current user info, you should retrieve it as the following
+
+```
+curl -v -H 'Authorization: Bearer '
+-H 'User-Agent: App  Canto Publishing ' “{{SITE_BASEURL}}/api/v1/user”
+
+ ```
+
+## HTTP Status Codes
+
+The Canto API uses standard HTTP response codes to indicate errors.
+
+| Status Code | Description |
+| --- | --- |
+| 200 | Request processed successfully |
+| 400 | Parameters are invalid |
+| 401 | Access Token is invalid or missing |
+| 403 | Access Token represent account has no permission to process the request |
+| 404 | Results (or page) not found. (will also return this in case of arbitrary content/album/folder ID) |
+| 429 | Rate limit exceeded |
+| 500 | Unexpected Error |
+| 503 | Server unaccessible |
+
+## General Properties
+
+The following properties are used in Canto:
+
+| Property name | Description |
+| --- | --- |
+| scheme | image, video, audio, document, presentation, and other. |
+| id | Id of the Folder, Album or Asset. |
+| created | Original created time. |
+| time | Last modified time |
+| owner | The User Id of first the uploader |
+| ownerName | The Username of the asset owner |
+
+## Pagination
+
+For this API call there are 2 scenarios:
+
+1. Always return the complete set.
+    
+2. Return selected results.
+    
+
+In the first scenario, we provide “sortBy” and “sortDirection” parameters to sort the result.
+
+In the second scenario, we will provide 2 extra parameters including “limit” and “start” to follow pagination. The response will return a ‘found’ field, which states the number of assets found.
+
+**Example:** If the “found” is 680, and we use the default value for “limit” which is 100, then there would be a total of 7 pages.
+
+To display the 1st page, and display files \[0 to 99\], you will use the Parameters: “?start=0&amp;limit=100”
+
+To display the 2nd page, and display files \[100 to 199\], you will use the Parameters: “?start=100&amp;limit=100”
+
+To display the 3rd page, and display files \[200 to 299\], you will use the Parameters: “?start=200&amp;limit=100”
+
+To display the 4th page, and display files \[300 to 399\], you will use the Parameters: “?start=300&amp;limit=100”
+
+To display the 5th page, and display files \[400 to 499\], you will use the Parameters: “?start=400&amp;limit=100”
+
+To display the 6th page, and display files \[500 to 599\], you will use the Parameters: “?start=500&amp;limit=100”
+
+To display the 7th page, and display files \[600 to 679\], you will use the Parameters: “?start=600&amp;limit=100”
+
+## API Rate Limit
+
+Rate limits are how many API calls you can make in a given time frame. If your call exceeds the pre-defined rate limit, you will run into a “429” http error-code. After which, you will need to wait until you can make another API call.
+
+### Rate Limit Level
+
+#### Customer Rate Level
+
+| Level | Description |
+| --- | --- |
+| level 1 | 1000 times per minute |
+| level 2 | 500 times per minute |
+| level 3 | 300 times per minute |
+| level 4 | 200 times per minute |
+| level 5 | 50 times per minute |
+
+#### Trial User Rate Level
+
+| Level | Description |
+| --- | --- |
+| level 1 | 500 times per minute |
+| level 2 | 300 times per minute |
+| level 3 | 200 times per minute |
+| level 4 | 100 times per minute |
+| level 5 | 50 times per minute |
+
+### API Call Rate Limits Based on Rate Limit Levels
+
+| Level | Description |
+| --- | --- |
+
+For example, with “#44 Search under a folder” the rate limit is level 4, meaning that the API call will limit to 200 times per minute. If you exceed 200 times, you will receive a 429 error code.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/canto-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="SearchFilter_responses_default_def_facets_def_items_def_name_def" />
+      <string name="SearchFilter_responses_default_def_facets_def_items_def_value_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_facets_def_items_def_value_def" />
+      <integer name="SearchFilter_responses_default_def_facets_def_items_def_mix_def" />
+      <integer name="SearchFilter_responses_default_def_facets_def_items_def_min_def" />
+      <integer name="SearchFilter_responses_default_def_facets_def_items_def_max_def" />
+      <object name="SearchFilter_responses_default_def_facets_def_items_def">
+        <property name="name" type="string" />
+        <property name="value" typeRef="SearchFilter_responses_default_def_facets_def_items_def_value_def" />
+        <property name="mix" type="integer" />
+        <property name="min" type="integer" />
+        <property name="max" type="integer" />
+      </object>
+      <array typeRef="SearchFilter_responses_default_def_facets_def_items_def" name="SearchFilter_responses_default_def_facets_def" />
+      <string name="SearchFilter_responses_default_def_matchExpr_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_height_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_ownerName_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_smartTags_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_results_def_items_def_smartTags_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_dpi_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_idPath_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_namePath_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_detail_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_preview_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_download_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_metadata_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_HighJPG_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_PNG_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_directUrlOriginal_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_directUrlPreview_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_url_def_LowJPG_def" />
+      <object name="SearchFilter_responses_default_def_results_def_items_def_url_def">
+        <property name="detail" type="string" />
+        <property name="preview" type="string" />
+        <property name="download" type="string" />
+        <property name="metadata" type="string" />
+        <property name="HighJPG" type="string" />
+        <property name="PNG" type="string" />
+        <property name="directUrlOriginal" type="string" />
+        <property name="directUrlPreview" type="string" />
+        <property name="LowJPG" type="string" />
+      </object>
+      <string name="SearchFilter_responses_default_def_results_def_items_def_time_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_tag_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_results_def_items_def_tag_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_description_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_width_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_name_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_id_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_size_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_scheme_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_owner_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_approvalStatus_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_height_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_dpi_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_idPath_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_namePath_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_url_def_detail_def" />
+      <object name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_url_def">
+        <property name="detail" type="string" />
+      </object>
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_width_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_id_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_scheme_def" />
+      <object name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def">
+        <property name="height" type="string" />
+        <property name="dpi" type="string" />
+        <property name="idPath" type="string" />
+        <property name="namePath" type="string" />
+        <property name="url" typeRef="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def_url_def" />
+        <property name="width" type="string" />
+        <property name="id" type="string" />
+        <property name="scheme" type="string" />
+      </object>
+      <array typeRef="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def_items_def" name="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_md5_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_copyright_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_filePath_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Product_ux20_URL_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Banners_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Banners_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Category_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Category_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Sub_ux20_Category_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_results_def_items_def_additional_def_Sub_ux20_Category_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_additional_def_PROD_ux20_Department_def_items_def" />
+      <array type="string" name="SearchFilter_responses_default_def_results_def_items_def_additional_def_PROD_ux20_Department_def" />
+      <object name="SearchFilter_responses_default_def_results_def_items_def_additional_def">
+        <property name="Product URL" type="string" />
+        <property name="Banners" typeRef="SearchFilter_responses_default_def_results_def_items_def_additional_def_Banners_def" />
+        <property name="Category" typeRef="SearchFilter_responses_default_def_results_def_items_def_additional_def_Category_def" />
+        <property name="Sub Category" typeRef="SearchFilter_responses_default_def_results_def_items_def_additional_def_Sub_ux20_Category_def" />
+        <property name="PROD Department" typeRef="SearchFilter_responses_default_def_results_def_items_def_additional_def_PROD_ux20_Department_def" />
+      </object>
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Size_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Color_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Uploaded_ux20_by_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Dimensions_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_GPS_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Date_ux20_uploaded_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Date_ux20_modified_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Name_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Copyright_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Modified_ux20_by_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Content_ux20_Type_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Author_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Date_ux20_Created_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Creation_ux20_Tool_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Resolution_def" />
+      <string name="SearchFilter_responses_default_def_results_def_items_def_default_def_Pages_def" />
+      <object name="SearchFilter_responses_default_def_results_def_items_def_default_def">
+        <property name="Size" type="string" />
+        <property name="Color" type="string" />
+        <property name="Uploaded by" type="string" />
+        <property name="Dimensions" type="string" />
+        <property name="GPS" type="string" />
+        <property name="Date uploaded" type="string" />
+        <property name="Date modified" type="string" />
+        <property name="Name" type="string" />
+        <property name="Copyright" type="string" />
+        <property name="Modified by" type="string" />
+        <property name="Content Type" type="string" />
+        <property name="Author" type="string" />
+        <property name="Date Created" type="string" />
+        <property name="Creation Tool" type="string" />
+        <property name="Resolution" type="string" />
+        <property name="Pages" type="string" />
+      </object>
+      <object name="SearchFilter_responses_default_def_results_def_items_def">
+        <property name="height" type="string" />
+        <property name="ownerName" type="string" />
+        <property name="smartTags" typeRef="SearchFilter_responses_default_def_results_def_items_def_smartTags_def" />
+        <property name="dpi" type="string" />
+        <property name="idPath" type="string" />
+        <property name="namePath" type="string" />
+        <property name="url" typeRef="SearchFilter_responses_default_def_results_def_items_def_url_def" />
+        <property name="time" type="string" />
+        <property name="tag" typeRef="SearchFilter_responses_default_def_results_def_items_def_tag_def" />
+        <property name="description" type="string" />
+        <property name="width" type="string" />
+        <property name="name" type="string" />
+        <property name="id" type="string" />
+        <property name="size" type="string" />
+        <property name="scheme" type="string" />
+        <property name="owner" type="string" />
+        <property name="approvalStatus" type="string" />
+        <property name="relatedAlbums" typeRef="SearchFilter_responses_default_def_results_def_items_def_relatedAlbums_def" />
+        <property name="md5" type="string" />
+        <property name="copyright" type="string" />
+        <property name="filePath" type="string" />
+        <property name="additional" typeRef="SearchFilter_responses_default_def_results_def_items_def_additional_def" />
+        <property name="default" typeRef="SearchFilter_responses_default_def_results_def_items_def_default_def" />
+      </object>
+      <array typeRef="SearchFilter_responses_default_def_results_def_items_def" name="SearchFilter_responses_default_def_results_def" />
+      <integer name="SearchFilter_responses_default_def_found_def" />
+      <string name="SearchFilter_responses_default_def_sortBy_def" />
+      <string name="SearchFilter_responses_default_def_sortDirection_def" />
+      <integer name="SearchFilter_responses_default_def_limit_def" />
+      <object name="SearchFilter_responses_default_def">
+        <property name="facets" typeRef="SearchFilter_responses_default_def_facets_def" />
+        <property name="matchExpr" type="string" />
+        <property name="results" typeRef="SearchFilter_responses_default_def_results_def" />
+        <property name="found" type="integer" />
+        <property name="sortBy" type="string" />
+        <property name="sortDirection" type="string" />
+        <property name="limit" type="integer" />
+      </object>
+      <untypedObject name="GetContentDetails_responses_default_def" />
+      <string name="RenameContent_param_body_def_name_def" />
+      <object name="RenameContent_param_body_def">
+        <property name="name" type="string" />
+      </object>
+      <untypedObject name="RenameContent_responses_default_def" />
+      <string name="CreateShareLinks_param_body_def" />
+      <untypedObject name="CreateShareLinks_responses_default_def" />
+      <untypedObject name="RemoveTagFromContent_responses_default_def" />
+      <untypedObject name="AttachTagToContent_responses_default_def" />
+      <string name="AddKeywords_param_body_def_name_def" />
+      <string name="AddKeywords_param_body_def_description_def" />
+      <object name="AddKeywords_param_body_def">
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+      </object>
+      <untypedObject name="AddKeywords_responses_default_def" />
+      <untypedObject name="RemoveKeywordFromContent_responses_default_def" />
+      <untypedObject name="AttachKeywordToContent_responses_default_def" />
+      <string name="RemoveContentsFromAlbum_param_body_def_albumPath_def" />
+      <string name="RemoveContentsFromAlbum_param_body_def_contents_def_items_def_scheme_def" />
+      <string name="RemoveContentsFromAlbum_param_body_def_contents_def_items_def_id_def" />
+      <string name="RemoveContentsFromAlbum_param_body_def_contents_def_items_def_displayName_def" />
+      <object name="RemoveContentsFromAlbum_param_body_def_contents_def_items_def">
+        <property name="scheme" type="string" />
+        <property name="id" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <array typeRef="RemoveContentsFromAlbum_param_body_def_contents_def_items_def" name="RemoveContentsFromAlbum_param_body_def_contents_def" />
+      <object name="RemoveContentsFromAlbum_param_body_def">
+        <property name="albumPath" type="string" />
+        <property name="contents" typeRef="RemoveContentsFromAlbum_param_body_def_contents_def" />
+      </object>
+      <untypedObject name="RemoveContentsFromAlbum_responses_default_def" />
+      <string name="AssignContentToAlbum_param_body_def_albumPath_def" />
+      <string name="AssignContentToAlbum_param_body_def_contents_def_items_def_scheme_def" />
+      <string name="AssignContentToAlbum_param_body_def_contents_def_items_def_id_def" />
+      <string name="AssignContentToAlbum_param_body_def_contents_def_items_def_displayName_def" />
+      <object name="AssignContentToAlbum_param_body_def_contents_def_items_def">
+        <property name="scheme" type="string" />
+        <property name="id" type="string" />
+        <property name="displayName" type="string" />
+      </object>
+      <array typeRef="AssignContentToAlbum_param_body_def_contents_def_items_def" name="AssignContentToAlbum_param_body_def_contents_def" />
+      <object name="AssignContentToAlbum_param_body_def">
+        <property name="albumPath" type="string" />
+        <property name="contents" typeRef="AssignContentToAlbum_param_body_def_contents_def" />
+      </object>
+      <untypedObject name="AssignContentToAlbum_responses_default_def" />
+      <untypedObject name="RemoveSmartTagFromContent_responses_default_def" />
+      <string name="CreateRelatedContent_param_body_def_relatedName_def" />
+      <string name="CreateRelatedContent_param_body_def_relatedContents_def_items_def_id_def" />
+      <string name="CreateRelatedContent_param_body_def_relatedContents_def_items_def_scheme_def" />
+      <boolean name="CreateRelatedContent_param_body_def_relatedContents_def_items_def_primary_def" />
+      <object name="CreateRelatedContent_param_body_def_relatedContents_def_items_def">
+        <property name="id" type="string" />
+        <property name="scheme" type="string" />
+        <property name="primary" type="boolean" />
+      </object>
+      <array typeRef="CreateRelatedContent_param_body_def_relatedContents_def_items_def" name="CreateRelatedContent_param_body_def_relatedContents_def" />
+      <object name="CreateRelatedContent_param_body_def">
+        <property name="relatedName" type="string" />
+        <property name="relatedContents" typeRef="CreateRelatedContent_param_body_def_relatedContents_def" />
+      </object>
+      <untypedObject name="CreateRelatedContent_responses_default_def" />
+      <string name="RemoveRelatedContent_param_body_def_unRelatedContents_def_items_def_id_def" />
+      <string name="RemoveRelatedContent_param_body_def_unRelatedContents_def_items_def_scheme_def" />
+      <object name="RemoveRelatedContent_param_body_def_unRelatedContents_def_items_def">
+        <property name="id" type="string" />
+        <property name="scheme" type="string" />
+      </object>
+      <array typeRef="RemoveRelatedContent_param_body_def_unRelatedContents_def_items_def" name="RemoveRelatedContent_param_body_def_unRelatedContents_def" />
+      <object name="RemoveRelatedContent_param_body_def">
+        <property name="unRelatedContents" typeRef="RemoveRelatedContent_param_body_def_unRelatedContents_def" />
+      </object>
+      <untypedObject name="RemoveRelatedContent_responses_default_def" />
+      <string name="CreateEmbedVideo_param_body_def_items_def_key_def" />
+      <string name="CreateEmbedVideo_param_body_def_items_def_value_def" />
+      <string name="CreateEmbedVideo_param_body_def_items_def_description_def" />
+      <string name="CreateEmbedVideo_param_body_def_items_def_type_def" />
+      <object name="CreateEmbedVideo_param_body_def_items_def">
+        <property name="key" type="string" />
+        <property name="value" type="string" />
+        <property name="description" type="string" />
+        <property name="type" type="string" />
+      </object>
+      <array typeRef="CreateEmbedVideo_param_body_def_items_def" name="CreateEmbedVideo_param_body_def" />
+      <untypedObject name="CreateEmbedVideo_responses_default_def" />
+      <string name="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def_items_def_id_def" />
+      <string name="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def_items_def_scheme_def" />
+      <object name="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def_items_def">
+        <property name="id" type="string" />
+        <property name="scheme" type="string" />
+      </object>
+      <array typeRef="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def_items_def" name="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def" />
+      <string name="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedFiles_def_items_def" />
+      <array type="string" name="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedFiles_def" />
+      <object name="RemoveRelatedContentsFromRelatedFiles_param_body_def">
+        <property name="relatedContents" typeRef="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def" />
+        <property name="relatedFiles" typeRef="RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedFiles_def" />
+      </object>
+      <untypedObject name="RemoveRelatedContentsFromRelatedFiles_responses_default_def" />
+      <untypedObject name="SearchUnderAFolder_responses_default_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_height_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_ownerName_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_dpi_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_idPath_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_namePath_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_created_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_url_def_detail_def" />
+      <object name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_url_def">
+        <property name="detail" type="string" />
+      </object>
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_time_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_name_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_id_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_size_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_scheme_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_owner_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_width_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_results_def_items_def_description_def" />
+      <object name="GetFullLibraryTreeView_responses_default_def_results_def_items_def">
+        <property name="height" type="string" />
+        <property name="ownerName" type="string" />
+        <property name="dpi" type="string" />
+        <property name="idPath" type="string" />
+        <property name="namePath" type="string" />
+        <property name="created" type="string" />
+        <property name="url" typeRef="GetFullLibraryTreeView_responses_default_def_results_def_items_def_url_def" />
+        <property name="time" type="string" />
+        <property name="name" type="string" />
+        <property name="id" type="string" />
+        <property name="size" type="string" />
+        <property name="scheme" type="string" />
+        <property name="owner" type="string" />
+        <property name="width" type="string" />
+        <property name="description" type="string" />
+      </object>
+      <array typeRef="GetFullLibraryTreeView_responses_default_def_results_def_items_def" name="GetFullLibraryTreeView_responses_default_def_results_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_sortBy_def" />
+      <string name="GetFullLibraryTreeView_responses_default_def_sortDirection_def" />
+      <object name="GetFullLibraryTreeView_responses_default_def">
+        <property name="results" typeRef="GetFullLibraryTreeView_responses_default_def_results_def" />
+        <property name="sortBy" type="string" />
+        <property name="sortDirection" type="string" />
+      </object>
+      <untypedObject name="GetMyCollectionDetailInfo_responses_default_def" />
+      <string name="CreateAlbum_param_body_def_items_def_localeCode_def" />
+      <string name="CreateAlbum_param_body_def_items_def_name_def" />
+      <object name="CreateAlbum_param_body_def_items_def">
+        <property name="localeCode" type="string" />
+        <property name="name" type="string" />
+      </object>
+      <array typeRef="CreateAlbum_param_body_def_items_def" name="CreateAlbum_param_body_def" />
+      <untypedObject name="CreateAlbum_responses_default_def" />
+      <untypedObject name="GetAlbumDetailInfo_responses_default_def" />
+      <string name="UpdateAlbumName_param_body_def_items_def_localeCode_def" />
+      <string name="UpdateAlbumName_param_body_def_items_def_name_def" />
+      <object name="UpdateAlbumName_param_body_def_items_def">
+        <property name="localeCode" type="string" />
+        <property name="name" type="string" />
+      </object>
+      <array typeRef="UpdateAlbumName_param_body_def_items_def" name="UpdateAlbumName_param_body_def" />
+      <untypedObject name="UpdateAlbumName_responses_default_def" />
+      <untypedObject name="ListMyCollections_responses_default_def" />
+      <untypedObject name="GetUploadSetting_responses_default_def" />
+      <untypedObject name="UploadFile_responses_default_def" />
+      <untypedObject name="QueryUploadStatus_responses_default_def" />
+      <string name="CreateUploadLinks_param_body_def_portalName_def" />
+      <string name="CreateUploadLinks_param_body_def_description_def" />
+      <string name="CreateUploadLinks_param_body_def_emailSubject_def" />
+      <string name="CreateUploadLinks_param_body_def_emailBody_def" />
+      <boolean name="CreateUploadLinks_param_body_def_editable_def" />
+      <boolean name="CreateUploadLinks_param_body_def_isNeverExpired_def" />
+      <string name="CreateUploadLinks_param_body_def_recipients_def_items_def_firstName_def" />
+      <string name="CreateUploadLinks_param_body_def_recipients_def_items_def_lastName_def" />
+      <string name="CreateUploadLinks_param_body_def_recipients_def_items_def_email_def" />
+      <object name="CreateUploadLinks_param_body_def_recipients_def_items_def">
+        <property name="firstName" type="string" />
+        <property name="lastName" type="string" />
+        <property name="email" type="string" />
+      </object>
+      <array typeRef="CreateUploadLinks_param_body_def_recipients_def_items_def" name="CreateUploadLinks_param_body_def_recipients_def" />
+      <string name="CreateUploadLinks_param_body_def_importToAlbums_def_items_def_albumId_def" />
+      <string name="CreateUploadLinks_param_body_def_importToAlbums_def_items_def_pathWithName_def" />
+      <string name="CreateUploadLinks_param_body_def_importToAlbums_def_items_def_portalId_def" />
+      <string name="CreateUploadLinks_param_body_def_importToAlbums_def_items_def_portalName_def" />
+      <object name="CreateUploadLinks_param_body_def_importToAlbums_def_items_def">
+        <property name="albumId" type="string" />
+        <property name="pathWithName" type="string" />
+        <property name="portalId" type="string" />
+        <property name="portalName" type="string" />
+      </object>
+      <array typeRef="CreateUploadLinks_param_body_def_importToAlbums_def_items_def" name="CreateUploadLinks_param_body_def_importToAlbums_def" />
+      <object name="CreateUploadLinks_param_body_def">
+        <property name="portalName" type="string" />
+        <property name="description" type="string" />
+        <property name="emailSubject" type="string" />
+        <property name="emailBody" type="string" />
+        <property name="editable" type="boolean" />
+        <property name="isNeverExpired" type="boolean" />
+        <property name="recipients" typeRef="CreateUploadLinks_param_body_def_recipients_def" />
+        <property name="importToAlbums" typeRef="CreateUploadLinks_param_body_def_importToAlbums_def" />
+      </object>
+      <untypedObject name="CreateUploadLinks_responses_default_def" />
+      <untypedObject name="MetadataImport_responses_default_def" />
+      <untypedObject name="MetadataImportProgress_responses_default_def" />
+      <string name="ImportFromUploadlink_param_body_def" />
+      <untypedObject name="ImportFromUploadlink_responses_default_def" />
+      <untypedObject name="DirectUrlOriginal_responses_default_def" />
+      <untypedObject name="DownloadPreview_responses_default_def" />
+      <untypedObject name="DirectUrlPreview_responses_default_def" />
+      <untypedObject name="DownloadAsHighJpg_responses_default_def" />
+      <untypedObject name="DownloadAsLowJpg_responses_default_def" />
+      <untypedObject name="DownloadAsPng_responses_default_def" />
+      <untypedObject name="DownloadMetadataXml_responses_default_def" />
+      <untypedObject name="DownloadOriginalContentFile_responses_default_def" />
+      <untypedObject name="AdvancedDownloadOptions_responses_default_def" />
+      <string name="ObtainAssetPreviewCloudfrontUrl_responses_200_def" />
+      <untypedObject name="ObtainAssetDownloadCloudfrontUrl_responses_default_def" />
+      <untypedObject name="GetCurrentUserInfo_responses_default_def" />
+      <string name="AddNewUser_param_body_def_userId_def" />
+      <string name="AddNewUser_param_body_def_firstName_def" />
+      <string name="AddNewUser_param_body_def_lastName_def" />
+      <string name="AddNewUser_param_body_def_roles_def_items_def" />
+      <array type="string" name="AddNewUser_param_body_def_roles_def" />
+      <string name="AddNewUser_param_body_def_customRoleId_def" />
+      <string name="AddNewUser_param_body_def_groups_def_items_def" />
+      <array type="string" name="AddNewUser_param_body_def_groups_def" />
+      <string name="AddNewUser_param_body_def_properties_def_e066e0b1497e42c68516eb9928950593_def_items_def" />
+      <array type="string" name="AddNewUser_param_body_def_properties_def_e066e0b1497e42c68516eb9928950593_def" />
+      <string name="AddNewUser_param_body_def_properties_def_84cf256fb527472e993a304997202b27_def" />
+      <object name="AddNewUser_param_body_def_properties_def">
+        <property name="e066e0b1497e42c68516eb9928950593" typeRef="AddNewUser_param_body_def_properties_def_e066e0b1497e42c68516eb9928950593_def" />
+        <property name="84cf256fb527472e993a304997202b27" type="string" />
+      </object>
+      <boolean name="AddNewUser_param_body_def_allowAccessMainTenant_def" />
+      <object name="AddNewUser_param_body_def">
+        <property name="userId" type="string" />
+        <property name="firstName" type="string" />
+        <property name="lastName" type="string" />
+        <property name="roles" typeRef="AddNewUser_param_body_def_roles_def" />
+        <property name="customRoleId" type="string" />
+        <property name="groups" typeRef="AddNewUser_param_body_def_groups_def" />
+        <property name="properties" typeRef="AddNewUser_param_body_def_properties_def" />
+        <property name="allowAccessMainTenant" type="boolean" />
+      </object>
+      <untypedObject name="AddNewUser_responses_default_def" />
+      <string name="UpdateUserInfo_param_body_def_userId_def" />
+      <string name="UpdateUserInfo_param_body_def_firstName_def" />
+      <string name="UpdateUserInfo_param_body_def_lastName_def" />
+      <string name="UpdateUserInfo_param_body_def_roles_def_items_def" />
+      <array type="string" name="UpdateUserInfo_param_body_def_roles_def" />
+      <string name="UpdateUserInfo_param_body_def_customRoleId_def" />
+      <string name="UpdateUserInfo_param_body_def_groups_def_items_def" />
+      <array type="string" name="UpdateUserInfo_param_body_def_groups_def" />
+      <string name="UpdateUserInfo_param_body_def_properties_def_6c43c79188124bcd8744a9a02af0bdb2_def_items_def" />
+      <array type="string" name="UpdateUserInfo_param_body_def_properties_def_6c43c79188124bcd8744a9a02af0bdb2_def" />
+      <string name="UpdateUserInfo_param_body_def_properties_def_84cf256fb527472e993a304997202b27_def" />
+      <object name="UpdateUserInfo_param_body_def_properties_def">
+        <property name="6c43c79188124bcd8744a9a02af0bdb2" typeRef="UpdateUserInfo_param_body_def_properties_def_6c43c79188124bcd8744a9a02af0bdb2_def" />
+        <property name="84cf256fb527472e993a304997202b27" type="string" />
+      </object>
+      <object name="UpdateUserInfo_param_body_def">
+        <property name="userId" type="string" />
+        <property name="firstName" type="string" />
+        <property name="lastName" type="string" />
+        <property name="roles" typeRef="UpdateUserInfo_param_body_def_roles_def" />
+        <property name="customRoleId" type="string" />
+        <property name="groups" typeRef="UpdateUserInfo_param_body_def_groups_def" />
+        <property name="properties" typeRef="UpdateUserInfo_param_body_def_properties_def" />
+      </object>
+      <untypedObject name="UpdateUserInfo_responses_default_def" />
+      <untypedObject name="GetCustomRoles_responses_default_def" />
+      <untypedObject name="GetUserCustomFields_responses_default_def" />
+      <untypedObject name="GetUserList_responses_default_def" />
+      <untypedObject name="GetUserListWithExtendedInformation_responses_default_def" />
+      <untypedObject name="DeleteAUser_responses_default_def" />
+      <untypedObject name="GetGroups_responses_default_def" />
+      <string name="AddGroup_param_body_def_name_def" />
+      <string name="AddGroup_param_body_def_userIds_def_items_def" />
+      <array type="string" name="AddGroup_param_body_def_userIds_def" />
+      <string name="AddGroup_param_body_def_description_def" />
+      <object name="AddGroup_param_body_def">
+        <property name="name" type="string" />
+        <property name="userIds" typeRef="AddGroup_param_body_def_userIds_def" />
+        <property name="description" type="string" />
+      </object>
+      <untypedObject name="AddGroup_responses_default_def" />
+      <untypedObject name="GetGroupInfoWithUsers_responses_default_def" />
+      <untypedObject name="DeleteGroup_responses_default_def" />
+      <string name="UpdateGroup_param_body_def_id_def" />
+      <string name="UpdateGroup_param_body_def_name_def" />
+      <string name="UpdateGroup_param_body_def_description_def" />
+      <object name="UpdateGroup_param_body_def">
+        <property name="id" type="string" />
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+      </object>
+      <untypedObject name="UpdateGroup_responses_default_def" />
+      <string name="DeleteUsersFromGroup_param_body_def_items_def" />
+      <array type="string" name="DeleteUsersFromGroup_param_body_def" />
+      <untypedObject name="DeleteUsersFromGroup_responses_default_def" />
+      <string name="AddUsersToGroup_param_body_def_items_def" />
+      <array type="string" name="AddUsersToGroup_param_body_def" />
+      <untypedObject name="AddUsersToGroup_responses_default_def" />
+      <string name="GetUsers_param_body_def" />
+      <untypedObject name="GetUsers_responses_default_def" />
+      <untypedObject name="GetCustomFieldList_responses_default_def" />
+      <string name="CreateACustomField_param_body_def_name_def" />
+      <string name="CreateACustomField_param_body_def_description_def" />
+      <string name="CreateACustomField_param_body_def_type_def" />
+      <object name="CreateACustomField_param_body_def">
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+        <property name="type" type="string" />
+      </object>
+      <untypedObject name="CreateACustomField_responses_default_def" />
+      <string name="UpdateACustomField_param_body_def_id_def" />
+      <string name="UpdateACustomField_param_body_def_name_def" />
+      <string name="UpdateACustomField_param_body_def_description_def" />
+      <string name="UpdateACustomField_param_body_def_type_def" />
+      <string name="UpdateACustomField_param_body_def_values_def_items_def" />
+      <array type="string" name="UpdateACustomField_param_body_def_values_def" />
+      <object name="UpdateACustomField_param_body_def">
+        <property name="id" type="string" />
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+        <property name="type" type="string" />
+        <property name="values" typeRef="UpdateACustomField_param_body_def_values_def" />
+      </object>
+      <untypedObject name="UpdateACustomField_responses_default_def" />
+      <untypedObject name="ListContentOfASpecifiedAlbum_responses_default_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_height_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_ownerName_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_dpi_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_namePath_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_idPath_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_created_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_time_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_url_def_detail_def" />
+      <object name="GetSubTreeView_responses_default_def_results_def_items_def_url_def">
+        <property name="detail" type="string" />
+      </object>
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_name_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_id_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_size_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_scheme_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_owner_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_description_def" />
+      <string name="GetSubTreeView_responses_default_def_results_def_items_def_width_def" />
+      <object name="GetSubTreeView_responses_default_def_results_def_items_def">
+        <property name="height" type="string" />
+        <property name="ownerName" type="string" />
+        <property name="dpi" type="string" />
+        <property name="namePath" type="string" />
+        <property name="idPath" type="string" />
+        <property name="created" type="string" />
+        <property name="time" type="string" />
+        <property name="url" typeRef="GetSubTreeView_responses_default_def_results_def_items_def_url_def" />
+        <property name="name" type="string" />
+        <property name="id" type="string" />
+        <property name="size" type="string" />
+        <property name="scheme" type="string" />
+        <property name="owner" type="string" />
+        <property name="description" type="string" />
+        <property name="width" type="string" />
+      </object>
+      <array typeRef="GetSubTreeView_responses_default_def_results_def_items_def" name="GetSubTreeView_responses_default_def_results_def" />
+      <string name="GetSubTreeView_responses_default_def_sortBy_def" />
+      <string name="GetSubTreeView_responses_default_def_sortDirection_def" />
+      <object name="GetSubTreeView_responses_default_def">
+        <property name="results" typeRef="GetSubTreeView_responses_default_def_results_def" />
+        <property name="sortBy" type="string" />
+        <property name="sortDirection" type="string" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/canto-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4">
+    <resource path="/{connectionId}/api/v1/search">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SearchFilter" actionName="SearchFilter" siena:isDeprecated="false">
+        <doc title="Search / Filter&#xA;General rules: If the filter field type is string (e.g. Keyword), you can search one value or multi value. Some multiple values can have both Filter conditions OR and AND. While some multiple values can only have one Filter condition: OR.**Note:***   You can use the value &quot;**null**&quot; (enclosed by two underlines in front and at the end). If you want to search for assets which don't have a value in a field.*   You can use the value &quot;**exists**&quot; (enclosed by two underlines in front and at the end). If you want to search for assets which have set any value in a field.    **Example for OR:** standard|freeze.  **Example for AND:** sunset+beach+people" />
+        <request>
+          <param style="query" name="keyword" type="xs:string" />
+          <param style="query" name="scheme" type="xs:string" />
+          <param style="query" name="tags" type="xs:string" />
+          <param style="query" name="tagsLiteral" type="xs:string" />
+          <param style="query" name="keywords" type="xs:string" />
+          <param style="query" name="approval" type="xs:string" />
+          <param style="query" name="owner" type="xs:string" />
+          <param style="query" name="fileSize" type="xs:string" />
+          <param style="query" name="created" type="xs:string" />
+          <param style="query" name="createdTime" type="xs:string" />
+          <param style="query" name="uploadedTime" type="xs:string" />
+          <param style="query" name="expirationDate" type="xs:string" />
+          <param style="query" name="lastModified" type="xs:string" />
+          <param style="query" name="width" type="xs:string" />
+          <param style="query" name="height" type="xs:string" />
+          <param style="query" name="imageRangeOperation" type="xs:string" />
+          <param style="query" name="dimension" type="xs:string" />
+          <param style="query" name="resolution" type="xs:string" />
+          <param style="query" name="orientation" type="xs:string" />
+          <param style="query" name="duration" type="xs:string" />
+          <param style="query" name="pageNumber" type="xs:string" />
+          <param style="query" name="storageClass" type="xs:string" />
+          <param style="query" name="latestReviewDate" type="xs:long" />
+          <param style="query" name="sortBy" type="xs:string" />
+          <param style="query" name="sortDirection" type="xs:string" />
+          <param style="query" name="limit" type="xs:long" />
+          <param style="query" name="start" type="xs:long" />
+          <param style="query" name="{{customFieldId}}" type="xs:string" />
+          <param style="query" name="searchInField" type="xs:string" />
+          <param style="query" name="operator" type="xs:string" />
+          <param style="query" name="exactMatch" type="xs:boolean" />
+          <param style="query" name="colorModel" type="xs:string" />
+          <param style="query" name="$filter" type="xs:string" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:SearchFilter_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetContentDetails" actionName="GetContentDetails" siena:isDeprecated="false">
+        <doc title="Get content details&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;&lt;p&gt;Get content details including general properties, urls, default &amp; additional fields (custom fields), version history and metadata. Use the &lt;i&gt;detail&lt;/td&gt; url from url array to get a preview.&lt;/p&gt;" />
+        <request>
+          <param style="query" name="extendedRelationInfo" type="xs:string" required="true" default="true" />
+          <param style="query" name="noXMPMetadata" type="xs:string" required="true" default="true" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetContentDetails_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/rename">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="PUT" id="RenameContent" actionName="RenameContent" siena:isDeprecated="false">
+        <doc title="Rename content&#xA;[&lt;i&gt;Rate Level: 2&lt;/i&gt;](#api-rate-limit)&#xA;&#xA;Renames an asset&#xA;&#xA;BODYPARAMS&#xA;&#xA;---&#xA;&#xA;| Parameter | Description |&#xA;| --- | --- |&#xA;| name | REQUIRED - The new name of the asset |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="name" path="/name" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:RenameContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/share/batch/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="PUT" id="CreateShareLinks" actionName="CreateShareLinks" siena:isDeprecated="false">
+        <doc title="Create Share Links&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;This supports batch sharing of contentsss&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;|Parameter|Description|&#xA;|---------|-----------|&#xA;|scheme|&quot;image&quot;, &quot;video&quot;, &quot;audio&quot;, &quot;document&quot;, &quot;presentation&quot; or &quot;other&quot;|&#xA;|id|The id of the content|&#xA;|expires|If null, never expired.|&#xA;|hideShareBy|If true, the shared by user will be hidden|&#xA;|allowDownloadOriginal|If true, downloading Original file is available. If false, image can be downloaded as converted content.|&#xA;|allowCropAndResize|If true, the download page will show crop and resize options.|&#xA;|allowPresets|If true, can be downloaded as a preset.|&#xA;|displayMetadata|If true, user can view metadata.|" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="xs:string" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateShareLinks_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/tag/{tag}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="tag" type="xs:string" required="true" default="notExistingTag" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="RemoveTagFromContent" actionName="RemoveTagFromContent" siena:isDeprecated="false">
+        <doc title="Remove tag from content&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Remove a tag from specify content (a tag is just a plain text)." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:RemoveTagFromContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/tag/{tag}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="tag" type="xs:string" required="true" default="newTag" />
+      <method siena:requiresAuthentication="true" name="PUT" id="AttachTagToContent" actionName="AttachTagToContent" siena:isDeprecated="false">
+        <doc title="Attach tag to content&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Attach a tag to specific content. (A tag is just a plain text.)" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:AttachTagToContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/keyword">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="AddKeywords" actionName="AddKeywords" siena:isDeprecated="false">
+        <doc title="Add Keywords&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;This supports adding a keyword.&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;| Parameter   | Description                           |&#xA;|-------------|---------------------------------------|&#xA;| name        | REQUIRED - Name of the keyword        |&#xA;| description | REQUIRED - Description of the keyword |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="name" path="/name" type="xs:string" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AddKeywords_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/keyword/{keyword}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="keyword" type="xs:string" required="true" default="UnknownKeyword" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="RemoveKeywordFromContent" actionName="RemoveKeywordFromContent" siena:isDeprecated="false">
+        <doc title="Remove keyword from content&#xA;[*Rate Level: 2*](#api-rate-limit) &#xA;&#xA;Remove a keyword from specified content." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:RemoveKeywordFromContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/keyword/{keyword}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="keyword" type="xs:string" required="true" default="Campaign" />
+      <method siena:requiresAuthentication="true" name="PUT" id="AttachKeywordToContent" actionName="AttachKeywordToContent" siena:isDeprecated="false">
+        <doc title="Attach keyword to content&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Attach a keyword to content." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:AttachKeywordToContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/batch/album">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="RemoveContentsFromAlbum" actionName="RemoveContentsFromAlbum" siena:isDeprecated="false">
+        <doc title="Remove Contents from Album&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;This API support batch remove contents of an album.&#xA;&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;| Parameter   | Description                                                                 |&#xA;|-------------|-----------------------------------------------------------------------------|&#xA;| scheme      | REQUIRED - &quot;image&quot;, &quot;video&quot;, &quot;audio&quot;, &quot;document&quot;, &quot;presentation&quot; or &quot;other&quot; |&#xA;| id          | REQUIRED - Id of the content                                                |&#xA;| displayName | REQUIRED - Display name of content                                          |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="albumPath" path="/albumPath" type="xs:string" />
+            <param style="plain" name="contents" path="/contents" type="service:RemoveContentsFromAlbum_param_body_def_contents_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:RemoveContentsFromAlbum_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/batch/album">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="AssignContentToAlbum" actionName="AssignContentToAlbum" siena:isDeprecated="false">
+        <doc title="Assign Content to Album&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;This API support batch assign contents to an album.&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;| Parameter   | Description                                                                 |&#xA;|-------------|-----------------------------------------------------------------------------|&#xA;| scheme      | REQUIRED - &quot;image&quot;, &quot;video&quot;, &quot;audio&quot;, &quot;document&quot;, &quot;presentation&quot; or &quot;other&quot; |&#xA;| id          | REQUIRED - Id of the content                                                |&#xA;| displayName | REQUIRED - Display name of content                                          |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="albumPath" path="/albumPath" type="xs:string" />
+            <param style="plain" name="contents" path="/contents" type="service:AssignContentToAlbum_param_body_def_contents_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AssignContentToAlbum_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/smarttags/{smarttag}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="smarttag" type="xs:string" required="true" default="SmartTagValue" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="RemoveSmartTagFromContent" actionName="RemoveSmartTagFromContent" siena:isDeprecated="false">
+        <doc title="Remove smart tag from content&#xA;[*Rate Level: 2*](#api-rate-limit) &#xA;&#xA;Remove a smart tag from specified content." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:RemoveSmartTagFromContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/related">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateRelatedContent" actionName="CreateRelatedContent" siena:isDeprecated="false">
+        <doc title="Create Related Content&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;This request creates relations on assets. You can relate multiple assets with each other. An asset can be a &quot;primary&quot; in a relation. You can mark multiple assets &quot;primary&quot; if you create relations. &#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&lt;table&gt;&#xA;&lt;tr&gt;&#xA;&lt;th&gt;Parameter&lt;/th&gt;&#xA;&lt;th&gt;Description&lt;/th&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr&gt;&#xA;&lt;td&gt;relatedName&lt;/td&gt;&#xA;&lt;td&gt;The Label of related content.&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr&gt;&#xA;&lt;td&gt;relatedContents&lt;/td&gt;&#xA;&lt;td&gt;Limit: Max 1000 contents for one request.&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr&gt;&#xA;&lt;td&gt;scheme&lt;/td&gt;&#xA;&lt;td&gt;REQUIRED - &quot;image&quot;, &quot;video&quot;, &quot;audio&quot;, &quot;document&quot;, &quot;presentation&quot; or &quot;other&quot;. (case sensitive)&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr&gt;&#xA;&lt;td&gt;id&lt;/td&gt;&#xA;&lt;td&gt;REQUIRED - Id of the content.&lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;tr&gt;&#xA;&lt;td&gt;primary&lt;/td&gt;&#xA;&lt;td&gt;&lt;p&gt;true or false.&lt;/p&gt;&#xA;&lt;p&gt;Identifies whether it is a primary asset in the related asset.&lt;/p&gt;&#xA;&lt;p&gt;&lt;i&gt;Note:&lt;/i&gt;You can define multiple primary assets&lt;/p&gt;                                                             &lt;/td&gt;&#xA;&lt;/tr&gt;&#xA;&lt;/table&gt;" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="relatedName" path="/relatedName" type="xs:string" />
+            <param style="plain" name="relatedContents" path="/relatedContents" type="service:CreateRelatedContent_param_body_def_relatedContents_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateRelatedContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/{scheme}/{contentId}/unrelated">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="POST" id="RemoveRelatedContent" actionName="RemoveRelatedContent" siena:isDeprecated="false">
+        <doc title="Remove Related Content&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;This request removes related assets from the asset given by path parameters.&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;| Parameter | Description                                                                                            |&#xA;|-----------|--------------------------------------------------------------------------------------------------------|&#xA;| unRelatedContents|  |&#xA;| id        | REQUIRED - Id of the content.                                                                          |&#xA;| scheme    | REQUIRED - &quot;image&quot;, &quot;video&quot;, &quot;audio&quot;, &quot;document&quot;, &quot;presentation&quot; or &quot;other&quot;. (case sensitive)          |" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="unRelatedContents" path="/unRelatedContents" type="service:RemoveRelatedContent_param_body_def_unRelatedContents_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:RemoveRelatedContent_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/segment/video/{contentId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateEmbedVideo" actionName="CreateEmbedVideo" siena:isDeprecated="false">
+        <doc title="Create Embed Video&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;This API will create a Embed Video script. This API will return immediately. After Embed Video created, you need to run Get content details API to query the embed video url.&#xA;&#xA;Request Headers Content-Type:&#xA;&#xA;application/x-www-form-urlencoded&#xA;&#xA;Response:&#xA;&#xA;if created successfully, then a JSON key &quot;success&quot; value is &quot;true&quot;.&#xA;if created failed, then a JSON key &quot;success&quot; value is &quot;false&quot;, and a &quot;message&quot; key will tell you reason. includes:&#xA;&quot;invalid argument&quot;, &quot;content no found&quot;, &quot;exceed&quot;， &quot;no-permission&quot;." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="service:CreateEmbedVideo_param_body_def" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateEmbedVideo_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/unrelated">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="RemoveRelatedContentsFromRelatedFiles" actionName="RemoveRelatedContentsFromRelatedFiles" siena:isDeprecated="false">
+        <doc title="Remove Related Contents From Related Files&#xA;[_Rate Level: 4_](#api-rate-limit)&#xA;&#xA;This request removes related assets from the related files.&#xA;&#xA;BODYPARAMS&#xA;&#xA;---&#xA;&#xA;| Parameter | Value | Description |&#xA;| --- | --- | --- |&#xA;| relatedContents | \[{  &lt;br&gt;&quot;id&quot;:&quot;{{contentId}}&quot;,  &lt;br&gt;&quot;scheme&quot;:&quot;{{contentScheme}}&quot;  &lt;br&gt;}\] | REQUIRED  &lt;br&gt;Limit: Min 1 content for one request. Max 1000 contents for one request. |&#xA;| relatedFiles | \[&quot;{{relatedId}}&quot;\] | REQUIRED  &lt;br&gt;Limit: Min 1 group for one request. Max 100 groups for one request. |" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="relatedContents" path="/relatedContents" type="service:RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedContents_def" />
+            <param style="plain" name="relatedFiles" path="/relatedFiles" type="service:RemoveRelatedContentsFromRelatedFiles_param_body_def_relatedFiles_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:RemoveRelatedContentsFromRelatedFiles_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/folder/{folderId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="folderId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SearchUnderAFolder" actionName="SearchUnderAFolder" siena:isDeprecated="false">
+        <doc title="Search under a folder&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;List everything under a specified folder, page by page. This will return all matched sub-folder/album and all its contents.&#xA;&#xA;**Note:**&#xA;&#xA;*   You can use the value &quot;**null**&quot; (enclosed by two underlines in front and at the end). If you want to search for assets which don't have a value in a field.&#xA;*   You can use the value &quot;**exists**&quot; (enclosed by two underlines in front and at the end). If you want to search for assets which have set any value in a field." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:SearchUnderAFolder_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/tree">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetFullLibraryTreeView" actionName="GetFullLibraryTreeView" siena:isDeprecated="false">
+        <doc title="Get full library tree view&#xA;[*Rate Level: 3*](#api-rate-limit)&#xA;&#xA;Get the whole tree. There’s no pagination option, if you don’t specify the layer parameter, you will get the whole tree info including each folder and each album." />
+        <request>
+          <param style="query" name="sortBy" type="xs:string" required="true" default="time" />
+          <param style="query" name="sortDirection" type="xs:string" required="true" default="ascending" />
+          <param style="query" name="layer" type="xs:string" required="true" default="-1" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetFullLibraryTreeView_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/mycollections/{collectionId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="collectionId" type="xs:string" required="true" default="" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetMyCollectionDetailInfo" actionName="GetMyCollectionDetailInfo" siena:isDeprecated="false">
+        <doc title="Get My Collection detail info&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Obtain MyCollection detail information." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetMyCollectionDetailInfo_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/album/{parentFolderId}/{albumName}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="parentFolderId" type="xs:string" required="true" default="{{folderId}}" />
+      <param style="template" name="albumName" type="xs:string" required="true" default="{{$randomNoun}}" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateAlbum" actionName="CreateAlbum" siena:isDeprecated="false">
+        <doc title="Create album&#xA;[&lt;i&gt;Rate Level: 2&lt;/i&gt;](#api-rate-limit)&#xA;&#xA;Create an album under the specified folder or on root level of the library.  &#xA;  &#xA;\*Note:\* The body is optional and only necessary if you want to set the folder name in multiple languages." />
+        <request>
+          <param style="query" name="description" type="xs:string" required="true" default="This is an example description" />
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="service:CreateAlbum_param_body_def" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateAlbum_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/info/album/{albumId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="albumId" type="xs:string" required="true" default="{{albumId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetAlbumDetailInfo" actionName="GetAlbumDetailInfo" siena:isDeprecated="false">
+        <doc title="Get album detail info&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;Obtain specific folder/album detail information." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetAlbumDetailInfo_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/album/{albumId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="albumId" type="xs:string" required="true" default="{{albumId}}" />
+      <method siena:requiresAuthentication="true" name="PUT" id="UpdateAlbumName" actionName="UpdateAlbumName" siena:isDeprecated="false">
+        <doc title="Update album name&#xA;Update specific folder/album multi-language information." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="service:UpdateAlbumName_param_body_def" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UpdateAlbumName_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/mycollections">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ListMyCollections" actionName="ListMyCollections" siena:isDeprecated="false">
+        <doc title="List My Collections&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;List my collections." />
+        <request>
+          <param style="query" name="orderBy" type="xs:string" required="true" default="time" />
+          <param style="query" name="sortDirection" type="xs:string" required="true" default="ascending" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ListMyCollections_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/upload/setting">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetUploadSetting" actionName="GetUploadSetting" siena:isDeprecated="false">
+        <doc title="Get upload setting&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Before [uploading a file](##ae87e780-f9e4-4c65-bd11-3515b0c4eaa9), you need to retrive this setting.&#xA;&#xA;**Note:** An upload setting is valid for 5 hours. You will need to retrive settings again after 5 hours to continue use." />
+        <request>
+          <param style="query" name="refer" type="xs:string" required="true" default="true or false" />
+          <param style="query" name="v" type="xs:string" required="true" default="2 or 4" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetUploadSetting_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="UploadFile" actionName="UploadFile" siena:isDeprecated="false">
+        <doc title="Upload file&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Upload a file directly into the Canto S3 bucket. Construct a form based on the settings retrieved.&#xA;&#xA;The form and policy must be UTF-8 encoded. You can apply UTF-8 encoding to the form by specifying it in the HTML heading or as a request header.&#xA;&#xA;The enclosure type (enctype) must be specified and must be set to multipart/form-data for both file uploads and text area uploads. For more information, refer to RFC 1867.&#xA;&#xA;**Note:**&#xA;&#xA;*   max upload size is: 5 GB&#xA;*   You need to call request: [Get Upload Setting](#96bb505f-c699-454b-9134-df6001081b88) to get upload settings, before.&#xA;*   Please refer to Amazon document for details. [http://docs.aws.amazon.com/AmazonS3/latest/dev/HTTPPOSTForms.html](http://docs.aws.amazon.com/AmazonS3/latest/dev/HTTPPOSTForms.html)" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:UploadFile_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/upload/status">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="QueryUploadStatus" actionName="QueryUploadStatus" siena:isDeprecated="false">
+        <doc title="Query upload status&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Query upload status for recently uploaded files." />
+        <request>
+          <param style="query" name="hours" type="xs:string" required="true" default="1" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:QueryUploadStatus_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/uploadlink">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateUploadLinks" actionName="CreateUploadLinks" siena:isDeprecated="false">
+        <doc title="Create Upload Links&#xA;[_Rate Level: 2_](#api-rate-limit)&#xA;&#xA;This API support user to create an UploadLink.&#xA;&#xA;BODYPARAMS&#xA;&#xA;---&#xA;&#xA;| Parameter | Description |&#xA;| --- | --- |&#xA;| portalName | REQUIRED - Upload link name |&#xA;| description | Upload link description |&#xA;| emailSubject | REQUIRED - Email subject of the receiver |&#xA;| emailBody | REQUIRED - Email body of the receiver |&#xA;| isNeverExpired | REQUIRED - The upload link is never expired |&#xA;| displayExpireDate | If isNeverExpired == false, it must be setted.  &lt;br&gt;If isNeverExpired == true, it no need to set. |&#xA;| recipients | REQUIRED - The details of receivers |&#xA;| firstName | REQUIRED - FirstName of receiver |&#xA;| lastName | REQUIRED - Last Name of receiver |&#xA;| email | REQUIRED - Email of receiver |&#xA;| importToAlbums | OPTIONAL: An array of albums to which the assets will be assigned |&#xA;| \- albumId | REQUIRED - The id of the album |&#xA;| \- pathWithName | REQUIRED - The full album path (including the name of the album) |&#xA;| \- portalId | OPTIONAL - The id of the portal or workspace |&#xA;| \- portalName | OPTIONAL - The name of the portal or workspace |&#xA;| removeDuplicateType | OPTIONAL - The following modes for duplicates are supported:  &lt;br&gt;0=Add as new file  &lt;br&gt;1=Don't import  &lt;br&gt;2=New version  &lt;br&gt;3=New version &amp; append metadata  &lt;br&gt;5=Don't import &amp; append metadata  &lt;br&gt;  &lt;br&gt;_Default:_ 1 - Don't import |&#xA;| defaultApprovalStatus | OPTIONAL - The status of the asset when it is imported into the main library.  &lt;br&gt;  &lt;br&gt;_Supported Values:_  &lt;br&gt;Approved, Restricted, Pending  &lt;br&gt;  &lt;br&gt;_Default:_ Approved |&#xA;| removeDuplicateWhenImport | OPTIONAL - Automatically Remove Files in the Upload Link after Import.  &lt;br&gt;  &lt;br&gt;_Default:_ false |&#xA;| duplicateCheckMode | Mode to check for duplicates  &lt;br&gt;  &lt;br&gt;0=MD5  &lt;br&gt;1=filename  &lt;br&gt;  &lt;br&gt;_Default:_ 0 |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="portalName" path="/portalName" type="xs:string" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+            <param style="plain" name="emailSubject" path="/emailSubject" type="xs:string" />
+            <param style="plain" name="emailBody" path="/emailBody" type="xs:string" />
+            <param style="plain" name="editable" path="/editable" type="xs:boolean" />
+            <param style="plain" name="isNeverExpired" path="/isNeverExpired" type="xs:boolean" />
+            <param style="plain" name="recipients" path="/recipients" type="service:CreateUploadLinks_param_body_def_recipients_def" />
+            <param style="plain" name="importToAlbums" path="/importToAlbums" type="service:CreateUploadLinks_param_body_def_importToAlbums_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateUploadLinks_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/import/metadata">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="MetadataImport" actionName="MetadataImport" siena:isDeprecated="false">
+        <doc title="Metadata Import&#xA;Metadata Import" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:MetadataImport_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/import/metadata/progress">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="MetadataImportProgress" actionName="MetadataImportProgress" siena:isDeprecated="false">
+        <doc title="Metadata import progress&#xA;Metadata import progress" />
+        <request>
+          <param style="query" name="request" type="xs:string" required="true" default="{{importFileID}}" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MetadataImportProgress_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/uploadlink/import">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="ImportFromUploadlink" actionName="ImportFromUploadlink" siena:isDeprecated="false">
+        <doc title="Import from uploadlink&#xA;[&lt;i&gt;Rate Level: 4&lt;/i&gt;](#api-rate-limit)&#xA;&#xA;Import assets from an upload link." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="xs:string" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ImportFromUploadlink_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/direct/{scheme}/{contentId}/%7B%7BdirectUrlOriginalHash%7D%7D/original">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="DirectUrlOriginal" actionName="DirectUrlOriginal" siena:isDeprecated="false">
+        <doc title="Direct Url original&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Direct url to the original asset. &#xA;&#xA;**Note:** It's not possible to download this image without knowing a random generated HashValue. You get the &quot;Direct Url Original&quot; containing the correct data by reading it from response of the requests: &#xA;* [&quot;Get Content Details&quot;](#dc7523ac-7acf-4c80-be39-48b39b10bfb0)&#xA;* [&quot;Search/Filter&quot;](#36910bbd-c42e-485e-8d3e-7d903230066a)" />
+        <request>
+          <param style="query" name="name" type="xs:string" required="true" default="{{$randomCommonFileName}}" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:DirectUrlOriginal_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/preview/{dimension}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="dimension" type="xs:string" required="true" default="500" />
+      <method siena:requiresAuthentication="true" name="GET" id="DownloadPreview" actionName="DownloadPreview" siena:isDeprecated="false">
+        <doc title="Download Preview&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;An image view of the content.&#xA;&#xA;Returns the first page view for document content, and a smaller size image for the image content.&#xA;By default, the image is 240px (dimension means the longest size of the width and height when zooming out). &#xA;To specifiy the dimension, you could provide slash “/” and dimension number under the preview url.&#xA;&#xA;&#xA;**For example:**&#xA;&#xA;|URL|Result|&#xA;|---|------|&#xA;|&lt;a href=&quot;{{SITE_BASEURL}}/api_binary/v1/{{contentScheme}}/{{contentId}}/preview&quot;&gt;{{SITE_BASEURL}}/api_binary/v1/{{contentScheme}}/{{contentId}}/preview&lt;/a&gt;|image with dimension 240px|&#xA;|&lt;a href=&quot;{{SITE_BASEURL}}/api_binary/v1/{{contentScheme}}/{{contentId}}/preview/500&quot;&gt;{{SITE_BASEURL}}/api_binary/v1/{{contentScheme}}/{{contentId}}/preview/500&lt;/a&gt;|image with dimension 500px|&#xA;&#xA;If the maximum preview size is 400, the url will only get the 400 dimension preview." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DownloadPreview_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/direct/{scheme}/{contentId}/%7B%7BdirectUrlPreviewHash%7D%7D/m240/{dimension}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="dimension" type="xs:string" required="true" default="800" />
+      <method siena:requiresAuthentication="true" name="GET" id="DirectUrlPreview" actionName="DirectUrlPreview" siena:isDeprecated="false">
+        <doc title="Direct Url preview&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Direct url to the preview of the asset&#xA;&#xA;Returns the first page view for document content, and a smaller size image for the image content.&#xA;By default, the image is 240px (dimension means the longest size of the width and height when zooming out). &#xA;To specifiy the dimension, you could provide slash “/” and dimension number under the preview url.&#xA;&#xA;**For example:**&#xA;&#xA;|URL|Result|&#xA;|---|------|&#xA;|{{SITE_BASEURL}}/direct/:scheme/:contentId/{{directUrlOriginalHash}}/m240/|image with dimension 240p (default size)|&#xA;|{{SITE_BASEURL}}/direct/:scheme/:contentId/{{directUrlOriginalHash}}/m240/500|image with dimension 500px|&#xA;&#xA;If the maximum preview size is 400, the url will only get the 400 dimension preview." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DirectUrlPreview_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/HighJPG">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="DownloadAsHighJpg" actionName="DownloadAsHighJpg" siena:isDeprecated="false">
+        <doc title="Download as High JPG&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Download an image as jpg in high quality" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DownloadAsHighJpg_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/LowJPG">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="DownloadAsLowJpg" actionName="DownloadAsLowJpg" siena:isDeprecated="false">
+        <doc title="Download as Low JPG&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Download an image as jpg in low quality (smaller filesize)" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DownloadAsLowJpg_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/PNG">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="DownloadAsPng" actionName="DownloadAsPng" siena:isDeprecated="false">
+        <doc title="Download as PNG&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Download an image as png" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DownloadAsPng_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/metadata">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="DownloadMetadataXml" actionName="DownloadMetadataXml" siena:isDeprecated="false">
+        <doc title="Download Metadata XML&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;The “metadata” url will give you the xml file which was extracted from the original file. It has more detail than the metadata returned by the detail API and follows the original data format, not the one in general notes." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DownloadMetadataXml_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="DownloadOriginalContentFile" actionName="DownloadOriginalContentFile" siena:isDeprecated="false">
+        <doc title="Download original content file&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;Download the original content file." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DownloadOriginalContentFile_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/advance/image/{contentId}/download">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="AdvancedDownloadOptions" actionName="AdvancedDownloadOptions" siena:isDeprecated="false">
+        <doc title="Advanced Download Options&#xA;[*Rate Level: 5*](#api-rate-limit)&#xA;&#xA;This API supports resize, crop, and downloads a preset image." />
+        <request>
+          <param style="query" name="resize" type="xs:string" required="true" default="300x400" />
+          <param style="query" name="crop" type="xs:string" required="true" default="200x200 330 330" />
+          <param style="query" name="dpi" type="xs:string" required="true" default="150" />
+          <param style="query" name="type" type="xs:string" required="true" default="jpg" />
+          <param style="query" name="version" type="xs:string" required="true" default="" />
+          <param style="query" name="preset" type="xs:string" required="true" default="{{presetId}}" />
+          <param style="query" name="proportion" type="xs:string" required="true" default="true" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AdvancedDownloadOptions_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/previewURI/{dimension}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="dimension" type="xs:string" required="true" default="500" />
+      <method siena:requiresAuthentication="true" name="GET" id="ObtainAssetPreviewCloudfrontUrl" actionName="ObtainAssetPreviewCloudfrontUrl" siena:isDeprecated="false">
+        <doc title="Obtain asset preview Cloudfront URL&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;In a situation where the embedded browser does not support redirect URLs, this call can be used to obtain the Cloudfront URL directly." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="xs:string" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api_binary/v1/{scheme}/{contentId}/directuri/{expireTimeInSeconds}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="scheme" type="xs:string" required="true" default="{{contentScheme}}" />
+      <param style="template" name="contentId" type="xs:string" required="true" default="{{contentId}}" />
+      <param style="template" name="expireTimeInSeconds" type="xs:string" required="true" default="86400" />
+      <method siena:requiresAuthentication="true" name="GET" id="ObtainAssetDownloadCloudfrontUrl" actionName="ObtainAssetDownloadCloudfrontUrl" siena:isDeprecated="false">
+        <doc title="Obtain asset download Cloudfront URL&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;In some case, like some embedded browser which is not support redirect url, developer cannot download picture by redirect behavior, he want obtain a cloudfront url." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:ObtainAssetDownloadCloudfrontUrl_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/user">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetCurrentUserInfo" actionName="GetCurrentUserInfo" siena:isDeprecated="false">
+        <doc title="Get current user info&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;&lt;p&gt;Get the current user info, which the access token represents.&lt;/p&gt;" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetCurrentUserInfo_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/user">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="AddNewUser" actionName="AddNewUser" siena:isDeprecated="false">
+        <doc title="Add new user&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Adds a new user.&#xA;&#xA;**Note:** This request can only called by admin users&#xA;&#xA;BODYPARAMS&#xA;&#xA;* * *&#xA;&#xA;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Parameter&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;userId&lt;/td&gt;&lt;td&gt;The id of the new user. (It should be the user's email adress)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;firstName&lt;/td&gt;&lt;td&gt;The first name of the user.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;lastName&lt;/td&gt;&lt;td&gt;The last name of the user&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;roles&lt;/td&gt;&lt;td&gt;&lt;p&gt;A list of roles, the user should be assigned.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Possible values:&lt;/b&gt; admin|contributor, consumer, customRole&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;customRoleId&lt;/td&gt;&lt;td&gt;&lt;p&gt;The id of a custom Role.&lt;/p&gt;&lt;p&gt;use this parameter only, if you&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;groups&lt;/td&gt;&lt;td&gt;(optional) A list of groups, the user should be assigned.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;properties&lt;/td&gt;&lt;td&gt;&lt;p&gt;(optional) The values of the custom fields.&lt;/p&gt;&lt;p&gt;key = customFieldId, value = customFieldValue&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;allowAccessAdobeConnector&lt;/td&gt;&lt;td&gt;(optional) The new user will be allowed to use the Adobe Connector.&lt;br&gt;&lt;br&gt;&lt;b&gt;default:&lt;/b&gt; false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;allowAccessIndesign&lt;/td&gt;&lt;td&gt;&lt;b&gt;Deprecated: &lt;/b&gt;old version of parameter: &quot;allowAccessAdobeConnector&quot;&lt;br&gt;&lt;br&gt;&lt;b&gt;default:&lt;/b&gt; false&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="userId" path="/userId" type="xs:string" />
+            <param style="plain" name="firstName" path="/firstName" type="xs:string" />
+            <param style="plain" name="lastName" path="/lastName" type="xs:string" />
+            <param style="plain" name="roles" path="/roles" type="service:AddNewUser_param_body_def_roles_def" />
+            <param style="plain" name="customRoleId" path="/customRoleId" type="xs:string" />
+            <param style="plain" name="groups" path="/groups" type="service:AddNewUser_param_body_def_groups_def" />
+            <param style="plain" name="properties" path="/properties" type="service:AddNewUser_param_body_def_properties_def" />
+            <param style="plain" name="allowAccessMainTenant" path="/allowAccessMainTenant" type="xs:boolean" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AddNewUser_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/user">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="PUT" id="UpdateUserInfo" actionName="UpdateUserInfo" siena:isDeprecated="false">
+        <doc title="Update user info&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Update an existing user.&#xA;&#xA;**Note:** This request can only called by admin users&#xA;&#xA;BODYPARAMS&#xA;&#xA;* * *&#xA;&#xA;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;Parameter&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;userId&lt;/td&gt;&lt;td&gt;The id of the user to update.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;firstName&lt;/td&gt;&lt;td&gt;The first name of the user.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;lastName&lt;/td&gt;&lt;td&gt;The last name of the user&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;roles&lt;/td&gt;&lt;td&gt;&lt;p&gt;A list of roles, the user should be assigned.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Possible values:&lt;/b&gt; admin|contributor, consumer, customRole&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;customRoleId&lt;/td&gt;&lt;td&gt;&lt;p&gt;The id of a custom Role.&lt;/p&gt;&lt;p&gt;use this parameter only, if you&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;groups&lt;/td&gt;&lt;td&gt;(optional) A list of groups, the user should be assigned.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;properties&lt;/td&gt;&lt;td&gt;&lt;p&gt;(optional) The values of the custom fields.&lt;/p&gt;&lt;p&gt;key = customFieldId, value = customFieldValue&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;allowAccessAdobeConnector&lt;/td&gt;&lt;td&gt;(optional) The new user will be allowed to use the Adobe Connector.&lt;br&gt;&lt;br&gt;&lt;b&gt;default:&lt;/b&gt; false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;allowAccessIndesign&lt;/td&gt;&lt;td&gt;&lt;b&gt;Deprecated&lt;/b&gt;: old version of parameter: &quot;allowAccessAdobeConnector&quot;&lt;br&gt;&lt;br&gt;&lt;b&gt;default&lt;/b&gt;: false&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="userId" path="/userId" type="xs:string" />
+            <param style="plain" name="firstName" path="/firstName" type="xs:string" />
+            <param style="plain" name="lastName" path="/lastName" type="xs:string" />
+            <param style="plain" name="roles" path="/roles" type="service:UpdateUserInfo_param_body_def_roles_def" />
+            <param style="plain" name="customRoleId" path="/customRoleId" type="xs:string" />
+            <param style="plain" name="groups" path="/groups" type="service:UpdateUserInfo_param_body_def_groups_def" />
+            <param style="plain" name="properties" path="/properties" type="service:UpdateUserInfo_param_body_def_properties_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UpdateUserInfo_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/roles">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetCustomRoles" actionName="GetCustomRoles" siena:isDeprecated="false">
+        <doc title="Get custom roles&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;&lt;p&gt;Get the current user info, which the access token represents.&lt;/p&gt;" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetCustomRoles_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/users/fields">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetUserCustomFields" actionName="GetUserCustomFields" siena:isDeprecated="false">
+        <doc title="Get user custom fields&#xA;[*Rate Level: 1*](#api-rate-limit)&#xA;&#xA;&lt;p&gt;Get the current user info, which the access token represents.&lt;/p&gt;" />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetUserCustomFields_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/user/accounts">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetUserList" actionName="GetUserList" siena:isDeprecated="false">
+        <doc title="Get user list&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Obtain a list of users within your Canto account with pagination.&#xA;&#xA;If you need a list containing mor detailed user information, you need to call: \[Get user list (with extended information)\](ffe1bdb6-36b9-4ac3-a649-bf1f7dc802f0)" />
+        <request>
+          <param style="query" name="name" type="xs:string" required="true" default="keyword" />
+          <param style="query" name="include-group" type="xs:string" required="true" default="true" />
+          <param style="query" name="page-size" type="xs:string" required="true" default="100" />
+          <param style="query" name="page" type="xs:string" required="true" default="1" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetUserList_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/users">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetUserListWithExtendedInformation" actionName="GetUserListWithExtendedInformation" siena:isDeprecated="false">
+        <doc title="Get user list (with extended information)&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Obtain a list of users within your Canto account with pagination." />
+        <request>
+          <param style="query" name="role" type="xs:string" required="true" default="0" />
+          <param style="query" name="name" type="xs:string" required="true" default="John" />
+          <param style="query" name="include-group" type="xs:string" required="true" default="false" />
+          <param style="query" name="include-portal" type="xs:string" required="true" default="false" />
+          <param style="query" name="page-size" type="xs:string" required="true" default="100" />
+          <param style="query" name="page" type="xs:string" required="true" default="1" />
+          <param style="query" name="customfield" type="xs:string" required="true" default="true or empty" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetUserListWithExtendedInformation_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/user/{userId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="userId" type="xs:string" required="true" default="Green.Collier@hotmail.com" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="DeleteAUser" actionName="DeleteAUser" siena:isDeprecated="false">
+        <doc title="Delete a user&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Admin deletes an existing user." />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:DeleteAUser_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetGroups" actionName="GetGroups" siena:isDeprecated="false">
+        <doc title="Get groups&#xA;Returns a list of all groups." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetGroups_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="AddGroup" actionName="AddGroup" siena:isDeprecated="false">
+        <doc title="Add group&#xA;[*Rate Level: 2*](https://canto9053-185988.postman.co/workspace/Team-Workspace~783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-a651e481-bd54-46bf-b483-804091e1c238?ctx=documentation#api-rate-limit)&#xA;&#xA;Creates a new group." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="name" path="/name" type="xs:string" />
+            <param style="plain" name="userIds" path="/userIds" type="service:AddGroup_param_body_def_userIds_def" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AddGroup_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups/{groupId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="groupId" type="xs:string" required="true" default="{{groupId}}" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetGroupInfoWithUsers" actionName="GetGroupInfoWithUsers" siena:isDeprecated="false">
+        <doc title="Get group info with users&#xA;[*Rate Level: 1*](https://canto9053-185988.postman.co/workspace/Team-Workspace~783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-f802ebd0-a4bf-46ee-954d-ce34225243f1?ctx=documentation#api-rate-limit)&#xA;&#xA;Returns a group with users." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetGroupInfoWithUsers_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups/{groupId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="groupId" type="xs:string" required="true" default="{{groupId}}" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="DeleteGroup" actionName="DeleteGroup" siena:isDeprecated="false">
+        <doc title="Delete group&#xA;[*Rate Level: 2*](https://canto9053-185988.postman.co/workspace/Team-Workspace~783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-a651e481-bd54-46bf-b483-804091e1c238?ctx=documentation#api-rate-limit)&#xA;&#xA;Deletes an existing group." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:DeleteGroup_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups/{groupId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="groupId" type="xs:string" required="true" default="684a7f89-775b-4e01-a55f-c70a7054a459" />
+      <method siena:requiresAuthentication="true" name="PUT" id="UpdateGroup" actionName="UpdateGroup" siena:isDeprecated="false">
+        <doc title="Update group&#xA;[*Rate Level: 2*](https://canto9053-185988.postman.co/workspace/Team-Workspace~783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-a651e481-bd54-46bf-b483-804091e1c238?ctx=documentation#api-rate-limit)&#xA;&#xA;Updates an existing group." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="id" path="/id" type="xs:string" />
+            <param style="plain" name="name" path="/name" type="xs:string" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UpdateGroup_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups/{groupId}/users">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="groupId" type="xs:string" required="true" default="{{groupId}}" />
+      <method siena:requiresAuthentication="true" name="DELETE" id="DeleteUsersFromGroup" actionName="DeleteUsersFromGroup" siena:isDeprecated="false">
+        <doc title="Delete users from group&#xA;[*Rate Level: 2*](https://canto9053-185988.postman.co/workspace/Team-Workspace~783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-a651e481-bd54-46bf-b483-804091e1c238?ctx=documentation#api-rate-limit)  &#xA;&#xA;Delete users from group." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="service:DeleteUsersFromGroup_param_body_def" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:DeleteUsersFromGroup_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/groups/{groupId}/users">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="groupId" type="xs:string" required="true" default="{{groupId}}" />
+      <method siena:requiresAuthentication="true" name="POST" id="AddUsersToGroup" actionName="AddUsersToGroup" siena:isDeprecated="false">
+        <doc title="Add users to group&#xA;[*Rate Level: 2*](https://canto9053-185988.postman.co/workspace/Team-Workspace~783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-a651e481-bd54-46bf-b483-804091e1c238?ctx=documentation#api-rate-limit)  &#xA;  &#xA;Add users to group." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="service:AddUsersToGroup_param_body_def" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:AddUsersToGroup_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v2/users/$query">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="GetUsers" actionName="GetUsers" siena:isDeprecated="false">
+        <doc title="Get Users&#xA;[_Rate Level: 2_](https://canto9053-185988.postman.co/workspace/783a47f1-cdbf-476d-8e32-155d9a3c2c8a/request/14174853-381c204f-2997-4c23-9ad0-1529be3c4286?ctx=documentation#api-rate-limit)&#xA;&#xA;Obtain a list of users in the Canto account based on the specified user IDs.&#xA;&#xA;Max user IDs for request param: 100." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="body" path="" type="xs:string" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetUsers_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/custom/field">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetCustomFieldList" actionName="GetCustomFieldList" siena:isDeprecated="false">
+        <doc title="Get custom field list&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Get custom field list (including type and values if any)." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:GetCustomFieldList_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/custom/field">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="CreateACustomField" actionName="CreateACustomField" siena:isDeprecated="false">
+        <doc title="Create a custom field&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Creates a new custom field.&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;| Parameter   | Description                                                                                  |&#xA;|-------------|----------------------------------------------------------------------------------------------|&#xA;| name        | REQUIRED - Unique value. Max length: 80.                                                     |&#xA;| description | REQUIRED - Description. Max length: 800.                                                     |&#xA;| type        | REQUIRED - Types include: NUMBER, TEXT, DATE, SINGLECHOICE, MULTICHOICE, URL, LABEL, RATING. |&#xA;| values      | Options for SINGLECHOICE and MULTICHOICE type fields.                                        |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="name" path="/name" type="xs:string" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+            <param style="plain" name="type" path="/type" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CreateACustomField_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/custom/field">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="PUT" id="UpdateACustomField" actionName="UpdateACustomField" siena:isDeprecated="false">
+        <doc title="Update a custom field&#xA;[*Rate Level: 2*](#api-rate-limit)&#xA;&#xA;Updates a custom field.&#xA;&#xA;&#xA;&lt;div class=&quot;heading&quot;&gt;BODYPARAMS&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&#xA;| Parameter   | Description                                                                                  |&#xA;|-------------|----------------------------------------------------------------------------------------------|&#xA;| id          | REQUIRED - Custom field id.                                                                  |&#xA;| name        | REQUIRED - Unique value. Max length: 80.                                                     |&#xA;| description | REQUIRED - Description. Max length: 800.                                                     |&#xA;| values      | Options for SINGLECHOICE and MULTICHOICE type fields.                                        |" />
+        <request>
+          <param style="header" name="Content-Type" type="xs:string" required="true" default="application/json">
+            <doc title="Content-Type" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="id" path="/id" type="xs:string" />
+            <param style="plain" name="name" path="/name" type="xs:string" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+            <param style="plain" name="type" path="/type" type="xs:string" />
+            <param style="plain" name="values" path="/values" type="service:UpdateACustomField_param_body_def_values_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:UpdateACustomField_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/album/:albumId">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="ListContentOfASpecifiedAlbum" actionName="ListContentOfASpecifiedAlbum" siena:isDeprecated="false">
+        <doc title="List content of a specified album&#xA;[*Rate Level: 4*](#api-rate-limit)&#xA;&#xA;List content of a album, page by page. Only brief content info is returned." />
+        <request>
+          <param style="query" name="sortBy" type="xs:string" />
+          <param style="query" name="sortDirection" type="xs:string" />
+          <param style="query" name="start" type="xs:long" />
+          <param style="query" name="limit" type="xs:long" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ListContentOfASpecifiedAlbum_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/api/v1/tree/{folderId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="folderId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetSubTreeView" actionName="GetSubTreeView" siena:isDeprecated="false">
+        <doc title="Get sub tree view&#xA;List a hierarchy view from specific current tree level" />
+        <request>
+          <param style="query" name="sortBy" type="xs:string" />
+          <param style="query" name="sortDirection" type="xs:string" />
+          <param style="query" name="layer" type="xs:long" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetSubTreeView_responses_default_def" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_canto-5fa2b30a4ec4b3ef0f-5f714f32dac48a4cb4" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
