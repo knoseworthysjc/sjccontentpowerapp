@@ -4265,13 +4265,20 @@ scrOfferEdit As screen:
                                         ),
                                         "Canto",
                                         Collect(
-                                                    colOfferAssetSearchResults,
-                                                    AddColumns(
-                                                        CantoAPICopy.SearchFilter({keyword:iptOfferAssetSearch.Text,limit:200,start:0,scheme:"image"}),
-                                                        searchSource,
-                                                        "Xinet"
-                                                    )
-                                                )
+                                            colOfferAssetSearchResults,
+                                            AddColumns(
+                                                CantoAPICopy.SearchFilter(
+                                                    {
+                                                        keyword: iptOfferAssetSearch.Text,
+                                                        limit: 200,
+                                                        start: 0,
+                                                        scheme: "image"
+                                                    }
+                                                ),
+                                                searchSource,
+                                                "Canto"
+                                            )
+                                        )
                                     );
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
