@@ -4267,14 +4267,14 @@ scrOfferEdit As screen:
                                         Collect(
                                             colOfferAssetSearchResults,
                                             AddColumns(
-                                                CantoAPICopy.SearchFilter(
+                                                First(CantoAPICopy.SearchFilter(
                                                     {
                                                         keyword: iptOfferAssetSearch.Text,
                                                         limit: 200,
                                                         start: 0,
                                                         scheme: "image"
                                                     }
-                                                ),
+                                                ).results),
                                                 searchSource,
                                                 "Canto"
                                             )
@@ -4313,7 +4313,22 @@ scrOfferEdit As screen:
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
                                 Image: |-
-                                    =Xinet.GetImageByPath("getimage",Substitute(ThisItem.FILE_PATH,"%20"," "),{filetype:"Large"})
+                                    =If(
+                                        ThisItem.searchSource = "Xinet",
+                                        Xinet.GetImageByPath(
+                                            "getimage",
+                                            Substitute(
+                                                ThisItem.FILE_PATH,
+                                                "%20",
+                                                " "
+                                            ),
+                                            {filetype: "Large"}
+                                        ),
+                                        CantoAPICopy.DownloadAsHighJpg(
+                                            "image",
+                                            ThisItem.id
+                                        );
+                                    )
                                 OnSelect: |-
                                     =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
@@ -4507,7 +4522,7 @@ scrOfferEdit As screen:
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: ="Assign Asset"
                                 Width: =30
-                                X: =123
+                                X: =Parent.TemplateWidth-Self.Width-Parent.TemplatePadding*2
                                 Y: =0
                                 ZIndex: =3
 
