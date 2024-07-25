@@ -4324,8 +4324,10 @@ scrOfferEdit As screen:
                                         ),
                                         ThisItem.url.directUrlPreview
                                     )
-                                OnSelect: |-
-                                    =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
+                                OnSelect: |
+                                    =Select(Parent);
+                                    Select(Parent);
+                                    If(ThisItem.searchSource="Xinet", Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=streamfile&path=" & ThisItem.FILE_PATH,{},LaunchTarget.New);,Launch(ThisItem.url.directUrlOriginal,{},LaunchTarget.New);)
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplatePadding
