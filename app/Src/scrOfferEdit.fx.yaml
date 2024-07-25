@@ -4353,7 +4353,12 @@ scrOfferEdit As screen:
                                 ZIndex: =2
 
                             "Icon16_1 As 'Fluent Icon (1.0.19)'":
+                                BorderColor: |-
+                                    ="#FFFFFF"
+                                BorderRadius: =8
                                 DisplayMode: =DisplayMode.Edit
+                                FillColor: |-
+                                    ="#FFFFFF"
                                 Height: |
                                     =30
                                 IconName: ="AddLink"
@@ -4518,7 +4523,7 @@ scrOfferEdit As screen:
                                 Tooltip: ="Assign Asset"
                                 Width: =30
                                 X: =Parent.TemplateWidth-Self.Width-Parent.TemplatePadding*2
-                                Y: =0
+                                Y: =Parent.TemplatePadding*3
                                 ZIndex: =3
 
             conOfferProducts As groupContainer.verticalAutoLayoutContainer:
