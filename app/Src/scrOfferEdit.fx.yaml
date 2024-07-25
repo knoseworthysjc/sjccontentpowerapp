@@ -4264,21 +4264,19 @@ scrOfferEdit As screen:
                                             )
                                         ),
                                         "Canto",
-                                        Collect(
-                                            colOfferAssetSearchResults,
-                                            AddColumns(
-                                                First(CantoAPICopy.SearchFilter(
+                                        ClearCollect(
+                                            cantoSearchResults,        
+                                                CantoAPICopy.SearchFilter(
                                                     {
                                                         keyword: iptOfferAssetSearch.Text,
                                                         limit: 200,
                                                         start: 0,
                                                         scheme: "image"
                                                     }
-                                                ).results),
-                                                searchSource,
-                                                "Canto"
-                                            )
-                                        )
+                                                )
+                                            );
+                                            ClearCollect(colOfferAssetSearchResults,AddColumns(First(cantoSearchResults).results,searchSource,"Canto");
+                                        );
                                     );
                                 Text: ="Find "&ddAssetSearchType.Selected.searchImageType
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
@@ -4312,23 +4310,7 @@ scrOfferEdit As screen:
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                                Image: |-
-                                    =If(
-                                        ThisItem.searchSource = "Xinet",
-                                        Xinet.GetImageByPath(
-                                            "getimage",
-                                            Substitute(
-                                                ThisItem.FILE_PATH,
-                                                "%20",
-                                                " "
-                                            ),
-                                            {filetype: "Large"}
-                                        ),
-                                        CantoAPICopy.DownloadAsHighJpg(
-                                            "image",
-                                            ThisItem.id
-                                        );
-                                    )
+                                Image: =If(ThisItem.searchSource="Xinet",SampleImage,SamplePdf)
                                 OnSelect: |-
                                     =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
@@ -4351,7 +4333,7 @@ scrOfferEdit As screen:
                                 PaddingRight: =0
                                 PaddingTop: =0
                                 Size: =10
-                                Text: =ThisItem.FILE_NAME
+                                Text: =Coalesce(ThisItem.FILE_NAME,ThisItem.name)
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
                                 X: =Parent.TemplatePadding
                                 Y: =Parent.TemplateHeight-Parent.TemplatePadding-Self.Height
