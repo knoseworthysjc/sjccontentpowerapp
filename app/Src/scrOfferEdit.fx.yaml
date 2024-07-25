@@ -4310,7 +4310,20 @@ scrOfferEdit As screen:
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
-                                Image: =If(ThisItem.searchSource="Xinet",SampleImage,SamplePdf)
+                                Image: |-
+                                    =If(
+                                        ThisItem.searchSource = "Xinet",
+                                        Xinet.GetImageByPath(
+                                            "getimage",
+                                            Substitute(
+                                                ThisItem.FILE_PATH,
+                                                "%20",
+                                                " "
+                                            ),
+                                            {filetype: "Large"}
+                                        ),
+                                        ThisItem.url.directUrlPreview
+                                    )
                                 OnSelect: |-
                                     =Select(Parent);Select(Parent);Launch("https://xinetapi.stjosephcontent.com/webnative/portalDI/?action=getimage&filetype=large&path=" & ThisItem.FILE_PATH);
                                 Width: =Parent.TemplateWidth-Parent.TemplatePadding*2
