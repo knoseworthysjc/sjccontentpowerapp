@@ -418,7 +418,7 @@ devDamg As screen:
                     X: =ddProjectFilter.X+ddProjectFilter.Width
                     ZIndex: =3
 
-                ddPageFilter_2 As dropdown:
+                ddAdblockFilter As dropdown:
                     AllowEmptySelection: =true
                     BorderColor: =RGBA(0, 89, 178, 1)
                     BorderThickness: =1
@@ -570,7 +570,9 @@ devDamg As screen:
                     BorderStyle: =BorderStyle.None
                     Fill: =RGBA(107, 144, 179, 0.05)
                     Height: =Parent.Height-Self.Y
-                    Items: =SortByColumns(Filter(colSelectedOffersDamg,page_from=ddPageFilter.Selected.page_from),"adblock",SortOrder.Ascending)
+                    Items: |-
+                        =
+                        SortByColumns(Filter(colSelectedOffersDamg,page_from=ddPageFilter.Selected.page_from),"adblock",SortOrder.Ascending)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =320
