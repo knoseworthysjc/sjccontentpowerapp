@@ -1,13 +1,15 @@
 images_screen As screen:
-    Fill: =RGBA(232, 232, 232, 1)
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
     OnVisible: =Set(showNav,false)
 
     screen_title_3 As label:
         Align: =Align.Center
-        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderColor: =App.Theme.Colors.Darker40
         Color: =RGBA(0, 0, 0, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         Fill: =RGBA(0, 36, 71, 1)
+        Font: =App.Theme.Font
         Size: =13
         Text: =""
         Width: =Parent.Width
@@ -29,7 +31,7 @@ images_screen As screen:
         ZIndex: =2
 
     screen_logo_3 As image:
-        BorderColor: =RGBA(0, 89, 178, 1)
+        BorderColor: =App.Theme.Colors.Darker40
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(250, 250, 250, 1)

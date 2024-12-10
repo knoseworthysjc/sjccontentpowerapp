@@ -1,8 +1,10 @@
 scrProjectManagement As screen:
-    Fill: =RGBA(232, 232, 232, 1)
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
     OnVisible: =Set(showNav,false);Set(projectEditMode,"edit");
 
     conRootPM As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
@@ -18,6 +20,7 @@ scrProjectManagement As screen:
         conNavPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderStyle: =BorderStyle.None
+            DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 62, 125, 1)
             FillPortions: =0
             Height: =32
@@ -50,7 +53,7 @@ scrProjectManagement As screen:
 
             lblSeason_2 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -70,13 +73,14 @@ scrProjectManagement As screen:
 
             ddSeasonFilter_1 As dropdown:
                 AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                 Default: =Year(Now())
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -85,7 +89,7 @@ scrProjectManagement As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 Items: =Choices(Offers.Season)
                 LayoutMinHeight: =30
                 minimumHeight: =30
@@ -96,16 +100,17 @@ scrProjectManagement As screen:
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =0
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
+                PressedColor: =App.Theme.Colors.PrimaryForeground
+                PressedFill: =App.Theme.Colors.Darker30
                 Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                SelectionFill: =App.Theme.Colors.Primary
                 Width: =105
                 ZIndex: =3
 
             lblWeek_2 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -125,7 +130,7 @@ scrProjectManagement As screen:
 
             iptWeekFilter_1 As text:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: |
@@ -139,9 +144,9 @@ scrProjectManagement As screen:
                 FontWeight: =FontWeight.Semibold
                 Format: =TextFormat.Number
                 Height: =30
-                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 LayoutMinHeight: =30
                 OnChange: |-
                     =Clear(colProjectManagementSelectedPages);
@@ -193,7 +198,7 @@ scrProjectManagement As screen:
 
             lblProject_2 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -212,13 +217,14 @@ scrProjectManagement As screen:
 
             ddProjectFilter_1 As dropdown:
                 AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                 Default: =
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -227,7 +233,7 @@ scrProjectManagement As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 Items: |-
                     =If(iptWeekFilter_1.Text="", 
                     SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_1.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
@@ -237,10 +243,11 @@ scrProjectManagement As screen:
                 OnChange: |-
                     =Clear(colProjectManagementSelectedPages);
                     Clear(colProjectManagementSelectedOffers);
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
+                PressedColor: =App.Theme.Colors.PrimaryForeground
+                PressedFill: =App.Theme.Colors.Darker30
                 Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                SelectionFill: =App.Theme.Colors.Primary
                 X: =lblProject_2.X+lblProject_2.Width
                 Y: =(Self.BorderThickness*8)/2
                 ZIndex: =7
@@ -402,6 +409,7 @@ scrProjectManagement As screen:
 
         conControlsPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
             Fill: =RGBA(214, 221, 224, 1)
             FillPortions: =0
             Height: =32
@@ -491,7 +499,7 @@ scrProjectManagement As screen:
                 galProjectManagementTabs As gallery.galleryHorizontal:
                     '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     DelayItemLoading: =true
                     FillPortions: =0
                     Height: =32
@@ -531,7 +539,7 @@ scrProjectManagement As screen:
                     ZIndex: =1
 
                     Rectangle8 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         BorderStyle: =BorderStyle.None
                         Fill: =If(ThisItem.Title=galProjectManagementTabs.Selected.Title,RGBA(0, 0, 0, 1),RGBA(214, 221, 224, 1))
                         Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y
@@ -564,6 +572,7 @@ scrProjectManagement As screen:
 
         conContentPM As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutGap: =Gap
@@ -595,7 +604,7 @@ scrProjectManagement As screen:
                 ZIndex: =1
 
                 Label3 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -624,7 +633,7 @@ scrProjectManagement As screen:
                     ZIndex: =2
 
                 Label3_1 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -659,7 +668,7 @@ scrProjectManagement As screen:
                     ZIndex: =4
 
                 Label3_2 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -694,7 +703,7 @@ scrProjectManagement As screen:
                     ZIndex: =6
 
                 Label3_3 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -729,7 +738,7 @@ scrProjectManagement As screen:
                     ZIndex: =8
 
                 Label3_4 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -759,7 +768,7 @@ scrProjectManagement As screen:
                     ZIndex: =10
 
                 Label3_5 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -794,7 +803,7 @@ scrProjectManagement As screen:
                     ZIndex: =12
 
                 Label3_6 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -829,7 +838,7 @@ scrProjectManagement As screen:
                     ZIndex: =14
 
                 Label3_7 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -864,7 +873,7 @@ scrProjectManagement As screen:
                     ZIndex: =16
 
                 Label3_8 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -899,7 +908,7 @@ scrProjectManagement As screen:
                     ZIndex: =18
 
                 Label3_9 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -1134,7 +1143,7 @@ scrProjectManagement As screen:
                     galProjectManagementPages As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         BorderStyle: =BorderStyle.None
                         DelayItemLoading: =true
                         Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_1.Selected.Title),page_sort,Value(page_from)),"page_sort",SortOrder.Ascending)
@@ -1228,7 +1237,7 @@ scrProjectManagement As screen:
                     galProjectManagementPDFs As gallery.galleryHorizontal:
                         '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         DelayItemLoading: =true
                         Items: =SortByColumns(colProjectManagementSelectedPages,"page_from",SortOrder.Ascending,"Title",SortOrder.Ascending)
                         LayoutMinWidth: =320
@@ -1239,7 +1248,7 @@ scrProjectManagement As screen:
                         ZIndex: =1
 
                         Image6_1 As image:
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Height: =Parent.TemplateHeight-Self.Y
@@ -1338,6 +1347,7 @@ scrProjectManagement As screen:
                             ZIndex: =1
 
                         previewOfferContainer_2 As groupContainer.verticalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Light
                             Height: =Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y-previewOffer_boarder_4.BorderThickness*2
                             LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
@@ -1354,7 +1364,7 @@ scrProjectManagement As screen:
                             previewOffer_offerCopy_4 As label:
                                 Align: =Align.Right
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(0, 0, 0, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Font: =Font.'Segoe UI'
@@ -1377,7 +1387,7 @@ scrProjectManagement As screen:
                             previewOffer_offerCOO_4 As label:
                                 Align: =Align.Right
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(0, 0, 0, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Font: =Font.'Segoe UI'
@@ -1400,7 +1410,7 @@ scrProjectManagement As screen:
                             previewOffer_offerItemNumber_4 As label:
                                 Align: =Align.Right
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(0, 0, 0, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Font: =Font.'Segoe UI'
@@ -1423,7 +1433,7 @@ scrProjectManagement As screen:
                             previewOffer_offerWasPricing_4 As label:
                                 Align: =Align.Right
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(0, 0, 0, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Font: =Font.'Segoe UI'
@@ -1445,6 +1455,7 @@ scrProjectManagement As screen:
                                 ZIndex: =4
 
                         previewOfferContainerLockup_2 As groupContainer.verticalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Light
                             Height: =previewOfferContainer_2.Height
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutDirection: =LayoutDirection.Vertical
@@ -1570,7 +1581,7 @@ scrProjectManagement As screen:
 
                                     previewOffer_price_4 As label:
                                         Align: =Align.Center
-                                        BorderColor: =RGBA(0, 89, 178, 1)
+                                        BorderColor: =App.Theme.Colors.Darker40
                                         Color: =Switch(ThisItem.offer_type.Value,"Rollback",RGBA(255, 0, 0, 1),RGBA(255, 237, 105, 1))
                                         DisabledColor: =RGBA(166, 166, 166, 1)
                                         FillPortions: =1
@@ -1590,10 +1601,6 @@ scrProjectManagement As screen:
                                         LayoutMinHeight: =25
                                         LayoutMinWidth: =Parent.Width
                                         LineHeight: =1
-                                        PaddingBottom: =0
-                                        PaddingLeft: =0
-                                        PaddingRight: =0
-                                        PaddingTop: =0
                                         Size: =Switch(ThisItem.offer_type.Value,"Save Now",16,"Rollback",16,"Multi-Save",16,32)
                                         Text: |-
                                             =If(ThisItem.offer_type.Value="Multi-Save",Substitute(Substitute(Substitute(ThisItem.multi_save,".00",""),"Buy",""),"For","for
@@ -1607,7 +1614,7 @@ scrProjectManagement As screen:
                                     previewOffer_MultiSaveEach_4 As label:
                                         Align: =Align.Center
                                         AutoHeight: =true
-                                        BorderColor: =RGBA(0, 89, 178, 1)
+                                        BorderColor: =App.Theme.Colors.Darker40
                                         BorderStyle: =BorderStyle.None
                                         Color: =RGBA(255, 237, 105, 1)
                                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1632,7 +1639,7 @@ scrProjectManagement As screen:
 
                         previewOffer_assets_4 As gallery.galleryHorizontal:
                             '#CopilotOverlayLabel': ="Filtered"
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             Height: =(Parent.TemplateHeight-Parent.TemplatePadding*2-Self.Y)*0.6
                             Items: =ThisItem.assigned_images
                             TemplatePadding: =0
@@ -1644,7 +1651,7 @@ scrProjectManagement As screen:
                             ZIndex: =4
 
                             Image2_7 As image:
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                 Height: =Parent.Height
@@ -1655,6 +1662,7 @@ scrProjectManagement As screen:
                                 ZIndex: =2
 
                         conRelistHeading_2 As groupContainer.horizontalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Light
                             Fill: =RGBA(214, 221, 224, 1)
                             Height: =32
                             LayoutAlignItems: =LayoutAlignItems.Center
@@ -1671,7 +1679,7 @@ scrProjectManagement As screen:
                             lblPreviewOffer_Source_2 As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(0, 36, 71, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 FillPortions: =1
@@ -1716,9 +1724,10 @@ scrProjectManagement As screen:
                 ZIndex: =4
 
                 Label6 As label:
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
                     Size: =13
                     Text: ="Planning"
                     ZIndex: =1
@@ -1763,7 +1772,7 @@ scrProjectManagement As screen:
                     "Gallery2 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
                         '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         DelayItemLoading: =true
                         Items: =Filter('Project Files',ddProjectFilter_1.Selected.Title=assigned_project.Value)
                         Layout: =Layout.Vertical
@@ -1775,7 +1784,7 @@ scrProjectManagement As screen:
                         ZIndex: =2
 
                         Image4 As image:
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledFill: =RGBA(244, 244, 244, 1)
                             Height: =84
@@ -1793,6 +1802,7 @@ scrProjectManagement As screen:
                         Title5 As label:
                             Color: =RGBA(50, 49, 48, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
                             FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                             Height: =Self.Size * 1.8
                             OnSelect: =Select(Parent)
@@ -1810,6 +1820,7 @@ scrProjectManagement As screen:
                         Subtitle4 As label:
                             Color: =RGBA(0, 0, 0, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
                             FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                             Height: =Self.Size * 1.8
                             OnSelect: =Select(Parent)
@@ -1828,6 +1839,7 @@ scrProjectManagement As screen:
                         Body2 As label:
                             Color: =RGBA(0, 0, 0, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
                             FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                             Height: =Self.Size * 1.8
                             OnSelect: =Select(Parent)
@@ -1845,7 +1857,7 @@ scrProjectManagement As screen:
 
                         NextArrow4 As icon.ChevronRight:
                             AccessibleLabel: =Self.Tooltip
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             Color: =RGBA(166, 166, 166, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(244, 244, 244, 1)
@@ -1863,7 +1875,7 @@ scrProjectManagement As screen:
                             ZIndex: =5
 
                         Separator4 As rectangle:
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             Fill: =RGBA(255, 255, 255, 1)
                             Height: =8
                             OnSelect: =Select(Parent)
@@ -1872,8 +1884,8 @@ scrProjectManagement As screen:
                             ZIndex: =6
 
                         Rectangle6 As rectangle:
-                            BorderColor: =RGBA(0, 89, 178, 1)
-                            Fill: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Fill: =App.Theme.Colors.Darker30
                             Height: =Parent.TemplateHeight - Separator4.Height
                             OnSelect: =Select(Parent)
                             Visible: =ThisItem.IsSelected
@@ -1939,7 +1951,7 @@ scrProjectManagement As screen:
 
                         PowerBI1 As powerbi:
                             AllowNewAPI: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             DashboardId: ="a079612f-c8d4-4a82-b5bf-64bae2d8743c"
                             Height: =Parent.Height
                             LayoutMinHeight: =Parent.Height
@@ -2291,7 +2303,7 @@ scrProjectManagement As screen:
                     Gallery8 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         DelayItemLoading: =true
                         Items: =Filter(Exclusions,week=Value(iptWeekFilter_1.Text) And Season.Value = ddSeasonFilter_1.Selected.Value)
                         Layout: =Layout.Vertical
@@ -2581,7 +2593,7 @@ scrProjectManagement As screen:
 
                     Label8 As label:
                         Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(12, 59, 94, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Fill: =RGBA(214, 221, 224, 1)
@@ -2595,7 +2607,7 @@ scrProjectManagement As screen:
                     Gallery6 As gallery.galleryVertical:
                         '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         DelayItemLoading: =true
                         Items: =colProjectManagementProjects
                         Layout: =Layout.Vertical
@@ -2657,7 +2669,7 @@ scrProjectManagement As screen:
                                     ZIndex: =1
 
                                 Label5 As label:
-                                    BorderColor: =RGBA(0, 89, 178, 1)
+                                    BorderColor: =App.Theme.Colors.Darker40
                                     Color: =RGBA(0, 0, 0, 1)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                     FillPortions: =1
@@ -2673,7 +2685,7 @@ scrProjectManagement As screen:
                             Gallery7 As gallery.galleryVertical:
                                 '#CopilotOverlayLabel': ="Filtered"
                                 AlignInContainer: =AlignInContainer.SetByContainer
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 DelayItemLoading: =true
                                 Height: =If(ThisItem.Expanded,32*Self.AllItemsCount,0)
                                 Items: =SortByColumns(AddColumns(Filter(FlyerPages,assigned_project.Value=ThisItem.Title),page_sort,Value(page_from)),"page_sort",SortOrder.Ascending)
@@ -2718,7 +2730,7 @@ scrProjectManagement As screen:
                                         ZIndex: =1
 
                                     Label5_1 As label:
-                                        BorderColor: =RGBA(0, 89, 178, 1)
+                                        BorderColor: =App.Theme.Colors.Darker40
                                         Color: =RGBA(0, 0, 0, 1)
                                         DisabledColor: =RGBA(166, 166, 166, 1)
                                         FillPortions: =1
@@ -2749,8 +2761,13 @@ scrProjectManagement As screen:
     nav_container_8 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
         BorderThickness: =1
+        DropShadow: =DropShadow.Light
         Fill: =RGBA(250, 250, 250, 1)
         Height: =CountRows(nav_gallery_8.AllItems)*(nav_gallery_8.TemplateHeight+nav_gallery_8.TemplatePadding*2)
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Visible: =showNav
         Width: =Parent.Width*0.2
         X: =nav_icon_8.X
@@ -2759,7 +2776,7 @@ scrProjectManagement As screen:
 
         nav_gallery_8 As gallery.galleryVertical:
             '#CopilotOverlayLabel': ="Filtered"
-            BorderColor: =RGBA(0, 89, 178, 1)
+            BorderColor: =App.Theme.Colors.Darker40
             Height: =Parent.Height
             Items: |-
                 =Table(
@@ -2775,7 +2792,7 @@ scrProjectManagement As screen:
             ZIndex: =1
 
             nav_label_8 As label:
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(204, 222, 240, 1)
@@ -2791,7 +2808,7 @@ scrProjectManagement As screen:
                 ZIndex: =1
 
             nav_label_icon_8 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 51, 102, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
@@ -2804,7 +2821,7 @@ scrProjectManagement As screen:
                 ZIndex: =2
 
             nav_label_arrow_2 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 51, 102, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)

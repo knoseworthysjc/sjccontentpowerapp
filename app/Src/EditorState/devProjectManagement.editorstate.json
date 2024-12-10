@@ -18151,7 +18151,9 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "BorderStyle"
+        "BorderStyle",
+        "Required",
+        "TriggerOutput"
       ],
       "DynamicProperties": [
         {
@@ -18287,6 +18289,16 @@
         {
           "Category": "Data",
           "PropertyName": "BorderStyle",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Required",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "TriggerOutput",
           "RuleProviderType": "Unknown"
         },
         {

@@ -1,5 +1,6 @@
 devDamg As screen:
-    Fill: =RGBA(232, 232, 232, 1)
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
 
     conRootDamg As groupContainer.verticalAutoLayoutContainer:
         BorderStyle: =BorderStyle.None
@@ -15,6 +16,7 @@ devDamg As screen:
         conTop As groupContainer.horizontalAutoLayoutContainer:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
+            DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 62, 125, 1)
             FillPortions: =0
             Height: =32
@@ -44,7 +46,7 @@ devDamg As screen:
 
             lblSeason_5 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -64,13 +66,14 @@ devDamg As screen:
 
             ddSeasonFilter_2 As dropdown:
                 AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                 Default: =Year(Now())
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -79,7 +82,7 @@ devDamg As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 Items: =Choices(Offers.Season)
                 LayoutMinHeight: =30
                 minimumHeight: =30
@@ -87,16 +90,17 @@ devDamg As screen:
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =0
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
+                PressedColor: =App.Theme.Colors.PrimaryForeground
+                PressedFill: =App.Theme.Colors.Darker30
                 Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                SelectionFill: =App.Theme.Colors.Primary
                 Width: =105
                 ZIndex: =3
 
             lblWeek_6 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -116,7 +120,7 @@ devDamg As screen:
 
             iptWeekFilter_3 As text:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =WeekNum(Now())+3
@@ -129,9 +133,9 @@ devDamg As screen:
                 FontWeight: =FontWeight.Semibold
                 Format: =TextFormat.Number
                 Height: =30
-                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 LayoutMinHeight: =30
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -146,7 +150,7 @@ devDamg As screen:
 
             lblProject_6 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -165,13 +169,14 @@ devDamg As screen:
 
             ddProjectFilter_3 As dropdown:
                 AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                 Default: =
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -180,7 +185,7 @@ devDamg As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 Items: |-
                     =If(iptWeekFilter_3.Text="", 
                     SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_2.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
@@ -201,10 +206,11 @@ devDamg As screen:
                     Collect(colSelectedPages,{page_from:ThisRecord.page_to,page_rec:ThisRecord,layout:First(Filter(page_layout_grids,Title=ThisRecord.assigned_page_layout.Value))});
                     ));
                     */
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
+                PressedColor: =App.Theme.Colors.PrimaryForeground
+                PressedFill: =App.Theme.Colors.Darker30
                 Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                SelectionFill: =App.Theme.Colors.Primary
                 X: =lblProject_6.X+lblProject_6.Width
                 Y: =(Self.BorderThickness*8)/2
                 ZIndex: =7
@@ -347,7 +353,7 @@ devDamg As screen:
 
                 lblPage_3 As label:
                     Align: =Align.Right
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     FillPortions: =1
@@ -366,14 +372,14 @@ devDamg As screen:
 
                 ddPageFilter_1 As dropdown:
                     AllowEmptySelection: =true
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     BorderThickness: =1
                     ChevronBackground: =RGBA(255, 255, 255, 1)
                     ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                     ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                     ChevronFill: =RGBA(107, 144, 179, 1)
-                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    ChevronHoverBackground: =App.Theme.Colors.Darker10
+                    ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                     Default: =1
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -383,15 +389,16 @@ devDamg As screen:
                     FontWeight: =FontWeight.Semibold
                     Height: =Parent.Height-Gap*2
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
                     Items: =SortByColumns(Filter(FlyerPages,assigned_project.Value=ddProjectFilter_3.Selected.Title),"page_from")
                     LayoutMinHeight: =30
                     LayoutMinWidth: =25
                     minimumHeight: =30
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(0, 89, 178, 1)
+                    PressedColor: =App.Theme.Colors.PrimaryForeground
+                    PressedFill: =App.Theme.Colors.Darker30
                     Reset: =true
-                    SelectionFill: =RGBA(0, 51, 102, 1)
+                    SelectionColor: =App.Theme.Colors.PrimaryForeground
+                    SelectionFill: =App.Theme.Colors.Primary
                     Tooltip: ="Filter Offers By Page"
                     Width: |
                         =100
@@ -401,7 +408,7 @@ devDamg As screen:
 
                 lblPage_7 As label:
                     Align: =Align.Right
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     FillPortions: =1
@@ -420,14 +427,14 @@ devDamg As screen:
 
                 ddAdblockFilter As dropdown:
                     AllowEmptySelection: =true
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     BorderThickness: =1
                     ChevronBackground: =RGBA(255, 255, 255, 1)
                     ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                     ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                     ChevronFill: =RGBA(107, 144, 179, 1)
-                    ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    ChevronHoverBackground: =App.Theme.Colors.Darker10
+                    ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                     Default: =
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -437,15 +444,16 @@ devDamg As screen:
                     FontWeight: =FontWeight.Semibold
                     Height: =Parent.Height-Gap*2
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(153, 205, 255, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
                     Items: =SortByColumns(Distinct(galProjectManagementOffers_1.AllItems,Adblock),"Value",SortOrder.Ascending)
                     LayoutMinHeight: =30
                     LayoutMinWidth: =25
                     minimumHeight: =30
-                    PressedColor: =RGBA(255, 255, 255, 1)
-                    PressedFill: =RGBA(0, 89, 178, 1)
+                    PressedColor: =App.Theme.Colors.PrimaryForeground
+                    PressedFill: =App.Theme.Colors.Darker30
                     Reset: =true
-                    SelectionFill: =RGBA(0, 51, 102, 1)
+                    SelectionColor: =App.Theme.Colors.PrimaryForeground
+                    SelectionFill: =App.Theme.Colors.Primary
                     Tooltip: ="Filter Offers By Page"
                     Width: |
                         =100
@@ -471,7 +479,7 @@ devDamg As screen:
 
                 lblPage_5 As label:
                     Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Fill: =RGBA(255, 255, 255, 1)
@@ -488,7 +496,7 @@ devDamg As screen:
 
                 lblPage_6 As label:
                     Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Fill: =RGBA(255, 255, 255, 1)
@@ -523,7 +531,7 @@ devDamg As screen:
 
                 lblPage_4 As label:
                     Align: =Align.Center
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     Color: =RGBA(0, 62, 125, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =Font.'Segoe UI'
@@ -637,7 +645,7 @@ devDamg As screen:
                             Label7_5 As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(255, 255, 255, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =RGBA(107, 144, 179, 0.75)
@@ -755,7 +763,7 @@ devDamg As screen:
                             Label7_6 As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =RGBA(255, 255, 255, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =RGBA(107, 144, 179, 0.75)
@@ -856,7 +864,7 @@ devDamg As screen:
                         lblPreviewOffer_Source_3 As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             BorderThickness: =1
                             Color: =RGBA(0, 36, 71, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -875,7 +883,7 @@ devDamg As screen:
                         lblPreviewOffer_Source_5 As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             BorderThickness: =1
                             Color: =RGBA(0, 36, 71, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -892,7 +900,7 @@ devDamg As screen:
                         lblPreviewOffer_Source_4 As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             BorderThickness: =1
                             Color: =RGBA(0, 36, 71, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -909,7 +917,7 @@ devDamg As screen:
                         lblPreviewOffer_Source_6 As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             BorderThickness: =1
                             Color: =RGBA(0, 36, 71, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -943,6 +951,7 @@ devDamg As screen:
 
                 Container7_1 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
                     FillPortions: =0
                     Height: =64
                     LayoutAlignItems: =LayoutAlignItems.Center
@@ -962,32 +971,27 @@ devDamg As screen:
                     ddAssetSearchLang_1 As dropdown:
                         BorderColor: =RGBA(0, 62, 125, 1)
                         BorderThickness: =1
-                        ChevronBackground: =RGBA(255, 255, 255, 1)
-                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
-                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronBackground: =App.Theme.Colors.Primary
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                         ChevronFill: =RGBA(0, 62, 125, 1)
-                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
-                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =App.Theme.Colors.Darker10
+                        ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                         Color: =RGBA(0, 62, 125, 1)
                         Default: ="Eng"
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        Font: =Font.'Segoe UI'
+                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =30
-                        HoverBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
-                        HoverColor: =RGBA(51, 51, 51, 1)
-                        HoverFill: =RGBA(212, 212, 212, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
                         Items: =["Eng","Fre"]
                         OnChange: =Clear(colOfferAssetSearchResults)
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(164, 38, 44, 1)
+                        PressedColor: =App.Theme.Colors.PrimaryForeground
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SelectionColor: =App.Theme.Colors.PrimaryForeground
                         SelectionFill: =RGBA(0, 62, 125, 1)
                         Width: =Parent.Width/2-Gap
                         ZIndex: =1
@@ -995,33 +999,28 @@ devDamg As screen:
                     ddAssetSearchType_1 As dropdown:
                         BorderColor: =RGBA(0, 62, 125, 1)
                         BorderThickness: =1
-                        ChevronBackground: =RGBA(255, 255, 255, 1)
-                        ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
-                        ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                        ChevronBackground: =App.Theme.Colors.Primary
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                         ChevronFill: =RGBA(0, 62, 125, 1)
-                        ChevronHoverBackground: =RGBA(212, 212, 212, 1)
-                        ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                        ChevronHoverBackground: =App.Theme.Colors.Darker10
+                        ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                         Color: =RGBA(0, 62, 125, 1)
                         Default: ="Images"
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
-                        Font: =Font.'Segoe UI'
+                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =30
-                        HoverBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
-                        HoverColor: =RGBA(51, 51, 51, 1)
-                        HoverFill: =RGBA(212, 212, 212, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
                         Items: |-
                             =Table({searchImageType:"Images",assetType:"image",xinetPaths:Table({pathId:"1556374"},{pathId:"1556964"})},{searchImageType:"Logos",xinetPaths:Table({pathId:"1553479"}),assetType:"logo"},{searchImageType:"Icons",xinetPaths:Table({pathId:"1553479"}),assetType:"icon"})
                         OnChange: =Clear(colOfferAssetSearchResults)
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =ColorFade(RGBA(164, 38, 44, 1), -30%)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(164, 38, 44, 1)
+                        PressedColor: =App.Theme.Colors.PrimaryForeground
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SelectionColor: =App.Theme.Colors.PrimaryForeground
                         SelectionFill: =RGBA(0, 62, 125, 1)
                         Width: =Parent.Width/2-Gap
                         ZIndex: =2
@@ -1117,7 +1116,7 @@ devDamg As screen:
                     Label7_4 As label:
                         Align: =Align.Center
                         AutoHeight: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(255, 255, 255, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Fill: =RGBA(107, 144, 179, 0.75)

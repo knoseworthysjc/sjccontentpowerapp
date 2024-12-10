@@ -1,5 +1,6 @@
 devProjectManagement As screen:
     Fill: =ColorValue(theme.white)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
     OnVisible: =Set(varShowLeftPanel,"nav");
 
     conRootNew As groupContainer.verticalAutoLayoutContainer:
@@ -52,7 +53,7 @@ devProjectManagement As screen:
 
             Label9 As label:
                 Align: =Align.Right
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 FillPortions: =1
@@ -212,7 +213,7 @@ devProjectManagement As screen:
 
                     lblProject_5 As label:
                         Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(255, 255, 255, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FillPortions: =1
@@ -252,7 +253,7 @@ devProjectManagement As screen:
                     ZIndex: =2
 
                     lbl2_2 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(13, 50, 61, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
@@ -274,7 +275,7 @@ devProjectManagement As screen:
 
                     ipt2_2 As text:
                         Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Default: ="0000000"
@@ -287,9 +288,9 @@ devProjectManagement As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: |
                             =32
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverBorderColor: =App.Theme.Colors.Darker40
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32
                         PaddingBottom: =0
@@ -304,7 +305,7 @@ devProjectManagement As screen:
                         ZIndex: =2
 
                     lbl1 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(13, 50, 61, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
@@ -326,13 +327,14 @@ devProjectManagement As screen:
 
                     ipt1 As dropdown:
                         AllowEmptySelection: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         BorderThickness: =1
-                        ChevronBackground: =RGBA(0, 51, 102, 1)
+                        ChevronBackground: =App.Theme.Colors.Primary
                         ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                         ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                        ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        ChevronFill: =App.Theme.Colors.PrimaryForeground
+                        ChevronHoverBackground: =App.Theme.Colors.Darker10
+                        ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                         Default: =Year(Now())
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -342,7 +344,7 @@ devProjectManagement As screen:
                         Height: |
                             =32
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
                         Items: =ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord)
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32
@@ -351,16 +353,17 @@ devProjectManagement As screen:
                         PaddingLeft: =5
                         PaddingRight: =5
                         PaddingTop: =0
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 89, 178, 1)
+                        PressedColor: =App.Theme.Colors.PrimaryForeground
+                        PressedFill: =App.Theme.Colors.Darker30
                         Reset: =true
-                        SelectionFill: =RGBA(0, 51, 102, 1)
+                        SelectionColor: =App.Theme.Colors.PrimaryForeground
+                        SelectionFill: =App.Theme.Colors.Primary
                         Width: |
                             =32
                         ZIndex: =4
 
                     lbl2 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(13, 50, 61, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
@@ -382,7 +385,7 @@ devProjectManagement As screen:
 
                     ipt2 As text:
                         Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Default: |
@@ -397,9 +400,9 @@ devProjectManagement As screen:
                         Format: =TextFormat.Number
                         Height: |
                             =32
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverBorderColor: =App.Theme.Colors.Darker40
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32
                         PaddingBottom: =0
@@ -414,7 +417,7 @@ devProjectManagement As screen:
                         ZIndex: =6
 
                     lbl3 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(13, 50, 61, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
@@ -453,14 +456,16 @@ devProjectManagement As screen:
                         PaddingLeft: =Gap
                         PaddingRight: =Gap
                         PaddingTop: =Gap
+                        Required: =false
                         SelectMultiple: =true
+                        TriggerOutput: ="Keypress"
                         Width: =320
                         X: =0
                         Y: =0
                         ZIndex: =8
 
                     lbl2_3 As label:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(13, 50, 61, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
@@ -482,7 +487,7 @@ devProjectManagement As screen:
 
                     ipt2_3 As text:
                         Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Clear: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Default: =
@@ -495,9 +500,9 @@ devProjectManagement As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: |
                             =32
-                        HoverBorderColor: =RGBA(0, 89, 178, 1)
+                        HoverBorderColor: =App.Theme.Colors.Darker40
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(153, 205, 255, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
                         LayoutMinHeight: =32
                         LayoutMinWidth: =32
                         PaddingBottom: =0
@@ -647,7 +652,7 @@ devProjectManagement As screen:
 
                     lblProject_4 As label:
                         Align: =Align.Center
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(255, 255, 255, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FillPortions: =1
@@ -703,7 +708,7 @@ devProjectManagement As screen:
 
                         lblSeason_4 As label:
                             Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             Color: =RGBA(13, 50, 61, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Font: =Font.'Segoe UI'
@@ -724,13 +729,14 @@ devProjectManagement As screen:
 
                         iptSeasonFilter As dropdown:
                             AllowEmptySelection: =true
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             BorderThickness: =1
-                            ChevronBackground: =RGBA(0, 51, 102, 1)
+                            ChevronBackground: =App.Theme.Colors.Primary
                             ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                             ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                            ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                            ChevronFill: =App.Theme.Colors.PrimaryForeground
+                            ChevronHoverBackground: =App.Theme.Colors.Darker10
+                            ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                             Default: =Year(Now())
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -740,7 +746,7 @@ devProjectManagement As screen:
                             FontWeight: =FontWeight.Semibold
                             Height: =28
                             HoverColor: =RGBA(0, 0, 0, 1)
-                            HoverFill: =RGBA(153, 205, 255, 1)
+                            HoverFill: =App.Theme.Colors.Lighter70
                             Items: =ForAll(  Sequence(Year(Today()) - Min(Choices(Projects.Season),Value) + 2,Min(Choices(Projects.Season),Value),1),ThisRecord)
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
@@ -750,17 +756,18 @@ devProjectManagement As screen:
                             PaddingLeft: =5
                             PaddingRight: =5
                             PaddingTop: =0
-                            PressedColor: =RGBA(255, 255, 255, 1)
-                            PressedFill: =RGBA(0, 89, 178, 1)
+                            PressedColor: =App.Theme.Colors.PrimaryForeground
+                            PressedFill: =App.Theme.Colors.Darker30
                             Reset: =true
-                            SelectionFill: =RGBA(0, 51, 102, 1)
+                            SelectionColor: =App.Theme.Colors.PrimaryForeground
+                            SelectionFill: =App.Theme.Colors.Primary
                             Width: |
                                 =32
                             ZIndex: =2
 
                         lblWeek_5 As label:
                             Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             Color: =RGBA(13, 50, 61, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             Font: =Font.'Segoe UI'
@@ -781,7 +788,7 @@ devProjectManagement As screen:
 
                         iptWeekFilter_PM As text:
                             Align: =Align.Center
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             Clear: =true
                             Color: =RGBA(0, 0, 0, 1)
                             Default: |
@@ -796,9 +803,9 @@ devProjectManagement As screen:
                             FontWeight: =FontWeight.Semibold
                             Format: =TextFormat.Number
                             Height: =28
-                            HoverBorderColor: =RGBA(0, 89, 178, 1)
+                            HoverBorderColor: =App.Theme.Colors.Darker40
                             HoverColor: =RGBA(0, 0, 0, 1)
-                            HoverFill: =RGBA(153, 205, 255, 1)
+                            HoverFill: =App.Theme.Colors.Lighter70
                             LayoutMinHeight: =30
                             LayoutMinWidth: =32
                             OnChange: =Clear(colSelectedProjectsPages);
@@ -850,14 +857,15 @@ devProjectManagement As screen:
                             ZIndex: =2
 
                             Checkbox3 As checkbox:
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
+                                CheckboxBorderColor: =App.Theme.Colors.Primary
                                 CheckboxSize: =28
+                                CheckmarkFill: =App.Theme.Colors.Primary
                                 Color: =RGBA(0, 0, 0, 1)
                                 Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
                                 Height: =28
-                                HoverColor: =RGBA(0, 89, 178, 1)
+                                HoverColor: =App.Theme.Colors.Darker30
                                 LayoutMinHeight: |
                                     =28
                                 LayoutMinWidth: |
@@ -1006,7 +1014,7 @@ devProjectManagement As screen:
                     ZIndex: =1
 
                     Rectangle8_1 As rectangle:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         BorderStyle: =BorderStyle.None
                         Fill: =If(ThisItem.Title=galProjectTabSelection.Selected.Title,ColorValue(theme.themeDarker),ColorValue(theme.neutralLight))
                         Height: =Parent.TemplateHeight
@@ -1082,13 +1090,14 @@ devProjectManagement As screen:
                             ZIndex: =1
 
                             lbl_select As checkbox:
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
+                                CheckboxBorderColor: =App.Theme.Colors.Primary
                                 CheckboxSize: =32
+                                CheckmarkFill: =App.Theme.Colors.Primary
                                 Color: =RGBA(0, 0, 0, 1)
                                 Font: =Font.'Segoe UI'
                                 Height: =32
-                                HoverColor: =RGBA(0, 89, 178, 1)
+                                HoverColor: =App.Theme.Colors.Darker30
                                 Size: =13
                                 Text: =""
                                 Width: =32
@@ -1096,7 +1105,7 @@ devProjectManagement As screen:
 
                             lbl_1 As label:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =ColorValue(theme.themeDark)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =ColorValue(theme.neutralQuaternary)
@@ -1115,7 +1124,7 @@ devProjectManagement As screen:
 
                             lbl_2 As label:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =ColorValue(theme.themeDark)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =ColorValue(theme.neutralQuaternary)
@@ -1133,7 +1142,7 @@ devProjectManagement As screen:
 
                             lbl_3 As label:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =ColorValue(theme.themeDark)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =ColorValue(theme.neutralQuaternary)
@@ -1156,7 +1165,7 @@ devProjectManagement As screen:
 
                             lbl_4 As label:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =ColorValue(theme.themeDark)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =ColorValue(theme.neutralQuaternary)
@@ -1179,7 +1188,7 @@ devProjectManagement As screen:
 
                             lbl_5 As label:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 Color: =ColorValue(theme.themeDark)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 Fill: =ColorValue(theme.neutralQuaternary)
@@ -1236,7 +1245,7 @@ devProjectManagement As screen:
 
                             ipt_2 As text:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 BorderThickness: =0
                                 Color: =RGBA(0, 0, 0, 1)
                                 Default: =ThisItem.Title
@@ -1247,9 +1256,9 @@ devProjectManagement As screen:
                                 Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
                                 Height: =Parent.TemplateHeight-Gap*2
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                                HoverBorderColor: =App.Theme.Colors.Darker40
                                 HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
+                                HoverFill: =App.Theme.Colors.Lighter70
                                 LineHeight: =1
                                 OnSelect: =Select(Parent)
                                 Size: =12
@@ -1260,7 +1269,7 @@ devProjectManagement As screen:
 
                             ipt_3 As text:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 BorderThickness: =0
                                 Color: =RGBA(0, 0, 0, 1)
                                 Default: =ThisItem.page_from
@@ -1271,9 +1280,9 @@ devProjectManagement As screen:
                                 Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
                                 Height: =Parent.TemplateHeight-Gap*2
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                                HoverBorderColor: =App.Theme.Colors.Darker40
                                 HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
+                                HoverFill: =App.Theme.Colors.Lighter70
                                 LineHeight: =1
                                 OnSelect: =Select(Parent)
                                 Size: =12
@@ -1284,7 +1293,7 @@ devProjectManagement As screen:
 
                             ipt_4 As text:
                                 Align: =Align.Center
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 BorderThickness: =0
                                 Color: =RGBA(0, 0, 0, 1)
                                 Default: =ThisItem.page_to
@@ -1295,9 +1304,9 @@ devProjectManagement As screen:
                                 Font: =Font.'Segoe UI'
                                 FontWeight: =FontWeight.Semibold
                                 Height: =Parent.TemplateHeight-Gap*2
-                                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                                HoverBorderColor: =App.Theme.Colors.Darker40
                                 HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
+                                HoverFill: =App.Theme.Colors.Lighter70
                                 LineHeight: =1
                                 OnSelect: =Select(Parent)
                                 Size: =12
@@ -1307,14 +1316,15 @@ devProjectManagement As screen:
                                 ZIndex: =3
 
                             ipt_1 As dropdown:
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 BorderStyle: =BorderStyle.None
                                 BorderThickness: =0
-                                ChevronBackground: =RGBA(0, 51, 102, 1)
+                                ChevronBackground: =App.Theme.Colors.Primary
                                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                                 Default: =ThisItem.workflow_stage.Value
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1323,12 +1333,13 @@ devProjectManagement As screen:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =Parent.TemplateHeight-Gap*2
                                 HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
+                                HoverFill: =App.Theme.Colors.Lighter70
                                 Items: =Choices(FlyerPages.workflow_stage)
                                 OnSelect: =Select(Parent)
-                                PressedColor: =RGBA(255, 255, 255, 1)
-                                PressedFill: =RGBA(0, 89, 178, 1)
-                                SelectionFill: =RGBA(0, 51, 102, 1)
+                                PressedColor: =App.Theme.Colors.PrimaryForeground
+                                PressedFill: =App.Theme.Colors.Darker30
+                                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                                SelectionFill: =App.Theme.Colors.Primary
                                 Size: =12
                                 Width: =lbl_1.Width
                                 X: =lbl_1.X
@@ -1336,14 +1347,15 @@ devProjectManagement As screen:
                                 ZIndex: =4
 
                             ipt_5 As dropdown:
-                                BorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
                                 BorderStyle: =BorderStyle.None
                                 BorderThickness: =0
-                                ChevronBackground: =RGBA(0, 51, 102, 1)
+                                ChevronBackground: =App.Theme.Colors.Primary
                                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                                 Default: =ThisItem.assigned_page_layout.Value
                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1352,12 +1364,13 @@ devProjectManagement As screen:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =Parent.TemplateHeight-Gap*2
                                 HoverColor: =RGBA(0, 0, 0, 1)
-                                HoverFill: =RGBA(153, 205, 255, 1)
+                                HoverFill: =App.Theme.Colors.Lighter70
                                 Items: =Choices(FlyerPages.assigned_page_layout)
                                 OnSelect: =Select(Parent)
-                                PressedColor: =RGBA(255, 255, 255, 1)
-                                PressedFill: =RGBA(0, 89, 178, 1)
-                                SelectionFill: =RGBA(0, 51, 102, 1)
+                                PressedColor: =App.Theme.Colors.PrimaryForeground
+                                PressedFill: =App.Theme.Colors.Darker30
+                                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                                SelectionFill: =App.Theme.Colors.Primary
                                 Size: =12
                                 Width: =lbl_5.Width
                                 X: =lbl_5.X
@@ -1365,13 +1378,14 @@ devProjectManagement As screen:
                                 ZIndex: =5
 
                             ipt_select As checkbox:
-                                BorderColor: =RGBA(0, 89, 178, 1)
-                                CheckboxBorderColor: =RGBA(0, 89, 178, 1)
+                                BorderColor: =App.Theme.Colors.Darker40
+                                CheckboxBorderColor: =App.Theme.Colors.Primary
                                 CheckboxSize: =32
+                                CheckmarkFill: =App.Theme.Colors.Primary
                                 Color: =RGBA(0, 0, 0, 1)
                                 Font: =Font.'Segoe UI'
                                 Height: =Parent.TemplateHeight-Gap*2
-                                HoverColor: =RGBA(0, 89, 178, 1)
+                                HoverColor: =App.Theme.Colors.Darker30
                                 OnCheck: =Collect(colFlyerPagesPdfs,Filter('Flyer PDFs',assigned_project.Value=ThisItem.assigned_project.Value And page_from=ThisItem.page_from))
                                 OnUncheck: =ClearCollect(colFlyerPagesPdfs,Filter(colFlyerPagesPdfs,assigned_project.Value<>ThisItem.assigned_project.Value And page_from<>ThisItem.page_from))
                                 Size: =12
@@ -1403,7 +1417,7 @@ devProjectManagement As screen:
 
                         Gallery9 As gallery.galleryVertical:
                             AlignInContainer: =AlignInContainer.SetByContainer
-                            BorderColor: =RGBA(0, 89, 178, 1)
+                            BorderColor: =App.Theme.Colors.Darker40
                             DelayItemLoading: =true
                             Items: =SortByColumns(colFlyerPagesPdfs,"{FilenameWithExtension}")
                             Layout: =Layout.Vertical
@@ -1483,7 +1497,7 @@ devProjectManagement As screen:
 
                                 Label13 As label:
                                     Align: =Align.Center
-                                    BorderColor: =RGBA(0, 89, 178, 1)
+                                    BorderColor: =App.Theme.Colors.Darker40
                                     Color: =RGBA(0, 0, 0, 1)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                     FillPortions: =1
@@ -1767,8 +1781,13 @@ devProjectManagement As screen:
     nav_container_9 As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(0, 51, 102, 1)
         BorderThickness: =1
+        DropShadow: =DropShadow.Light
         Fill: =RGBA(250, 250, 250, 1)
         Height: =CountRows(nav_gallery_9.AllItems)*(nav_gallery_9.TemplateHeight+nav_gallery_9.TemplatePadding*2)
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
         Visible: =showNav
         Width: =Parent.Width*0.2
         X: =nav_icon_11.X+nav_icon_11.Width/2
@@ -1795,7 +1814,7 @@ devProjectManagement As screen:
             ZIndex: =1
 
             nav_label_9 As label:
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(214, 221, 224, 1)
@@ -1812,7 +1831,7 @@ devProjectManagement As screen:
                 ZIndex: =1
 
             nav_label_icon_9 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 51, 102, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
@@ -1825,7 +1844,7 @@ devProjectManagement As screen:
                 ZIndex: =2
 
             nav_label_arrow_3 As icon.Add:
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 51, 102, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)

@@ -1,8 +1,10 @@
 scrPageManagement As screen:
-    Fill: =RGBA(232, 232, 232, 1)
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
     OnVisible: =Set(showNav,false)
 
     Container3 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
@@ -15,6 +17,7 @@ scrPageManagement As screen:
 
         conOfferNav_2 As groupContainer.horizontalAutoLayoutContainer:
             BorderStyle: =BorderStyle.None
+            DropShadow: =DropShadow.Light
             Fill: =RGBA(0, 62, 125, 1)
             FillPortions: =0
             Height: =32
@@ -49,7 +52,7 @@ scrPageManagement As screen:
 
             lblSeason_3 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -69,13 +72,14 @@ scrPageManagement As screen:
 
             ddSeasonFilter_6 As dropdown:
                 AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                 Default: =selectedProject.Season.Value
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -84,7 +88,7 @@ scrPageManagement As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 Items: =Choices(Offers.Season)
                 LayoutMinHeight: =30
                 minimumHeight: =30
@@ -92,16 +96,17 @@ scrPageManagement As screen:
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =0
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
+                PressedColor: =App.Theme.Colors.PrimaryForeground
+                PressedFill: =App.Theme.Colors.Darker30
                 Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                SelectionFill: =App.Theme.Colors.Primary
                 Width: =105
                 ZIndex: =3
 
             lblWeek_3 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -121,7 +126,7 @@ scrPageManagement As screen:
 
             iptWeekFilter_2 As text:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =selectedProject.Week
@@ -134,9 +139,9 @@ scrPageManagement As screen:
                 FontWeight: =FontWeight.Semibold
                 Format: =TextFormat.Number
                 Height: =30
-                HoverBorderColor: =RGBA(0, 89, 178, 1)
+                HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 LayoutMinHeight: =30
                 PaddingBottom: =0
                 PaddingLeft: =0
@@ -151,7 +156,7 @@ scrPageManagement As screen:
 
             lblProject_3 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(250, 250, 250, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.'Segoe UI'
@@ -170,13 +175,14 @@ scrPageManagement As screen:
 
             ddProjectFilter_2 As dropdown:
                 AllowEmptySelection: =true
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 BorderThickness: =1
-                ChevronBackground: =RGBA(0, 51, 102, 1)
+                ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                ChevronHoverBackground: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                ChevronFill: =App.Theme.Colors.PrimaryForeground
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                 Default: =selectedProject.Title
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -185,7 +191,7 @@ scrPageManagement As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =RGBA(153, 205, 255, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
                 Items: |-
                     =If(iptWeekFilter_2.Text="", 
                     SortByColumns(Filter(Projects,Season.Value = ddSeasonFilter_6.Selected.Value),"Week",SortOrder.Descending,"Title",SortOrder.Ascending),
@@ -193,10 +199,11 @@ scrPageManagement As screen:
                 LayoutMinHeight: =30
                 minimumHeight: =30
                 OnChange: =
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 89, 178, 1)
+                PressedColor: =App.Theme.Colors.PrimaryForeground
+                PressedFill: =App.Theme.Colors.Darker30
                 Reset: =true
-                SelectionFill: =RGBA(0, 51, 102, 1)
+                SelectionColor: =App.Theme.Colors.PrimaryForeground
+                SelectionFill: =App.Theme.Colors.Primary
                 X: =lblProject_3.X+lblProject_3.Width
                 Y: =(Self.BorderThickness*8)/2
                 ZIndex: =7
@@ -385,6 +392,7 @@ scrPageManagement As screen:
         conOfferPageDetails_1 As groupContainer.horizontalAutoLayoutContainer:
             BorderColor: =RGBA(0, 62, 125, 1)
             BorderStyle: =BorderStyle.None
+            DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =32
@@ -402,7 +410,7 @@ scrPageManagement As screen:
 
             lblWeek_4 As label:
                 Align: =Align.Center
-                BorderColor: =RGBA(0, 89, 178, 1)
+                BorderColor: =App.Theme.Colors.Darker40
                 Color: =RGBA(0, 62, 125, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Fill: =RGBA(246, 246, 246, 1)
@@ -420,6 +428,7 @@ scrPageManagement As screen:
                 ZIndex: =2
 
         conSelectedPages As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -432,6 +441,7 @@ scrPageManagement As screen:
 
             Container17 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -451,7 +461,7 @@ scrPageManagement As screen:
                 Gallery1 As gallery.galleryVertical:
                     '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(0, 89, 178, 1)
+                    BorderColor: =App.Theme.Colors.Darker40
                     DelayItemLoading: =true
                     Items: =colSelectedFlyerPages
                     Layout: =Layout.Vertical
@@ -463,7 +473,7 @@ scrPageManagement As screen:
                     ZIndex: =1
 
                     Image2 As image:
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledFill: =RGBA(244, 244, 244, 1)
                         Height: =Parent.TemplateHeight-Parent.TemplatePadding*2
@@ -477,7 +487,7 @@ scrPageManagement As screen:
                     Label1 As label:
                         Align: =Align.Center
                         AutoHeight: =true
-                        BorderColor: =RGBA(0, 89, 178, 1)
+                        BorderColor: =App.Theme.Colors.Darker40
                         Color: =RGBA(255, 255, 255, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         Fill: =RGBA(0, 62, 125, 1)
@@ -493,6 +503,7 @@ scrPageManagement As screen:
 
             Container18 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =U
                 LayoutMinHeight: =100
@@ -506,6 +517,7 @@ scrPageManagement As screen:
 
             Container19 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
                 FillPortions: =0
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =U
