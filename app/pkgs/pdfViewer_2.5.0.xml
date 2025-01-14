@@ -1,4 +1,4 @@
-<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/pdfViewer" name="pdfViewer" jsClass="AppMagic.Controls.WebViewPdfViewer" version="2.4.1" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/pdfViewer" name="pdfViewer" jsClass="AppMagic.Controls.WebViewPdfViewer" version="2.5.0" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
   <author name="Microsoft AppMagic" />
   <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
   <description><![CDATA[PdfViewer
@@ -632,5 +632,8 @@
   </appMagic:conversion>
   <appMagic:conversion from="2.4.0" to="2.4.1">
     <!-- Updated control - renamed SVG assets for secondaryToolbarButton. -->
+  </appMagic:conversion>
+  <appMagic:conversion from="2.4.1" to="2.5.0">
+    <!-- Updated control - new architecture to not use eval() and exec(). -->
   </appMagic:conversion>
 </widget>
